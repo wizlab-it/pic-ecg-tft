@@ -12,4 +12,6 @@ WizLab.it
 
 ### References
 
-WizLab.it: https://www.wizlab.it
+WizLab.it: https://www.wizlab.it/
+
+GitHub: https://github.com/wizlab-it/pic-ecg-tft/
