@@ -15,7 +15,7 @@ void EUSART_Init(void) {
     TXSTAbits.TXEN = 1;     //Enable TX
     TXSTAbits.SYNC = 0;     //Asynchronous
     TXSTAbits.SENDB = 0;    //Sync Break transmission completed
-    TXSTAbits.BRGH = 1;     //High speed
+    TXSTAbits.BRGH = 0;     //Low speed
 
     //RX Register
     RCSTAbits.SPEN = 1;     //Enable EUSART
@@ -23,11 +23,11 @@ void EUSART_Init(void) {
     RCSTAbits.CREN = 1;     //Enable RX
 
     //Baud rate generator
-    BAUDCONbits.BRG16 = 1;  //16-bit baud rate generator
+    BAUDCONbits.BRG16 = 0;  //8-bit baud rate generator
     BAUDCONbits.WUE = 0;    //No wake-up
     BAUDCONbits.ABDEN = 0;  //No auto baud detect
-    SPBRGH = 0;             //Set baud rate (115200bps)
-    SPBRG = 103;            //Set baud rate (115200bps)
+    SPBRGH = 0;             //Set baud rate (9600bps)
+    SPBRG = 77;             //Set baud rate (9600bps)
 
     //Interrupts
     RCIE = 1; //EUSART RX
@@ -58,31 +58,61 @@ void EUSART_RX_Interrupt(void) {
         CREN = 1;
     }
     switch(c) {
-        case '\n':
-            break;
-        case '\r':
-            EUSART_RX.processRX = 1;
-        default:
-            EUSART_RX.buffer[EUSART_RX.iWrite++] = c;
-            if(EUSART_RX.iWrite == EUSART_RX_BUFFER_SIZE) EUSART_RX.iWrite = 0;
-            EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
-            break;
+      case '\r':
+        break;
+
+      case '\n':
+        if(EUSART_RX.iWrite != 0) {
+          //EUSART_RX.processRX = 1;
+          _LED = 0;
+        }
+        EUSART_RX.zzzzzzzzz += 6;
+        TFT_DrawFillRect(EUSART_RX.zzzzzzzzz + 18, 0, 6, _TFT_HEIGHT, _TFT_COLOR_BLACK);
+        EUSART_RX.iWrite = 0;
+        break;
+
+      default:
+        _LED = 1;
+        EUSART_RX.buffer[EUSART_RX.iWrite] = c;
+        EUSART_RX.iWrite++;
+        if(EUSART_RX.iWrite == EUSART_RX_BUFFER_SIZE) EUSART_RX.iWrite = 0;
+        EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+        
+        TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((_TFT_HEIGHT - 1) - (EUSART_RX.iWrite * 6)), c, _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+
+        break;
     }
 }
 
 void EUSART_RX_Process(void) {
     if(EUSART_RX.processRX == 0) return;
 
+    TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 18, _TFT_HEIGHT, _TFT_COLOR_BLACK);
+    for(uint8_t i=0; i!=EUSART_RX_BUFFER_SIZE; i++) {
+      if(EUSART_RX.buffer[i] == 0) break;
+      TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((_TFT_HEIGHT - 1) - (i * 6)), EUSART_RX.buffer[i], _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+    }
+    EUSART_RX.zzzzzzzzz += 8;
+    if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
+    EUSART_RX.iWrite = 0;
+    EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+    EUSART_RX.buffer[EUSART_RX.iWrite + 1] = 0x00;
+
+    EUSART_RX.processRX = 0;
+
     //DEBUG CODE
+    /*
     TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 18, _TFT_HEIGHT, _TFT_COLOR_BLACK);
     for(uint8_t i=0; i!=EUSART_RX_BUFFER_SIZE; i++) {
         TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((_TFT_HEIGHT - 1) - (i * 6)), EUSART_RX.buffer[i], _TFT_COLOR_RED, _TFT_COLOR_BLACK, 1);
     }
     EUSART_RX.zzzzzzzzz += 12;
     if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
+     */
     //DEBUG CODE
 
     //Extract lines from raw data buffer
+    /*
     uint8_t i = 0;
     uint8_t iRead = EUSART_RX.iRead;
     while(i != (EUSART_RX_BUFFER_SIZE - 1)) {
@@ -109,4 +139,5 @@ void EUSART_RX_Process(void) {
     }
 
     EUSART_RX.processRX = 0;
+    */
 }

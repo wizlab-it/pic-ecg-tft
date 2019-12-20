@@ -4,12 +4,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _init `(v ~T0 @X0 0 ef ]
 "68 TFT.h
 [v _TFT_Init `(v ~T0 @X0 0 ef ]
-"28 commons.h
+"31 commons.h
+[v _EUSART_Init `(v ~T0 @X0 0 ef ]
+"28
 [v _Ecg_Init `(v ~T0 @X0 0 ef ]
 "15 main.h
 [v _loop `(v ~T0 @X0 0 ef ]
-"29 commons.h
-[v _Ecg_Process `(v ~T0 @X0 0 ef ]
+"33 commons.h
+[v _EUSART_TX_String `(v ~T0 @X0 0 ef2`*uc`uc ]
+"56 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
+[v F2641 `(v ~T0 @X0 1 tf1`ul ]
+"187 /opt/microchip/xc8/v2.10/pic/include/pic18.h
+[v __delay `JF2641 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5250,57 +5258,195 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 28: extern void Ecg_Init(void);
 [; ;commons.h: 29: extern void Ecg_Process(void);
 [; ;commons.h: 30: extern void Ecg_Interrupt(void);
+[; ;commons.h: 31: extern void EUSART_Init(void);
+[; ;commons.h: 32: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 33: extern void EUSART_TX_String(char *str, uint8_t len);
+[; ;commons.h: 34: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 35: extern void EUSART_RX_Process(void);
 [; ;main.h: 15: void loop(void);
 "12 main.c
-[v _xx `uc ~T0 @X0 -> 0 `x e ]
-[i _xx
+[v _x1 `uc ~T0 @X0 -> 0 `x e ]
+[i _x1
 :U ..
--> -> 65 `ui `uc
--> -> 84 `ui `uc
--> -> 72 `ui `uc
--> -> 48 `ui `uc
--> -> 13 `ui `uc
--> -> 10 `ui `uc
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 73 `c
+-> 80 `c
+-> 82 `c
+-> 63 `c
+-> 13 `c
+-> 0 `c
 ..
 ]
-[; ;main.c: 12: char xx[] = {'A', 'T', 'H', '0', '\r', '\n'};
-[v $root$_main `(v ~T0 @X0 0 e ]
+[; ;main.c: 12: char x1[] = "AT+IPR?\r";
+"13
+[v _x2 `uc ~T0 @X0 -> 0 `x e ]
+[i _x2
+:U ..
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 67 `c
+-> 67 `c
+-> 76 `c
+-> 75 `c
+-> 63 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 13: char x2[] = "AT+CCLK?\r";
 "14
+[v _x3 `uc ~T0 @X0 -> 0 `x e ]
+[i _x3
+:U ..
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 67 `c
+-> 83 `c
+-> 81 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 14: char x3[] = "AT+CSQ\r";
+"15
+[v _x4 `uc ~T0 @X0 -> 0 `x e ]
+[i _x4
+:U ..
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 67 `c
+-> 67 `c
+-> 73 `c
+-> 68 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 15: char x4[] = "AT+CCID\r";
+"16
+[v _x5 `uc ~T0 @X0 -> 0 `x e ]
+[i _x5
+:U ..
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 67 `c
+-> 82 `c
+-> 69 `c
+-> 71 `c
+-> 63 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 16: char x5[] = "AT+CREG?\r";
+"17
+[v _x6 `uc ~T0 @X0 -> 0 `x e ]
+[i _x6
+:U ..
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 67 `c
+-> 79 `c
+-> 80 `c
+-> 83 `c
+-> 63 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 17: char x6[] = "AT+COPS?\r";
+[v $root$_main `(v ~T0 @X0 0 e ]
+"20
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 14: void main(void) {
+[; ;main.c: 20: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 16: init();
-"16
-[e ( _init ..  ]
-[; ;main.c: 17: TFT_Init();
-"17
-[e ( _TFT_Init ..  ]
-[; ;main.c: 19: Ecg_Init();
-"19
-[e ( _Ecg_Init ..  ]
-[; ;main.c: 22: while(1) loop();
+[; ;main.c: 22: init();
 "22
+[e ( _init ..  ]
+[; ;main.c: 23: TFT_Init();
+"23
+[e ( _TFT_Init ..  ]
+[; ;main.c: 24: EUSART_Init();
+"24
+[e ( _EUSART_Init ..  ]
+[; ;main.c: 25: Ecg_Init();
+"25
+[e ( _Ecg_Init ..  ]
+[; ;main.c: 28: while(1) loop();
+"28
 [e :U 328 ]
 [e ( _loop ..  ]
 [e :U 327 ]
 [e $U 328  ]
 [e :U 329 ]
-[; ;main.c: 23: }
-"23
+[; ;main.c: 29: }
+"29
 [e :UE 326 ]
 }
-"29
+"35
 [v _loop `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 29: void loop(void) {
+[; ;main.c: 35: void loop(void) {
 [e :U _loop ]
 [f ]
-[; ;main.c: 30: Ecg_Process();
-"30
-[e ( _Ecg_Process ..  ]
-[; ;main.c: 43: }
+[; ;main.c: 40: EUSART_TX_String(x1, strlen(x1));
+"40
+[e ( _EUSART_TX_String (2 , &U _x1 -> ( _strlen (1 -> &U _x1 `*Cuc `uc ]
+[; ;main.c: 41: _delay((unsigned long)((500)*(48000000/4000.0)));
+"41
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 42: EUSART_TX_String(x2, strlen(x2));
+"42
+[e ( _EUSART_TX_String (2 , &U _x2 -> ( _strlen (1 -> &U _x2 `*Cuc `uc ]
+[; ;main.c: 43: _delay((unsigned long)((500)*(48000000/4000.0)));
 "43
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 44: EUSART_TX_String(x3, strlen(x3));
+"44
+[e ( _EUSART_TX_String (2 , &U _x3 -> ( _strlen (1 -> &U _x3 `*Cuc `uc ]
+[; ;main.c: 45: _delay((unsigned long)((500)*(48000000/4000.0)));
+"45
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 46: EUSART_TX_String(x4, strlen(x4));
+"46
+[e ( _EUSART_TX_String (2 , &U _x4 -> ( _strlen (1 -> &U _x4 `*Cuc `uc ]
+[; ;main.c: 47: _delay((unsigned long)((500)*(48000000/4000.0)));
+"47
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 48: EUSART_TX_String(x5, strlen(x5));
+"48
+[e ( _EUSART_TX_String (2 , &U _x5 -> ( _strlen (1 -> &U _x5 `*Cuc `uc ]
+[; ;main.c: 49: _delay((unsigned long)((500)*(48000000/4000.0)));
+"49
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 50: EUSART_TX_String(x6, strlen(x6));
+"50
+[e ( _EUSART_TX_String (2 , &U _x6 -> ( _strlen (1 -> &U _x6 `*Cuc `uc ]
+[; ;main.c: 51: _delay((unsigned long)((2500)*(48000000/4000.0)));
+"51
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 53: _delay((unsigned long)((2500)*(48000000/4000.0)));
+"53
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 54: _delay((unsigned long)((2500)*(48000000/4000.0)));
+"54
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 55: _delay((unsigned long)((2500)*(48000000/4000.0)));
+"55
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 56: _delay((unsigned long)((2500)*(48000000/4000.0)));
+"56
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 64: }
+"64
 [e :UE 330 ]
 }

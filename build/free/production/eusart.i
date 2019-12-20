@@ -5457,6 +5457,11 @@ extern void init(void);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
+extern void EUSART_Init(void);
+extern void EUSART_TX_Char(uint8_t c);
+extern void EUSART_TX_String(char *str, uint8_t len);
+extern void EUSART_RX_Interrupt(void);
+extern void EUSART_RX_Process(void);
 
 # 17 "eusart.h"
 struct {
@@ -5482,7 +5487,7 @@ TXSTAbits.TX9 = 0;
 TXSTAbits.TXEN = 1;
 TXSTAbits.SYNC = 0;
 TXSTAbits.SENDB = 0;
-TXSTAbits.BRGH = 1;
+TXSTAbits.BRGH = 0;
 
 
 RCSTAbits.SPEN = 1;
@@ -5490,11 +5495,11 @@ RCSTAbits.RX9 = 0;
 RCSTAbits.CREN = 1;
 
 
-BAUDCONbits.BRG16 = 1;
+BAUDCONbits.BRG16 = 0;
 BAUDCONbits.WUE = 0;
 BAUDCONbits.ABDEN = 0;
 SPBRGH = 0;
-SPBRG = 103;
+SPBRG = 77;
 
 
 RCIE = 1;
@@ -5525,14 +5530,28 @@ CREN = 0;
 CREN = 1;
 }
 switch(c) {
-case '\n':
-break;
 case '\r':
-EUSART_RX.processRX = 1;
+break;
+
+case '\n':
+if(EUSART_RX.iWrite != 0) {
+
+PORTAbits.RA2 = 0;
+}
+EUSART_RX.zzzzzzzzz += 6;
+TFT_DrawFillRect(EUSART_RX.zzzzzzzzz + 18, 0, 6, 400, 0x0000);
+EUSART_RX.iWrite = 0;
+break;
+
 default:
-EUSART_RX.buffer[EUSART_RX.iWrite++] = c;
+PORTAbits.RA2 = 1;
+EUSART_RX.buffer[EUSART_RX.iWrite] = c;
+EUSART_RX.iWrite++;
 if(EUSART_RX.iWrite == 64) EUSART_RX.iWrite = 0;
 EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+
+TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (EUSART_RX.iWrite * 6)), c, 0xFFFF, 0x0000, 1);
+
 break;
 }
 }
@@ -5540,40 +5559,18 @@ break;
 void EUSART_RX_Process(void) {
 if(EUSART_RX.processRX == 0) return;
 
-
 TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 18, 400, 0x0000);
 for(uint8_t i=0; i!=64; i++) {
-TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (i * 6)), EUSART_RX.buffer[i], 0xF800, 0x0000, 1);
+if(EUSART_RX.buffer[i] == 0) break;
+TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (i * 6)), EUSART_RX.buffer[i], 0xFFFF, 0x0000, 1);
 }
-EUSART_RX.zzzzzzzzz += 12;
+EUSART_RX.zzzzzzzzz += 8;
 if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
-
-
-
-uint8_t i = 0;
-uint8_t iRead = EUSART_RX.iRead;
-while(i != (64 - 1)) {
-char c = EUSART_RX.buffer[iRead++];
-if(iRead == 64) iRead = 0;
-switch(c) {
-case '\r':
-PORTAbits.RA2 = (PORTAbits.RA2 == 1) ? 0 : 1;
-EUSART_RX.line[i] = 0x00;
-TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 36, 400, 0x0000);
-TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 2), EUSART_RX.line, 0x001F, 0x0000, 2);
-EUSART_RX.zzzzzzzzz += 24;
-if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
-EUSART_RX.iRead = iRead;
-i = 0;
-break;
-case 0x00:
-i = (64 - 1);
-break;
-default:
-EUSART_RX.line[i++] = c;
-break;
-}
-}
+EUSART_RX.iWrite = 0;
+EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+EUSART_RX.buffer[EUSART_RX.iWrite + 1] = 0x00;
 
 EUSART_RX.processRX = 0;
+
+# 143
 }

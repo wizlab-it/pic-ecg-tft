@@ -5119,6 +5119,11 @@ extern void init(void);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
+extern void EUSART_Init(void);
+extern void EUSART_TX_Char(uint8_t c);
+extern void EUSART_TX_String(char *str, uint8_t len);
+extern void EUSART_RX_Interrupt(void);
+extern void EUSART_RX_Process(void);
 
 # 61 "TFT.h"
 void TFT_WriteRegister(uint16_t reg, uint16_t data);

@@ -154,6 +154,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
 "4620
 [v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
+"9106
+[v _RCIE `Vb ~T0 @X0 0 e@31981 ]
+"9109
+[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"34 commons.h
+[v _EUSART_RX_Interrupt `(v ~T0 @X0 0 ef ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5394,6 +5400,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 28: extern void Ecg_Init(void);
 [; ;commons.h: 29: extern void Ecg_Process(void);
 [; ;commons.h: 30: extern void Ecg_Interrupt(void);
+[; ;commons.h: 31: extern void EUSART_Init(void);
+[; ;commons.h: 32: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 33: extern void EUSART_TX_String(char *str, uint8_t len);
+[; ;commons.h: 34: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 35: extern void EUSART_RX_Process(void);
 "15 init.h
 [p x PLLDIV=1 ]
 "16
@@ -5594,10 +5605,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 328 ]
 [; ;init.c: 100: }
-[; ;init.c: 109: return;
-"109
+[; ;init.c: 103: if(RCIE && RCIF) {
+"103
+[e $ ! && _RCIE _RCIF 329  ]
+{
+[; ;init.c: 104: EUSART_RX_Interrupt();
+"104
+[e ( _EUSART_RX_Interrupt ..  ]
+"105
+}
+[e :U 329 ]
+[; ;init.c: 105: }
+[; ;init.c: 107: return;
+"107
 [e $UE 327  ]
-[; ;init.c: 110: }
-"110
+[; ;init.c: 108: }
+"108
 [e :UE 327 ]
 }

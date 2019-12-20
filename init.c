@@ -1,5 +1,5 @@
 /*
- * 20190330.024
+ * 20191214.025
  * ECG-TFT
  *
  * File: init.c
@@ -100,11 +100,9 @@ void __interrupt() isr(void) {
     }
 
     //EUSART RX Interrupt
-    /*
     if(RCIE && RCIF) {
         EUSART_RX_Interrupt();
     }
-    */
 
     return;
 }

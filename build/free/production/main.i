@@ -5457,27 +5457,58 @@ extern void init(void);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
+extern void EUSART_Init(void);
+extern void EUSART_TX_Char(uint8_t c);
+extern void EUSART_TX_String(char *str, uint8_t len);
+extern void EUSART_RX_Interrupt(void);
+extern void EUSART_RX_Process(void);
 
 # 15 "main.h"
 void loop(void);
 
 # 12 "main.c"
-char xx[] = {'A', 'T', 'H', '0', '\r', '\n'};
+char x1[] = "AT+IPR?\r";
+char x2[] = "AT+CCLK?\r";
+char x3[] = "AT+CSQ\r";
+char x4[] = "AT+CCID\r";
+char x5[] = "AT+CREG?\r";
+char x6[] = "AT+COPS?\r";
+
 
 void main(void) {
 
 init();
 TFT_Init();
-
+EUSART_Init();
 Ecg_Init();
 
 
 while(1) loop();
 }
 
-# 29
+# 35
 void loop(void) {
-Ecg_Process();
 
-# 43
+
+
+
+EUSART_TX_String(x1, strlen(x1));
+_delay((unsigned long)((500)*(48000000/4000.0)));
+EUSART_TX_String(x2, strlen(x2));
+_delay((unsigned long)((500)*(48000000/4000.0)));
+EUSART_TX_String(x3, strlen(x3));
+_delay((unsigned long)((500)*(48000000/4000.0)));
+EUSART_TX_String(x4, strlen(x4));
+_delay((unsigned long)((500)*(48000000/4000.0)));
+EUSART_TX_String(x5, strlen(x5));
+_delay((unsigned long)((500)*(48000000/4000.0)));
+EUSART_TX_String(x6, strlen(x6));
+_delay((unsigned long)((2500)*(48000000/4000.0)));
+
+_delay((unsigned long)((2500)*(48000000/4000.0)));
+_delay((unsigned long)((2500)*(48000000/4000.0)));
+_delay((unsigned long)((2500)*(48000000/4000.0)));
+_delay((unsigned long)((2500)*(48000000/4000.0)));
+
+# 64
 }

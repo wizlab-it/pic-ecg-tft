@@ -77,11 +77,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OERR `Vb ~T0 @X0 0 e@32089 ]
 "7996
 [v _CREN `Vb ~T0 @X0 0 e@32092 ]
-"71 TFT.h
-[v _TFT_DrawFillRect `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
-"75
-[v _TFT_DrawChar `(v ~T0 @X0 0 ef6`ui`ui`uc`ui`ui`uc ]
-"2123 /opt/microchip/xc8/v2.10/pic/include/pic18f2455.h
+"2123
 [s S85 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S85 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
 "2132
@@ -101,8 +97,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S84 . . . . . . ]
 "2156
 [v _PORTAbits `VS84 ~T0 @X0 0 e@3968 ]
-"76 TFT.h
-[v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
+"71 TFT.h
+[v _TFT_DrawFillRect `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
+"75
+[v _TFT_DrawChar `(v ~T0 @X0 0 ef6`ui`ui`uc`ui`ui`uc ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5343,6 +5341,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 28: extern void Ecg_Init(void);
 [; ;commons.h: 29: extern void Ecg_Process(void);
 [; ;commons.h: 30: extern void Ecg_Interrupt(void);
+[; ;commons.h: 31: extern void EUSART_Init(void);
+[; ;commons.h: 32: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 33: extern void EUSART_TX_String(char *str, uint8_t len);
+[; ;commons.h: 34: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 35: extern void EUSART_RX_Process(void);
 "25 eusart.h
 [v _EUSART_RX `S326 ~T0 @X0 1 e ]
 [; ;eusart.h: 17: struct {
@@ -5377,9 +5380,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 17: TXSTAbits.SENDB = 0;
 "17
 [e = . . _TXSTAbits 0 3 -> -> 0 `i `uc ]
-[; ;eusart.c: 18: TXSTAbits.BRGH = 1;
+[; ;eusart.c: 18: TXSTAbits.BRGH = 0;
 "18
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 [; ;eusart.c: 21: RCSTAbits.SPEN = 1;
 "21
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
@@ -5389,9 +5392,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 23: RCSTAbits.CREN = 1;
 "23
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;eusart.c: 26: BAUDCONbits.BRG16 = 1;
+[; ;eusart.c: 26: BAUDCONbits.BRG16 = 0;
 "26
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 [; ;eusart.c: 27: BAUDCONbits.WUE = 0;
 "27
 [e = . . _BAUDCONbits 0 1 -> -> 0 `i `uc ]
@@ -5401,9 +5404,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 29: SPBRGH = 0;
 "29
 [e = _SPBRGH -> -> 0 `i `uc ]
-[; ;eusart.c: 30: SPBRG = 103;
+[; ;eusart.c: 30: SPBRG = 77;
 "30
-[e = _SPBRG -> -> 103 `i `uc ]
+[e = _SPBRG -> -> 77 `i `uc ]
 [; ;eusart.c: 33: RCIE = 1;
 "33
 [e = _RCIE -> -> 1 `i `b ]
@@ -5504,191 +5507,140 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60
 [e $U 339  ]
 {
-[; ;eusart.c: 61: case '\n':
+[; ;eusart.c: 61: case '\r':
 "61
 [e :U 340 ]
 [; ;eusart.c: 62: break;
 "62
 [e $U 338  ]
-[; ;eusart.c: 63: case '\r':
-"63
-[e :U 341 ]
-[; ;eusart.c: 64: EUSART_RX.processRX = 1;
+[; ;eusart.c: 64: case '\n':
 "64
-[e = . _EUSART_RX 1 -> -> 1 `i `uc ]
-[; ;eusart.c: 65: default:
+[e :U 341 ]
+[; ;eusart.c: 65: if(EUSART_RX.iWrite != 0) {
 "65
-[e :U 342 ]
-[; ;eusart.c: 66: EUSART_RX.buffer[EUSART_RX.iWrite++] = c;
-"66
-[e = *U + &U . _EUSART_RX 5 * -> ++ . _EUSART_RX 3 -> -> 1 `i `uc `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux _c ]
-[; ;eusart.c: 67: if(EUSART_RX.iWrite == 64) EUSART_RX.iWrite = 0;
+[e $ ! != -> . _EUSART_RX 3 `i -> 0 `i 342  ]
+{
+[; ;eusart.c: 67: PORTAbits.RA2 = 0;
 "67
-[e $ ! == -> . _EUSART_RX 3 `i -> 64 `i 343  ]
-[e = . _EUSART_RX 3 -> -> 0 `i `uc ]
-[e :U 343 ]
-[; ;eusart.c: 68: EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
 "68
-[e = *U + &U . _EUSART_RX 5 * -> . _EUSART_RX 3 `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> -> 0 `i `uc ]
-[; ;eusart.c: 69: break;
-"69
-[e $U 338  ]
-"70
 }
-[; ;eusart.c: 70: }
+[e :U 342 ]
+[; ;eusart.c: 68: }
+[; ;eusart.c: 69: EUSART_RX.zzzzzzzzz += 6;
+"69
+[e =+ . _EUSART_RX 4 -> -> 6 `i `uc ]
+[; ;eusart.c: 70: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz + 18, 0, 6, 400, 0x0000);
+"70
+[e ( _TFT_DrawFillRect (4 , , , , -> + -> . _EUSART_RX 4 `i -> 18 `i `ui -> -> 0 `i `ui -> -> 6 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
+[; ;eusart.c: 71: EUSART_RX.iWrite = 0;
+"71
+[e = . _EUSART_RX 3 -> -> 0 `i `uc ]
+[; ;eusart.c: 72: break;
+"72
+[e $U 338  ]
+[; ;eusart.c: 74: default:
+"74
+[e :U 343 ]
+[; ;eusart.c: 75: PORTAbits.RA2 = 1;
+"75
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+[; ;eusart.c: 76: EUSART_RX.buffer[EUSART_RX.iWrite] = c;
+"76
+[e = *U + &U . _EUSART_RX 5 * -> . _EUSART_RX 3 `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux _c ]
+[; ;eusart.c: 77: EUSART_RX.iWrite++;
+"77
+[e ++ . _EUSART_RX 3 -> -> 1 `i `uc ]
+[; ;eusart.c: 78: if(EUSART_RX.iWrite == 64) EUSART_RX.iWrite = 0;
+"78
+[e $ ! == -> . _EUSART_RX 3 `i -> 64 `i 344  ]
+[e = . _EUSART_RX 3 -> -> 0 `i `uc ]
+[e :U 344 ]
+[; ;eusart.c: 79: EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+"79
+[e = *U + &U . _EUSART_RX 5 * -> . _EUSART_RX 3 `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> -> 0 `i `uc ]
+[; ;eusart.c: 81: TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (EUSART_RX.iWrite * 6)), c, 0xFFFF, 0x0000, 1);
+"81
+[e ( _TFT_DrawChar (4 , , , , , -> . _EUSART_RX 4 `ui -> - - -> 400 `i -> 1 `i * -> . _EUSART_RX 3 `i -> 6 `i `ui _c -> 65535 `ui -> -> 0 `i `ui -> -> 1 `i `uc ]
+[; ;eusart.c: 83: break;
+"83
+[e $U 338  ]
+"84
+}
+[; ;eusart.c: 84: }
 [e $U 338  ]
 "60
 [e :U 339 ]
-[e [\ _c , $ -> -> 10 `ui `uc 340
- , $ -> -> 13 `ui `uc 341
- 342 ]
-"70
+[e [\ _c , $ -> -> 13 `ui `uc 340
+ , $ -> -> 10 `ui `uc 341
+ 343 ]
+"84
 [e :U 338 ]
-[; ;eusart.c: 71: }
-"71
+[; ;eusart.c: 85: }
+"85
 [e :UE 336 ]
 }
-"73
+"87
 [v _EUSART_RX_Process `(v ~T0 @X0 1 ef ]
 {
-[; ;eusart.c: 73: void EUSART_RX_Process(void) {
+[; ;eusart.c: 87: void EUSART_RX_Process(void) {
 [e :U _EUSART_RX_Process ]
 [f ]
-[; ;eusart.c: 74: if(EUSART_RX.processRX == 0) return;
-"74
-[e $ ! == -> . _EUSART_RX 1 `i -> 0 `i 345  ]
-[e $UE 344  ]
-[e :U 345 ]
-[; ;eusart.c: 77: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 18, 400, 0x0000);
-"77
-[e ( _TFT_DrawFillRect (4 , , , , -> . _EUSART_RX 4 `ui -> -> 0 `i `ui -> -> 18 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
-[; ;eusart.c: 78: for(uint8_t i=0; i!=64; i++) {
-"78
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ != -> _i `i -> 64 `i 346  ]
-[e $U 347  ]
+[; ;eusart.c: 88: if(EUSART_RX.processRX == 0) return;
+"88
+[e $ ! == -> . _EUSART_RX 1 `i -> 0 `i 346  ]
+[e $UE 345  ]
 [e :U 346 ]
-{
-[; ;eusart.c: 79: TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (i * 6)), EUSART_RX.buffer[i], 0xF800, 0x0000, 1);
-"79
-[e ( _TFT_DrawChar (4 , , , , , -> . _EUSART_RX 4 `ui -> - - -> 400 `i -> 1 `i * -> _i `i -> 6 `i `ui *U + &U . _EUSART_RX 5 * -> _i `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> 63488 `ui -> -> 0 `i `ui -> -> 1 `i `uc ]
-"80
-}
-"78
-[e ++ _i -> -> 1 `i `uc ]
-[e $ != -> _i `i -> 64 `i 346  ]
-[e :U 347 ]
-"80
-}
-[; ;eusart.c: 80: }
-[; ;eusart.c: 81: EUSART_RX.zzzzzzzzz += 12;
-"81
-[e =+ . _EUSART_RX 4 -> -> 12 `i `uc ]
-[; ;eusart.c: 82: if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
-"82
-[e $ ! > -> . _EUSART_RX 4 `i -> 210 `i 349  ]
-[e = . _EUSART_RX 4 -> -> 1 `i `uc ]
-[e :U 349 ]
-"86
-[v _i `uc ~T0 @X0 1 a ]
-[; ;eusart.c: 86: uint8_t i = 0;
-[e = _i -> -> 0 `i `uc ]
-"87
-[v _iRead `uc ~T0 @X0 1 a ]
-[; ;eusart.c: 87: uint8_t iRead = EUSART_RX.iRead;
-[e = _iRead . _EUSART_RX 2 ]
-[; ;eusart.c: 88: while(i != (64 - 1)) {
-"88
-[e $U 350  ]
-[e :U 351 ]
-{
-"89
-[v _c `uc ~T0 @X0 1 a ]
-[; ;eusart.c: 89: char c = EUSART_RX.buffer[iRead++];
-[e = _c *U + &U . _EUSART_RX 5 * -> ++ _iRead -> -> 1 `i `uc `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux ]
-[; ;eusart.c: 90: if(iRead == 64) iRead = 0;
+[; ;eusart.c: 90: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 18, 400, 0x0000);
 "90
-[e $ ! == -> _iRead `i -> 64 `i 353  ]
-[e = _iRead -> -> 0 `i `uc ]
-[e :U 353 ]
-[; ;eusart.c: 91: switch(c) {
+[e ( _TFT_DrawFillRect (4 , , , , -> . _EUSART_RX 4 `ui -> -> 0 `i `ui -> -> 18 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
+[; ;eusart.c: 91: for(uint8_t i=0; i!=64; i++) {
 "91
-[e $U 355  ]
 {
-[; ;eusart.c: 92: case '\r':
-"92
-[e :U 356 ]
-[; ;eusart.c: 93: PORTAbits.RA2 = (PORTAbits.RA2 == 1) ? 0 : 1;
-"93
-[e = . . _PORTAbits 0 2 -> ? == -> . . _PORTAbits 0 2 `i -> 1 `i : -> 0 `i -> 1 `i `uc ]
-[; ;eusart.c: 94: EUSART_RX.line[i] = 0x00;
-"94
-[e = *U + &U . _EUSART_RX 6 * -> _i `ux -> -> # *U &U . _EUSART_RX 6 `ui `ux -> -> 0 `i `uc ]
-[; ;eusart.c: 95: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 36, 400, 0x0000);
-"95
-[e ( _TFT_DrawFillRect (4 , , , , -> . _EUSART_RX 4 `ui -> -> 0 `i `ui -> -> 36 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
-[; ;eusart.c: 96: TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 2), EUSART_RX.line, 0x001F, 0x0000, 2);
-"96
-[e ( _TFT_DrawString (4 , , , , , -> . _EUSART_RX 4 `ui -> - -> 400 `i -> 2 `i `ui -> &U . _EUSART_RX 6 `*Cuc -> -> 31 `i `ui -> -> 0 `i `ui -> -> 2 `i `uc ]
-[; ;eusart.c: 97: EUSART_RX.zzzzzzzzz += 24;
-"97
-[e =+ . _EUSART_RX 4 -> -> 24 `i `uc ]
-[; ;eusart.c: 98: if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
-"98
-[e $ ! > -> . _EUSART_RX 4 `i -> 210 `i 357  ]
-[e = . _EUSART_RX 4 -> -> 1 `i `uc ]
-[e :U 357 ]
-[; ;eusart.c: 99: EUSART_RX.iRead = iRead;
-"99
-[e = . _EUSART_RX 2 _iRead ]
-[; ;eusart.c: 100: i = 0;
-"100
+[v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[; ;eusart.c: 101: break;
-"101
-[e $U 354  ]
-[; ;eusart.c: 102: case 0x00:
-"102
-[e :U 358 ]
-[; ;eusart.c: 103: i = (64 - 1);
-"103
-[e = _i -> - -> 64 `i -> 1 `i `uc ]
-[; ;eusart.c: 104: break;
-"104
-[e $U 354  ]
-[; ;eusart.c: 105: default:
-"105
-[e :U 359 ]
-[; ;eusart.c: 106: EUSART_RX.line[i++] = c;
-"106
-[e = *U + &U . _EUSART_RX 6 * -> ++ _i -> -> 1 `i `uc `ux -> -> # *U &U . _EUSART_RX 6 `ui `ux _c ]
-[; ;eusart.c: 107: break;
-"107
-[e $U 354  ]
-"108
-}
-[; ;eusart.c: 108: }
-[e $U 354  ]
-"91
-[e :U 355 ]
-[e [\ _c , $ -> -> 13 `ui `uc 356
- , $ -> -> 0 `i `uc 358
- 359 ]
-"108
-[e :U 354 ]
-"109
-}
+[e $ != -> _i `i -> 64 `i 347  ]
+[e $U 348  ]
+[e :U 347 ]
+{
+[; ;eusart.c: 92: if(EUSART_RX.buffer[i] == 0) break;
+"92
+[e $ ! == -> *U + &U . _EUSART_RX 5 * -> _i `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux `i -> 0 `i 350  ]
+[e $U 348  ]
 [e :U 350 ]
-"88
-[e $ != -> _i `i - -> 64 `i -> 1 `i 351  ]
-[e :U 352 ]
-[; ;eusart.c: 109: }
-[; ;eusart.c: 111: EUSART_RX.processRX = 0;
-"111
+[; ;eusart.c: 93: TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (i * 6)), EUSART_RX.buffer[i], 0xFFFF, 0x0000, 1);
+"93
+[e ( _TFT_DrawChar (4 , , , , , -> . _EUSART_RX 4 `ui -> - - -> 400 `i -> 1 `i * -> _i `i -> 6 `i `ui *U + &U . _EUSART_RX 5 * -> _i `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> 65535 `ui -> -> 0 `i `ui -> -> 1 `i `uc ]
+"94
+}
+"91
+[e ++ _i -> -> 1 `i `uc ]
+[e $ != -> _i `i -> 64 `i 347  ]
+[e :U 348 ]
+"94
+}
+[; ;eusart.c: 94: }
+[; ;eusart.c: 95: EUSART_RX.zzzzzzzzz += 8;
+"95
+[e =+ . _EUSART_RX 4 -> -> 8 `i `uc ]
+[; ;eusart.c: 96: if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
+"96
+[e $ ! > -> . _EUSART_RX 4 `i -> 210 `i 351  ]
+[e = . _EUSART_RX 4 -> -> 1 `i `uc ]
+[e :U 351 ]
+[; ;eusart.c: 97: EUSART_RX.iWrite = 0;
+"97
+[e = . _EUSART_RX 3 -> -> 0 `i `uc ]
+[; ;eusart.c: 98: EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
+"98
+[e = *U + &U . _EUSART_RX 5 * -> . _EUSART_RX 3 `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> -> 0 `i `uc ]
+[; ;eusart.c: 99: EUSART_RX.buffer[EUSART_RX.iWrite + 1] = 0x00;
+"99
+[e = *U + &U . _EUSART_RX 5 * -> -> + -> . _EUSART_RX 3 `i -> 1 `i `ui `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> -> 0 `i `uc ]
+[; ;eusart.c: 101: EUSART_RX.processRX = 0;
+"101
 [e = . _EUSART_RX 1 -> -> 0 `i `uc ]
-[; ;eusart.c: 112: }
-"112
-[e :UE 344 ]
+[; ;eusart.c: 143: }
+"143
+[e :UE 345 ]
 }

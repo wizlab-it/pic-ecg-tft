@@ -1,5 +1,5 @@
 /*
- * 20190330.038
+ * 20191214.039
  * ECG-TFT
  *
  * File: commons.h
@@ -28,12 +28,10 @@ extern void init(void);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
-/*
 extern void EUSART_Init(void);
 extern void EUSART_TX_Char(uint8_t c);
 extern void EUSART_TX_String(char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
-*/
 
 #endif
