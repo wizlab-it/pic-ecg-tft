@@ -39,11 +39,14 @@
 [v _strlen strlen `(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-[v i2___wmul __wmul `(ui  1 e 2 0 ]
 "15 /opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul64.c
 [v ___omul __omul `(ul  1 e 4 0 ]
+"12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+[v _A6_ReadLine A6_ReadLine `(v  1 e 1 0 ]
+"26
+[v _A6_Command A6_Command `(v  1 e 1 0 ]
 "12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
 [v _Ecg_Init Ecg_Init `(v  1 e 1 0 ]
 "40
@@ -68,56 +71,51 @@
 [v _Ecg_Background_Leads_Failure Ecg_Background_Leads_Failure `(v  1 e 1 0 ]
 "12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
 [v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
-"42
+"44
+[v _EUSART_SetSpeed EUSART_SetSpeed `(v  1 e 1 0 ]
+"59
 [v _EUSART_TX_Char EUSART_TX_Char `(v  1 e 1 0 ]
-"48
+"65
 [v _EUSART_TX_String EUSART_TX_String `(v  1 e 1 0 ]
-"54
+"71
 [v _EUSART_RX_Interrupt EUSART_RX_Interrupt `(v  1 e 1 0 ]
 "15 /media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
 [v _init init `(v  1 e 1 0 ]
 "90
 [v _isr isr `IIH(v  1 e 1 0 ]
-"20 /media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+"21 /media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 [v _main main `(v  1 e 1 0 ]
-"35
+"38
 [v _loop loop `(v  1 e 1 0 ]
 "12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
 [v _TFT_WriteRegister TFT_WriteRegister `(v  1 e 1 0 ]
-[v i2_TFT_WriteRegister TFT_WriteRegister `(v  1 e 1 0 ]
 "30
 [v _TFT_ReadRegister TFT_ReadRegister `(ui  1 e 2 0 ]
 "46
 [v _TFT_Reset TFT_Reset `(v  1 e 1 0 ]
 "56
 [v _TFT_SetAddrWindow TFT_SetAddrWindow `(v  1 e 1 0 ]
-[v i2_TFT_SetAddrWindow TFT_SetAddrWindow `(v  1 e 1 0 ]
 "68
 [v _TFT_FullScreen TFT_FullScreen `(v  1 e 1 0 ]
-[v i2_TFT_FullScreen TFT_FullScreen `(v  1 e 1 0 ]
 "72
 [v _TFT_Init TFT_Init `(v  1 e 1 0 ]
 "94
 [v _TFT_DrawPixel TFT_DrawPixel `(v  1 e 1 0 ]
-[v i2_TFT_DrawPixel TFT_DrawPixel `(v  1 e 1 0 ]
 "100
 [v _TFT_DrawLine TFT_DrawLine `(v  1 e 1 0 ]
 "138
 [v _TFT_DrawFillRect TFT_DrawFillRect `(v  1 e 1 0 ]
-[v i2_TFT_DrawFillRect TFT_DrawFillRect `(v  1 e 1 0 ]
 "144
 [v _TFT_Flood TFT_Flood `(v  1 e 1 0 ]
-[v i2_TFT_Flood TFT_Flood `(v  1 e 1 0 ]
 "182
 [v _TFT_FillScreen TFT_FillScreen `(v  1 e 1 0 ]
 "192
 [v _TFT_DrawChar TFT_DrawChar `(v  1 e 1 0 ]
-[v i2_TFT_DrawChar TFT_DrawChar `(v  1 e 1 0 ]
 "213
 [v _TFT_DrawString TFT_DrawString `(v  1 e 1 0 ]
 "221
 [v _TFT_DrawBitmap TFT_DrawBitmap `(v  1 e 1 0 ]
-[s S133 . 1 `uc 1 . 1 0 :1:0 
+[s S189 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SUSPND 1 0 :1:1 
 `uc 1 RESUME 1 0 :1:2 
 `uc 1 USBEN 1 0 :1:3 
@@ -126,9 +124,9 @@
 `uc 1 PPBRST 1 0 :1:6 
 ]
 "467 /opt/microchip/xc8/v2.10/pic/include/pic18f2455.h
-[u S141 . 1 `S133 1 . 1 0 ]
-[v _UCONbits UCONbits `VES141  1 e 1 @3949 ]
-[s S152 . 1 `uc 1 PPB 1 0 :2:0 
+[u S197 . 1 `S189 1 . 1 0 ]
+[v _UCONbits UCONbits `VES197  1 e 1 @3949 ]
+[s S208 . 1 `uc 1 PPB 1 0 :2:0 
 `uc 1 FSEN 1 0 :1:2 
 `uc 1 UTRDIS 1 0 :1:3 
 `uc 1 UPUEN 1 0 :1:4 
@@ -137,15 +135,15 @@
 `uc 1 UTEYE 1 0 :1:7 
 ]
 "590
-[s S160 . 1 `uc 1 PPB0 1 0 :1:0 
+[s S216 . 1 `uc 1 PPB0 1 0 :1:0 
 `uc 1 PPB1 1 0 :1:1 
 ]
-[s S163 . 1 `uc 1 UPP0 1 0 :1:0 
+[s S219 . 1 `uc 1 UPP0 1 0 :1:0 
 `uc 1 UPP1 1 0 :1:1 
 ]
-[u S166 . 1 `S152 1 . 1 0 `S160 1 . 1 0 `S163 1 . 1 0 ]
-[v _UCFGbits UCFGbits `VES166  1 e 1 @3951 ]
-[s S518 . 1 `uc 1 RA0 1 0 :1:0 
+[u S222 . 1 `S208 1 . 1 0 `S216 1 . 1 0 `S219 1 . 1 0 ]
+[v _UCFGbits UCFGbits `VES222  1 e 1 @3951 ]
+[s S574 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -154,7 +152,7 @@
 `uc 1 RA6 1 0 :1:6 
 ]
 "2156
-[s S526 . 1 `uc 1 AN0 1 0 :1:0 
+[s S582 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
@@ -162,22 +160,22 @@
 `uc 1 AN4 1 0 :1:5 
 `uc 1 OSC2 1 0 :1:6 
 ]
-[s S534 . 1 `uc 1 . 1 0 :2:0 
+[s S590 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S540 . 1 `uc 1 . 1 0 :5:0 
+[s S596 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S543 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S599 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 ]
-[u S545 . 1 `S518 1 . 1 0 `S526 1 . 1 0 `S534 1 . 1 0 `S540 1 . 1 0 `S543 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES545  1 e 1 @3968 ]
+[u S601 . 1 `S574 1 . 1 0 `S582 1 . 1 0 `S590 1 . 1 0 `S596 1 . 1 0 `S599 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES601  1 e 1 @3968 ]
 "2256
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S450 . 1 `uc 1 RC0 1 0 :1:0 
+[s S506 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -187,29 +185,29 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "2408
-[s S459 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S515 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S466 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S522 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S473 . 1 `uc 1 . 1 0 :1:0 
+[s S529 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S477 . 1 `uc 1 . 1 0 :1:0 
+[s S533 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S480 . 1 `S450 1 . 1 0 `S459 1 . 1 0 `S466 1 . 1 0 `S473 1 . 1 0 `S477 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES480  1 e 1 @3970 ]
+[u S536 . 1 `S506 1 . 1 0 `S515 1 . 1 0 `S522 1 . 1 0 `S529 1 . 1 0 `S533 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES536  1 e 1 @3970 ]
 "2547
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "2647
@@ -222,20 +220,20 @@
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "3257
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S107 . 1 `uc 1 TUN 1 0 :5:0 
+[s S163 . 1 `uc 1 TUN 1 0 :5:0 
 `uc 1 . 1 0 :2:5 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "3430
-[s S111 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S167 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 ]
-[u S117 . 1 `S107 1 . 1 0 `S111 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES117  1 e 1 @3995 ]
-[s S989 . 1 `uc 1 RX9D 1 0 :1:0 
+[u S173 . 1 `S163 1 . 1 0 `S167 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES173  1 e 1 @3995 ]
+[s S1042 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -245,23 +243,23 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "4024
-[s S998 . 1 `uc 1 . 1 0 :3:0 
+[s S1051 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S1001 . 1 `uc 1 . 1 0 :5:0 
+[s S1054 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S1004 . 1 `uc 1 . 1 0 :6:0 
+[s S1057 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1007 . 1 `uc 1 . 1 0 :6:0 
+[s S1060 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1010 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1063 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S1012 . 1 `S989 1 . 1 0 `S998 1 . 1 0 `S1001 1 . 1 0 `S1004 1 . 1 0 `S1007 1 . 1 0 `S1010 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES1012  1 e 1 @4011 ]
-[s S937 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1065 . 1 `S1042 1 . 1 0 `S1051 1 . 1 0 `S1054 1 . 1 0 `S1057 1 . 1 0 `S1060 1 . 1 0 `S1063 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES1065  1 e 1 @4011 ]
+[s S990 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -271,7 +269,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "4232
-[s S946 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S999 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -280,13 +278,13 @@
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S955 . 1 `uc 1 . 1 0 :6:0 
+[s S1008 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S958 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S1011 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S960 . 1 `S937 1 . 1 0 `S946 1 . 1 0 `S955 1 . 1 0 `S958 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES960  1 e 1 @4012 ]
+[u S1013 . 1 `S990 1 . 1 0 `S999 1 . 1 0 `S1008 1 . 1 0 `S1011 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1013  1 e 1 @4012 ]
 "4449
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "4461
@@ -295,11 +293,11 @@
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "4485
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S323 . 1 `uc 1 . 1 0 :2:0 
+[s S379 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T3SYNC 1 0 :1:2 
 ]
 "4533
-[s S326 . 1 `uc 1 TMR3ON 1 0 :1:0 
+[s S382 . 1 `uc 1 TMR3ON 1 0 :1:0 
 `uc 1 TMR3CS 1 0 :1:1 
 `uc 1 nT3SYNC 1 0 :1:2 
 `uc 1 T3CCP1 1 0 :1:3 
@@ -307,30 +305,30 @@
 `uc 1 T3CCP2 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S334 . 1 `uc 1 . 1 0 :2:0 
+[s S390 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T3CKPS0 1 0 :1:4 
 `uc 1 T3CKPS1 1 0 :1:5 
 ]
-[s S340 . 1 `uc 1 . 1 0 :2:0 
+[s S396 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T3NSYNC 1 0 :1:2 
 ]
-[s S343 . 1 `uc 1 . 1 0 :3:0 
+[s S399 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN3 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RD163 1 0 :1:7 
 ]
-[s S348 . 1 `uc 1 . 1 0 :7:0 
+[s S404 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T3RD16 1 0 :1:7 
 ]
-[u S351 . 1 `S323 1 . 1 0 `S326 1 . 1 0 `S334 1 . 1 0 `S340 1 . 1 0 `S343 1 . 1 0 `S348 1 . 1 0 ]
-[v _T3CONbits T3CONbits `VES351  1 e 1 @4017 ]
+[u S407 . 1 `S379 1 . 1 0 `S382 1 . 1 0 `S390 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S404 1 . 1 0 ]
+[v _T3CONbits T3CONbits `VES407  1 e 1 @4017 ]
 "4620
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "4627
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S1043 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S1096 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -340,96 +338,96 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "5015
-[s S1052 . 1 `uc 1 . 1 0 :4:0 
+[s S1105 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S1057 . 1 `uc 1 . 1 0 :5:0 
+[s S1110 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S1060 . 1 `uc 1 . 1 0 :1:0 
+[s S1113 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S1063 . 1 `S1043 1 . 1 0 `S1052 1 . 1 0 `S1057 1 . 1 0 `S1060 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES1063  1 e 1 @4024 ]
-[s S295 . 1 `uc 1 ADCS 1 0 :3:0 
+[u S1116 . 1 `S1096 1 . 1 0 `S1105 1 . 1 0 `S1110 1 . 1 0 `S1113 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES1116  1 e 1 @4024 ]
+[s S351 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "5350
-[s S300 . 1 `uc 1 ADCS0 1 0 :1:0 
+[s S356 . 1 `uc 1 ADCS0 1 0 :1:0 
 `uc 1 ADCS1 1 0 :1:1 
 `uc 1 ADCS2 1 0 :1:2 
 `uc 1 ACQT0 1 0 :1:3 
 `uc 1 ACQT1 1 0 :1:4 
 `uc 1 ACQT2 1 0 :1:5 
 ]
-[u S307 . 1 `S295 1 . 1 0 `S300 1 . 1 0 ]
-[v _ADCON2bits ADCON2bits `VES307  1 e 1 @4032 ]
-[s S260 . 1 `uc 1 PCFG 1 0 :4:0 
+[u S363 . 1 `S351 1 . 1 0 `S356 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES363  1 e 1 @4032 ]
+[s S316 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "5425
-[s S263 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S319 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 ]
-[s S270 . 1 `uc 1 . 1 0 :3:0 
+[s S326 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 `uc 1 VCFG01 1 0 :1:4 
 `uc 1 VCFG11 1 0 :1:5 
 ]
-[u S275 . 1 `S260 1 . 1 0 `S263 1 . 1 0 `S270 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES275  1 e 1 @4033 ]
-[s S192 . 1 `uc 1 . 1 0 :1:0 
+[u S331 . 1 `S316 1 . 1 0 `S319 1 . 1 0 `S326 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES331  1 e 1 @4033 ]
+[s S248 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "5529
-[s S195 . 1 `uc 1 ADON 1 0 :1:0 
+[s S251 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S199 . 1 `uc 1 . 1 0 :1:0 
+[s S255 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
 `uc 1 CHS2 1 0 :1:4 
 `uc 1 CHS3 1 0 :1:5 
 ]
-[s S206 . 1 `uc 1 . 1 0 :1:0 
+[s S262 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S209 . 1 `uc 1 . 1 0 :1:0 
+[s S265 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S212 . 1 `uc 1 . 1 0 :1:0 
+[s S268 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S215 . 1 `uc 1 . 1 0 :1:0 
+[s S271 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S218 . 1 `uc 1 . 1 0 :1:0 
+[s S274 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S221 . 1 `S192 1 . 1 0 `S195 1 . 1 0 `S199 1 . 1 0 `S206 1 . 1 0 `S209 1 . 1 0 `S212 1 . 1 0 `S215 1 . 1 0 `S218 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES221  1 e 1 @4034 ]
+[u S277 . 1 `S248 1 . 1 0 `S251 1 . 1 0 `S255 1 . 1 0 `S262 1 . 1 0 `S265 1 . 1 0 `S268 1 . 1 0 `S271 1 . 1 0 `S274 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES277  1 e 1 @4034 ]
 "5611
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "5618
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S75 . 1 `uc 1 SCS 1 0 :2:0 
+[s S131 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "6828
-[s S81 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S137 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 FLTS 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -437,8 +435,8 @@
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S89 . 1 `S75 1 . 1 0 `S81 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES89  1 e 1 @4051 ]
+[u S145 . 1 `S131 1 . 1 0 `S137 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES145  1 e 1 @4051 ]
 "7996
 [v _CREN CREN `VEb  1 e 0 @32092 ]
 "8530
@@ -461,7 +459,7 @@
 [v _TMR3IF TMR3IF `VEb  1 e 0 @32009 ]
 "9586
 [v _TXIF TXIF `VEb  1 e 0 @31988 ]
-[s S721 . 2 `uc 1 unused 1 0 :1:0 
+[s S776 . 2 `uc 1 unused 1 0 :1:0 
 `uc 1 leadsOk 1 0 :1:1 
 `uc 1 leadsOkFlag 1 0 :1:2 
 `uc 1 processHeartRate 1 0 :1:3 
@@ -470,19 +468,19 @@
 `uc 1 msecDelay 1 1 :3:0 
 ]
 "38 /media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.h
-[v _ECG_FLAGS ECG_FLAGS `S721  1 e 2 0 ]
-[s S729 . 4 `uc 1 unused 1 0 :6:0 
+[v _ECG_FLAGS ECG_FLAGS `S776  1 e 2 0 ]
+[s S784 . 4 `uc 1 unused 1 0 :6:0 
 `uc 1 processHeartbeat 1 0 :1:6 
 `uc 1 heartIconShown 1 0 :1:7 
 `uc 1 heartIconMsecDelay 1 1 `uc 1 heartbeatMsecDelay 1 2 `uc 1 msecDelay 1 3 ]
 "47
-[v _ECG_HEARTRATE ECG_HEARTRATE `S729  1 e 4 0 ]
-[s S736 . 13 `[3]ul 1 data 12 0 `uc 1 i 1 12 ]
+[v _ECG_HEARTRATE ECG_HEARTRATE `S784  1 e 4 0 ]
+[s S791 . 13 `[3]ul 1 data 12 0 `uc 1 i 1 12 ]
 "52
-[v _ECG_HEARTBEAT ECG_HEARTBEAT `S736  1 e 13 0 ]
-[s S739 . 5 `[4]uc 1 data 4 0 `uc 1 i 1 4 ]
+[v _ECG_HEARTBEAT ECG_HEARTBEAT `S791  1 e 13 0 ]
+[s S794 . 5 `[4]uc 1 data 4 0 `uc 1 i 1 4 ]
 "57
-[v _ECG_BUFFER ECG_BUFFER `S739  1 e 5 0 ]
+[v _ECG_BUFFER ECG_BUFFER `S794  1 e 5 0 ]
 "60
 [v _Ecg_X Ecg_X `ui  1 e 2 0 ]
 "61
@@ -493,62 +491,80 @@
 [v _Ecg_Yold Ecg_Yold `ui  1 e 2 0 ]
 "80
 [v _ECG_ICON_HEART ECG_ICON_HEART `C[62]uc  1 e 62 0 ]
-[s S929 . 132 `uc 1 unused 1 0 :7:0 
-`uc 1 processRX 1 0 :1:7 
-`uc 1 iRead 1 1 `uc 1 iWrite 1 2 `uc 1 zzzzzzzzz 1 3 `[64]uc 1 buffer 64 4 `[64]uc 1 line 64 68 ]
-"25 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.h
-[v _EUSART_RX EUSART_RX `S929  1 e 132 0 ]
+[s S72 . 100 `uc 1 processRX 1 0 `uc 1 iRead 1 1 `uc 1 iWrite 1 2 `uc 1 zzzzzzzzz 1 3 `[64]uc 1 buffer 64 4 `[32]uc 1 line 32 68 ]
+"15 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.h
+[v _EUSART_RX EUSART_RX `S72  1 e 100 0 ]
 "50 /media/wiz/WYZ/devel/pic/ECG-TFT.X/init.h
 [v _MILLISECONDS MILLISECONDS `ul  1 e 4 0 ]
 "12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 [v _x1 x1 `[9]uc  1 e 9 0 ]
-"13
-[v _x2 x2 `[10]uc  1 e 10 0 ]
-"14
-[v _x3 x3 `[8]uc  1 e 8 0 ]
-"15
-[v _x4 x4 `[9]uc  1 e 9 0 ]
+"19
+[v _x8 x8 `[4]uc  1 e 4 0 ]
+"15 /media/wiz/WYZ/devel/pic/ECG-TFT.X/main.h
+[v _tmp1 tmp1 `ul  1 e 4 0 ]
 "16
-[v _x5 x5 `[10]uc  1 e 10 0 ]
-"17
-[v _x6 x6 `[10]uc  1 e 10 0 ]
+[v _tmp2 tmp2 `ul  1 e 4 0 ]
 "79 /media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.h
 [v _TFT_Init_Sequence TFT_Init_Sequence `C[102]ui  1 e 204 0 ]
 "139
 [v _TFT_Font TFT_Font `C[1280]uc  1 e 1280 0 ]
-"20 /media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+"21 /media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"29
+"32
 } 0
-"35
+"38
 [v _loop loop `(v  1 e 1 0 ]
 {
-"64
+"80
+[v loop@response_128 response `[32]uc  1 a 32 32 ]
+"68
+[v loop@response response `[32]uc  1 a 32 0 ]
+"130
+} 0
+"26 /media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+[v _A6_Command A6_Command `(v  1 e 1 0 ]
+{
+[v A6_Command@command command `*.35Cuc  1 p 2 17 ]
+[v A6_Command@resp1 resp1 `*.25Cuc  1 p 2 19 ]
+[v A6_Command@resp2 resp2 `*.25Cuc  1 p 2 21 ]
+[v A6_Command@timeout timeout `i  1 p 2 23 ]
+[v A6_Command@response response `*.39uc  1 p 2 25 ]
+"40
 } 0
 "4 /opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 {
 "6
-[v strlen@cp cp `*.39Cuc  1 a 2 2 ]
+[v strlen@cp cp `*.35Cuc  1 a 2 6 ]
 "4
-[v strlen@s s `*.39Cuc  1 p 2 0 ]
+[v strlen@s s `*.35Cuc  1 p 2 4 ]
 "13
 } 0
-"48 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
+"65 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
 [v _EUSART_TX_String EUSART_TX_String `(v  1 e 1 0 ]
 {
-[v EUSART_TX_String@str str `*.39uc  1 p 2 4 ]
-[v EUSART_TX_String@len len `uc  1 p 1 6 ]
-"52
+[v EUSART_TX_String@str str `*.35Cuc  1 p 2 8 ]
+[v EUSART_TX_String@len len `uc  1 p 1 10 ]
+"69
 } 0
-"42
+"59
 [v _EUSART_TX_Char EUSART_TX_Char `(v  1 e 1 0 ]
 {
 [v EUSART_TX_Char@c c `uc  1 a 1 wreg ]
 [v EUSART_TX_Char@c c `uc  1 a 1 wreg ]
-[v EUSART_TX_Char@c c `uc  1 a 1 0 ]
-"46
+[v EUSART_TX_Char@c c `uc  1 a 1 4 ]
+"63
+} 0
+"12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+[v _A6_ReadLine A6_ReadLine `(v  1 e 1 0 ]
+{
+"13
+[v A6_ReadLine@iLine iLine `uc  1 a 1 16 ]
+"12
+[v A6_ReadLine@response response `*.39uc  1 p 2 12 ]
+[v A6_ReadLine@len len `uc  1 p 1 14 ]
+"24
 } 0
 "15 /media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
 [v _init init `(v  1 e 1 0 ]
@@ -559,12 +575,12 @@
 [v _TFT_Init TFT_Init `(v  1 e 1 0 ]
 {
 "77
-[v TFT_Init@i i `ui  1 a 2 33 ]
-[v TFT_Init@cmd cmd `ui  1 a 2 31 ]
+[v TFT_Init@i i `ui  1 a 2 37 ]
+[v TFT_Init@cmd cmd `ui  1 a 2 35 ]
 "78
-[v TFT_Init@initSequenceSize initSequenceSize `ui  1 a 2 29 ]
+[v TFT_Init@initSequenceSize initSequenceSize `ui  1 a 2 33 ]
 "77
-[v TFT_Init@data data `ui  1 a 2 27 ]
+[v TFT_Init@data data `ui  1 a 2 31 ]
 "92
 } 0
 "46
@@ -581,7 +597,7 @@
 [v _Ecg_CheckLeads Ecg_CheckLeads `(ui  1 e 2 0 ]
 {
 "142
-[v Ecg_CheckLeads@leadsStatus leadsStatus `uc  1 a 1 3 ]
+[v Ecg_CheckLeads@leadsStatus leadsStatus `uc  1 a 1 7 ]
 "147
 } 0
 "180
@@ -593,48 +609,48 @@
 [v _TFT_DrawLine TFT_DrawLine `(v  1 e 1 0 ]
 {
 "108
-[v TFT_DrawLine@t_667 t `i  1 a 2 33 ]
+[v TFT_DrawLine@t_723 t `i  1 a 2 37 ]
 "107
-[v TFT_DrawLine@t_666 t `i  1 a 2 31 ]
+[v TFT_DrawLine@t_722 t `i  1 a 2 35 ]
 "104
-[v TFT_DrawLine@t_665 t `i  1 a 2 29 ]
+[v TFT_DrawLine@t_721 t `i  1 a 2 33 ]
 "103
-[v TFT_DrawLine@t t `i  1 a 2 27 ]
+[v TFT_DrawLine@t t `i  1 a 2 31 ]
 "111
-[v TFT_DrawLine@dx dx `i  1 a 2 43 ]
+[v TFT_DrawLine@dx dx `i  1 a 2 47 ]
 "101
-[v TFT_DrawLine@steep steep `i  1 a 2 41 ]
+[v TFT_DrawLine@steep steep `i  1 a 2 45 ]
 "115
-[v TFT_DrawLine@err err `i  1 a 2 39 ]
+[v TFT_DrawLine@err err `i  1 a 2 43 ]
 "116
-[v TFT_DrawLine@ystep ystep `i  1 a 2 37 ]
+[v TFT_DrawLine@ystep ystep `i  1 a 2 41 ]
 "111
-[v TFT_DrawLine@dy dy `i  1 a 2 35 ]
+[v TFT_DrawLine@dy dy `i  1 a 2 39 ]
 "100
-[v TFT_DrawLine@x0 x0 `i  1 p 2 14 ]
-[v TFT_DrawLine@y0 y0 `i  1 p 2 16 ]
-[v TFT_DrawLine@x1 x1 `i  1 p 2 18 ]
-[v TFT_DrawLine@y1 y1 `i  1 p 2 20 ]
-[v TFT_DrawLine@color color `ui  1 p 2 22 ]
+[v TFT_DrawLine@x0 x0 `i  1 p 2 18 ]
+[v TFT_DrawLine@y0 y0 `i  1 p 2 20 ]
+[v TFT_DrawLine@x1 x1 `i  1 p 2 22 ]
+[v TFT_DrawLine@y1 y1 `i  1 p 2 24 ]
+[v TFT_DrawLine@color color `ui  1 p 2 26 ]
 "136
 } 0
 "4 /opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
 [v _abs abs `(i  1 e 2 0 ]
 {
-[v abs@a a `i  1 p 2 0 ]
+[v abs@a a `i  1 p 2 4 ]
 "9
 } 0
 "7 /opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
+[v ___awdiv@quotient quotient `i  1 a 2 10 ]
 "11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
+[v ___awdiv@sign sign `uc  1 a 1 9 ]
+[v ___awdiv@counter counter `uc  1 a 1 8 ]
 "7
-[v ___awdiv@dividend dividend `i  1 p 2 0 ]
-[v ___awdiv@divisor divisor `i  1 p 2 2 ]
+[v ___awdiv@dividend dividend `i  1 p 2 4 ]
+[v ___awdiv@divisor divisor `i  1 p 2 6 ]
 "41
 } 0
 "188 /media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
@@ -645,64 +661,64 @@
 "182 /media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
 [v _TFT_FillScreen TFT_FillScreen `(v  1 e 1 0 ]
 {
-[v TFT_FillScreen@color color `ui  1 p 2 23 ]
+[v TFT_FillScreen@color color `ui  1 p 2 27 ]
 "186
 } 0
 "213
 [v _TFT_DrawString TFT_DrawString `(v  1 e 1 0 ]
 {
-[v TFT_DrawString@x x `ui  1 p 2 58 ]
-[v TFT_DrawString@y y `ui  1 p 2 60 ]
-[v TFT_DrawString@str str `*.35Cuc  1 p 2 62 ]
-[v TFT_DrawString@color color `ui  1 p 2 64 ]
-[v TFT_DrawString@bg bg `ui  1 p 2 66 ]
-[v TFT_DrawString@size size `uc  1 p 1 68 ]
+[v TFT_DrawString@x x `ui  1 p 2 62 ]
+[v TFT_DrawString@y y `ui  1 p 2 64 ]
+[v TFT_DrawString@str str `*.35Cuc  1 p 2 66 ]
+[v TFT_DrawString@color color `ui  1 p 2 68 ]
+[v TFT_DrawString@bg bg `ui  1 p 2 70 ]
+[v TFT_DrawString@size size `uc  1 p 1 72 ]
 "219
 } 0
 "192
 [v _TFT_DrawChar TFT_DrawChar `(v  1 e 1 0 ]
 {
 "195
-[v TFT_DrawChar@j j `c  1 a 1 56 ]
+[v TFT_DrawChar@j j `c  1 a 1 60 ]
 "194
-[v TFT_DrawChar@line line `uc  1 a 1 51 ]
+[v TFT_DrawChar@line line `uc  1 a 1 55 ]
 "193
-[v TFT_DrawChar@i i `c  1 a 1 57 ]
+[v TFT_DrawChar@i i `c  1 a 1 61 ]
 "192
-[v TFT_DrawChar@x x `ui  1 p 2 37 ]
-[v TFT_DrawChar@y y `ui  1 p 2 39 ]
-[v TFT_DrawChar@c c `uc  1 p 1 41 ]
-[v TFT_DrawChar@color color `ui  1 p 2 42 ]
-[v TFT_DrawChar@bg bg `ui  1 p 2 44 ]
-[v TFT_DrawChar@size size `uc  1 p 1 46 ]
+[v TFT_DrawChar@x x `ui  1 p 2 41 ]
+[v TFT_DrawChar@y y `ui  1 p 2 43 ]
+[v TFT_DrawChar@c c `uc  1 p 1 45 ]
+[v TFT_DrawChar@color color `ui  1 p 2 46 ]
+[v TFT_DrawChar@bg bg `ui  1 p 2 48 ]
+[v TFT_DrawChar@size size `uc  1 p 1 50 ]
 "211
 } 0
 "94
 [v _TFT_DrawPixel TFT_DrawPixel `(v  1 e 1 0 ]
 {
-[v TFT_DrawPixel@x x `ui  1 p 2 8 ]
-[v TFT_DrawPixel@y y `ui  1 p 2 10 ]
-[v TFT_DrawPixel@color color `ui  1 p 2 12 ]
+[v TFT_DrawPixel@x x `ui  1 p 2 12 ]
+[v TFT_DrawPixel@y y `ui  1 p 2 14 ]
+[v TFT_DrawPixel@color color `ui  1 p 2 16 ]
 "98
 } 0
 "138
 [v _TFT_DrawFillRect TFT_DrawFillRect `(v  1 e 1 0 ]
 {
-[v TFT_DrawFillRect@x x `ui  1 p 2 23 ]
-[v TFT_DrawFillRect@y y `ui  1 p 2 25 ]
-[v TFT_DrawFillRect@w w `ui  1 p 2 27 ]
-[v TFT_DrawFillRect@h h `ui  1 p 2 29 ]
-[v TFT_DrawFillRect@color color `ui  1 p 2 31 ]
+[v TFT_DrawFillRect@x x `ui  1 p 2 27 ]
+[v TFT_DrawFillRect@y y `ui  1 p 2 29 ]
+[v TFT_DrawFillRect@w w `ui  1 p 2 31 ]
+[v TFT_DrawFillRect@h h `ui  1 p 2 33 ]
+[v TFT_DrawFillRect@color color `ui  1 p 2 35 ]
 "142
 } 0
 "15 /opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 4 ]
+[v ___wmul@product product `ui  1 a 2 8 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 4 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 6 ]
 "53
 } 0
 "68 /media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
@@ -713,56 +729,77 @@
 "56
 [v _TFT_SetAddrWindow TFT_SetAddrWindow `(v  1 e 1 0 ]
 {
-[v TFT_SetAddrWindow@x1 x1 `ui  1 p 2 8 ]
-[v TFT_SetAddrWindow@y1 y1 `ui  1 p 2 10 ]
-[v TFT_SetAddrWindow@x2 x2 `ui  1 p 2 12 ]
-[v TFT_SetAddrWindow@y2 y2 `ui  1 p 2 14 ]
+[v TFT_SetAddrWindow@x1 x1 `ui  1 p 2 12 ]
+[v TFT_SetAddrWindow@y1 y1 `ui  1 p 2 14 ]
+[v TFT_SetAddrWindow@x2 x2 `ui  1 p 2 16 ]
+[v TFT_SetAddrWindow@y2 y2 `ui  1 p 2 18 ]
 "66
 } 0
 "144
 [v _TFT_Flood TFT_Flood `(v  1 e 1 0 ]
 {
 "145
-[v TFT_Flood@blocks blocks `ui  1 a 2 18 ]
+[v TFT_Flood@blocks blocks `ui  1 a 2 22 ]
 "148
-[v TFT_Flood@color_lo color_lo `uc  1 a 1 22 ]
+[v TFT_Flood@color_lo color_lo `uc  1 a 1 26 ]
 "147
-[v TFT_Flood@color_hi color_hi `uc  1 a 1 21 ]
+[v TFT_Flood@color_hi color_hi `uc  1 a 1 25 ]
 "146
-[v TFT_Flood@i i `uc  1 a 1 20 ]
+[v TFT_Flood@i i `uc  1 a 1 24 ]
 "144
-[v TFT_Flood@color color `ui  1 p 2 8 ]
-[v TFT_Flood@len len `ul  1 p 4 10 ]
+[v TFT_Flood@color color `ui  1 p 2 12 ]
+[v TFT_Flood@len len `ul  1 p 4 14 ]
 "180
 } 0
 "12
 [v _TFT_WriteRegister TFT_WriteRegister `(v  1 e 1 0 ]
 {
 "15
-[v TFT_WriteRegister@l_621 l `uc  1 a 1 7 ]
-[v TFT_WriteRegister@h_620 h `uc  1 a 1 6 ]
+[v TFT_WriteRegister@l_677 l `uc  1 a 1 11 ]
+[v TFT_WriteRegister@h_676 h `uc  1 a 1 10 ]
 "14
-[v TFT_WriteRegister@l l `uc  1 a 1 5 ]
-[v TFT_WriteRegister@h h `uc  1 a 1 4 ]
+[v TFT_WriteRegister@l l `uc  1 a 1 9 ]
+[v TFT_WriteRegister@h h `uc  1 a 1 8 ]
 "12
-[v TFT_WriteRegister@reg reg `ui  1 p 2 0 ]
-[v TFT_WriteRegister@data data `ui  1 p 2 2 ]
+[v TFT_WriteRegister@reg reg `ui  1 p 2 4 ]
+[v TFT_WriteRegister@data data `ui  1 p 2 6 ]
 "17
+} 0
+"44 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
+[v _EUSART_SetSpeed EUSART_SetSpeed `(v  1 e 1 0 ]
+{
+"49
+[v EUSART_SetSpeed@tmp tmp `ul  1 a 4 25 ]
+"44
+[v EUSART_SetSpeed@speed speed `Cul  1 p 4 17 ]
+"57
+} 0
+"7 /opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 12 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 16 ]
+"7
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 8 ]
+"30
 } 0
 "12 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
 [v _EUSART_Init EUSART_Init `(v  1 e 1 0 ]
 {
-"40
+"42
 } 0
 "8 /opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
 [v _memset memset `(*.39v  1 e 2 0 ]
 {
 "15
-[v memset@p p `*.39uc  1 a 2 6 ]
+[v memset@p p `*.39uc  1 a 2 10 ]
 "8
-[v memset@p1 p1 `*.39v  1 p 2 0 ]
-[v memset@c c `i  1 p 2 2 ]
-[v memset@n n `ui  1 p 2 4 ]
+[v memset@p1 p1 `*.39v  1 p 2 4 ]
+[v memset@c c `i  1 p 2 6 ]
+[v memset@n n `ui  1 p 2 8 ]
 "22
 } 0
 "90 /media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
@@ -775,86 +812,10 @@
 {
 "139
 } 0
-"54 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
+"71 /media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c
 [v _EUSART_RX_Interrupt EUSART_RX_Interrupt `(v  1 e 1 0 ]
 {
-"55
-[v EUSART_RX_Interrupt@c c `uc  1 a 1 60 ]
-"85
-} 0
-"192 /media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-[v i2_TFT_DrawChar TFT_DrawChar `(v  1 e 1 0 ]
-{
-[v i2TFT_DrawChar@i TFT_DrawChar `c  1 a 1 57 ]
-[v i2TFT_DrawChar@j TFT_DrawChar `c  1 a 1 56 ]
-[v i2TFT_DrawChar@line TFT_DrawChar `uc  1 a 1 51 ]
-[v i2TFT_DrawChar@x x `ui  1 p 2 37 ]
-[v i2TFT_DrawChar@y y `ui  1 p 2 39 ]
-[v i2TFT_DrawChar@c c `uc  1 p 1 41 ]
-[v i2TFT_DrawChar@color color `ui  1 p 2 42 ]
-[v i2TFT_DrawChar@bg bg `ui  1 p 2 44 ]
-[v i2TFT_DrawChar@size size `uc  1 p 1 46 ]
-"211
-} 0
-"94
-[v i2_TFT_DrawPixel TFT_DrawPixel `(v  1 e 1 0 ]
-{
-[v i2TFT_DrawPixel@x x `ui  1 p 2 8 ]
-[v i2TFT_DrawPixel@y y `ui  1 p 2 10 ]
-[v i2TFT_DrawPixel@color color `ui  1 p 2 12 ]
-"98
-} 0
-"138
-[v i2_TFT_DrawFillRect TFT_DrawFillRect `(v  1 e 1 0 ]
-{
-[v i2TFT_DrawFillRect@x x `ui  1 p 2 23 ]
-[v i2TFT_DrawFillRect@y y `ui  1 p 2 25 ]
-[v i2TFT_DrawFillRect@w w `ui  1 p 2 27 ]
-[v i2TFT_DrawFillRect@h h `ui  1 p 2 29 ]
-[v i2TFT_DrawFillRect@color color `ui  1 p 2 31 ]
-"142
-} 0
-"15 /opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-[v i2___wmul __wmul `(ui  1 e 2 0 ]
-{
-[v i2___wmul@product __wmul `ui  1 a 2 4 ]
-[v i2___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v i2___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
-"68 /media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-[v i2_TFT_FullScreen TFT_FullScreen `(v  1 e 1 0 ]
-{
-"70
-} 0
-"56
-[v i2_TFT_SetAddrWindow TFT_SetAddrWindow `(v  1 e 1 0 ]
-{
-[v i2TFT_SetAddrWindow@x1 x1 `ui  1 p 2 8 ]
-[v i2TFT_SetAddrWindow@y1 y1 `ui  1 p 2 10 ]
-[v i2TFT_SetAddrWindow@x2 x2 `ui  1 p 2 12 ]
-[v i2TFT_SetAddrWindow@y2 y2 `ui  1 p 2 14 ]
-"66
-} 0
-"144
-[v i2_TFT_Flood TFT_Flood `(v  1 e 1 0 ]
-{
-[v i2TFT_Flood@blocks TFT_Flood `ui  1 a 2 18 ]
-[v i2TFT_Flood@color_lo TFT_Flood `uc  1 a 1 22 ]
-[v i2TFT_Flood@color_hi TFT_Flood `uc  1 a 1 21 ]
-[v i2TFT_Flood@i TFT_Flood `uc  1 a 1 20 ]
-[v i2TFT_Flood@color color `ui  1 p 2 8 ]
-[v i2TFT_Flood@len len `ul  1 p 4 10 ]
-"180
-} 0
-"12
-[v i2_TFT_WriteRegister TFT_WriteRegister `(v  1 e 1 0 ]
-{
-[v i2TFT_WriteRegister@l_621 TFT_WriteRegister `uc  1 a 1 7 ]
-[v i2TFT_WriteRegister@h_620 TFT_WriteRegister `uc  1 a 1 6 ]
-[v i2TFT_WriteRegister@l TFT_WriteRegister `uc  1 a 1 5 ]
-[v i2TFT_WriteRegister@h TFT_WriteRegister `uc  1 a 1 4 ]
-[v i2TFT_WriteRegister@reg reg `ui  1 p 2 0 ]
-[v i2TFT_WriteRegister@data data `ui  1 p 2 2 ]
-"17
+"72
+[v EUSART_RX_Interrupt@c c `uc  1 a 1 0 ]
+"81
 } 0

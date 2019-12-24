@@ -5449,8 +5449,19 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 24 "commons.h"
+# 26 "commons.h"
+typedef struct {
+uint8_t processRX;
+uint8_t iRead;
+uint8_t iWrite;
+uint8_t zzzzzzzzz;
+char buffer[64];
+char line[32];
+} STRUCT_EUSART_RX;
+
+
 extern uint32_t MILLISECONDS;
+extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5458,25 +5469,22 @@ extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 extern void EUSART_Init(void);
+extern void EUSART_SetSpeed(const uint32_t speed);
 extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(char *str, uint8_t len);
+extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
+extern void A6_SetSpeed(const uint32_t speed);
+extern void A6_ReadLine(char *response, uint8_t len);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 
-# 17 "eusart.h"
-struct {
-unsigned unused : 7;
-unsigned processRX : 1;
-uint8_t iRead;
-uint8_t iWrite;
-uint8_t zzzzzzzzz;
-char buffer[64];
-char line[64];
-} EUSART_RX;
+# 15 "eusart.h"
+STRUCT_EUSART_RX EUSART_RX;
 
 void EUSART_Init(void);
+void EUSART_SetSpeed(const uint32_t speed);
 void EUSART_TX_Char(uint8_t c);
-void EUSART_TX_String(char *str, uint8_t len);
+void EUSART_TX_String(const char *str, uint8_t len);
 void EUSART_RX_Interrupt(void);
 void EUSART_RX_Process(void);
 
@@ -5487,7 +5495,7 @@ TXSTAbits.TX9 = 0;
 TXSTAbits.TXEN = 1;
 TXSTAbits.SYNC = 0;
 TXSTAbits.SENDB = 0;
-TXSTAbits.BRGH = 0;
+TXSTAbits.BRGH = 1;
 
 
 RCSTAbits.SPEN = 1;
@@ -5495,11 +5503,11 @@ RCSTAbits.RX9 = 0;
 RCSTAbits.CREN = 1;
 
 
-BAUDCONbits.BRG16 = 0;
+BAUDCONbits.BRG16 = 1;
 BAUDCONbits.WUE = 0;
 BAUDCONbits.ABDEN = 0;
-SPBRGH = 0;
-SPBRG = 77;
+SPBRGH = 0x04;
+SPBRG = 0xE1;
 
 
 RCIE = 1;
@@ -5507,8 +5515,25 @@ RCIE = 1;
 
 EUSART_RX.iRead = 0;
 EUSART_RX.iWrite = 0;
+EUSART_RX.processRX = 0;
 EUSART_RX.zzzzzzzzz = 1;
 memset(EUSART_RX.buffer, 0x00, 64);
+memset(EUSART_RX.line, 0x00, 32);
+}
+
+void EUSART_SetSpeed(const uint32_t speed) {
+TXSTAbits.SYNC = 0;
+TXSTAbits.BRGH = 1;
+BAUDCONbits.BRG16 = 1;
+
+uint32_t tmp = (48000000 / speed);
+tmp = tmp / 4;
+tmp--;
+
+SPBRG = (uint8_t) tmp;
+SPBRGH = (uint8_t) (tmp >> 8);
+
+return;
 }
 
 void EUSART_TX_Char(uint8_t c) {
@@ -5517,7 +5542,7 @@ TXREG = c;
 asm("nop");
 }
 
-void EUSART_TX_String(char *str, uint8_t len) {
+void EUSART_TX_String(const char *str, uint8_t len) {
 while(len--) {
 EUSART_TX_Char(*str++);
 }
@@ -5529,48 +5554,29 @@ if(OERR == 1) {
 CREN = 0;
 CREN = 1;
 }
-switch(c) {
-case '\r':
-break;
-
-case '\n':
-if(EUSART_RX.iWrite != 0) {
-
-PORTAbits.RA2 = 0;
-}
-EUSART_RX.zzzzzzzzz += 6;
-TFT_DrawFillRect(EUSART_RX.zzzzzzzzz + 18, 0, 6, 400, 0x0000);
-EUSART_RX.iWrite = 0;
-break;
-
-default:
-PORTAbits.RA2 = 1;
-EUSART_RX.buffer[EUSART_RX.iWrite] = c;
 EUSART_RX.iWrite++;
 if(EUSART_RX.iWrite == 64) EUSART_RX.iWrite = 0;
-EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
-
-TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (EUSART_RX.iWrite * 6)), c, 0xFFFF, 0x0000, 1);
-
-break;
-}
+EUSART_RX.buffer[EUSART_RX.iWrite] = c;
+return;
 }
 
 void EUSART_RX_Process(void) {
+
 if(EUSART_RX.processRX == 0) return;
+EUSART_RX.processRX--;
 
-TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 18, 400, 0x0000);
-for(uint8_t i=0; i!=64; i++) {
-if(EUSART_RX.buffer[i] == 0) break;
-TFT_DrawChar(EUSART_RX.zzzzzzzzz, ((400 - 1) - (i * 6)), EUSART_RX.buffer[i], 0xFFFF, 0x0000, 1);
-}
+
 EUSART_RX.zzzzzzzzz += 8;
-if(EUSART_RX.zzzzzzzzz > 210) EUSART_RX.zzzzzzzzz = 1;
-EUSART_RX.iWrite = 0;
-EUSART_RX.buffer[EUSART_RX.iWrite] = 0x00;
-EUSART_RX.buffer[EUSART_RX.iWrite + 1] = 0x00;
+for(uint8_t iLine=0; iLine<32; iLine++) {
+EUSART_RX.line[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
+EUSART_RX.iRead++;
+if(EUSART_RX.iRead == 64) EUSART_RX.iRead = 0;
+if(EUSART_RX.line[iLine] == 0x00) break;
+}
+EUSART_RX.line[32 - 1] = 0x00;
 
-EUSART_RX.processRX = 0;
+TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), EUSART_RX.line, 0xFFFF, 0x0000, 1);
 
-# 143
+return;
 }

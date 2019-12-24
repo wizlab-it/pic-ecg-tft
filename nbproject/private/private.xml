@@ -6,6 +6,10 @@
             <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c</file>
             <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.h</file>
             <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/eusart.c</file>
+            <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/commons.h</file>
+            <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.h</file>
+            <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.h</file>
+            <file>file:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c</file>
         </group>
     </open-files>
 </project-private>

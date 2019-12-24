@@ -1,58 +1,25 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2372 /opt/microchip/xc8/v2.10/pic/include/pic18f2455.h
-[s S95 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S95 . RC0 RC1 RC2 . RC4 RC5 RC6 RC7 ]
-"2382
-[s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S96 . T1OSO T1OSI CCP1 . TX RX ]
-"2390
-[s S97 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S97 . T13CKI . P1A . CK DT ]
-"2398
-[s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S98 . . CCP2 PA1 ]
-"2403
-[s S99 :1 `uc 1 :1 `uc 1 ]
-[n S99 . . PA2 ]
-"2371
-[u S94 `S95 1 `S96 1 `S97 1 `S98 1 `S99 1 ]
-[n S94 . . . . . . ]
-"2408
-[v _PORTCbits `VS94 ~T0 @X0 0 e@3970 ]
-"2256
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"2123
-[s S85 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S85 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
-"2132
-[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S86 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 ]
-"2141
-[s S87 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S87 . . VREFM VREFP . LVDIN ]
-"2148
-[s S88 :5 `uc 1 :1 `uc 1 ]
-[n S88 . . HLVDIN ]
-"2152
-[s S89 :1 `uc 1 ]
-[n S89 . ULPWUIN ]
-"2122
-[u S84 `S85 1 `S86 1 `S87 1 `S88 1 `S89 1 ]
-[n S84 . . . . . . ]
-"2156
-[v _PORTAbits `VS84 ~T0 @X0 0 e@3968 ]
-"3035
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"16 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"26 commons.h
+[s S326 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 64 `i `uc -> 32 `i ]
+[n S326 . processRX iRead iWrite zzzzzzzzz buffer line ]
+"37
+[v _EUSART_RX `S326 ~T0 @X0 0 e ]
+"47
+[v _EUSART_TX_String `(v ~T0 @X0 0 ef2`*Cuc`uc ]
+"56 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
+"45 commons.h
+[v _EUSART_SetSpeed `(v ~T0 @X0 0 ef1`Cul ]
+"71 TFT.h
+[v _TFT_DrawFillRect `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
+"76
+[v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
 [v F2641 `(v ~T0 @X0 1 tf1`ul ]
 "187 /opt/microchip/xc8/v2.10/pic/include/pic18.h
 [v __delay `JF2641 ~T0 @X0 0 e ]
 [p i __delay ]
-"73 TFT.h
-[v _TFT_FillScreen `(v ~T0 @X0 0 ef1`ui ]
-"110 /opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h
-[v _abs `(i ~T0 @X0 0 ef1`i ]
-"72 TFT.h
-[v _TFT_Flood `(v ~T0 @X0 0 ef2`ui`ul ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3257,29 +3224,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 58: extern char * strichr(const char *, int);
 [; ;string.h: 59: extern char * strrchr(const char *, int);
 [; ;string.h: 60: extern char * strrichr(const char *, int);
-[; ;commons.h: 26: typedef struct {
-[; ;commons.h: 27: uint8_t processRX;
-[; ;commons.h: 28: uint8_t iRead;
-[; ;commons.h: 29: uint8_t iWrite;
-[; ;commons.h: 30: uint8_t zzzzzzzzz;
-[; ;commons.h: 31: char buffer[64];
-[; ;commons.h: 32: char line[32];
-[; ;commons.h: 33: } STRUCT_EUSART_RX;
-[; ;commons.h: 36: extern uint32_t MILLISECONDS;
-[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
-[; ;commons.h: 40: extern void init(void);
-[; ;commons.h: 41: extern void Ecg_Init(void);
-[; ;commons.h: 42: extern void Ecg_Process(void);
-[; ;commons.h: 43: extern void Ecg_Interrupt(void);
-[; ;commons.h: 44: extern void EUSART_Init(void);
-[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
-[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
-[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 49: extern void EUSART_RX_Process(void);
-[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
-[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
-[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 [; ;TFT.h: 61: void TFT_WriteRegister(uint16_t reg, uint16_t data);
 [; ;TFT.h: 62: void TFT_WriteRegisters(uint16_t reg, uint8_t *data, uint8_t dataSize);
 [; ;TFT.h: 63: uint16_t TFT_ReadRegister(uint16_t reg);
@@ -5311,1269 +5255,222 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-"12 TFT.c
-[v _TFT_WriteRegister `(v ~T0 @X0 1 ef2`ui`ui ]
+[; ;commons.h: 26: typedef struct {
+[; ;commons.h: 27: uint8_t processRX;
+[; ;commons.h: 28: uint8_t iRead;
+[; ;commons.h: 29: uint8_t iWrite;
+[; ;commons.h: 30: uint8_t zzzzzzzzz;
+[; ;commons.h: 31: char buffer[64];
+[; ;commons.h: 32: char line[32];
+[; ;commons.h: 33: } STRUCT_EUSART_RX;
+[; ;commons.h: 36: extern uint32_t MILLISECONDS;
+[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
+[; ;commons.h: 40: extern void init(void);
+[; ;commons.h: 41: extern void Ecg_Init(void);
+[; ;commons.h: 42: extern void Ecg_Process(void);
+[; ;commons.h: 43: extern void Ecg_Interrupt(void);
+[; ;commons.h: 44: extern void EUSART_Init(void);
+[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 49: extern void EUSART_RX_Process(void);
+[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
+[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
+[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+[; ;A6Lib.h: 16: void A6_SetSpeed(const uint32_t speed);
+[; ;A6Lib.h: 17: void A6_ReadLine(char *response, uint8_t len);
+[; ;A6Lib.h: 18: void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+"12 A6Lib.c
+[v _A6_ReadLine `(v ~T0 @X0 1 ef2`*uc`uc ]
 {
-[; ;TFT.c: 12: void TFT_WriteRegister(uint16_t reg, uint16_t data) {
-[e :U _TFT_WriteRegister ]
-[v _reg `ui ~T0 @X0 1 r1 ]
-[v _data `ui ~T0 @X0 1 r2 ]
+[; ;A6Lib.c: 12: void A6_ReadLine(char *response, uint8_t len) {
+[e :U _A6_ReadLine ]
+[v _response `*uc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;TFT.c: 13: { PORTCbits.RC0 = 0; { asm("nop"); }; };
 "13
-{
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[; ;TFT.c: 14: { PORTCbits.RC1 = 0;; { uint8_t h = (reg)>>8, l = (uint8_t)reg; { PORTB = h; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = l; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; }; };
+[v _iLine `uc ~T0 @X0 1 a ]
+[; ;A6Lib.c: 13: uint8_t iLine = 0;
+[e = _iLine -> -> 0 `i `uc ]
+[; ;A6Lib.c: 14: memset(response, 0x00, len);
 "14
-{
-[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-{
-[v _h `uc ~T0 @X0 1 a ]
-[e = _h -> >> _reg -> 8 `i `uc ]
-[v _l `uc ~T0 @X0 1 a ]
-[e = _l -> _reg `uc ]
-{
-[e = _PORTB _h ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _l ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-}
-}
-[; ;TFT.c: 15: { PORTCbits.RC1 = 1;; { uint8_t h = (data)>>8, l = (uint8_t)data; { PORTB = h; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = l; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; }; };
+[e ( _memset (3 , , -> _response `*v -> 0 `i -> _len `ui ]
+[; ;A6Lib.c: 15: while(1) {
 "15
+[e :U 329 ]
 {
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-{
-[v _h `uc ~T0 @X0 1 a ]
-[e = _h -> >> _data -> 8 `i `uc ]
-[v _l `uc ~T0 @X0 1 a ]
-[e = _l -> _data `uc ]
-{
-[e = _PORTB _h ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _l ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-}
-}
-[; ;TFT.c: 16: PORTCbits.RC0 = 1;;
+[; ;A6Lib.c: 16: while(EUSART_RX.iRead == EUSART_RX.iWrite);
 "16
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;TFT.c: 17: }
+[e $U 331  ]
+[e :U 332 ]
+[e :U 331 ]
+[e $ == -> . _EUSART_RX 1 `i -> . _EUSART_RX 2 `i 332  ]
+[e :U 333 ]
+[; ;A6Lib.c: 17: EUSART_RX.iRead++;
 "17
-[e :UE 327 ]
-}
+[e ++ . _EUSART_RX 1 -> -> 1 `i `uc ]
+[; ;A6Lib.c: 18: if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
+"18
+[e $ ! == -> *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux `ui -> 13 `ui 334  ]
+[e $U 330  ]
+[e :U 334 ]
+[; ;A6Lib.c: 19: response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
 "19
-[v _TFT_WriteRegisters `(v ~T0 @X0 1 ef3`ui`*uc`uc ]
-{
-[; ;TFT.c: 19: void TFT_WriteRegisters(uint16_t reg, uint8_t *data, uint8_t dataSize) {
-[e :U _TFT_WriteRegisters ]
-[v _reg `ui ~T0 @X0 1 r1 ]
-[v _data `*uc ~T0 @X0 1 r2 ]
-[v _dataSize `uc ~T0 @X0 1 r3 ]
-[f ]
-[; ;TFT.c: 20: { PORTCbits.RC0 = 0; { asm("nop"); }; };
+[e = *U + _response * -> _iLine `ux -> -> # *U _response `ui `ux *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux ]
+[; ;A6Lib.c: 20: iLine++;
 "20
-{
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[; ;TFT.c: 21: { PORTCbits.RC1 = 0;; { uint8_t h = (reg)>>8, l = (uint8_t)reg; { PORTB = h; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = l; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; }; };
+[e ++ _iLine -> -> 1 `i `uc ]
 "21
-{
-[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-{
-[v _h `uc ~T0 @X0 1 a ]
-[e = _h -> >> _reg -> 8 `i `uc ]
-[v _l `uc ~T0 @X0 1 a ]
-[e = _l -> _reg `uc ]
-{
-[e = _PORTB _h ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
 }
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _l ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-}
-}
-[; ;TFT.c: 22: PORTCbits.RC1 = 1;;
-"22
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-"23
-[v _i `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 23: uint8_t i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;TFT.c: 24: while(i != dataSize) {
-"24
+[e :U 328 ]
+"15
 [e $U 329  ]
 [e :U 330 ]
-{
-[; ;TFT.c: 25: { PORTB = data[i++]; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"25
-{
-[e = _PORTB *U + _data * -> ++ _i -> -> 1 `i `uc `ux -> -> # *U _data `ui `ux ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
+[; ;A6Lib.c: 21: }
+[; ;A6Lib.c: 22: response[iLine] = 0x00;
+"22
+[e = *U + _response * -> _iLine `ux -> -> # *U _response `ui `ux -> -> 0 `i `uc ]
+[; ;A6Lib.c: 23: return;
+"23
+[e $UE 327  ]
+[; ;A6Lib.c: 24: }
+"24
+[e :UE 327 ]
 }
 "26
-}
-[e :U 329 ]
-"24
-[e $ != -> _i `i -> _dataSize `i 330  ]
-[e :U 331 ]
-[; ;TFT.c: 26: }
-[; ;TFT.c: 27: PORTCbits.RC0 = 1;;
+[v _A6_Command `(v ~T0 @X0 1 ef5`*Cuc`*Cuc`*Cuc`i`*uc ]
+{
+[; ;A6Lib.c: 26: void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response) {
+[e :U _A6_Command ]
+[v _command `*Cuc ~T0 @X0 1 r1 ]
+[v _resp1 `*Cuc ~T0 @X0 1 r2 ]
+[v _resp2 `*Cuc ~T0 @X0 1 r3 ]
+[v _timeout `i ~T0 @X0 1 r4 ]
+[v _response `*uc ~T0 @X0 1 r5 ]
+[f ]
+[; ;A6Lib.c: 27: EUSART_RX.iRead = EUSART_RX.iWrite;
 "27
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;TFT.c: 28: }
+[e = . _EUSART_RX 1 . _EUSART_RX 2 ]
+[; ;A6Lib.c: 28: EUSART_TX_String(command, strlen(command));
 "28
-[e :UE 328 ]
-}
-"30
-[v _TFT_ReadRegister `(ui ~T0 @X0 1 ef1`ui ]
-{
-[; ;TFT.c: 30: uint16_t TFT_ReadRegister(uint16_t reg) {
-[e :U _TFT_ReadRegister ]
-[v _reg `ui ~T0 @X0 1 r1 ]
-[f ]
+[e ( _EUSART_TX_String (2 , _command -> ( _strlen (1 _command `uc ]
+[; ;A6Lib.c: 31: do {
 "31
-[v _data `ui ~T0 @X0 1 a ]
-[; ;TFT.c: 31: uint16_t data;
-[; ;TFT.c: 32: { PORTCbits.RC0 = 0; { asm("nop"); }; };
+[e :U 338 ]
+{
+[; ;A6Lib.c: 32: while(EUSART_RX.iRead == EUSART_RX.iWrite);
 "32
-{
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[; ;TFT.c: 33: { PORTCbits.RC1 = 0;; { uint8_t h = (reg)>>8, l = (uint8_t)reg; { PORTB = h; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = l; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; }; };
+[e $U 339  ]
+[e :U 340 ]
+[e :U 339 ]
+[e $ == -> . _EUSART_RX 1 `i -> . _EUSART_RX 2 `i 340  ]
+[e :U 341 ]
+[; ;A6Lib.c: 33: EUSART_RX.iRead++;
 "33
-{
-[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-{
-[v _h `uc ~T0 @X0 1 a ]
-[e = _h -> >> _reg -> 8 `i `uc ]
-[v _l `uc ~T0 @X0 1 a ]
-[e = _l -> _reg `uc ]
-{
-[e = _PORTB _h ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _l ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-}
-}
-[; ;TFT.c: 34: TRISB = 0xFF;;
+[e ++ . _EUSART_RX 1 -> -> 1 `i `uc ]
 "34
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;TFT.c: 35: PORTCbits.RC1 = 1;;
-"35
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;TFT.c: 36: { uint8_t hi; { { PORTAbits.RA4 = 0; { asm("nop"); }; }; hi = PORTB; PORTAbits.RA4 = 1;; }; { { PORTAbits.RA4 = 0; { asm("nop"); }; }; data = PORTB; PORTAbits.RA4 = 1;; }; data |= (hi << 8); };
-"36
-{
-[v _hi `uc ~T0 @X0 1 a ]
-{
-{
-[e = . . _PORTAbits 0 4 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
 }
-}
-[e = _hi _PORTB ]
-[e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 4 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = _data -> _PORTB `ui ]
-[e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
-}
-[e =| _data -> << -> _hi `i -> 8 `i `ui ]
-}
-[; ;TFT.c: 37: PORTCbits.RC0 = 1;;
+[; ;A6Lib.c: 34: } while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
+[e $ != -> *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux `ui -> 10 `ui 338  ]
+[e :U 337 ]
+[; ;A6Lib.c: 37: A6_ReadLine(response, 32);
 "37
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;TFT.c: 38: TRISB = 0x00;;
-"38
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;TFT.c: 39: return data;
+[e ( _A6_ReadLine (2 , _response -> -> 32 `i `uc ]
+[; ;A6Lib.c: 39: return;
 "39
-[e ) _data ]
-[e $UE 332  ]
-[; ;TFT.c: 40: }
+[e $UE 335  ]
+[; ;A6Lib.c: 40: }
 "40
-[e :UE 332 ]
-}
-"42
-[v _TFT_ReadID `(ui ~T0 @X0 1 ef ]
-{
-[; ;TFT.c: 42: uint16_t TFT_ReadID(void) {
-[e :U _TFT_ReadID ]
-[f ]
-[; ;TFT.c: 43: return TFT_ReadRegister(0x0000);
-"43
-[e ) ( _TFT_ReadRegister (1 -> -> 0 `i `ui ]
-[e $UE 333  ]
-[; ;TFT.c: 44: }
-"44
-[e :UE 333 ]
-}
-"46
-[v _TFT_Reset `(v ~T0 @X0 1 ef ]
-{
-[; ;TFT.c: 46: void TFT_Reset(void) {
-[e :U _TFT_Reset ]
-[f ]
-[; ;TFT.c: 47: TRISB = 0x00;;
-"47
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;TFT.c: 48: PORTCbits.RC0 = 1;;
-"48
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;TFT.c: 49: PORTAbits.RA5 = 1;;
-"49
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-[; ;TFT.c: 50: PORTAbits.RA4 = 1;;
-"50
-[e = . . _PORTAbits 0 4 -> -> 1 `i `uc ]
-[; ;TFT.c: 51: PORTCbits.RC2 = 0;;
-"51
-[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-[; ;TFT.c: 52: _delay((unsigned long)((2)*(48000000/4000.0)));
-"52
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;TFT.c: 53: PORTCbits.RC2 = 1;;
-"53
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;TFT.c: 54: }
-"54
-[e :UE 334 ]
-}
-"56
-[v _TFT_SetAddrWindow `(v ~T0 @X0 1 ef4`ui`ui`ui`ui ]
-{
-[; ;TFT.c: 56: void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
-[e :U _TFT_SetAddrWindow ]
-[v _x1 `ui ~T0 @X0 1 r1 ]
-[v _y1 `ui ~T0 @X0 1 r2 ]
-[v _x2 `ui ~T0 @X0 1 r3 ]
-[v _y2 `ui ~T0 @X0 1 r4 ]
-[f ]
-[; ;TFT.c: 58: TFT_WriteRegister(0x0210, x1);
-"58
-[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui _x1 ]
-[; ;TFT.c: 59: TFT_WriteRegister(0x0211, x2);
-"59
-[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui _x2 ]
-[; ;TFT.c: 60: TFT_WriteRegister(0x0212, y1);
-"60
-[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui _y1 ]
-[; ;TFT.c: 61: TFT_WriteRegister(0x0213, y2);
-"61
-[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui _y2 ]
-[; ;TFT.c: 64: TFT_WriteRegister(0x0200, x1);
-"64
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _x1 ]
-[; ;TFT.c: 65: TFT_WriteRegister(0x0201, y2);
-"65
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _y2 ]
-[; ;TFT.c: 66: }
-"66
 [e :UE 335 ]
 }
-"68
-[v _TFT_FullScreen `(v ~T0 @X0 1 ef ]
+"42
+[v _A6_SetSpeed `(v ~T0 @X0 1 ef1`Cul ]
 {
-[; ;TFT.c: 68: void TFT_FullScreen(void) {
-[e :U _TFT_FullScreen ]
+[; ;A6Lib.c: 42: void A6_SetSpeed(const uint32_t speed) {
+[e :U _A6_SetSpeed ]
+[v _speed `Cul ~T0 @X0 1 r1 ]
 [f ]
-[; ;TFT.c: 69: TFT_SetAddrWindow(0, 0, 240 - 1, 400 - 1);
-"69
-[e ( _TFT_SetAddrWindow (4 , , , -> -> 0 `i `ui -> -> 0 `i `ui -> - -> 240 `i -> 1 `i `ui -> - -> 400 `i -> 1 `i `ui ]
-[; ;TFT.c: 70: }
-"70
-[e :UE 336 ]
-}
-"72
-[v _TFT_Init `(v ~T0 @X0 1 ef ]
+"43
+[v _response `uc ~T0 @X0 -> 32 `i a ]
+[; ;A6Lib.c: 43: char response[32];
+[; ;A6Lib.c: 44: memset(response, 0x00, 32);
+"44
+[e ( _memset (3 , , -> &U _response `*v -> 0 `i -> -> 32 `i `ui ]
+[; ;A6Lib.c: 46: switch(speed) {
+"46
+[e $U 344  ]
 {
-[; ;TFT.c: 72: void TFT_Init(void) {
-[e :U _TFT_Init ]
-[f ]
-[; ;TFT.c: 73: TFT_Reset();
-"73
-[e ( _TFT_Reset ..  ]
-[; ;TFT.c: 74: _delay((unsigned long)((200)*(48000000/4000.0)));
-"74
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-"77
-[v _i `ui ~T0 @X0 1 a ]
-[; ;TFT.c: 77: uint16_t i=0, cmd, data;
-[e = _i -> -> 0 `i `ui ]
-[v _cmd `ui ~T0 @X0 1 a ]
-[v _data `ui ~T0 @X0 1 a ]
-"78
-[v _initSequenceSize `ui ~T0 @X0 1 a ]
-[; ;TFT.c: 78: uint16_t initSequenceSize = sizeof(TFT_Init_Sequence) / sizeof(uint16_t);
-[e = _initSequenceSize / -> # _TFT_Init_Sequence `ui -> # `ui `ui ]
-[; ;TFT.c: 79: while(i != initSequenceSize) {
-"79
-[e $U 338  ]
-[e :U 339 ]
-{
-[; ;TFT.c: 80: cmd = TFT_Init_Sequence[i++];
-"80
-[e = _cmd *U + &U _TFT_Init_Sequence * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U &U _TFT_Init_Sequence `ui `ux ]
-[; ;TFT.c: 81: data = TFT_Init_Sequence[i++];
-"81
-[e = _data *U + &U _TFT_Init_Sequence * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U &U _TFT_Init_Sequence `ui `ux ]
-[; ;TFT.c: 82: if(cmd == 0xFFFF) {
-"82
-[e $ ! == _cmd -> 65535 `ui 341  ]
-{
-[; ;TFT.c: 83: _delay((unsigned long)((200)*(48000000/4000.0)));
-"83
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-"84
-}
-[; ;TFT.c: 84: } else {
-[e $U 342  ]
-[e :U 341 ]
-{
-[; ;TFT.c: 85: TFT_WriteRegister(cmd, data);
-"85
-[e ( _TFT_WriteRegister (2 , _cmd _data ]
-"86
-}
-[e :U 342 ]
-"87
-}
-[e :U 338 ]
-"79
-[e $ != _i _initSequenceSize 339  ]
-[e :U 340 ]
-[; ;TFT.c: 86: }
-[; ;TFT.c: 87: }
-[; ;TFT.c: 90: TFT_FullScreen();
-"90
-[e ( _TFT_FullScreen ..  ]
-[; ;TFT.c: 91: TFT_FillScreen(0x0000);
-"91
-[e ( _TFT_FillScreen (1 -> -> 0 `i `ui ]
-[; ;TFT.c: 92: }
-"92
-[e :UE 337 ]
-}
-"94
-[v _TFT_DrawPixel `(v ~T0 @X0 1 ef3`ui`ui`ui ]
-{
-[; ;TFT.c: 94: void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
-[e :U _TFT_DrawPixel ]
-[v _x `ui ~T0 @X0 1 r1 ]
-[v _y `ui ~T0 @X0 1 r2 ]
-[v _color `ui ~T0 @X0 1 r3 ]
-[f ]
-[; ;TFT.c: 95: TFT_WriteRegister(0x0200, x);
-"95
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _x ]
-[; ;TFT.c: 96: TFT_WriteRegister(0x0201, y);
-"96
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _y ]
-[; ;TFT.c: 97: TFT_WriteRegister(0x0202, color);
-"97
-[e ( _TFT_WriteRegister (2 , -> -> 514 `i `ui _color ]
-[; ;TFT.c: 98: }
-"98
-[e :UE 343 ]
-}
-"100
-[v _TFT_DrawLine `(v ~T0 @X0 1 ef5`i`i`i`i`ui ]
-{
-[; ;TFT.c: 100: void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
-[e :U _TFT_DrawLine ]
-[v _x0 `i ~T0 @X0 1 r1 ]
-[v _y0 `i ~T0 @X0 1 r2 ]
-[v _x1 `i ~T0 @X0 1 r3 ]
-[v _y1 `i ~T0 @X0 1 r4 ]
-[v _color `ui ~T0 @X0 1 r5 ]
-[f ]
-"101
-[v _steep `i ~T0 @X0 1 a ]
-[; ;TFT.c: 101: int16_t steep = abs(y1 - y0) > abs(x1 - x0);
-[e = _steep -> > ( _abs (1 - _y1 _y0 ( _abs (1 - _x1 _x0 `i ]
-[; ;TFT.c: 102: if(steep) {
-"102
-[e $ ! != _steep -> 0 `i 345  ]
-{
-[; ;TFT.c: 103: { int16_t t = x0; x0 = y0; y0 = t; };
-"103
-{
-[v _t `i ~T0 @X0 1 a ]
-[e = _t _x0 ]
-[e = _x0 _y0 ]
-[e = _y0 _t ]
-}
-[; ;TFT.c: 104: { int16_t t = x1; x1 = y1; y1 = t; };
-"104
-{
-[v _t `i ~T0 @X0 1 a ]
-[e = _t _x1 ]
-[e = _x1 _y1 ]
-[e = _y1 _t ]
-}
-"105
-}
+[; ;A6Lib.c: 47: case 57600:
+"47
 [e :U 345 ]
-[; ;TFT.c: 105: }
-[; ;TFT.c: 106: if(x0 > x1) {
-"106
-[e $ ! > _x0 _x1 346  ]
-{
-[; ;TFT.c: 107: { int16_t t = x0; x0 = x1; x1 = t; };
-"107
-{
-[v _t `i ~T0 @X0 1 a ]
-[e = _t _x0 ]
-[e = _x0 _x1 ]
-[e = _x1 _t ]
-}
-[; ;TFT.c: 108: { int16_t t = y0; y0 = y1; y1 = t; };
-"108
-{
-[v _t `i ~T0 @X0 1 a ]
-[e = _t _y0 ]
-[e = _y0 _y1 ]
-[e = _y1 _t ]
-}
-"109
-}
+[; ;A6Lib.c: 48: A6_Command("AT+IPR=57600\r\0", "aa", "bb", 123, response);
+"48
+[e ( _A6_Command (4 , , , , :s 1C :s 2C :s 3C -> 123 `i &U _response ]
+[; ;A6Lib.c: 49: break;
+"49
+[e $U 343  ]
+[; ;A6Lib.c: 50: case 115200:
+"50
 [e :U 346 ]
-"111
-[v _dx `i ~T0 @X0 1 a ]
-[v _dy `i ~T0 @X0 1 a ]
-[; ;TFT.c: 109: }
-[; ;TFT.c: 111: int16_t dx, dy;
-[; ;TFT.c: 112: dx = x1 - x0;
-"112
-[e = _dx - _x1 _x0 ]
-[; ;TFT.c: 113: dy = abs(y1 - y0);
-"113
-[e = _dy ( _abs (1 - _y1 _y0 ]
-"115
-[v _err `i ~T0 @X0 1 a ]
-[; ;TFT.c: 115: int16_t err = dx / 2;
-[e = _err / _dx -> 2 `i ]
-"116
-[v _ystep `i ~T0 @X0 1 a ]
-[; ;TFT.c: 116: int16_t ystep;
-[; ;TFT.c: 118: if(y0 < y1) {
-"118
-[e $ ! < _y0 _y1 347  ]
-{
-[; ;TFT.c: 119: ystep = 1;
-"119
-[e = _ystep -> 1 `i ]
-"120
-}
-[; ;TFT.c: 120: } else {
-[e $U 348  ]
+[; ;A6Lib.c: 51: A6_Command("AT+IPR=115200\r\0", "aa", "bb", 123, response);
+"51
+[e ( _A6_Command (4 , , , , :s 4C :s 5C :s 6C -> 123 `i &U _response ]
+[; ;A6Lib.c: 52: break;
+"52
+[e $U 343  ]
+[; ;A6Lib.c: 53: case 9600:
+"53
 [e :U 347 ]
-{
-[; ;TFT.c: 121: ystep = -1;
-"121
-[e = _ystep -U -> 1 `i ]
-"122
-}
+[; ;A6Lib.c: 54: default:
+"54
 [e :U 348 ]
-[; ;TFT.c: 122: }
-[; ;TFT.c: 124: for(; x0<=x1; x0++) {
-"124
-{
-[e $U 352  ]
-[e :U 349 ]
-{
-[; ;TFT.c: 125: if(steep) {
-"125
-[e $ ! != _steep -> 0 `i 353  ]
-{
-[; ;TFT.c: 126: TFT_DrawPixel(y0, x0, color);
-"126
-[e ( _TFT_DrawPixel (3 , , -> _y0 `ui -> _x0 `ui _color ]
-"127
-}
-[; ;TFT.c: 127: } else {
-[e $U 354  ]
-[e :U 353 ]
-{
-[; ;TFT.c: 128: TFT_DrawPixel(x0, y0, color);
-"128
-[e ( _TFT_DrawPixel (3 , , -> _x0 `ui -> _y0 `ui _color ]
-"129
-}
-[e :U 354 ]
-[; ;TFT.c: 129: }
-[; ;TFT.c: 130: err -= dy;
-"130
-[e =- _err _dy ]
-[; ;TFT.c: 131: if(err < 0) {
-"131
-[e $ ! < _err -> 0 `i 355  ]
-{
-[; ;TFT.c: 132: y0 += ystep;
-"132
-[e =+ _y0 _ystep ]
-[; ;TFT.c: 133: err += dx;
-"133
-[e =+ _err _dx ]
-"134
-}
-[e :U 355 ]
-"135
-}
-"124
-[e ++ _x0 -> 1 `i ]
-[e :U 352 ]
-[e $ <= _x0 _x1 349  ]
-[e :U 350 ]
-"135
-}
-[; ;TFT.c: 134: }
-[; ;TFT.c: 135: }
-[; ;TFT.c: 136: }
-"136
-[e :UE 344 ]
-}
-"138
-[v _TFT_DrawFillRect `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`ui ]
-{
-[; ;TFT.c: 138: void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
-[e :U _TFT_DrawFillRect ]
-[v _x `ui ~T0 @X0 1 r1 ]
-[v _y `ui ~T0 @X0 1 r2 ]
-[v _w `ui ~T0 @X0 1 r3 ]
-[v _h `ui ~T0 @X0 1 r4 ]
-[v _color `ui ~T0 @X0 1 r5 ]
-[f ]
-[; ;TFT.c: 139: TFT_SetAddrWindow(x, y, (x + w - 1), (y + h -1));
-"139
-[e ( _TFT_SetAddrWindow (4 , , , _x _y - + _x _w -> -> 1 `i `ui - + _y _h -> -> 1 `i `ui ]
-[; ;TFT.c: 140: TFT_Flood(color, (w * h));
-"140
-[e ( _TFT_Flood (2 , _color -> * _w _h `ul ]
-[; ;TFT.c: 141: TFT_FullScreen();
-"141
-[e ( _TFT_FullScreen ..  ]
-[; ;TFT.c: 142: }
-"142
-[e :UE 356 ]
-}
-"144
-[v _TFT_Flood `(v ~T0 @X0 1 ef2`ui`ul ]
-{
-[; ;TFT.c: 144: void TFT_Flood(uint16_t color, uint32_t len) {
-[e :U _TFT_Flood ]
-[v _color `ui ~T0 @X0 1 r1 ]
-[v _len `ul ~T0 @X0 1 r2 ]
-[f ]
-"145
-[v _blocks `ui ~T0 @X0 1 a ]
-"146
-[v _i `uc ~T0 @X0 1 a ]
-"147
-[v _color_hi `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 145: uint16_t blocks;
-[; ;TFT.c: 146: uint8_t i;
-[; ;TFT.c: 147: uint8_t color_hi = color >> 8;
-[e = _color_hi -> >> _color -> 8 `i `uc ]
-"148
-[v _color_lo `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 148: uint8_t color_lo = color;
-[e = _color_lo -> _color `uc ]
-[; ;TFT.c: 151: TFT_WriteRegister(0x0202, color);
-"151
-[e ( _TFT_WriteRegister (2 , -> -> 514 `i `ui _color ]
-[; ;TFT.c: 152: len--;
-"152
-[e -- _len -> -> -> 1 `i `l `ul ]
-[; ;TFT.c: 156: { PORTCbits.RC0 = 0; { asm("nop"); }; };
-"156
-{
-[e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[; ;TFT.c: 157: blocks = (uint16_t)(len / 4);
-"157
-[e = _blocks -> / _len -> -> -> 4 `i `l `ul `ui ]
-[; ;TFT.c: 158: if(color_hi == color_lo) {
-"158
-[e $ ! == -> _color_hi `i -> _color_lo `i 358  ]
-{
-[; ;TFT.c: 159: while(blocks--) {
-"159
-[e $U 359  ]
-[e :U 360 ]
-{
-[; ;TFT.c: 160: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
-"160
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-[; ;TFT.c: 161: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
-"161
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-[; ;TFT.c: 162: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
-"162
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-[; ;TFT.c: 163: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
-"163
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-"164
-}
-[e :U 359 ]
-"159
-[e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 360  ]
-[e :U 361 ]
-[; ;TFT.c: 164: }
-[; ;TFT.c: 165: for(i = (uint8_t)len & 3; i--; ) {
-"165
-{
-[e = _i -> & -> -> _len `uc `i -> 3 `i `uc ]
-[e $U 365  ]
-[e :U 362 ]
-{
-[; ;TFT.c: 166: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
-"166
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-"167
-}
-"165
-[e :U 365 ]
-[e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 362  ]
-[e :U 363 ]
-"167
-}
-"168
-}
-[; ;TFT.c: 167: }
-[; ;TFT.c: 168: } else {
-[e $U 366  ]
-[e :U 358 ]
-{
-[; ;TFT.c: 169: while(blocks--) {
-"169
-[e $U 367  ]
-[e :U 368 ]
-{
-[; ;TFT.c: 170: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"170
-{
-[e = _PORTB _color_hi ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _color_lo ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-[; ;TFT.c: 171: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"171
-{
-[e = _PORTB _color_hi ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _color_lo ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-[; ;TFT.c: 172: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"172
-{
-[e = _PORTB _color_hi ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _color_lo ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-[; ;TFT.c: 173: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"173
-{
-[e = _PORTB _color_hi ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _color_lo ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-"174
-}
-[e :U 367 ]
-"169
-[e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 368  ]
-[e :U 369 ]
-[; ;TFT.c: 174: }
-[; ;TFT.c: 175: for(i = (uint8_t)len & 3; i--; ) {
-"175
-{
-[e = _i -> & -> -> _len `uc `i -> 3 `i `uc ]
-[e $U 373  ]
-[e :U 370 ]
-{
-[; ;TFT.c: 176: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"176
-{
-[e = _PORTB _color_hi ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _color_lo ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-"177
-}
-"175
-[e :U 373 ]
-[e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 370  ]
-[e :U 371 ]
-"177
-}
-"178
-}
-[e :U 366 ]
-[; ;TFT.c: 177: }
-[; ;TFT.c: 178: }
-[; ;TFT.c: 179: PORTCbits.RC0 = 1;;
-"179
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;TFT.c: 180: }
-"180
-[e :UE 357 ]
-}
-"182
-[v _TFT_FillScreen `(v ~T0 @X0 1 ef1`ui ]
-{
-[; ;TFT.c: 182: void TFT_FillScreen(uint16_t color) {
-[e :U _TFT_FillScreen ]
-[v _color `ui ~T0 @X0 1 r1 ]
-[f ]
-[; ;TFT.c: 183: TFT_WriteRegister(0x0200, 0);
-"183
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui -> -> 0 `i `ui ]
-[; ;TFT.c: 184: TFT_WriteRegister(0x0201, 0);
-"184
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui -> -> 0 `i `ui ]
-[; ;TFT.c: 185: TFT_Flood(color, (uint32_t)240 * (uint32_t)400);
-"185
-[e ( _TFT_Flood (2 , _color * -> -> 240 `i `ul -> -> 400 `i `ul ]
-[; ;TFT.c: 186: }
-"186
-[e :UE 374 ]
-}
-"188
-[v _TFT_ColorRGBTo16Bit `(ui ~T0 @X0 1 ef3`uc`uc`uc ]
-{
-[; ;TFT.c: 188: uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b) {
-[e :U _TFT_ColorRGBTo16Bit ]
-[v _r `uc ~T0 @X0 1 r1 ]
-[v _g `uc ~T0 @X0 1 r2 ]
-[v _b `uc ~T0 @X0 1 r3 ]
-[f ]
-[; ;TFT.c: 189: return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
-"189
-[e ) -> | | << & -> _r `i -> 248 `i -> 8 `i << & -> _g `i -> 252 `i -> 3 `i >> -> _b `i -> 3 `i `ui ]
-[e $UE 375  ]
-[; ;TFT.c: 190: }
-"190
-[e :UE 375 ]
-}
-"192
-[v _TFT_DrawChar `(v ~T0 @X0 1 ef6`ui`ui`uc`ui`ui`uc ]
-{
-[; ;TFT.c: 192: void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size) {
-[e :U _TFT_DrawChar ]
-[v _x `ui ~T0 @X0 1 r1 ]
-[v _y `ui ~T0 @X0 1 r2 ]
-[v _c `uc ~T0 @X0 1 r3 ]
-[v _color `ui ~T0 @X0 1 r4 ]
-[v _bg `ui ~T0 @X0 1 r5 ]
-[v _size `uc ~T0 @X0 1 r6 ]
-[f ]
-[; ;TFT.c: 193: for(int8_t i=0; i<5; i++ ) {
-"193
-{
-[v _i `c ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `c ]
-[e $ < -> _i `i -> 5 `i 377  ]
-[e $U 378  ]
-[e :U 377 ]
-{
-"194
-[v _line `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 194: uint8_t line = TFT_Font[c * 5 + i];
-[e = _line *U + &U _TFT_Font * -> -> + * -> _c `i -> 5 `i -> _i `i `ui `ux -> -> # *U &U _TFT_Font `ui `ux ]
-[; ;TFT.c: 195: for(int8_t j=0; j<8; j++, line >>= 1) {
-"195
-{
-[v _j `c ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `c ]
-[e $ < -> _j `i -> 8 `i 380  ]
-[e $U 381  ]
-[e :U 380 ]
-{
-[; ;TFT.c: 196: if(line & 1) {
-"196
-[e $ ! != & -> _line `i -> 1 `i -> 0 `i 383  ]
-{
-[; ;TFT.c: 197: if(size == 1) {
-"197
-[e $ ! == -> _size `i -> 1 `i 384  ]
-{
-[; ;TFT.c: 198: TFT_DrawPixel((x + j), (y - i), color);
-"198
-[e ( _TFT_DrawPixel (3 , , + _x -> -> _j `i `ui - _y -> -> _i `i `ui _color ]
-"199
-}
-[; ;TFT.c: 199: } else {
-[e $U 385  ]
-[e :U 384 ]
-{
-[; ;TFT.c: 200: TFT_DrawFillRect((x + j * size), (y - i * size), size, size, color);
-"200
-[e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> _j `i -> _size `i `ui - _y -> * -> _i `i -> _size `i `ui -> _size `ui -> _size `ui _color ]
-"201
-}
-[e :U 385 ]
-"202
-}
-[; ;TFT.c: 201: }
-[; ;TFT.c: 202: } else if(bg != color) {
-[e $U 386  ]
-[e :U 383 ]
-[e $ ! != _bg _color 387  ]
-{
-[; ;TFT.c: 203: if(size == 1) {
-"203
-[e $ ! == -> _size `i -> 1 `i 388  ]
-{
-[; ;TFT.c: 204: TFT_DrawPixel((x + j), (y - i), bg);
-"204
-[e ( _TFT_DrawPixel (3 , , + _x -> -> _j `i `ui - _y -> -> _i `i `ui _bg ]
-"205
-}
-[; ;TFT.c: 205: } else {
-[e $U 389  ]
-[e :U 388 ]
-{
-[; ;TFT.c: 206: TFT_DrawFillRect((x + j * size), (y - i * size), size, size, bg);
-"206
-[e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> _j `i -> _size `i `ui - _y -> * -> _i `i -> _size `i `ui -> _size `ui -> _size `ui _bg ]
-"207
-}
-[e :U 389 ]
-"208
-}
-[e :U 387 ]
-"209
-[e :U 386 ]
-}
-"195
-[e ; ++ _j -> -> 1 `i `c =>> _line -> 1 `i ]
-[e $ < -> _j `i -> 8 `i 380  ]
-[e :U 381 ]
-"209
-}
-"210
-}
-"193
-[e ++ _i -> -> 1 `i `c ]
-[e $ < -> _i `i -> 5 `i 377  ]
-[e :U 378 ]
-"210
-}
-[; ;TFT.c: 207: }
-[; ;TFT.c: 208: }
-[; ;TFT.c: 209: }
-[; ;TFT.c: 210: }
-[; ;TFT.c: 211: }
-"211
-[e :UE 376 ]
-}
-"213
-[v _TFT_DrawString `(v ~T0 @X0 1 ef6`ui`ui`*Cuc`ui`ui`uc ]
-{
-[; ;TFT.c: 213: void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size) {
-[e :U _TFT_DrawString ]
-[v _x `ui ~T0 @X0 1 r1 ]
-[v _y `ui ~T0 @X0 1 r2 ]
-[v _str `*Cuc ~T0 @X0 1 r3 ]
-[v _color `ui ~T0 @X0 1 r4 ]
-[v _bg `ui ~T0 @X0 1 r5 ]
-[v _size `uc ~T0 @X0 1 r6 ]
-[f ]
-[; ;TFT.c: 214: while(*str) {
-"214
-[e $U 391  ]
-[e :U 392 ]
-{
-[; ;TFT.c: 215: TFT_DrawChar(x, y, *str, color, bg, size);
-"215
-[e ( _TFT_DrawChar (4 , , , , , _x _y *U _str _color _bg _size ]
-[; ;TFT.c: 216: y -= (6 * size);
-"216
-[e =- _y -> * -> 6 `i -> _size `i `ui ]
-[; ;TFT.c: 217: str++;
-"217
-[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"218
-}
-[e :U 391 ]
-"214
-[e $ != -> *U _str `i -> -> -> 0 `i `Cuc `i 392  ]
-[e :U 393 ]
-[; ;TFT.c: 218: }
-[; ;TFT.c: 219: }
-"219
-[e :UE 390 ]
-}
-"221
-[v _TFT_DrawBitmap `(v ~T0 @X0 1 ef4`uc`uc`*Cuc`ui ]
-{
-[; ;TFT.c: 221: void TFT_DrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint16_t color) {
-[e :U _TFT_DrawBitmap ]
-[v _x `uc ~T0 @X0 1 r1 ]
-[v _y `uc ~T0 @X0 1 r2 ]
-[v _bitmap `*Cuc ~T0 @X0 1 r3 ]
-[v _color `ui ~T0 @X0 1 r4 ]
-[f ]
-"222
-[v _w `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 222: uint8_t w = *bitmap++;
-[e = _w *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
-"223
-[v _h `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 223: uint8_t h = *bitmap++;
-[e = _h *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
-"224
-[v _byte `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 224: uint8_t byte = 0;
-[e = _byte -> -> 0 `i `uc ]
-[; ;TFT.c: 226: for(uint8_t j=0; j<w; j++, x++) {
-"226
-{
-[v _j `uc ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `uc ]
-[e $U 398  ]
-[e :U 395 ]
-{
-[; ;TFT.c: 227: for(uint8_t i=0; i<h; i++) {
-"227
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 402  ]
-[e :U 399 ]
-{
-[; ;TFT.c: 228: if(i & 7) {
-"228
-[e $ ! != & -> _i `i -> 7 `i -> 0 `i 403  ]
-{
-[; ;TFT.c: 229: byte >>= 1;
-"229
-[e =>> _byte -> 1 `i ]
-"230
-}
-[; ;TFT.c: 230: } else {
-[e $U 404  ]
-[e :U 403 ]
-{
-[; ;TFT.c: 231: byte = *bitmap++;
-"231
-[e = _byte *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
-"232
-}
-[e :U 404 ]
-[; ;TFT.c: 232: }
-[; ;TFT.c: 233: if(byte & 0x01) TFT_DrawPixel(x, (y - i), color);
-"233
-[e $ ! != & -> _byte `i -> 1 `i -> 0 `i 405  ]
-[e ( _TFT_DrawPixel (3 , , -> _x `ui -> - -> _y `i -> _i `i `ui _color ]
-[e :U 405 ]
-"234
-}
-"227
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 402 ]
-[e $ < -> _i `i -> _h `i 399  ]
-[e :U 400 ]
-"234
-}
-"235
-}
-"226
-[e ; ++ _j -> -> 1 `i `uc ++ _x -> -> 1 `i `uc ]
-[e :U 398 ]
-[e $ < -> _j `i -> _w `i 395  ]
-[e :U 396 ]
-"235
-}
-[; ;TFT.c: 234: }
-[; ;TFT.c: 235: }
-[; ;TFT.c: 236: }
-"236
-[e :UE 394 ]
-}
+[; ;A6Lib.c: 55: A6_Command("AT+IPR=9600\r\0", "aa", "bb", 123, response);
+"55
+[e ( _A6_Command (4 , , , , :s 7C :s 8C :s 9C -> 123 `i &U _response ]
+[; ;A6Lib.c: 56: break;
+"56
+[e $U 343  ]
+"57
+}
+[; ;A6Lib.c: 57: }
+[e $U 343  ]
+"46
+[e :U 344 ]
+[e [\ _speed , $ -> -> 57600 `l `ul 345
+ , $ -> -> 115200 `l `ul 346
+ , $ -> -> -> 9600 `i `l `ul 347
+ 348 ]
+"57
+[e :U 343 ]
+[; ;A6Lib.c: 58: EUSART_SetSpeed(speed);
+"58
+[e ( _EUSART_SetSpeed (1 _speed ]
+[; ;A6Lib.c: 60: EUSART_RX.zzzzzzzzz += 8;
+"60
+[e =+ . _EUSART_RX 3 -> -> 8 `i `uc ]
+[; ;A6Lib.c: 61: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+"61
+[e ( _TFT_DrawFillRect (4 , , , , -> . _EUSART_RX 3 `ui -> -> 0 `i `ui -> -> 50 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
+[; ;A6Lib.c: 62: TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0x07E0, 0x0000, 1);
+"62
+[e ( _TFT_DrawString (4 , , , , , -> . _EUSART_RX 3 `ui -> - -> 400 `i -> 1 `i `ui -> &U _response `*Cuc -> -> 2016 `i `ui -> -> 0 `i `ui -> -> 1 `i `uc ]
+[; ;A6Lib.c: 63: _delay((unsigned long)((500)*(48000000/4000.0)));
+"63
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;A6Lib.c: 65: return;
+"65
+[e $UE 342  ]
+[; ;A6Lib.c: 66: }
+"66
+[e :UE 342 ]
+}
+[a 3C 98 98 0 ]
+[a 6C 98 98 0 ]
+[a 9C 98 98 0 ]
+[a 2C 97 97 0 ]
+[a 5C 97 97 0 ]
+[a 8C 97 97 0 ]
+[a 7C 65 84 43 73 80 82 61 57 54 48 48 13 0 0 ]
+[a 1C 65 84 43 73 80 82 61 53 55 54 48 48 13 0 0 ]
+[a 4C 65 84 43 73 80 82 61 49 49 53 50 48 48 13 0 0 ]

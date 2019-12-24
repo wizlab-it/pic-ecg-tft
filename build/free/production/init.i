@@ -5449,8 +5449,19 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 24 "commons.h"
+# 26 "commons.h"
+typedef struct {
+uint8_t processRX;
+uint8_t iRead;
+uint8_t iWrite;
+uint8_t zzzzzzzzz;
+char buffer[64];
+char line[32];
+} STRUCT_EUSART_RX;
+
+
 extern uint32_t MILLISECONDS;
+extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5458,10 +5469,14 @@ extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 extern void EUSART_Init(void);
+extern void EUSART_SetSpeed(const uint32_t speed);
 extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(char *str, uint8_t len);
+extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
+extern void A6_SetSpeed(const uint32_t speed);
+extern void A6_ReadLine(char *response, uint8_t len);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 
 
 # 15 "init.h"

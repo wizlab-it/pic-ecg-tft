@@ -1,23 +1,36 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"27 commons.h
+"40 commons.h
 [v _init `(v ~T0 @X0 0 ef ]
 "68 TFT.h
 [v _TFT_Init `(v ~T0 @X0 0 ef ]
-"31 commons.h
+"44 commons.h
 [v _EUSART_Init `(v ~T0 @X0 0 ef ]
-"28
+"45
+[v _EUSART_SetSpeed `(v ~T0 @X0 0 ef1`Cul ]
+"41
 [v _Ecg_Init `(v ~T0 @X0 0 ef ]
-"15 main.h
-[v _loop `(v ~T0 @X0 0 ef ]
-"33 commons.h
-[v _EUSART_TX_String `(v ~T0 @X0 0 ef2`*uc`uc ]
-"56 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
-[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 [v F2641 `(v ~T0 @X0 1 tf1`ul ]
 "187 /opt/microchip/xc8/v2.10/pic/include/pic18.h
 [v __delay `JF2641 ~T0 @X0 0 e ]
 [p i __delay ]
+"20 main.h
+[v _loop `(v ~T0 @X0 0 ef ]
+"36 commons.h
+[v _MILLISECONDS `ul ~T0 @X0 0 e ]
+"16 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"52 commons.h
+[v _A6_Command `(v ~T0 @X0 0 ef5`*Cuc`*Cuc`*Cuc`i`*uc ]
+"26
+[s S326 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 64 `i `uc -> 32 `i ]
+[n S326 . processRX iRead iWrite zzzzzzzzz buffer line ]
+"37
+[v _EUSART_RX `S326 ~T0 @X0 0 e ]
+"71 TFT.h
+[v _TFT_DrawFillRect `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
+"76
+[v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5253,17 +5266,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-[; ;commons.h: 24: extern uint32_t MILLISECONDS;
-[; ;commons.h: 27: extern void init(void);
-[; ;commons.h: 28: extern void Ecg_Init(void);
-[; ;commons.h: 29: extern void Ecg_Process(void);
-[; ;commons.h: 30: extern void Ecg_Interrupt(void);
-[; ;commons.h: 31: extern void EUSART_Init(void);
-[; ;commons.h: 32: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 33: extern void EUSART_TX_String(char *str, uint8_t len);
-[; ;commons.h: 34: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 35: extern void EUSART_RX_Process(void);
-[; ;main.h: 15: void loop(void);
+[; ;commons.h: 26: typedef struct {
+[; ;commons.h: 27: uint8_t processRX;
+[; ;commons.h: 28: uint8_t iRead;
+[; ;commons.h: 29: uint8_t iWrite;
+[; ;commons.h: 30: uint8_t zzzzzzzzz;
+[; ;commons.h: 31: char buffer[64];
+[; ;commons.h: 32: char line[32];
+[; ;commons.h: 33: } STRUCT_EUSART_RX;
+[; ;commons.h: 36: extern uint32_t MILLISECONDS;
+[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
+[; ;commons.h: 40: extern void init(void);
+[; ;commons.h: 41: extern void Ecg_Init(void);
+[; ;commons.h: 42: extern void Ecg_Process(void);
+[; ;commons.h: 43: extern void Ecg_Interrupt(void);
+[; ;commons.h: 44: extern void EUSART_Init(void);
+[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 49: extern void EUSART_RX_Process(void);
+[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
+[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
+[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+"15 main.h
+[v _tmp1 `ul ~T0 @X0 1 e ]
+[i _tmp1
+-> -> -> 0 `i `l `ul
+]
+[; ;main.h: 15: uint32_t tmp1 = 0;
+"16
+[v _tmp2 `ul ~T0 @X0 1 e ]
+[i _tmp2
+-> -> -> 0 `i `l `ul
+]
+[; ;main.h: 16: uint32_t tmp2 = 0;
+"17
+[v _tmp3 `uc ~T0 @X0 1 e ]
+[i _tmp3
+-> -> 0 `i `uc
+]
+[; ;main.h: 17: uint8_t tmp3 = 0;
+"18
+[v _tmp4 `ul ~T0 @X0 1 e ]
+[i _tmp4
+-> -> -> 0 `i `l `ul
+]
+[; ;main.h: 18: uint32_t tmp4 = 0;
+[; ;main.h: 20: void loop(void);
 "12 main.c
 [v _x1 `uc ~T0 @X0 -> 0 `x e ]
 [i _x1
@@ -5362,91 +5412,140 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [; ;main.c: 17: char x6[] = "AT+COPS?\r";
+"18
+[v _x7 `uc ~T0 @X0 -> 0 `x e ]
+[i _x7
+:U ..
+-> 65 `c
+-> 84 `c
+-> 43 `c
+-> 67 `c
+-> 79 `c
+-> 80 `c
+-> 83 `c
+-> 61 `c
+-> 63 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 18: char x7[] = "AT+COPS=?\r";
+"19
+[v _x8 `uc ~T0 @X0 -> 0 `x e ]
+[i _x8
+:U ..
+-> 65 `c
+-> 84 `c
+-> 13 `c
+-> 0 `c
+..
+]
+[; ;main.c: 19: char x8[] = "AT\r";
 [v $root$_main `(v ~T0 @X0 0 e ]
-"20
+"21
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 20: void main(void) {
+[; ;main.c: 21: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 22: init();
-"22
-[e ( _init ..  ]
-[; ;main.c: 23: TFT_Init();
+[; ;main.c: 23: init();
 "23
-[e ( _TFT_Init ..  ]
-[; ;main.c: 24: EUSART_Init();
+[e ( _init ..  ]
+[; ;main.c: 24: TFT_Init();
 "24
-[e ( _EUSART_Init ..  ]
-[; ;main.c: 25: Ecg_Init();
+[e ( _TFT_Init ..  ]
+[; ;main.c: 25: EUSART_Init();
 "25
+[e ( _EUSART_Init ..  ]
+[; ;main.c: 26: EUSART_SetSpeed(9600);
+"26
+[e ( _EUSART_SetSpeed (1 -> -> -> 9600 `i `l `ul ]
+[; ;main.c: 27: Ecg_Init();
+"27
 [e ( _Ecg_Init ..  ]
-[; ;main.c: 28: while(1) loop();
-"28
-[e :U 328 ]
-[e ( _loop ..  ]
-[e :U 327 ]
-[e $U 328  ]
+[; ;main.c: 30: _delay((unsigned long)((2500)*(48000000/4000.0)));
+"30
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
+[; ;main.c: 31: while(1) loop();
+"31
 [e :U 329 ]
-[; ;main.c: 29: }
-"29
-[e :UE 326 ]
+[e ( _loop ..  ]
+[e :U 328 ]
+[e $U 329  ]
+[e :U 330 ]
+[; ;main.c: 32: }
+"32
+[e :UE 327 ]
 }
-"35
+"38
 [v _loop `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 35: void loop(void) {
+[; ;main.c: 38: void loop(void) {
 [e :U _loop ]
 [f ]
-[; ;main.c: 40: EUSART_TX_String(x1, strlen(x1));
-"40
-[e ( _EUSART_TX_String (2 , &U _x1 -> ( _strlen (1 -> &U _x1 `*Cuc `uc ]
-[; ;main.c: 41: _delay((unsigned long)((500)*(48000000/4000.0)));
-"41
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 42: EUSART_TX_String(x2, strlen(x2));
-"42
-[e ( _EUSART_TX_String (2 , &U _x2 -> ( _strlen (1 -> &U _x2 `*Cuc `uc ]
-[; ;main.c: 43: _delay((unsigned long)((500)*(48000000/4000.0)));
-"43
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 44: EUSART_TX_String(x3, strlen(x3));
-"44
-[e ( _EUSART_TX_String (2 , &U _x3 -> ( _strlen (1 -> &U _x3 `*Cuc `uc ]
-[; ;main.c: 45: _delay((unsigned long)((500)*(48000000/4000.0)));
-"45
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 46: EUSART_TX_String(x4, strlen(x4));
-"46
-[e ( _EUSART_TX_String (2 , &U _x4 -> ( _strlen (1 -> &U _x4 `*Cuc `uc ]
-[; ;main.c: 47: _delay((unsigned long)((500)*(48000000/4000.0)));
-"47
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 48: EUSART_TX_String(x5, strlen(x5));
-"48
-[e ( _EUSART_TX_String (2 , &U _x5 -> ( _strlen (1 -> &U _x5 `*Cuc `uc ]
-[; ;main.c: 49: _delay((unsigned long)((500)*(48000000/4000.0)));
-"49
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 50: EUSART_TX_String(x6, strlen(x6));
-"50
-[e ( _EUSART_TX_String (2 , &U _x6 -> ( _strlen (1 -> &U _x6 `*Cuc `uc ]
-[; ;main.c: 51: _delay((unsigned long)((2500)*(48000000/4000.0)));
-"51
-[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 53: _delay((unsigned long)((2500)*(48000000/4000.0)));
-"53
-[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 54: _delay((unsigned long)((2500)*(48000000/4000.0)));
-"54
-[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 55: _delay((unsigned long)((2500)*(48000000/4000.0)));
-"55
-[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 56: _delay((unsigned long)((2500)*(48000000/4000.0)));
-"56
-[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 48000000 `l `d .4000.0 `ul ]
-[; ;main.c: 64: }
-"64
-[e :UE 330 ]
+[; ;main.c: 65: if((MILLISECONDS > 2500) && (tmp1 < (MILLISECONDS - 2500))) {
+"65
+[e $ ! && > _MILLISECONDS -> -> -> 2500 `i `l `ul < _tmp1 - _MILLISECONDS -> -> -> 2500 `i `l `ul 332  ]
+{
+[; ;main.c: 66: tmp1 = MILLISECONDS;
+"66
+[e = _tmp1 _MILLISECONDS ]
+"68
+[v _response `uc ~T0 @X0 -> 32 `i a ]
+[; ;main.c: 68: char response[32];
+[; ;main.c: 69: memset(response, 0x00, 32);
+"69
+[e ( _memset (3 , , -> &U _response `*v -> 0 `i -> -> 32 `i `ui ]
+[; ;main.c: 70: A6_Command(x8, "aa", "bb", 123, response);
+"70
+[e ( _A6_Command (4 , , , , -> &U _x8 `*Cuc :s 1C :s 2C -> 123 `i &U _response ]
+[; ;main.c: 72: EUSART_RX.zzzzzzzzz += 8;
+"72
+[e =+ . _EUSART_RX 3 -> -> 8 `i `uc ]
+[; ;main.c: 73: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+"73
+[e ( _TFT_DrawFillRect (4 , , , , -> . _EUSART_RX 3 `ui -> -> 0 `i `ui -> -> 50 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
+[; ;main.c: 74: TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0xF800, 0x0000, 1);
+"74
+[e ( _TFT_DrawString (4 , , , , , -> . _EUSART_RX 3 `ui -> - -> 400 `i -> 1 `i `ui -> &U _response `*Cuc -> 63488 `ui -> -> 0 `i `ui -> -> 1 `i `uc ]
+"75
 }
+[e :U 332 ]
+[; ;main.c: 75: }
+[; ;main.c: 77: if((MILLISECONDS > 4000) && (tmp2 < (MILLISECONDS - 4000))) {
+"77
+[e $ ! && > _MILLISECONDS -> -> -> 4000 `i `l `ul < _tmp2 - _MILLISECONDS -> -> -> 4000 `i `l `ul 333  ]
+{
+[; ;main.c: 78: tmp2 = MILLISECONDS;
+"78
+[e = _tmp2 _MILLISECONDS ]
+"80
+[v _response `uc ~T0 @X0 -> 32 `i a ]
+[; ;main.c: 80: char response[32];
+[; ;main.c: 81: memset(response, 0x00, 32);
+"81
+[e ( _memset (3 , , -> &U _response `*v -> 0 `i -> -> 32 `i `ui ]
+[; ;main.c: 82: A6_Command(x1, "aa", "bb", 123, response);
+"82
+[e ( _A6_Command (4 , , , , -> &U _x1 `*Cuc :s 3C :s 4C -> 123 `i &U _response ]
+[; ;main.c: 84: EUSART_RX.zzzzzzzzz += 8;
+"84
+[e =+ . _EUSART_RX 3 -> -> 8 `i `uc ]
+[; ;main.c: 85: TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+"85
+[e ( _TFT_DrawFillRect (4 , , , , -> . _EUSART_RX 3 `ui -> -> 0 `i `ui -> -> 50 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
+[; ;main.c: 86: TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0xF800, 0x0000, 1);
+"86
+[e ( _TFT_DrawString (4 , , , , , -> . _EUSART_RX 3 `ui -> - -> 400 `i -> 1 `i `ui -> &U _response `*Cuc -> 63488 `ui -> -> 0 `i `ui -> -> 1 `i `uc ]
+"87
+}
+[e :U 333 ]
+[; ;main.c: 87: }
+[; ;main.c: 130: }
+"130
+[e :UE 331 ]
+}
+[a 2C 98 98 0 ]
+[a 4C 98 98 0 ]
+[a 1C 97 97 0 ]
+[a 3C 97 97 0 ]

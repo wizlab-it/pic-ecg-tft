@@ -5,9 +5,9 @@ Linker command line:
 --edf=/opt/microchip/xc8/v2.10/pic/dat/en_msgs.txt -cs \
   -h+dist/free/production/ECG-TFT.X.production.sym \
   --cmf=dist/free/production/ECG-TFT.X.production.cmf -z -Q18F2455 \
-  -o/tmp/xcXuYUn4v --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xcXedrI2o --defsym=__MPLAB_BUILD=1 \
   -Mdist/free/production/ECG-TFT.X.production.map -E1 -ver=XC8 --acfsm=1493 \
-  -ASTACK=0184h-07FFh -pstack=STACK -ACODE=00h-05FFFh -ACONST=00h-05FFFh \
+  -ASTACK=0171h-07FFh -pstack=STACK -ACODE=00h-05FFFh -ACONST=00h-05FFFh \
   -ASMALLCONST=0800h-08FFhx88 -AMEDIUMCONST=0800h-05FFFh -ACOMRAM=01h-05Fh \
   -AABS1=00h-07FFh -ABIGRAM=01h-07FFh -ARAM=060h-0FFh,0100h-01FFhx7 \
   -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXaFNXgO.o dist/free/production/ECG-TFT.X.production.o 
+  /tmp/xcXkkEbcR.o dist/free/production/ECG-TFT.X.production.o 
 
 Object code version is 3.11
 
@@ -34,63 +34,62 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXaFNXgO.o
+/tmp/xcXkkEbcR.o
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/free/production/ECG-TFT.X.production.o
                 intcode                               8        8        6        4       0
-                temp                                 58       58        1        1       1
-                mediumconst                        59C8     59C8      638     2CE4       0
-                text37                             1388     1388       44        4       0
-                text36                              950      950      182        4       0
-                text35                             103A     103A       7A        4       0
-                text34                             1602     1602       26        4       0
-                text33                             15DC     15DC       26        4       0
-                text32                             10B4     10B4       76        4       0
-                text31                             140C     140C       3E        4       0
-                text30                              406      406      1F4        4       0
-                text29                              AD2      AD2      10A        4       0
-                text28                             164A     164A       1E        4       0
-                intcode_body                        D8E      D8E       9C        4       0
-                text26                             1484     1484       3A        4       0
-                text25                             1262     1262       4E        4       0
-                text24                             12FC     12FC       48        4       0
-                text23                              7C0      7C0      190        4       0
-                text22                              EBE      EBE       86        4       0
-                text21                             15B4     15B4       28        4       0
-                text20                             158C     158C       28        4       0
-                text19                              FC0      FC0       7A        4       0
-                text18                             1344     1344       44        4       0
-                text17                               12       12      200        4       0
-                text16                              E2A      E2A       94        4       0
-                text15                             12B0     12B0       4C        4       0
-                text14                             13CC     13CC       40        4       0
-                text13                              CC8      CC8       C6        4       0
-                text12                             14F6     14F6       36        4       0
-                text11                              212      212      1F4        4       0
-                text10                              F44      F44       7C        4       0
-                text9                              1210     1210       52        4       0
-                text8                              152C     152C       32        4       0
-                text7                              1628     1628       22        4       0
-                text6                               BDC      BDC       EC        4       0
-                text5                              112A     112A       74        4       0
-                text4                              1684     1684       1A        4       0
-                text3                              155E     155E       2E        4       0
-                text2                              144A     144A       3A        4       0
-                text1                               5FA      5FA      1C6        4       0
-                text0                              1668     1668       1C        4       0
-                cstackCOMRAM                          1        1       45        1       1
-                cstackBANK0                          60       60       45       60       1
-                bssBANK1                            100      100       84      100       1
-                dataBANK0                            A5       A5       38       60       1
-                bssBANK0                             DD       DD       12       60       1
-                dataCOMRAM                           50       50        8        1       1
-                bssCOMRAM                            46       46        A        1       1
-                cinit                              119E     119E       72        4       0
-                idataBANK0                         14BE     14BE       38        4       0
-                idataCOMRAM                        169E     169E        8        4       0
+                temp                                 5B       5B        1        1       1
+                mediumconst                        5996     5996      66A     2CCB       0
+                text33                             1086     1086       42        4       0
+                text32                             12C6     12C6       1E        4       0
+                intcode_body                        DD6      DD6       6E        4       0
+                text30                             11C0     11C0       38        4       0
+                text29                              E44      E44       6C        4       0
+                text28                              928      928       A4        4       0
+                text27                              B78      B78       84        4       0
+                text26                             1042     1042       44        4       0
+                text25                              604      604      182        4       0
+                text24                              BFC      BFC       7A        4       0
+                text23                             1282     1282       26        4       0
+                text22                             125C     125C       26        4       0
+                text21                              CEE      CEE       76        4       0
+                text20                             1146     1146       3E        4       0
+                text19                              228      228      1F4        4       0
+                text18                              A5E      A5E       90        4       0
+                text17                              FFC      FFC       46        4       0
+                text16                             1184     1184       3C        4       0
+                text15                              864      864       C4        4       0
+                text14                             11F8     11F8       34        4       0
+                text13                              41C      41C      1E8        4       0
+                text12                              C76      C76       78        4       0
+                text11                              F64      F64       4E        4       0
+                text10                             122C     122C       30        4       0
+                text9                              12A8     12A8       1E        4       0
+                text8                               786      786       DE        4       0
+                text7                               D64      D64       72        4       0
+                text6                               AEE      AEE       8A        4       0
+                text5                              12E4     12E4       18        4       0
+                text4                              10C8     10C8       40        4       0
+                text3                               F16      F16       4E        4       0
+                text2                               EB0      EB0       66        4       0
+                text1                                12       12      216        4       0
+                text0                               FB2      FB2       4A        4       0
+                cstackCOMRAM                          1        1       4D        1       1
+                cstackBANK0                          60       60       40       60       1
+                cstackBANK1                         16F      16F        2      100       1
+                dataBANK1                           164      164        B      100       1
+                bssBANK1                            100      100       64      100       1
+                dataBANK0                            A0       A0       3E       60       1
+                bssBANK0                             DE       DE       22       60       1
+                dataCOMRAM                           55       55        6        1       1
+                bssCOMRAM                            4E       4E        7        1       1
+                cinit                               9CC      9CC       92        4       0
+                idataBANK1                         12FC     12FC        B        4       0
+                idataBANK0                         1108     1108       3E        4       0
+                idataCOMRAM                        1307     1307        6        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -99,60 +98,57 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
                 reset_vec                             0        0        4         0
-                text37                             1388     1388       44         0
-                text36                              950      950      182         0
-                text35                             103A     103A       7A         0
-                text34                             1602     1602       26         0
-                text33                             15DC     15DC       26         0
-                text32                             10B4     10B4       76         0
-                text31                             140C     140C       3E         0
-                text30                              406      406      1F4         0
-                text29                              AD2      AD2      10A         0
-                text28                             164A     164A       1E         0
-                intcode_body                        D8E      D8E       9C         0
-                text26                             1484     1484       3A         0
-                text25                             1262     1262       4E         0
-                text24                             12FC     12FC       48         0
-                text23                              7C0      7C0      190         0
-                text22                              EBE      EBE       86         0
-                text21                             15B4     15B4       28         0
-                text20                             158C     158C       28         0
-                text19                              FC0      FC0       7A         0
-                text18                             1344     1344       44         0
-                text17                               12       12      200         0
-                text16                              E2A      E2A       94         0
-                text15                             12B0     12B0       4C         0
-                text14                             13CC     13CC       40         0
-                text13                              CC8      CC8       C6         0
-                text12                             14F6     14F6       36         0
-                text11                              212      212      1F4         0
-                text10                              F44      F44       7C         0
-                text9                              1210     1210       52         0
-                text8                              152C     152C       32         0
-                text7                              1628     1628       22         0
-                text6                               BDC      BDC       EC         0
-                text5                              112A     112A       74         0
-                text4                              1684     1684       1A         0
-                text3                              155E     155E       2E         0
-                text2                              144A     144A       3A         0
-                text1                               5FA      5FA      1C6         0
-                text0                              1668     1668       1C         0
-                cinit                              119E     119E       72         0
-                idataBANK0                         14BE     14BE       38         0
-                idataCOMRAM                        169E     169E        8         0
+                text33                             1086     1086       42         0
+                text32                             12C6     12C6       1E         0
+                intcode_body                        DD6      DD6       6E         0
+                text30                             11C0     11C0       38         0
+                text29                              E44      E44       6C         0
+                text28                              928      928       A4         0
+                text27                              B78      B78       84         0
+                text26                             1042     1042       44         0
+                text25                              604      604      182         0
+                text24                              BFC      BFC       7A         0
+                text23                             1282     1282       26         0
+                text22                             125C     125C       26         0
+                text21                              CEE      CEE       76         0
+                text20                             1146     1146       3E         0
+                text19                              228      228      1F4         0
+                text18                              A5E      A5E       90         0
+                text17                              FFC      FFC       46         0
+                text16                             1184     1184       3C         0
+                text15                              864      864       C4         0
+                text14                             11F8     11F8       34         0
+                text13                              41C      41C      1E8         0
+                text12                              C76      C76       78         0
+                text11                              F64      F64       4E         0
+                text10                             122C     122C       30         0
+                text9                              12A8     12A8       1E         0
+                text8                               786      786       DE         0
+                text7                               D64      D64       72         0
+                text6                               AEE      AEE       8A         0
+                text5                              12E4     12E4       18         0
+                text4                              10C8     10C8       40         0
+                text3                               F16      F16       4E         0
+                text2                               EB0      EB0       66         0
+                text1                                12       12      216         0
+                text0                               FB2      FB2       4A         0
+                cinit                               9CC      9CC       92         0
+                idataBANK1                         12FC     12FC        B         0
+                idataBANK0                         1108     1108       3E         0
+                idataCOMRAM                        1307     1307        6         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        59C8     59C8      638         0
+                mediumconst                        5996     5996      66A         0
 
         CLASS   COMRAM         
-                temp                                 58       58        1         1
-                cstackCOMRAM                          1        1       45         1
-                dataCOMRAM                           50       50        8         1
-                bssCOMRAM                            46       46        A         1
+                temp                                 5B       5B        1         1
+                cstackCOMRAM                          1        1       4D         1
+                dataCOMRAM                           55       55        6         1
+                bssCOMRAM                            4E       4E        7         1
 
         CLASS   ABS1           
 
@@ -161,12 +157,14 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   RAM            
 
         CLASS   BANK0          
-                cstackBANK0                          60       60       45         1
-                dataBANK0                            A5       A5       38         1
-                bssBANK0                             DD       DD       12         1
+                cstackBANK0                          60       60       40         1
+                dataBANK0                            A0       A0       3E         1
+                bssBANK0                             DE       DE       22         1
 
         CLASS   BANK1          
-                bssBANK1                            100      100       84         1
+                cstackBANK1                         16F      16F        2         1
+                dataBANK1                           164      164        B         1
+                bssBANK1                            100      100       64         1
 
         CLASS   BANK2          
 
@@ -197,11 +195,11 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  000058  000059         1       1  COMRAM  
-                intcode                        000008  00169E  0016A6         4       0  CODE    
-                cstackBANK0                    000060  00008F  0000EF        60       1  BANK0   
-                bssBANK1                       000100  000084  000184       100       1  BANK1   
-                mediumconst                    0059C8  000638  006000      2CE4       0  MEDIUMCO
+                cstackCOMRAM                   000001  00005B  00005C         1       1  COMRAM  
+                intcode                        000008  001305  00130D         4       0  CODE    
+                cstackBANK0                    000060  0000A0  000100        60       1  BANK0   
+                bssBANK1                       000100  000071  000171       100       1  BANK1   
+                mediumconst                    005996  00066A  006000      2CCB       0  MEDIUMCO
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -209,101 +207,110 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0000EF-0000FF               11
-        BANK1            000184-0001FF               7C
+        BANK1            000171-0001FF               8F
         BANK2            000200-0002FF              100
         BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           000059-00005F                7
-                         0000EF-0000FF               11
-                         000184-0007FF              67C
+        BIGRAM           00005C-00005F                4
+                         000171-0007FF              68F
         CODE             000004-000007                4
-                         0016A6-0059C7             4322
-        COMRAM           000059-00005F                7
+                         00130D-005995             4689
+        COMRAM           00005C-00005F                4
         CONST            000004-000007                4
-                         0016A6-0059C7             4322
+                         00130D-005995             4689
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      0016A6-0059C7             4322
-        RAM              0000EF-0000FF               11
-                         000184-0007FF              100
+        MEDIUMCONST      00130D-005995             4689
+        RAM              000171-0007FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       0016A6-0059C7              100
-        STACK            000184-0007FF              67C
+        SMALLCONST       00130D-005995              100
+        STACK            000171-0007FF              68F
 
                                   Symbol Table
 
-?_Ecg_CheckLeads                       cstackBANK0  000060
-?___awdiv                              cstackBANK0  000060
-?___wmul                               cstackBANK0  000060
-?_abs                                  cstackBANK0  000060
-?_strlen                               cstackBANK0  000060
-?i2___wmul                             cstackCOMRAM 000001
-EUSART_RX_Interrupt@c                  cstackCOMRAM 00003D
-EUSART_TX_Char@c                       cstackBANK0  000060
-EUSART_TX_String@len                   cstackBANK0  000066
-EUSART_TX_String@str                   cstackBANK0  000064
-Ecg_CheckLeads@leadsStatus             cstackBANK0  000063
-TFT_DrawChar@bg                        cstackBANK0  00008C
-TFT_DrawChar@c                         cstackBANK0  000089
-TFT_DrawChar@color                     cstackBANK0  00008A
-TFT_DrawChar@i                         cstackBANK0  000099
-TFT_DrawChar@j                         cstackBANK0  000098
-TFT_DrawChar@line                      cstackBANK0  000093
-TFT_DrawChar@size                      cstackBANK0  00008E
-TFT_DrawChar@x                         cstackBANK0  000085
-TFT_DrawChar@y                         cstackBANK0  000087
-TFT_DrawFillRect@color                 cstackBANK0  00007F
-TFT_DrawFillRect@h                     cstackBANK0  00007D
-TFT_DrawFillRect@w                     cstackBANK0  00007B
-TFT_DrawFillRect@x                     cstackBANK0  000077
-TFT_DrawFillRect@y                     cstackBANK0  000079
-TFT_DrawLine@color                     cstackBANK0  000076
-TFT_DrawLine@dx                        cstackBANK0  00008B
-TFT_DrawLine@dy                        cstackBANK0  000083
-TFT_DrawLine@err                       cstackBANK0  000087
-TFT_DrawLine@steep                     cstackBANK0  000089
-TFT_DrawLine@t                         cstackBANK0  00007B
-TFT_DrawLine@t_665                     cstackBANK0  00007D
-TFT_DrawLine@t_666                     cstackBANK0  00007F
-TFT_DrawLine@t_667                     cstackBANK0  000081
-TFT_DrawLine@x0                        cstackBANK0  00006E
-TFT_DrawLine@x1                        cstackBANK0  000072
-TFT_DrawLine@y0                        cstackBANK0  000070
-TFT_DrawLine@y1                        cstackBANK0  000074
-TFT_DrawLine@ystep                     cstackBANK0  000085
-TFT_DrawPixel@color                    cstackBANK0  00006C
-TFT_DrawPixel@x                        cstackBANK0  000068
-TFT_DrawPixel@y                        cstackBANK0  00006A
-TFT_DrawString@bg                      cstackBANK0  0000A2
-TFT_DrawString@color                   cstackBANK0  0000A0
-TFT_DrawString@size                    cstackBANK0  0000A4
-TFT_DrawString@str                     cstackBANK0  00009E
-TFT_DrawString@x                       cstackBANK0  00009A
-TFT_DrawString@y                       cstackBANK0  00009C
-TFT_FillScreen@color                   cstackBANK0  000077
-TFT_Flood@blocks                       cstackBANK0  000072
-TFT_Flood@color                        cstackBANK0  000068
-TFT_Flood@color_hi                     cstackBANK0  000075
-TFT_Flood@color_lo                     cstackBANK0  000076
-TFT_Flood@i                            cstackBANK0  000074
-TFT_Flood@len                          cstackBANK0  00006A
-TFT_Init@cmd                           cstackBANK0  00007F
-TFT_Init@data                          cstackBANK0  00007B
-TFT_Init@i                             cstackBANK0  000081
-TFT_Init@initSequenceSize              cstackBANK0  00007D
-TFT_SetAddrWindow@x1                   cstackBANK0  000068
-TFT_SetAddrWindow@x2                   cstackBANK0  00006C
-TFT_SetAddrWindow@y1                   cstackBANK0  00006A
-TFT_SetAddrWindow@y2                   cstackBANK0  00006E
-TFT_WriteRegister@data                 cstackBANK0  000062
-TFT_WriteRegister@h                    cstackBANK0  000064
-TFT_WriteRegister@h_620                cstackBANK0  000066
-TFT_WriteRegister@l                    cstackBANK0  000065
-TFT_WriteRegister@l_621                cstackBANK0  000067
-TFT_WriteRegister@reg                  cstackBANK0  000060
+?_Ecg_CheckLeads                       cstackCOMRAM 000005
+?___awdiv                              cstackCOMRAM 000005
+?___lldiv                              cstackCOMRAM 000005
+?___wmul                               cstackCOMRAM 000005
+?_abs                                  cstackCOMRAM 000005
+?_strlen                               cstackCOMRAM 000005
+A6_Command@command                     cstackCOMRAM 000012
+A6_Command@resp1                       cstackCOMRAM 000014
+A6_Command@resp2                       cstackCOMRAM 000016
+A6_Command@response                    cstackCOMRAM 00001A
+A6_Command@timeout                     cstackCOMRAM 000018
+A6_ReadLine@iLine                      cstackCOMRAM 000011
+A6_ReadLine@len                        cstackCOMRAM 00000F
+A6_ReadLine@response                   cstackCOMRAM 00000D
+EUSART_RX_Interrupt@c                  cstackCOMRAM 000001
+EUSART_SetSpeed@speed                  cstackCOMRAM 000012
+EUSART_SetSpeed@tmp                    cstackCOMRAM 00001A
+EUSART_TX_Char@c                       cstackCOMRAM 000005
+EUSART_TX_String@len                   cstackCOMRAM 00000B
+EUSART_TX_String@str                   cstackCOMRAM 000009
+Ecg_CheckLeads@leadsStatus             cstackCOMRAM 000008
+TFT_DrawChar@bg                        cstackCOMRAM 000031
+TFT_DrawChar@c                         cstackCOMRAM 00002E
+TFT_DrawChar@color                     cstackCOMRAM 00002F
+TFT_DrawChar@i                         cstackCOMRAM 00003E
+TFT_DrawChar@j                         cstackCOMRAM 00003D
+TFT_DrawChar@line                      cstackCOMRAM 000038
+TFT_DrawChar@size                      cstackCOMRAM 000033
+TFT_DrawChar@x                         cstackCOMRAM 00002A
+TFT_DrawChar@y                         cstackCOMRAM 00002C
+TFT_DrawFillRect@color                 cstackCOMRAM 000024
+TFT_DrawFillRect@h                     cstackCOMRAM 000022
+TFT_DrawFillRect@w                     cstackCOMRAM 000020
+TFT_DrawFillRect@x                     cstackCOMRAM 00001C
+TFT_DrawFillRect@y                     cstackCOMRAM 00001E
+TFT_DrawLine@color                     cstackCOMRAM 00001B
+TFT_DrawLine@dx                        cstackCOMRAM 000030
+TFT_DrawLine@dy                        cstackCOMRAM 000028
+TFT_DrawLine@err                       cstackCOMRAM 00002C
+TFT_DrawLine@steep                     cstackCOMRAM 00002E
+TFT_DrawLine@t                         cstackCOMRAM 000020
+TFT_DrawLine@t_721                     cstackCOMRAM 000022
+TFT_DrawLine@t_722                     cstackCOMRAM 000024
+TFT_DrawLine@t_723                     cstackCOMRAM 000026
+TFT_DrawLine@x0                        cstackCOMRAM 000013
+TFT_DrawLine@x1                        cstackCOMRAM 000017
+TFT_DrawLine@y0                        cstackCOMRAM 000015
+TFT_DrawLine@y1                        cstackCOMRAM 000019
+TFT_DrawLine@ystep                     cstackCOMRAM 00002A
+TFT_DrawPixel@color                    cstackCOMRAM 000011
+TFT_DrawPixel@x                        cstackCOMRAM 00000D
+TFT_DrawPixel@y                        cstackCOMRAM 00000F
+TFT_DrawString@bg                      cstackCOMRAM 000047
+TFT_DrawString@color                   cstackCOMRAM 000045
+TFT_DrawString@size                    cstackCOMRAM 000049
+TFT_DrawString@str                     cstackCOMRAM 000043
+TFT_DrawString@x                       cstackCOMRAM 00003F
+TFT_DrawString@y                       cstackCOMRAM 000041
+TFT_FillScreen@color                   cstackCOMRAM 00001C
+TFT_Flood@blocks                       cstackCOMRAM 000017
+TFT_Flood@color                        cstackCOMRAM 00000D
+TFT_Flood@color_hi                     cstackCOMRAM 00001A
+TFT_Flood@color_lo                     cstackCOMRAM 00001B
+TFT_Flood@i                            cstackCOMRAM 000019
+TFT_Flood@len                          cstackCOMRAM 00000F
+TFT_Init@cmd                           cstackCOMRAM 000024
+TFT_Init@data                          cstackCOMRAM 000020
+TFT_Init@i                             cstackCOMRAM 000026
+TFT_Init@initSequenceSize              cstackCOMRAM 000022
+TFT_SetAddrWindow@x1                   cstackCOMRAM 00000D
+TFT_SetAddrWindow@x2                   cstackCOMRAM 000011
+TFT_SetAddrWindow@y1                   cstackCOMRAM 00000F
+TFT_SetAddrWindow@y2                   cstackCOMRAM 000013
+TFT_WriteRegister@data                 cstackCOMRAM 000007
+TFT_WriteRegister@h                    cstackCOMRAM 000009
+TFT_WriteRegister@h_676                cstackCOMRAM 00000B
+TFT_WriteRegister@l                    cstackCOMRAM 00000A
+TFT_WriteRegister@l_677                cstackCOMRAM 00000C
+TFT_WriteRegister@reg                  cstackCOMRAM 000005
+_A6_Command                            text2        000EB0
+_A6_ReadLine                           text6        000AEE
 _ADCON0bits                            (abs)        000FC2
 _ADCON1bits                            (abs)        000FC1
 _ADCON2bits                            (abs)        000FC0
@@ -311,32 +318,32 @@ _ADRESH                                (abs)        000FC4
 _ADRESL                                (abs)        000FC3
 _BAUDCONbits                           (abs)        000FB8
 _CREN                                  (abs)        007D5C
-_ECG_BUFFER                            bssBANK0     0000EA
-_ECG_FLAGS                             bssCOMRAM    00004E
-_ECG_HEARTBEAT                         bssBANK0     0000DD
-_ECG_HEARTRATE                         bssCOMRAM    000046
-_ECG_ICON_HEART                        mediumconst  005F95
-_EUSART_Init                           text25       001262
+_ECG_BUFFER                            bssBANK0     0000EB
+_ECG_FLAGS                             bssCOMRAM    000052
+_ECG_HEARTBEAT                         bssBANK0     0000DE
+_ECG_HEARTRATE                         bssCOMRAM    00004E
+_ECG_ICON_HEART                        mediumconst  005F63
+_EUSART_Init                           text29       000E44
 _EUSART_RX                             bssBANK1     000100
-_EUSART_RX_Interrupt                   text29       000AD2
-_EUSART_RX_Interrupt$1952              cstackCOMRAM 00003B
-_EUSART_TX_Char                        text4        001684
-_EUSART_TX_String                      text3        00155E
-_Ecg_Background_Leads_Failure          text14       0013CC
-_Ecg_Background_Leads_Ok               text10       000F44
-_Ecg_CheckLeads                        text9        001210
-_Ecg_Init                              text8        00152C
-_Ecg_Interrupt                         text28       00164A
-_Ecg_X                                 dataCOMRAM   000056
-_Ecg_Xold                              dataCOMRAM   000054
-_Ecg_Y                                 dataCOMRAM   000052
-_Ecg_Yold                              dataCOMRAM   000050
+_EUSART_RX_Interrupt                   text33       001086
+_EUSART_SetSpeed                       text27       000B78
+_EUSART_TX_Char                        text5        0012E4
+_EUSART_TX_String                      text4        0010C8
+_Ecg_Background_Leads_Failure          text16       001184
+_Ecg_Background_Leads_Ok               text12       000C76
+_Ecg_CheckLeads                        text11       000F64
+_Ecg_Init                              text10       00122C
+_Ecg_Interrupt                         text32       0012C6
+_Ecg_X                                 dataCOMRAM   000059
+_Ecg_Xold                              dataCOMRAM   000057
+_Ecg_Y                                 dataCOMRAM   000055
+_Ecg_Yold                              dataBANK0    0000CF
 _GIE                                   (abs)        007F97
 _GO_nDONE                              (abs)        007E11
 _LATA                                  (abs)        000F89
 _LATB                                  (abs)        000F8A
 _LATC                                  (abs)        000F8B
-_MILLISECONDS                          bssCOMRAM    00004A
+_MILLISECONDS                          bssBANK0     0000FC
 _OERR                                  (abs)        007D59
 _OSCCONbits                            (abs)        000FD3
 _OSCTUNEbits                           (abs)        000F9B
@@ -352,22 +359,22 @@ _RCSTAbits                             (abs)        000FAB
 _SPBRG                                 (abs)        000FAF
 _SPBRGH                                (abs)        000FB0
 _T3CONbits                             (abs)        000FB1
-_TFT_DrawChar                          text17       000012
-_TFT_DrawChar$1877                     cstackBANK0  000094
-_TFT_DrawChar$1878                     cstackBANK0  000096
-_TFT_DrawFillRect                      text19       000FC0
-_TFT_DrawLine                          text11       000212
-_TFT_DrawPixel                         text18       001344
-_TFT_DrawString                        text16       000E2A
-_TFT_FillScreen                        text15       0012B0
-_TFT_Flood                             text23       0007C0
-_TFT_Font                              mediumconst  0059C9
-_TFT_FullScreen                        text21       0015B4
-_TFT_Init                              text6        000BDC
-_TFT_Init_Sequence                     mediumconst  005EC9
-_TFT_Reset                             text7        001628
-_TFT_SetAddrWindow                     text22       000EBE
-_TFT_WriteRegister                     text24       0012FC
+_TFT_DrawChar                          text19       000228
+_TFT_DrawChar$1935                     cstackCOMRAM 000039
+_TFT_DrawChar$1936                     cstackCOMRAM 00003B
+_TFT_DrawFillRect                      text21       000CEE
+_TFT_DrawLine                          text13       00041C
+_TFT_DrawPixel                         text20       001146
+_TFT_DrawString                        text18       000A5E
+_TFT_FillScreen                        text17       000FFC
+_TFT_Flood                             text25       000604
+_TFT_Font                              mediumconst  005997
+_TFT_FullScreen                        text23       001282
+_TFT_Init                              text8        000786
+_TFT_Init_Sequence                     mediumconst  005E97
+_TFT_Reset                             text9        0012A8
+_TFT_SetAddrWindow                     text24       000BFC
+_TFT_WriteRegister                     text26       001042
 _TMR3H                                 (abs)        000FB3
 _TMR3IE                                (abs)        007D01
 _TMR3IF                                (abs)        007D09
@@ -437,9 +444,11 @@ __Hcomram                              comram       000000
 __Hconfig                              config       30000E
 __Hconst                               const        000000
 __HcstackBANK0                         cstackBANK0  000000
+__HcstackBANK1                         cstackBANK1  000000
 __HcstackCOMRAM                        cstackCOMRAM 000000
 __Hdata                                data         000000
 __HdataBANK0                           dataBANK0    000000
+__HdataBANK1                           dataBANK1    000000
 __HdataCOMRAM                          dataCOMRAM   000000
 __Heeprom_data                         eeprom_data  000000
 __Hfarbss                              farbss       000000
@@ -447,6 +456,7 @@ __Hfardata                             fardata      000000
 __Hibigdata                            ibigdata     000000
 __Hidata                               idata        000000
 __HidataBANK0                          idataBANK0   000000
+__HidataBANK1                          idataBANK1   000000
 __HidataCOMRAM                         idataCOMRAM  000000
 __Hidloc                               idloc        200008
 __Hifardata                            ifardata     000000
@@ -474,11 +484,11 @@ __Hrparam                              rparam       000000
 __Hsfr                                 sfr          000000
 __Hsmallconst                          smallconst   000000
 __Hspace_0                             (abs)        30000E
-__Hspace_1                             (abs)        000184
+__Hspace_1                             (abs)        000171
 __Hspace_2                             (abs)        000000
 __Hstack                               stack        000000
 __Hstruct                              struct       000000
-__Htemp                                temp         000059
+__Htemp                                temp         00005C
 __Htext                                text         000000
 __Htext0                               text0        000000
 __Htext1                               text1        000000
@@ -500,17 +510,13 @@ __Htext23                              text23       000000
 __Htext24                              text24       000000
 __Htext25                              text25       000000
 __Htext26                              text26       000000
+__Htext27                              text27       000000
 __Htext28                              text28       000000
 __Htext29                              text29       000000
 __Htext3                               text3        000000
 __Htext30                              text30       000000
-__Htext31                              text31       000000
 __Htext32                              text32       000000
 __Htext33                              text33       000000
-__Htext34                              text34       000000
-__Htext35                              text35       000000
-__Htext36                              text36       000000
-__Htext37                              text37       000000
 __Htext4                               text4        000000
 __Htext5                               text5        000000
 __Htext6                               text6        000000
@@ -540,9 +546,11 @@ __Lcomram                              comram       000000
 __Lconfig                              config       300000
 __Lconst                               const        000000
 __LcstackBANK0                         cstackBANK0  000000
+__LcstackBANK1                         cstackBANK1  000000
 __LcstackCOMRAM                        cstackCOMRAM 000000
 __Ldata                                data         000000
 __LdataBANK0                           dataBANK0    000000
+__LdataBANK1                           dataBANK1    000000
 __LdataCOMRAM                          dataCOMRAM   000000
 __Leeprom_data                         eeprom_data  000000
 __Lfarbss                              farbss       000000
@@ -550,6 +558,7 @@ __Lfardata                             fardata      000000
 __Libigdata                            ibigdata     000000
 __Lidata                               idata        000000
 __LidataBANK0                          idataBANK0   000000
+__LidataBANK1                          idataBANK1   000000
 __LidataCOMRAM                         idataCOMRAM  000000
 __Lidloc                               idloc        200000
 __Lifardata                            ifardata     000000
@@ -561,7 +570,7 @@ __Lintentry                            intentry     000000
 __Lintret                              intret       000000
 __Lintsave_regs                        intsave_regs 000000
 __Lirdata                              irdata       000000
-__Lmediumconst                         mediumconst  0059C8
+__Lmediumconst                         mediumconst  005996
 __LnvFARRAM                            nvFARRAM     000000
 __Lnvbit                               nvbit        000000
 __Lnvrram                              nvrram       000000
@@ -581,7 +590,7 @@ __Lspace_1                             (abs)        000000
 __Lspace_2                             (abs)        000000
 __Lstack                               stack        000000
 __Lstruct                              struct       000000
-__Ltemp                                temp         000058
+__Ltemp                                temp         00005B
 __Ltext                                text         000000
 __Ltext0                               text0        000000
 __Ltext1                               text1        000000
@@ -603,17 +612,13 @@ __Ltext23                              text23       000000
 __Ltext24                              text24       000000
 __Ltext25                              text25       000000
 __Ltext26                              text26       000000
+__Ltext27                              text27       000000
 __Ltext28                              text28       000000
 __Ltext29                              text29       000000
 __Ltext3                               text3        000000
 __Ltext30                              text30       000000
-__Ltext31                              text31       000000
 __Ltext32                              text32       000000
 __Ltext33                              text33       000000
-__Ltext34                              text34       000000
-__Ltext35                              text35       000000
-__Ltext36                              text36       000000
-__Ltext37                              text37       000000
 __Ltext4                               text4        000000
 __Ltext5                               text5        000000
 __Ltext6                               text6        000000
@@ -621,122 +626,125 @@ __Ltext7                               text7        000000
 __Ltext8                               text8        000000
 __Ltext9                               text9        000000
 __S0                                   (abs)        30000E
-__S1                                   (abs)        000184
+__S1                                   (abs)        000171
 __S2                                   (abs)        000000
-___awdiv                               text13       000CC8
-___awdiv@counter                       cstackBANK0  000064
-___awdiv@dividend                      cstackBANK0  000060
-___awdiv@divisor                       cstackBANK0  000062
-___awdiv@quotient                      cstackBANK0  000066
-___awdiv@sign                          cstackBANK0  000065
+___awdiv                               text15       000864
+___awdiv@counter                       cstackCOMRAM 000009
+___awdiv@dividend                      cstackCOMRAM 000005
+___awdiv@divisor                       cstackCOMRAM 000007
+___awdiv@quotient                      cstackCOMRAM 00000B
+___awdiv@sign                          cstackCOMRAM 00000A
 ___inthi_sp                            stack        000000
 ___intlo_sp                            stack        000000
+___lldiv                               text28       000928
+___lldiv@counter                       cstackCOMRAM 000011
+___lldiv@dividend                      cstackCOMRAM 000005
+___lldiv@divisor                       cstackCOMRAM 000009
+___lldiv@quotient                      cstackCOMRAM 00000D
 ___param_bank                          (abs)        000000
 ___rparam_used                         (abs)        000001
 ___sp                                  stack        000000
-___wmul                                text20       00158C
-___wmul@multiplicand                   cstackBANK0  000062
-___wmul@multiplier                     cstackBANK0  000060
-___wmul@product                        cstackBANK0  000064
+___wmul                                text22       00125C
+___wmul@multiplicand                   cstackCOMRAM 000007
+___wmul@multiplier                     cstackCOMRAM 000005
+___wmul@product                        cstackCOMRAM 000009
 __accesstop                            (abs)        000060
 __activetblptr                         (abs)        000002
-__end_of_ECG_ICON_HEART                mediumconst  005FD3
-__end_of_EUSART_Init                   text25       0012B0
-__end_of_EUSART_RX_Interrupt           text29       000BDC
-__end_of_EUSART_TX_Char                text4        00169E
-__end_of_EUSART_TX_String              text3        00158C
-__end_of_Ecg_Background_Leads_Failure  text14       00140C
-__end_of_Ecg_Background_Leads_Ok       text10       000FC0
-__end_of_Ecg_CheckLeads                text9        001262
-__end_of_Ecg_Init                      text8        00155E
-__end_of_Ecg_Interrupt                 text28       001668
-__end_of_TFT_DrawChar                  text17       000212
-__end_of_TFT_DrawFillRect              text19       00103A
-__end_of_TFT_DrawLine                  text11       000406
-__end_of_TFT_DrawPixel                 text18       001388
-__end_of_TFT_DrawString                text16       000EBE
-__end_of_TFT_FillScreen                text15       0012FC
-__end_of_TFT_Flood                     text23       000950
-__end_of_TFT_Font                      mediumconst  005EC9
-__end_of_TFT_FullScreen                text21       0015DC
-__end_of_TFT_Init                      text6        000CC8
-__end_of_TFT_Init_Sequence             mediumconst  005F95
-__end_of_TFT_Reset                     text7        00164A
-__end_of_TFT_SetAddrWindow             text22       000F44
-__end_of_TFT_WriteRegister             text24       001344
-__end_of___awdiv                       text13       000D8E
-__end_of___wmul                        text20       0015B4
-__end_of__initialization               cinit        001202
-__end_of_abs                           text12       00152C
-__end_of_init                          text5        00119E
-__end_of_isr                           intcode_body 000E2A
-__end_of_loop                          text1        0007C0
-__end_of_main                          text0        001684
-__end_of_memset                        text26       0014BE
-__end_of_strlen                        text2        001484
-__end_ofi2_TFT_DrawChar                text30       0005FA
-__end_ofi2_TFT_DrawFillRect            text32       00112A
-__end_ofi2_TFT_DrawPixel               text31       00144A
-__end_ofi2_TFT_Flood                   text36       000AD2
-__end_ofi2_TFT_FullScreen              text34       001628
-__end_ofi2_TFT_SetAddrWindow           text35       0010B4
-__end_ofi2_TFT_WriteRegister           text37       0013CC
-__end_ofi2___wmul                      text33       001602
-__initialization                       cinit        00119E
-__mediumconst                          mediumconst  0059C8
-__pbssBANK0                            bssBANK0     0000DD
+__end_of_A6_Command                    text2        000F16
+__end_of_A6_ReadLine                   text6        000B78
+__end_of_ECG_ICON_HEART                mediumconst  005FA1
+__end_of_EUSART_Init                   text29       000EB0
+__end_of_EUSART_RX_Interrupt           text33       0010C8
+__end_of_EUSART_SetSpeed               text27       000BFC
+__end_of_EUSART_TX_Char                text5        0012FC
+__end_of_EUSART_TX_String              text4        001108
+__end_of_Ecg_Background_Leads_Failure  text16       0011C0
+__end_of_Ecg_Background_Leads_Ok       text12       000CEE
+__end_of_Ecg_CheckLeads                text11       000FB2
+__end_of_Ecg_Init                      text10       00125C
+__end_of_Ecg_Interrupt                 text32       0012E4
+__end_of_TFT_DrawChar                  text19       00041C
+__end_of_TFT_DrawFillRect              text21       000D64
+__end_of_TFT_DrawLine                  text13       000604
+__end_of_TFT_DrawPixel                 text20       001184
+__end_of_TFT_DrawString                text18       000AEE
+__end_of_TFT_FillScreen                text17       001042
+__end_of_TFT_Flood                     text25       000786
+__end_of_TFT_Font                      mediumconst  005E97
+__end_of_TFT_FullScreen                text23       0012A8
+__end_of_TFT_Init                      text8        000864
+__end_of_TFT_Init_Sequence             mediumconst  005F63
+__end_of_TFT_Reset                     text9        0012C6
+__end_of_TFT_SetAddrWindow             text24       000C76
+__end_of_TFT_WriteRegister             text26       001086
+__end_of___awdiv                       text15       000928
+__end_of___lldiv                       text28       0009CC
+__end_of___wmul                        text22       001282
+__end_of__initialization               cinit        000A50
+__end_of_abs                           text14       00122C
+__end_of_init                          text7        000DD6
+__end_of_isr                           intcode_body 000E44
+__end_of_loop                          text1        000228
+__end_of_main                          text0        000FFC
+__end_of_memset                        text30       0011F8
+__end_of_strlen                        text3        000F64
+__initialization                       cinit        0009CC
+__mediumconst                          mediumconst  005996
+__pbssBANK0                            bssBANK0     0000DE
 __pbssBANK1                            bssBANK1     000100
-__pbssCOMRAM                           bssCOMRAM    000046
-__pcinit                               cinit        00119E
+__pbssCOMRAM                           bssCOMRAM    00004E
+__pcinit                               cinit        0009CC
 __pcstackBANK0                         cstackBANK0  000060
+__pcstackBANK1                         cstackBANK1  00016F
 __pcstackCOMRAM                        cstackCOMRAM 000001
-__pdataBANK0                           dataBANK0    0000A5
-__pdataCOMRAM                          dataCOMRAM   000050
-__pidataBANK0                          idataBANK0   0014BE
-__pidataCOMRAM                         idataCOMRAM  00169E
+__pdataBANK0                           dataBANK0    0000A0
+__pdataBANK1                           dataBANK1    000164
+__pdataCOMRAM                          dataCOMRAM   000055
+__pidataBANK0                          idataBANK0   001108
+__pidataBANK1                          idataBANK1   0012FC
+__pidataCOMRAM                         idataCOMRAM  001307
 __pintcode                             intcode      000008
-__pintcode_body                        intcode_body 000D8E
-__pmediumconst                         mediumconst  0059C8
-__ptext0                               text0        001668
-__ptext1                               text1        0005FA
-__ptext10                              text10       000F44
-__ptext11                              text11       000212
-__ptext12                              text12       0014F6
-__ptext13                              text13       000CC8
-__ptext14                              text14       0013CC
-__ptext15                              text15       0012B0
-__ptext16                              text16       000E2A
-__ptext17                              text17       000012
-__ptext18                              text18       001344
-__ptext19                              text19       000FC0
-__ptext2                               text2        00144A
-__ptext20                              text20       00158C
-__ptext21                              text21       0015B4
-__ptext22                              text22       000EBE
-__ptext23                              text23       0007C0
-__ptext24                              text24       0012FC
-__ptext25                              text25       001262
-__ptext26                              text26       001484
-__ptext28                              text28       00164A
-__ptext29                              text29       000AD2
-__ptext3                               text3        00155E
-__ptext30                              text30       000406
-__ptext31                              text31       00140C
-__ptext32                              text32       0010B4
-__ptext33                              text33       0015DC
-__ptext34                              text34       001602
-__ptext35                              text35       00103A
-__ptext36                              text36       000950
-__ptext37                              text37       001388
-__ptext4                               text4        001684
-__ptext5                               text5        00112A
-__ptext6                               text6        000BDC
-__ptext7                               text7        001628
-__ptext8                               text8        00152C
-__ptext9                               text9        001210
+__pintcode_body                        intcode_body 000DD6
+__pmediumconst                         mediumconst  005996
+__ptext0                               text0        000FB2
+__ptext1                               text1        000012
+__ptext10                              text10       00122C
+__ptext11                              text11       000F64
+__ptext12                              text12       000C76
+__ptext13                              text13       00041C
+__ptext14                              text14       0011F8
+__ptext15                              text15       000864
+__ptext16                              text16       001184
+__ptext17                              text17       000FFC
+__ptext18                              text18       000A5E
+__ptext19                              text19       000228
+__ptext2                               text2        000EB0
+__ptext20                              text20       001146
+__ptext21                              text21       000CEE
+__ptext22                              text22       00125C
+__ptext23                              text23       001282
+__ptext24                              text24       000BFC
+__ptext25                              text25       000604
+__ptext26                              text26       001042
+__ptext27                              text27       000B78
+__ptext28                              text28       000928
+__ptext29                              text29       000E44
+__ptext3                               text3        000F16
+__ptext30                              text30       0011C0
+__ptext32                              text32       0012C6
+__ptext33                              text33       001086
+__ptext4                               text4        0010C8
+__ptext5                               text5        0012E4
+__ptext6                               text6        000AEE
+__ptext7                               text7        000D64
+__ptext8                               text8        000786
+__ptext9                               text9        0012A8
 __ramtop                               ramtop       000800
+__size_of_A6_Command                   (abs)        000000
+__size_of_A6_ReadLine                  (abs)        000000
 __size_of_EUSART_Init                  (abs)        000000
 __size_of_EUSART_RX_Interrupt          (abs)        000000
+__size_of_EUSART_SetSpeed              (abs)        000000
 __size_of_EUSART_TX_Char               (abs)        000000
 __size_of_EUSART_TX_String             (abs)        000000
 __size_of_Ecg_Background_Leads_Failure (abs)        000000
@@ -757,6 +765,7 @@ __size_of_TFT_Reset                    (abs)        000000
 __size_of_TFT_SetAddrWindow            (abs)        000000
 __size_of_TFT_WriteRegister            (abs)        000000
 __size_of___awdiv                      (abs)        000000
+__size_of___lldiv                      (abs)        000000
 __size_of___wmul                       (abs)        000000
 __size_of_abs                          (abs)        000000
 __size_of_init                         (abs)        000000
@@ -765,104 +774,58 @@ __size_of_loop                         (abs)        000000
 __size_of_main                         (abs)        000000
 __size_of_memset                       (abs)        000000
 __size_of_strlen                       (abs)        000000
-__size_ofi2_TFT_DrawChar               (abs)        000000
-__size_ofi2_TFT_DrawFillRect           (abs)        000000
-__size_ofi2_TFT_DrawPixel              (abs)        000000
-__size_ofi2_TFT_Flood                  (abs)        000000
-__size_ofi2_TFT_FullScreen             (abs)        000000
-__size_ofi2_TFT_SetAddrWindow          (abs)        000000
-__size_ofi2_TFT_WriteRegister          (abs)        000000
-__size_ofi2___wmul                     (abs)        000000
 __smallconst                           smallconst   000000
-_abs                                   text12       0014F6
-_init                                  text5        00112A
+_abs                                   text14       0011F8
+_init                                  text7        000D64
 _isr                                   intcode      000008
-_loop                                  text1        0005FA
-_main                                  text0        001668
-_memset                                text26       001484
-_strlen                                text2        00144A
-_x1                                    dataBANK0    0000CC
-_x2                                    dataBANK0    0000B9
-_x3                                    dataBANK0    0000D5
-_x4                                    dataBANK0    0000C3
-_x5                                    dataBANK0    0000AF
-_x6                                    dataBANK0    0000A5
-abs@a                                  cstackBANK0  000060
-btemp                                  temp         000058
-end_of_initialization                  cinit        001202
-i2TFT_DrawChar@bg                      cstackCOMRAM 00002D
-i2TFT_DrawChar@c                       cstackCOMRAM 00002A
-i2TFT_DrawChar@color                   cstackCOMRAM 00002B
-i2TFT_DrawChar@i                       cstackCOMRAM 00003A
-i2TFT_DrawChar@j                       cstackCOMRAM 000039
-i2TFT_DrawChar@line                    cstackCOMRAM 000034
-i2TFT_DrawChar@size                    cstackCOMRAM 00002F
-i2TFT_DrawChar@x                       cstackCOMRAM 000026
-i2TFT_DrawChar@y                       cstackCOMRAM 000028
-i2TFT_DrawFillRect@color               cstackCOMRAM 000020
-i2TFT_DrawFillRect@h                   cstackCOMRAM 00001E
-i2TFT_DrawFillRect@w                   cstackCOMRAM 00001C
-i2TFT_DrawFillRect@x                   cstackCOMRAM 000018
-i2TFT_DrawFillRect@y                   cstackCOMRAM 00001A
-i2TFT_DrawPixel@color                  cstackCOMRAM 00000D
-i2TFT_DrawPixel@x                      cstackCOMRAM 000009
-i2TFT_DrawPixel@y                      cstackCOMRAM 00000B
-i2TFT_Flood@blocks                     cstackCOMRAM 000013
-i2TFT_Flood@color                      cstackCOMRAM 000009
-i2TFT_Flood@color_hi                   cstackCOMRAM 000016
-i2TFT_Flood@color_lo                   cstackCOMRAM 000017
-i2TFT_Flood@i                          cstackCOMRAM 000015
-i2TFT_Flood@len                        cstackCOMRAM 00000B
-i2TFT_SetAddrWindow@x1                 cstackCOMRAM 000009
-i2TFT_SetAddrWindow@x2                 cstackCOMRAM 00000D
-i2TFT_SetAddrWindow@y1                 cstackCOMRAM 00000B
-i2TFT_SetAddrWindow@y2                 cstackCOMRAM 00000F
-i2TFT_WriteRegister@data               cstackCOMRAM 000003
-i2TFT_WriteRegister@h                  cstackCOMRAM 000005
-i2TFT_WriteRegister@h_620              cstackCOMRAM 000007
-i2TFT_WriteRegister@l                  cstackCOMRAM 000006
-i2TFT_WriteRegister@l_621              cstackCOMRAM 000008
-i2TFT_WriteRegister@reg                cstackCOMRAM 000001
-i2_TFT_DrawChar                        text30       000406
-i2_TFT_DrawChar$1953                   cstackCOMRAM 000035
-i2_TFT_DrawChar$1954                   cstackCOMRAM 000037
-i2_TFT_DrawFillRect                    text32       0010B4
-i2_TFT_DrawPixel                       text31       00140C
-i2_TFT_Flood                           text36       000950
-i2_TFT_FullScreen                      text34       001602
-i2_TFT_SetAddrWindow                   text35       00103A
-i2_TFT_WriteRegister                   text37       001388
-i2___wmul                              text33       0015DC
-i2___wmul@multiplicand                 cstackCOMRAM 000003
-i2___wmul@multiplier                   cstackCOMRAM 000001
-i2___wmul@product                      cstackCOMRAM 000005
-int$flags                              temp         000058
-int_func                               intcode_body 000D8E
+_loop                                  text1        000012
+_main                                  text0        000FB2
+_memset                                text30       0011C0
+_strlen                                text3        000F16
+_tmp1                                  bssBANK0     0000F8
+_tmp2                                  bssBANK0     0000F4
+_tmp3                                  bssCOMRAM    000054
+_tmp4                                  bssBANK0     0000F0
+_x1                                    dataBANK0    0000D1
+_x2                                    dataBANK0    0000B4
+_x3                                    dataBANK0    0000C7
+_x4                                    dataBANK0    0000BE
+_x5                                    dataBANK0    0000AA
+_x6                                    dataBANK0    0000A0
+_x7                                    dataBANK1    000164
+_x8                                    dataBANK0    0000DA
+abs@a                                  cstackCOMRAM 000005
+btemp                                  temp         00005B
+end_of_initialization                  cinit        000A50
+int$flags                              temp         00005B
+int_func                               intcode_body 000DD6
 intlevel0                              text         000000
 intlevel1                              text         000000
 intlevel2                              text         000000
 intlevel3                              text         000000
-memset@c                               cstackBANK0  000062
-memset@n                               cstackBANK0  000064
-memset@p                               cstackBANK0  000066
-memset@p1                              cstackBANK0  000060
+loop@response                          cstackBANK0  000060
+loop@response_128                      cstackBANK0  000080
+memset@c                               cstackCOMRAM 000007
+memset@n                               cstackCOMRAM 000009
+memset@p                               cstackCOMRAM 00000B
+memset@p1                              cstackCOMRAM 000005
 stackhi                                (abs)        0007FF
-stacklo                                (abs)        000184
+stacklo                                (abs)        000171
 start                                  init         00000E
-start_initialization                   cinit        00119E
-strlen@cp                              cstackBANK0  000062
-strlen@s                               cstackBANK0  000060
-ttemp5                                 temp         000059
-ttemp6                                 temp         00005C
-ttemp7                                 temp         000060
-wtemp8                                 temp         000059
+start_initialization                   cinit        0009CC
+strlen@cp                              cstackCOMRAM 000007
+strlen@s                               cstackCOMRAM 000005
+ttemp5                                 temp         00005C
+ttemp6                                 temp         00005F
+ttemp7                                 temp         000063
+wtemp8                                 temp         00005C
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 20 in file "main.c"
+		line 21 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -870,7 +833,7 @@ FUNCTION INFORMATION:
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr0l, fsr0h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -878,12 +841,13 @@ FUNCTION INFORMATION:
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels required when called:   15
+      Temps:          0       0       2       0       0       0       0       0       0
+      Totals:         0       0       2       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels required when called:   10
  This function calls:
 		_EUSART_Init
+		_EUSART_SetSpeed
 		_Ecg_Init
 		_TFT_Init
 		_init
@@ -895,32 +859,79 @@ Total ram usage:        0 bytes
 
  *************** function _loop *****************
  Defined at:
-		line 35 in file "main.c"
+		line 38 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-		None
+  response       32   32[BANK0 ] unsigned char [32]
+  response       32    0[BANK0 ] unsigned char [32]
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       2       0       0       0       0       0       0       0
-Total ram usage:        2 bytes
+      Locals:         0      64       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0
+      Totals:         4      64       0       0       0       0       0       0       0
+Total ram usage:       68 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    9
+ Hardware stack levels required when called:    8
  This function calls:
+		_A6_Command
+		_TFT_DrawFillRect
+		_TFT_DrawString
+		_memset
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _A6_Command *****************
+ Defined at:
+		line 26 in file "A6Lib.c"
+ Parameters:    Size  Location     Type
+  command         2   17[COMRAM] PTR const unsigned char 
+		 -> STR_14(14), STR_11(16), STR_8(15), x1(9), 
+		 -> x8(4), 
+  resp1           2   19[COMRAM] PTR const unsigned char 
+		 -> STR_15(3), STR_12(3), STR_9(3), STR_3(3), 
+		 -> STR_1(3), 
+  resp2           2   21[COMRAM] PTR const unsigned char 
+		 -> STR_16(3), STR_13(3), STR_10(3), STR_4(3), 
+		 -> STR_2(3), 
+  timeout         2   23[COMRAM] int 
+  response        2   25[COMRAM] PTR unsigned char 
+		 -> A6_SetSpeed@response(32), loop@response_128(32), loop@response(32), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:        10       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0
+      Totals:        11       0       0       0       0       0       0       0       0
+Total ram usage:       11 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_A6_ReadLine
 		_EUSART_TX_String
 		_strlen
  This function is called by:
-		_main
+		_loop
+		_A6_SetSpeed
  This function uses a non-reentrant model
 
 
@@ -928,76 +939,76 @@ Total ram usage:        2 bytes
  Defined at:
 		line 4 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c"
  Parameters:    Size  Location     Type
-  s               2    0[BANK0 ] PTR const unsigned char 
-		 -> x6(10), x5(10), x4(9), x3(8), 
-		 -> x2(10), x1(9), 
+  s               2    4[COMRAM] PTR const unsigned char 
+		 -> STR_14(14), STR_11(16), STR_8(15), x1(9), 
+		 -> x8(4), 
  Auto vars:     Size  Location     Type
-  cp              2    2[BANK0 ] PTR const unsigned char 
-		 -> x6(10), x5(10), x4(9), x3(8), 
-		 -> x2(10), x1(9), 
+  cp              2    6[COMRAM] PTR const unsigned char 
+		 -> STR_14(14), STR_11(16), STR_8(15), x1(9), 
+		 -> x8(4), 
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] unsigned int 
+                  2    4[COMRAM] unsigned int 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       2       0       0       0       0       0       0       0
-      Locals:         0       2       0       0       0       0       0       0       0
+      Params:         2       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       4       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
-		_loop
+		_A6_Command
  This function uses a non-reentrant model
 
 
  *************** function _EUSART_TX_String *****************
  Defined at:
-		line 48 in file "eusart.c"
+		line 65 in file "eusart.c"
  Parameters:    Size  Location     Type
-  str             2    4[BANK0 ] PTR unsigned char 
-		 -> x6(10), x5(10), x4(9), x3(8), 
-		 -> x2(10), x1(9), 
-  len             1    6[BANK0 ] unsigned char 
+  str             2    8[COMRAM] PTR const unsigned char 
+		 -> STR_14(14), STR_11(16), STR_8(15), x1(9), 
+		 -> x8(4), 
+  len             1   10[COMRAM] unsigned char 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+		wreg, fsr0l, fsr0h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       3       0       0       0       0       0       0       0
+      Params:         3       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       3       0       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0       0       0
 Total ram usage:        3 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    8
+ Hardware stack levels required when called:    3
  This function calls:
 		_EUSART_TX_Char
  This function is called by:
-		_loop
+		_A6_Command
  This function uses a non-reentrant model
 
 
  *************** function _EUSART_TX_Char *****************
  Defined at:
-		line 42 in file "eusart.c"
+		line 59 in file "eusart.c"
  Parameters:    Size  Location     Type
   c               1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
-  c               1    0[BANK0 ] unsigned char 
+  c               1    4[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1008,16 +1019,48 @@ Total ram usage:        3 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       1       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       1       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
 		_EUSART_TX_String
+ This function uses a non-reentrant model
+
+
+ *************** function _A6_ReadLine *****************
+ Defined at:
+		line 12 in file "A6Lib.c"
+ Parameters:    Size  Location     Type
+  response        2   12[COMRAM] PTR unsigned char 
+		 -> A6_SetSpeed@response(32), loop@response_128(32), loop@response(32), 
+  len             1   14[COMRAM] unsigned char 
+ Auto vars:     Size  Location     Type
+  iLine           1   16[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         3       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0
+      Totals:         5       0       0       0       0       0       0       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_memset
+ This function is called by:
+		_A6_Command
  This function uses a non-reentrant model
 
 
@@ -1039,11 +1082,11 @@ Total ram usage:        1 bytes
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       2       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0
 Total ram usage:        2 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
@@ -1057,10 +1100,10 @@ Total ram usage:        2 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  i               2   33[BANK0 ] unsigned int 
-  cmd             2   31[BANK0 ] unsigned int 
-  initSequence    2   29[BANK0 ] unsigned int 
-  data            2   27[BANK0 ] unsigned int 
+  i               2   37[COMRAM] unsigned int 
+  cmd             2   35[COMRAM] unsigned int 
+  initSequence    2   33[COMRAM] unsigned int 
+  data            2   31[COMRAM] unsigned int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1071,12 +1114,12 @@ Total ram usage:        2 bytes
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       8       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0      10       0       0       0       0       0       0       0
+      Locals:         8       0       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:        10       0       0       0       0       0       0       0       0
 Total ram usage:       10 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   10
+ Hardware stack levels required when called:    5
  This function calls:
 		_TFT_FillScreen
 		_TFT_FullScreen
@@ -1105,11 +1148,11 @@ Total ram usage:       10 bytes
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       1       0       0       0       0       0       0       0
-      Totals:         0       1       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0       0       0
 Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
@@ -1139,7 +1182,7 @@ Total ram usage:        1 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   14
+ Hardware stack levels required when called:    9
  This function calls:
 		_Ecg_Background_Leads_Failure
 		_Ecg_Background_Leads_Ok
@@ -1155,9 +1198,9 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  leadsStatus     1    3[BANK0 ] unsigned char 
+  leadsStatus     1    7[COMRAM] unsigned char 
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] unsigned int 
+                  2    4[COMRAM] unsigned int 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -1165,13 +1208,13 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       2       0       0       0       0       0       0       0
-      Locals:         0       1       0       0       0       0       0       0       0
-      Temps:          0       1       0       0       0       0       0       0       0
-      Totals:         0       4       0       0       0       0       0       0       0
+      Params:         2       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
@@ -1202,7 +1245,7 @@ Total ram usage:        4 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   13
+ Hardware stack levels required when called:    8
  This function calls:
 		_TFT_DrawLine
 		_TFT_DrawString
@@ -1217,21 +1260,21 @@ Total ram usage:        0 bytes
  Defined at:
 		line 100 in file "TFT.c"
  Parameters:    Size  Location     Type
-  x0              2   14[BANK0 ] int 
-  y0              2   16[BANK0 ] int 
-  x1              2   18[BANK0 ] int 
-  y1              2   20[BANK0 ] int 
-  color           2   22[BANK0 ] unsigned int 
+  x0              2   18[COMRAM] int 
+  y0              2   20[COMRAM] int 
+  x1              2   22[COMRAM] int 
+  y1              2   24[COMRAM] int 
+  color           2   26[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
-  t               2   33[BANK0 ] int 
-  t               2   31[BANK0 ] int 
-  t               2   29[BANK0 ] int 
-  t               2   27[BANK0 ] int 
-  dx              2   43[BANK0 ] int 
-  steep           2   41[BANK0 ] int 
-  err             2   39[BANK0 ] int 
-  ystep           2   37[BANK0 ] int 
-  dy              2   35[BANK0 ] int 
+  t               2   37[COMRAM] int 
+  t               2   35[COMRAM] int 
+  t               2   33[COMRAM] int 
+  t               2   31[COMRAM] int 
+  dx              2   47[COMRAM] int 
+  steep           2   45[COMRAM] int 
+  err             2   43[COMRAM] int 
+  ystep           2   41[COMRAM] int 
+  dy              2   39[COMRAM] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1241,13 +1284,13 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0      10       0       0       0       0       0       0       0
-      Locals:         0      18       0       0       0       0       0       0       0
-      Temps:          0       3       0       0       0       0       0       0       0
-      Totals:         0      31       0       0       0       0       0       0       0
+      Params:        10       0       0       0       0       0       0       0       0
+      Locals:        18       0       0       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0       0       0
+      Totals:        31       0       0       0       0       0       0       0       0
 Total ram usage:       31 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    9
+ Hardware stack levels required when called:    4
  This function calls:
 		_TFT_DrawPixel
 		___awdiv
@@ -1262,11 +1305,11 @@ Total ram usage:       31 bytes
  Defined at:
 		line 4 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c"
  Parameters:    Size  Location     Type
-  a               2    0[BANK0 ] int 
+  a               2    4[COMRAM] int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] int 
+                  2    4[COMRAM] int 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -1274,13 +1317,13 @@ Total ram usage:       31 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       2       0       0       0       0       0       0       0
+      Params:         2       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       2       0       0       0       0       0       0       0
-      Totals:         0       4       0       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0       0       0
 Total ram usage:        4 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
@@ -1293,14 +1336,14 @@ Total ram usage:        4 bytes
  Defined at:
 		line 7 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c"
  Parameters:    Size  Location     Type
-  dividend        2    0[BANK0 ] int 
-  divisor         2    2[BANK0 ] int 
+  dividend        2    4[COMRAM] int 
+  divisor         2    6[COMRAM] int 
  Auto vars:     Size  Location     Type
-  quotient        2    6[BANK0 ] int 
-  sign            1    5[BANK0 ] unsigned char 
-  counter         1    4[BANK0 ] unsigned char 
+  quotient        2   10[COMRAM] int 
+  sign            1    9[COMRAM] unsigned char 
+  counter         1    8[COMRAM] unsigned char 
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] int 
+                  2    4[COMRAM] int 
  Registers used:
 		wreg, status,2, status,0
  Tracked objects:
@@ -1308,13 +1351,13 @@ Total ram usage:        4 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       4       0       0       0       0       0       0       0
-      Locals:         0       4       0       0       0       0       0       0       0
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       8       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0
 Total ram usage:        8 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
@@ -1344,7 +1387,7 @@ Total ram usage:        8 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   13
+ Hardware stack levels required when called:    8
  This function calls:
 		_TFT_DrawString
 		_TFT_FillScreen
@@ -1358,7 +1401,7 @@ Total ram usage:        0 bytes
  Defined at:
 		line 182 in file "TFT.c"
  Parameters:    Size  Location     Type
-  color           2   23[BANK0 ] unsigned int 
+  color           2   27[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1370,13 +1413,13 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       2       0       0       0       0       0       0       0
+      Params:         2       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       2       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0
 Total ram usage:        2 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    9
+ Hardware stack levels required when called:    4
  This function calls:
 		_TFT_Flood
 		_TFT_WriteRegister
@@ -1391,13 +1434,14 @@ Total ram usage:        2 bytes
  Defined at:
 		line 213 in file "TFT.c"
  Parameters:    Size  Location     Type
-  x               2   58[BANK0 ] unsigned int 
-  y               2   60[BANK0 ] unsigned int 
-  str             2   62[BANK0 ] PTR const unsigned char 
-		 -> STR_3(28), STR_2(11), Ecg_ProcessHeartRate@heartrateString(5), 
-  color           2   64[BANK0 ] unsigned int 
-  bg              2   66[BANK0 ] unsigned int 
-  size            1   68[BANK0 ] unsigned char 
+  x               2   62[COMRAM] unsigned int 
+  y               2   64[COMRAM] unsigned int 
+  str             2   66[COMRAM] PTR const unsigned char 
+		 -> A6_SetSpeed@response(32), EUSART_RX.line(32), STR_7(28), STR_6(11), 
+		 -> Ecg_ProcessHeartRate@heartrateString(5), loop@response_128(32), EUSART_RX(100), loop@response(32), 
+  color           2   68[COMRAM] unsigned int 
+  bg              2   70[COMRAM] unsigned int 
+  size            1   72[COMRAM] unsigned char 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1409,19 +1453,22 @@ Total ram usage:        2 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0      11       0       0       0       0       0       0       0
+      Params:        11       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0      11       0       0       0       0       0       0       0
+      Totals:        11       0       0       0       0       0       0       0       0
 Total ram usage:       11 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   12
+ Hardware stack levels required when called:    7
  This function calls:
 		_TFT_DrawChar
  This function is called by:
+		_loop
 		_Ecg_Background_Leads_Ok
 		_Ecg_Background_Leads_Failure
 		_Ecg_ProcessHeartRate
+		_EUSART_RX_Process
+		_A6_SetSpeed
  This function uses a non-reentrant model
 
 
@@ -1429,16 +1476,16 @@ Total ram usage:       11 bytes
  Defined at:
 		line 192 in file "TFT.c"
  Parameters:    Size  Location     Type
-  x               2   37[BANK0 ] unsigned int 
-  y               2   39[BANK0 ] unsigned int 
-  c               1   41[BANK0 ] unsigned char 
-  color           2   42[BANK0 ] unsigned int 
-  bg              2   44[BANK0 ] unsigned int 
-  size            1   46[BANK0 ] unsigned char 
+  x               2   41[COMRAM] unsigned int 
+  y               2   43[COMRAM] unsigned int 
+  c               1   45[COMRAM] unsigned char 
+  color           2   46[COMRAM] unsigned int 
+  bg              2   48[COMRAM] unsigned int 
+  size            1   50[COMRAM] unsigned char 
  Auto vars:     Size  Location     Type
-  j               1   56[BANK0 ] char 
-  line            1   51[BANK0 ] unsigned char 
-  i               1   57[BANK0 ] char 
+  j               1   60[COMRAM] char 
+  line            1   55[COMRAM] unsigned char 
+  i               1   61[COMRAM] char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1448,20 +1495,19 @@ Total ram usage:       11 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0      10       0       0       0       0       0       0       0
-      Locals:         0       7       0       0       0       0       0       0       0
-      Temps:          0       4       0       0       0       0       0       0       0
-      Totals:         0      21       0       0       0       0       0       0       0
+      Params:        10       0       0       0       0       0       0       0       0
+      Locals:         7       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0
+      Totals:        21       0       0       0       0       0       0       0       0
 Total ram usage:       21 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   11
+ Hardware stack levels required when called:    6
  This function calls:
 		_TFT_DrawFillRect
 		_TFT_DrawPixel
 		___wmul
  This function is called by:
 		_TFT_DrawString
-		_EUSART_RX_Process
  This function uses a non-reentrant model
 
 
@@ -1469,9 +1515,9 @@ Total ram usage:       21 bytes
  Defined at:
 		line 94 in file "TFT.c"
  Parameters:    Size  Location     Type
-  x               2    8[BANK0 ] unsigned int 
-  y               2   10[BANK0 ] unsigned int 
-  color           2   12[BANK0 ] unsigned int 
+  x               2   12[COMRAM] unsigned int 
+  y               2   14[COMRAM] unsigned int 
+  color           2   16[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1483,13 +1529,13 @@ Total ram usage:       21 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       6       0       0       0       0       0       0       0
+      Params:         6       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       6       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0
 Total ram usage:        6 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    8
+ Hardware stack levels required when called:    3
  This function calls:
 		_TFT_WriteRegister
  This function is called by:
@@ -1503,11 +1549,11 @@ Total ram usage:        6 bytes
  Defined at:
 		line 138 in file "TFT.c"
  Parameters:    Size  Location     Type
-  x               2   23[BANK0 ] unsigned int 
-  y               2   25[BANK0 ] unsigned int 
-  w               2   27[BANK0 ] unsigned int 
-  h               2   29[BANK0 ] unsigned int 
-  color           2   31[BANK0 ] unsigned int 
+  x               2   27[COMRAM] unsigned int 
+  y               2   29[COMRAM] unsigned int 
+  w               2   31[COMRAM] unsigned int 
+  h               2   33[COMRAM] unsigned int 
+  color           2   35[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1519,23 +1565,25 @@ Total ram usage:        6 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0      10       0       0       0       0       0       0       0
+      Params:        10       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       4       0       0       0       0       0       0       0
-      Totals:         0      14       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0
+      Totals:        14       0       0       0       0       0       0       0       0
 Total ram usage:       14 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:   10
+ Hardware stack levels required when called:    5
  This function calls:
 		_TFT_Flood
 		_TFT_FullScreen
 		_TFT_SetAddrWindow
 		___wmul
  This function is called by:
+		_loop
 		_TFT_DrawChar
 		_Ecg_ProcessHeartbeat
 		_Ecg_Draw
 		_EUSART_RX_Process
+		_A6_SetSpeed
  This function uses a non-reentrant model
 
 
@@ -1543,12 +1591,12 @@ Total ram usage:       14 bytes
  Defined at:
 		line 15 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c"
  Parameters:    Size  Location     Type
-  multiplier      2    0[BANK0 ] unsigned int 
-  multiplicand    2    2[BANK0 ] unsigned int 
+  multiplier      2    4[COMRAM] unsigned int 
+  multiplicand    2    6[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
-  product         2    4[BANK0 ] unsigned int 
+  product         2    8[COMRAM] unsigned int 
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] unsigned int 
+                  2    4[COMRAM] unsigned int 
  Registers used:
 		wreg, status,2, status,0, prodl, prodh
  Tracked objects:
@@ -1556,19 +1604,18 @@ Total ram usage:       14 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       4       0       0       0       0       0       0       0
-      Locals:         0       2       0       0       0       0       0       0       0
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       6       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0
 Total ram usage:        6 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
 		_TFT_DrawFillRect
 		_TFT_DrawChar
-		_EUSART_RX_Process
  This function uses a non-reentrant model
 
 
@@ -1594,7 +1641,7 @@ Total ram usage:        6 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    9
+ Hardware stack levels required when called:    4
  This function calls:
 		_TFT_SetAddrWindow
  This function is called by:
@@ -1607,10 +1654,10 @@ Total ram usage:        0 bytes
  Defined at:
 		line 56 in file "TFT.c"
  Parameters:    Size  Location     Type
-  x1              2    8[BANK0 ] unsigned int 
-  y1              2   10[BANK0 ] unsigned int 
-  x2              2   12[BANK0 ] unsigned int 
-  y2              2   14[BANK0 ] unsigned int 
+  x1              2   12[COMRAM] unsigned int 
+  y1              2   14[COMRAM] unsigned int 
+  x2              2   16[COMRAM] unsigned int 
+  y2              2   18[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1622,13 +1669,13 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       8       0       0       0       0       0       0       0
+      Params:         8       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       8       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0
 Total ram usage:        8 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    8
+ Hardware stack levels required when called:    3
  This function calls:
 		_TFT_WriteRegister
  This function is called by:
@@ -1641,13 +1688,13 @@ Total ram usage:        8 bytes
  Defined at:
 		line 144 in file "TFT.c"
  Parameters:    Size  Location     Type
-  color           2    8[BANK0 ] unsigned int 
-  len             4   10[BANK0 ] unsigned long 
+  color           2   12[COMRAM] unsigned int 
+  len             4   14[COMRAM] unsigned long 
  Auto vars:     Size  Location     Type
-  blocks          2   18[BANK0 ] unsigned int 
-  color_lo        1   22[BANK0 ] unsigned char 
-  color_hi        1   21[BANK0 ] unsigned char 
-  i               1   20[BANK0 ] unsigned char 
+  blocks          2   22[COMRAM] unsigned int 
+  color_lo        1   26[COMRAM] unsigned char 
+  color_hi        1   25[COMRAM] unsigned char 
+  i               1   24[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1657,13 +1704,13 @@ Total ram usage:        8 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       6       0       0       0       0       0       0       0
-      Locals:         0       5       0       0       0       0       0       0       0
-      Temps:          0       4       0       0       0       0       0       0       0
-      Totals:         0      15       0       0       0       0       0       0       0
+      Params:         6       0       0       0       0       0       0       0       0
+      Locals:         5       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0
+      Totals:        15       0       0       0       0       0       0       0       0
 Total ram usage:       15 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    8
+ Hardware stack levels required when called:    3
  This function calls:
 		_TFT_WriteRegister
  This function is called by:
@@ -1676,13 +1723,13 @@ Total ram usage:       15 bytes
  Defined at:
 		line 12 in file "TFT.c"
  Parameters:    Size  Location     Type
-  reg             2    0[BANK0 ] unsigned int 
-  data            2    2[BANK0 ] unsigned int 
+  reg             2    4[COMRAM] unsigned int 
+  data            2    6[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
-  l               1    7[BANK0 ] unsigned char 
-  h               1    6[BANK0 ] unsigned char 
-  l               1    5[BANK0 ] unsigned char 
-  h               1    4[BANK0 ] unsigned char 
+  l               1   11[COMRAM] unsigned char 
+  h               1   10[COMRAM] unsigned char 
+  l               1    9[COMRAM] unsigned char 
+  h               1    8[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1692,13 +1739,13 @@ Total ram usage:       15 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       4       0       0       0       0       0       0       0
-      Locals:         0       4       0       0       0       0       0       0       0
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       8       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0
 Total ram usage:        8 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
@@ -1707,6 +1754,70 @@ Total ram usage:        8 bytes
 		_TFT_DrawPixel
 		_TFT_Flood
 		_TFT_FillScreen
+ This function uses a non-reentrant model
+
+
+ *************** function _EUSART_SetSpeed *****************
+ Defined at:
+		line 44 in file "eusart.c"
+ Parameters:    Size  Location     Type
+  speed           4   17[COMRAM] const unsigned long 
+ Auto vars:     Size  Location     Type
+  tmp             4   25[COMRAM] unsigned long 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         4       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0       0       0
+      Totals:        12       0       0       0       0       0       0       0       0
+Total ram usage:       12 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		___lldiv
+ This function is called by:
+		_main
+		_A6_SetSpeed
+ This function uses a non-reentrant model
+
+
+ *************** function ___lldiv *****************
+ Defined at:
+		line 7 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c"
+ Parameters:    Size  Location     Type
+  dividend        4    4[COMRAM] unsigned long 
+  divisor         4    8[COMRAM] unsigned long 
+ Auto vars:     Size  Location     Type
+  quotient        4   12[COMRAM] unsigned long 
+  counter         1   16[COMRAM] unsigned char 
+ Return value:  Size  Location     Type
+                  4    4[COMRAM] unsigned long 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         8       0       0       0       0       0       0       0       0
+      Locals:         5       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:        13       0       0       0       0       0       0       0       0
+Total ram usage:       13 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_EUSART_SetSpeed
+		_Ecg_ProcessHeartRate
  This function uses a non-reentrant model
 
 
@@ -1732,7 +1843,7 @@ Total ram usage:        8 bytes
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    8
+ Hardware stack levels required when called:    3
  This function calls:
 		_memset
  This function is called by:
@@ -1744,15 +1855,15 @@ Total ram usage:        0 bytes
  Defined at:
 		line 8 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c"
  Parameters:    Size  Location     Type
-  p1              2    0[BANK0 ] PTR void 
-		 -> EUSART_RX(132), 
-  c               2    2[BANK0 ] int 
-  n               2    4[BANK0 ] unsigned int 
+  p1              2    4[COMRAM] PTR void 
+		 -> A6_SetSpeed@response(32), loop@response_128(32), EUSART_RX(100), loop@response(32), 
+  c               2    6[COMRAM] int 
+  n               2    8[COMRAM] unsigned int 
  Auto vars:     Size  Location     Type
-  p               2    6[BANK0 ] PTR unsigned char 
-		 -> EUSART_RX(132), 
+  p               2   10[COMRAM] PTR unsigned char 
+		 -> A6_SetSpeed@response(32), loop@response_128(32), EUSART_RX(100), loop@response(32), 
  Return value:  Size  Location     Type
-                  2    0[BANK0 ] PTR void 
+                  2    4[COMRAM] PTR void 
  Registers used:
 		wreg, fsr2l, fsr2h, status,2, status,0
  Tracked objects:
@@ -1760,17 +1871,20 @@ Total ram usage:        0 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       6       0       0       0       0       0       0       0
-      Locals:         0       2       0       0       0       0       0       0       0
+      Params:         6       0       0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       8       0       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0       0       0
 Total ram usage:        8 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    7
+ Hardware stack levels required when called:    2
  This function calls:
 		Nothing
  This function is called by:
+		_loop
 		_EUSART_Init
+		_A6_ReadLine
+		_A6_SetSpeed
  This function uses a non-reentrant model
 
 
@@ -1784,7 +1898,7 @@ Total ram usage:        8 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+		wreg, fsr2l, fsr2h, status,2, status,0, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1792,11 +1906,11 @@ Total ram usage:        8 bytes
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          8       0       0       0       0       0       0       0       0
-      Totals:         8       0       0       0       0       0       0       0       0
-Total ram usage:        8 bytes
+      Temps:          2       0       0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0       0       0
+Total ram usage:        2 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    6
+ Hardware stack levels required when called:    1
  This function calls:
 		_EUSART_RX_Interrupt
 		_Ecg_Interrupt
@@ -1836,307 +1950,30 @@ Total ram usage:        2 bytes
 
  *************** function _EUSART_RX_Interrupt *****************
  Defined at:
-		line 54 in file "eusart.c"
+		line 71 in file "eusart.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  c               1   60[COMRAM] unsigned char 
+  c               1    0[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+		wreg, fsr2l, fsr2h, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
       Params:         0       0       0       0       0       0       0       0       0
-      Locals:         3       0       0       0       0       0       0       0       0
+      Locals:         1       0       0       0       0       0       0       0       0
       Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         3       0       0       0       0       0       0       0       0
-Total ram usage:        3 bytes
+      Totals:         1       0       0       0       0       0       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    5
  This function calls:
-		i2_TFT_DrawChar
-		i2_TFT_DrawFillRect
-		i2___wmul
+		Nothing
  This function is called by:
 		_isr
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_DrawChar *****************
- Defined at:
-		line 192 in file "TFT.c"
- Parameters:    Size  Location     Type
-  x               2   37[COMRAM] unsigned int 
-  y               2   39[COMRAM] unsigned int 
-  c               1   41[COMRAM] unsigned char 
-  color           2   42[COMRAM] unsigned int 
-  bg              2   44[COMRAM] unsigned int 
-  size            1   46[COMRAM] unsigned char 
- Auto vars:     Size  Location     Type
-  TFT_DrawChar    1   57[COMRAM] char 
-  TFT_DrawChar    1   56[COMRAM] char 
-  TFT_DrawChar    1   51[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:        10       0       0       0       0       0       0       0       0
-      Locals:         7       0       0       0       0       0       0       0       0
-      Temps:          4       0       0       0       0       0       0       0       0
-      Totals:        21       0       0       0       0       0       0       0       0
-Total ram usage:       21 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		i2_TFT_DrawFillRect
-		i2_TFT_DrawPixel
-		i2___wmul
- This function is called by:
-		_EUSART_RX_Interrupt
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_DrawPixel *****************
- Defined at:
-		line 94 in file "TFT.c"
- Parameters:    Size  Location     Type
-  x               2    8[COMRAM] unsigned int 
-  y               2   10[COMRAM] unsigned int 
-  color           2   12[COMRAM] unsigned int 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         6       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         6       0       0       0       0       0       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		i2_TFT_WriteRegister
- This function is called by:
-		i2_TFT_DrawChar
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_DrawFillRect *****************
- Defined at:
-		line 138 in file "TFT.c"
- Parameters:    Size  Location     Type
-  x               2   23[COMRAM] unsigned int 
-  y               2   25[COMRAM] unsigned int 
-  w               2   27[COMRAM] unsigned int 
-  h               2   29[COMRAM] unsigned int 
-  color           2   31[COMRAM] unsigned int 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, prodl, prodh, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:        10       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          4       0       0       0       0       0       0       0       0
-      Totals:        14       0       0       0       0       0       0       0       0
-Total ram usage:       14 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		i2_TFT_Flood
-		i2_TFT_FullScreen
-		i2_TFT_SetAddrWindow
-		i2___wmul
- This function is called by:
-		_EUSART_RX_Interrupt
-		i2_TFT_DrawChar
- This function uses a non-reentrant model
-
-
- *************** function i2___wmul *****************
- Defined at:
-		line 15 in file "/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c"
- Parameters:    Size  Location     Type
-  multiplier      2    0[COMRAM] unsigned int 
-  multiplicand    2    2[COMRAM] unsigned int 
- Auto vars:     Size  Location     Type
-  __wmul          2    4[COMRAM] unsigned int 
- Return value:  Size  Location     Type
-                  2    0[COMRAM] unsigned int 
- Registers used:
-		wreg, status,2, status,0, prodl, prodh
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         4       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         6       0       0       0       0       0       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		_EUSART_RX_Interrupt
-		i2_TFT_DrawFillRect
-		i2_TFT_DrawChar
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_FullScreen *****************
- Defined at:
-		line 68 in file "TFT.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		i2_TFT_SetAddrWindow
- This function is called by:
-		i2_TFT_DrawFillRect
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_SetAddrWindow *****************
- Defined at:
-		line 56 in file "TFT.c"
- Parameters:    Size  Location     Type
-  x1              2    8[COMRAM] unsigned int 
-  y1              2   10[COMRAM] unsigned int 
-  x2              2   12[COMRAM] unsigned int 
-  y2              2   14[COMRAM] unsigned int 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         8       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         8       0       0       0       0       0       0       0       0
-Total ram usage:        8 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		i2_TFT_WriteRegister
- This function is called by:
-		i2_TFT_FullScreen
-		i2_TFT_DrawFillRect
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_Flood *****************
- Defined at:
-		line 144 in file "TFT.c"
- Parameters:    Size  Location     Type
-  color           2    8[COMRAM] unsigned int 
-  len             4   10[COMRAM] unsigned long 
- Auto vars:     Size  Location     Type
-  TFT_Flood       2   18[COMRAM] unsigned int 
-  TFT_Flood       1   22[COMRAM] unsigned char 
-  TFT_Flood       1   21[COMRAM] unsigned char 
-  TFT_Flood       1   20[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         6       0       0       0       0       0       0       0       0
-      Locals:         5       0       0       0       0       0       0       0       0
-      Temps:          4       0       0       0       0       0       0       0       0
-      Totals:        15       0       0       0       0       0       0       0       0
-Total ram usage:       15 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		i2_TFT_WriteRegister
- This function is called by:
-		i2_TFT_DrawFillRect
- This function uses a non-reentrant model
-
-
- *************** function i2_TFT_WriteRegister *****************
- Defined at:
-		line 12 in file "TFT.c"
- Parameters:    Size  Location     Type
-  reg             2    0[COMRAM] unsigned int 
-  data            2    2[COMRAM] unsigned int 
- Auto vars:     Size  Location     Type
-  TFT_WriteReg    1    7[COMRAM] unsigned char 
-  TFT_WriteReg    1    6[COMRAM] unsigned char 
-  TFT_WriteReg    1    5[COMRAM] unsigned char 
-  TFT_WriteReg    1    4[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
-      Params:         4       0       0       0       0       0       0       0       0
-      Locals:         4       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0
-      Totals:         8       0       0       0       0       0       0       0       0
-Total ram usage:        8 bytes
- Hardware stack levels used:    1
- This function calls:
-		Nothing
- This function is called by:
-		i2_TFT_SetAddrWindow
-		i2_TFT_DrawPixel
-		i2_TFT_Flood
  This function uses a non-reentrant model
 
 
@@ -2145,88 +1982,92 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 /opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-		_memset        		CODE           	1484	0000	59
+		_memset        		CODE           	11C0	0000	57
 
-/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c estimated size: 59
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c estimated size: 57
 
 eusart.c
-		_EUSART_Init   		CODE           	1262	0000	79
-		_EUSART_TX_String		CODE           	155E	0000	47
-		_EUSART_TX_Char		CODE           	1684	0000	27
-		_EUSART_RX_Interrupt		CODE           	0AD2	0000	267
+		_EUSART_Init   		CODE           	0E44	0000	109
+		_EUSART_TX_String		CODE           	10C8	0000	65
+		_EUSART_TX_Char		CODE           	12E4	0000	25
+		_EUSART_SetSpeed		CODE           	0B78	0000	133
+		_EUSART_RX_Interrupt		CODE           	1086	0000	67
 
-eusart.c estimated size: 420
+eusart.c estimated size: 399
 
 /opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-		___wmul        		CODE           	158C	0000	41
+		___wmul        		CODE           	125C	0000	39
 
-/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c estimated size: 41
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c estimated size: 39
 
 /opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
-		_abs           		CODE           	14F6	0000	55
+		_abs           		CODE           	11F8	0000	53
 
-/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c estimated size: 55
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c estimated size: 53
 
 ecg.c
-		_Ecg_Init      		CODE           	152C	0000	51
-		_Ecg_CheckLeads		CODE           	1210	0000	83
-		_Ecg_Background_Leads_Ok		CODE           	0F44	0000	125
-		_Ecg_Interrupt 		CODE           	164A	0000	31
-		_Ecg_Background_Leads_Failure		CODE           	13CC	0000	65
+		_Ecg_Init      		CODE           	122C	0000	49
+		_Ecg_CheckLeads		CODE           	0F64	0000	79
+		_Ecg_Background_Leads_Ok		CODE           	0C76	0000	121
+		_Ecg_Interrupt 		CODE           	12C6	0000	31
+		_Ecg_Background_Leads_Failure		CODE           	1184	0000	61
 
-ecg.c estimated size: 355
+ecg.c estimated size: 341
+
+A6Lib.c
+		_A6_Command    		CODE           	0EB0	0000	103
+		_A6_ReadLine   		CODE           	0AEE	0000	139
+
+A6Lib.c estimated size: 242
 
 TFT.c
-		_TFT_DrawPixel 		CODE           	1344	0000	69
-		_TFT_WriteRegister		CODE           	12FC	0000	73
-		_TFT_DrawFillRect		CODE           	0FC0	0000	123
-		_TFT_FullScreen		CODE           	15B4	0000	41
-		_TFT_DrawString		CODE           	0E2A	0000	149
-		_TFT_Reset     		CODE           	1628	0000	35
-		_TFT_SetAddrWindow		CODE           	0EBE	0000	135
-		_TFT_Flood     		CODE           	07C0	0000	401
-		_TFT_Init      		CODE           	0BDC	0000	237
-		_TFT_DrawLine  		CODE           	0212	0000	501
-		_TFT_DrawChar  		CODE           	0012	0000	513
-		_TFT_FillScreen		CODE           	12B0	0000	77
+		_TFT_DrawPixel 		CODE           	1146	0000	63
+		_TFT_WriteRegister		CODE           	1042	0000	69
+		_TFT_DrawFillRect		CODE           	0CEE	0000	119
+		_TFT_FullScreen		CODE           	1282	0000	39
+		_TFT_DrawString		CODE           	0A5E	0000	145
+		_TFT_Reset     		CODE           	12A8	0000	31
+		_TFT_SetAddrWindow		CODE           	0BFC	0000	123
+		_TFT_Flood     		CODE           	0604	0000	387
+		_TFT_Init      		CODE           	0786	0000	223
+		_TFT_DrawLine  		CODE           	041C	0000	489
+		_TFT_DrawChar  		CODE           	0228	0000	501
+		_TFT_FillScreen		CODE           	0FFC	0000	71
 
-TFT.c estimated size: 2354
+TFT.c estimated size: 2260
 
 /opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-		___awdiv       		CODE           	0CC8	0000	199
+		___awdiv       		CODE           	0864	0000	197
 
-/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c estimated size: 199
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c estimated size: 197
 
 shared
-		_TFT_Init_Sequence		MEDIUMCONST    	5EC9	0000	205
-		_TFT_Font      		MEDIUMCONST    	59C9	0000	1281
-		i2_TFT_SetAddrWindow		CODE           	103A	0000	123
-		i2___wmul      		CODE           	15DC	0000	39
-		__initialization		CODE           	119E	0000	101
-		i2_TFT_DrawChar		CODE           	0406	0000	501
-		_ECG_ICON_HEART		MEDIUMCONST    	5F95	0000	63
-		i2_TFT_Flood   		CODE           	0950	0000	387
-		i2_TFT_FullScreen		CODE           	1602	0000	39
-		i2_TFT_WriteRegister		CODE           	1388	0000	69
-		i2_TFT_DrawPixel		CODE           	140C	0000	63
-		i2_TFT_DrawFillRect		CODE           	10B4	0000	119
+		_TFT_Init_Sequence		MEDIUMCONST    	5E97	0000	205
+		_TFT_Font      		MEDIUMCONST    	5997	0000	1281
+		__initialization		CODE           	09CC	0000	133
+		_ECG_ICON_HEART		MEDIUMCONST    	5F63	0000	63
 
-shared estimated size: 2990
+shared estimated size: 1682
 
 /opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-		_strlen        		CODE           	144A	0000	59
+		_strlen        		CODE           	0F16	0000	79
 
-/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c estimated size: 59
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c estimated size: 79
 
 init.c
-		_init          		CODE           	112A	0000	117
-		_isr           		CODE           	0008	0000	163
+		_init          		CODE           	0D64	0000	115
+		_isr           		CODE           	0008	0000	117
 
-init.c estimated size: 280
+init.c estimated size: 232
 
 main.c
-		_loop          		CODE           	05FA	0000	455
-		_main          		CODE           	1668	0000	29
+		_loop          		CODE           	0012	0000	535
+		_main          		CODE           	0FB2	0000	75
 
-main.c estimated size: 484
+main.c estimated size: 610
+
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+		___lldiv       		CODE           	0928	0000	165
+
+/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c estimated size: 165
 

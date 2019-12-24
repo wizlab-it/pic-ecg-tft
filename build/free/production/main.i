@@ -5449,8 +5449,19 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 24 "commons.h"
+# 26 "commons.h"
+typedef struct {
+uint8_t processRX;
+uint8_t iRead;
+uint8_t iWrite;
+uint8_t zzzzzzzzz;
+char buffer[64];
+char line[32];
+} STRUCT_EUSART_RX;
+
+
 extern uint32_t MILLISECONDS;
+extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5458,12 +5469,21 @@ extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 extern void EUSART_Init(void);
+extern void EUSART_SetSpeed(const uint32_t speed);
 extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(char *str, uint8_t len);
+extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
+extern void A6_SetSpeed(const uint32_t speed);
+extern void A6_ReadLine(char *response, uint8_t len);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 
 # 15 "main.h"
+uint32_t tmp1 = 0;
+uint32_t tmp2 = 0;
+uint8_t tmp3 = 0;
+uint32_t tmp4 = 0;
+
 void loop(void);
 
 # 12 "main.c"
@@ -5473,42 +5493,49 @@ char x3[] = "AT+CSQ\r";
 char x4[] = "AT+CCID\r";
 char x5[] = "AT+CREG?\r";
 char x6[] = "AT+COPS?\r";
-
+char x7[] = "AT+COPS=?\r";
+char x8[] = "AT\r";
 
 void main(void) {
 
 init();
 TFT_Init();
 EUSART_Init();
+EUSART_SetSpeed(9600);
 Ecg_Init();
 
 
+_delay((unsigned long)((2500)*(48000000/4000.0)));
 while(1) loop();
 }
 
-# 35
+# 38
 void loop(void) {
 
+# 65
+if((MILLISECONDS > 2500) && (tmp1 < (MILLISECONDS - 2500))) {
+tmp1 = MILLISECONDS;
 
+char response[32];
+memset(response, 0x00, 32);
+A6_Command(x8, "aa", "bb", 123, response);
 
+EUSART_RX.zzzzzzzzz += 8;
+TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0xF800, 0x0000, 1);
+}
 
-EUSART_TX_String(x1, strlen(x1));
-_delay((unsigned long)((500)*(48000000/4000.0)));
-EUSART_TX_String(x2, strlen(x2));
-_delay((unsigned long)((500)*(48000000/4000.0)));
-EUSART_TX_String(x3, strlen(x3));
-_delay((unsigned long)((500)*(48000000/4000.0)));
-EUSART_TX_String(x4, strlen(x4));
-_delay((unsigned long)((500)*(48000000/4000.0)));
-EUSART_TX_String(x5, strlen(x5));
-_delay((unsigned long)((500)*(48000000/4000.0)));
-EUSART_TX_String(x6, strlen(x6));
-_delay((unsigned long)((2500)*(48000000/4000.0)));
+if((MILLISECONDS > 4000) && (tmp2 < (MILLISECONDS - 4000))) {
+tmp2 = MILLISECONDS;
 
-_delay((unsigned long)((2500)*(48000000/4000.0)));
-_delay((unsigned long)((2500)*(48000000/4000.0)));
-_delay((unsigned long)((2500)*(48000000/4000.0)));
-_delay((unsigned long)((2500)*(48000000/4000.0)));
+char response[32];
+memset(response, 0x00, 32);
+A6_Command(x1, "aa", "bb", 123, response);
 
-# 64
+EUSART_RX.zzzzzzzzz += 8;
+TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0xF800, 0x0000, 1);
+}
+
+# 130
 }

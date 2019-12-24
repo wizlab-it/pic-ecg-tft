@@ -1,68 +1,5 @@
 
-# 1 "ecg.c"
-
-# 4 "/opt/microchip/xc8/v2.10/pic/include/__size_t.h"
-typedef unsigned size_t;
-
-# 7 "/opt/microchip/xc8/v2.10/pic/include/c90/stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "/opt/microchip/xc8/v2.10/pic/include/c90/stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "/opt/microchip/xc8/v2.10/pic/include/c90/errno.h"
-extern int errno;
-
-# 12 "/opt/microchip/xc8/v2.10/pic/include/c90/conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "/opt/microchip/xc8/v2.10/pic/include/c90/stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
+# 1 "A6Lib.c"
 
 # 18 "/opt/microchip/xc8/v2.10/pic/include/xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4986,6 +4923,9 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 4 "/opt/microchip/xc8/v2.10/pic/include/__size_t.h"
+typedef unsigned size_t;
+
 # 7 "/opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h"
 typedef unsigned short wchar_t;
 
@@ -5538,244 +5478,64 @@ extern void A6_SetSpeed(const uint32_t speed);
 extern void A6_ReadLine(char *response, uint8_t len);
 extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 
-# 30 "ecg.h"
-struct {
-unsigned unused : 1;
-unsigned leadsOk : 1;
-unsigned leadsOkFlag : 1;
-unsigned processHeartRate : 1;
-unsigned processInterrupt : 1;
-unsigned processEcg : 1;
-unsigned msecDelay : 3;
-} ECG_FLAGS;
+# 16 "A6Lib.h"
+void A6_SetSpeed(const uint32_t speed);
+void A6_ReadLine(char *response, uint8_t len);
+void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 
-struct {
-unsigned unused : 6;
-unsigned processHeartbeat : 1;
-unsigned heartIconShown : 1;
-uint8_t heartIconMsecDelay;
-uint8_t heartbeatMsecDelay;
-uint8_t msecDelay;
-} ECG_HEARTRATE;
-
-struct {
-uint32_t data[3];
-uint8_t i;
-} ECG_HEARTBEAT;
-
-struct {
-uint8_t data[4];
-uint8_t i;
-} ECG_BUFFER;
-
-
-uint16_t Ecg_X = 240 - 1;
-uint16_t Ecg_Xold = 240 - 1;
-uint16_t Ecg_Y = 400 - 1;
-uint16_t Ecg_Yold = 400 - 1;
-
-
-void Ecg_Init(void);
-void Ecg_Process(void);
-void Ecg_ProcessInterrupt(void);
-void Ecg_ProcessEcg(void);
-void Ecg_ProcessHeartRate(void);
-void Ecg_ProcessHeartbeat(void);
-void Ecg_Interrupt(void);
-uint16_t Ecg_CheckLeads(void);
-uint16_t Ecg_Read(void);
-void Ecg_Draw(void);
-void Ecg_Background_Leads_Ok(void);
-void Ecg_Background_Leads_Failure(void);
-
-
-const uint8_t ECG_ICON_HEART[] = {
-20, 20,
-0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf8, 0xf0, 0x01, 0xfc, 0xf9, 0x03,
-0xfc, 0xff, 0x03, 0xfe, 0xff, 0x07, 0xfe, 0xff, 0x07, 0xfe, 0xff, 0x07,
-0xfe, 0xff, 0x07, 0xfc, 0xff, 0x03, 0xfc, 0xff, 0x03, 0xf8, 0xff, 0x01,
-0xf0, 0xff, 0x00, 0xe0, 0x7f, 0x00, 0xc0, 0x3f, 0x00, 0x80, 0x1f, 0x00,
-0x00, 0x0f, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-};
-
-# 12 "ecg.c"
-void Ecg_Init(void) {
-if(Ecg_CheckLeads() == 0) {
-Ecg_Background_Leads_Ok();
-} else {
-Ecg_Background_Leads_Failure();
+# 12 "A6Lib.c"
+void A6_ReadLine(char *response, uint8_t len) {
+uint8_t iLine = 0;
+memset(response, 0x00, len);
+while(1) {
+while(EUSART_RX.iRead == EUSART_RX.iWrite);
+EUSART_RX.iRead++;
+if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
+response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
+iLine++;
 }
-ECG_HEARTBEAT.i = 0;
-ECG_BUFFER.i = 0;
-ECG_HEARTRATE.processHeartbeat = 1;
+response[iLine] = 0x00;
+return;
 }
 
-void Ecg_Process(void) {
-if(ECG_FLAGS.processInterrupt) {
-Ecg_ProcessInterrupt();
-ECG_FLAGS.processInterrupt = 0;
+void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response) {
+EUSART_RX.iRead = EUSART_RX.iWrite;
+EUSART_TX_String(command, strlen(command));
+
+
+do {
+while(EUSART_RX.iRead == EUSART_RX.iWrite);
+EUSART_RX.iRead++;
+} while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
+
+
+A6_ReadLine(response, 32);
+
+return;
 }
 
-if(ECG_FLAGS.processEcg) {
-Ecg_ProcessEcg();
-ECG_FLAGS.processEcg = 0;
+void A6_SetSpeed(const uint32_t speed) {
+char response[32];
+memset(response, 0x00, 32);
+
+switch(speed) {
+case 57600:
+A6_Command("AT+IPR=57600\r\0", "aa", "bb", 123, response);
+break;
+case 115200:
+A6_Command("AT+IPR=115200\r\0", "aa", "bb", 123, response);
+break;
+case 9600:
+default:
+A6_Command("AT+IPR=9600\r\0", "aa", "bb", 123, response);
+break;
 }
+EUSART_SetSpeed(speed);
 
-if(ECG_FLAGS.processHeartRate && ECG_FLAGS.leadsOk) {
-Ecg_ProcessHeartRate();
-ECG_FLAGS.processHeartRate = 0;
-}
-}
+EUSART_RX.zzzzzzzzz += 8;
+TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0x07E0, 0x0000, 1);
+_delay((unsigned long)((500)*(48000000/4000.0)));
 
-void Ecg_ProcessInterrupt(void) {
-if(ECG_FLAGS.msecDelay >= (10 / 5)) {
-ECG_FLAGS.processEcg = 1;
-ECG_FLAGS.msecDelay = 0;
-}
-if(ECG_HEARTRATE.msecDelay >= (1200 / 5)) {
-ECG_FLAGS.processHeartRate = 1;
-ECG_HEARTRATE.msecDelay = 0;
-}
-}
-
-void Ecg_ProcessEcg(void) {
-Ecg_CheckLeads();
-
-if(ECG_FLAGS.leadsOk) {
-
-if(ECG_FLAGS.leadsOkFlag == 0) {
-Ecg_Background_Leads_Ok();
-ECG_FLAGS.leadsOkFlag = 1;
-}
-
-
-Ecg_Draw();
-
-
-Ecg_ProcessHeartbeat();
-} else {
-
-if(ECG_FLAGS.leadsOkFlag == 1) {
-Ecg_Background_Leads_Failure();
-ECG_FLAGS.leadsOkFlag = 0;
-}
-}
-}
-
-void Ecg_ProcessHeartRate(void) {
-uint8_t heartrate = 0;
-char heartrateString[5];
-uint32_t heartbeatAverage = 0;
-
-for(uint8_t i=0, j=ECG_HEARTBEAT.i, jPrev=0; i<(3 - 1); i++) {
-j = (j == 0) ? (3 - 1) : (j - 1);
-jPrev = (j == 0) ? (3 - 1) : (j - 1);
-heartbeatAverage += (ECG_HEARTBEAT.data[j] - ECG_HEARTBEAT.data[jPrev]);
-}
-heartbeatAverage /= (3 - 1);
-heartrate = (uint8_t)(60000 / heartbeatAverage);
-sprintf(heartrateString, "%3d", heartrate);
-TFT_DrawString(8, (400 - 140), heartrateString, 0x07E0, 0x0000, 2);
-}
-
-void Ecg_ProcessHeartbeat(void) {
-if(ECG_HEARTRATE.processHeartbeat == 1) {
-
-int16_t ecgDeltaSum=0, ecgDeltaAbsSum=0, ecgDeltaDiff=0;
-for(uint8_t i=1; i<4; i++) {
-int16_t delta = ECG_BUFFER.data[i] - ECG_BUFFER.data[i - 1];
-ecgDeltaSum += delta;
-ecgDeltaAbsSum += abs(delta);
-}
-ecgDeltaDiff = ecgDeltaAbsSum - ecgDeltaSum;
-
-
-if(ecgDeltaDiff > 60) {
-
-ECG_HEARTBEAT.data[ECG_HEARTBEAT.i++] = MILLISECONDS;
-if(ECG_HEARTBEAT.i == 3) ECG_HEARTBEAT.i = 0;
-
-
-TFT_DrawBitmap(5, 25, ECG_ICON_HEART, 0xF800);
-ECG_HEARTRATE.heartIconMsecDelay = 100 / 5;
-ECG_HEARTRATE.heartIconShown = 1;
-
-
-ECG_HEARTRATE.heartbeatMsecDelay = 250 / 5;
-ECG_HEARTRATE.processHeartbeat = 0;
-}
-} else {
-
-if(ECG_HEARTRATE.heartIconShown == 1) {
-ECG_HEARTRATE.heartIconMsecDelay--;
-if(ECG_HEARTRATE.heartIconMsecDelay == 0) {
-TFT_DrawFillRect(5, 5, 20, 20, 0x0000);
-ECG_HEARTRATE.heartIconShown = 0;
-}
-}
-
-
-ECG_HEARTRATE.heartbeatMsecDelay--;
-if(ECG_HEARTRATE.heartbeatMsecDelay == 0) {
-ECG_HEARTRATE.processHeartbeat = 1;
-}
-}
-}
-
-void Ecg_Interrupt(void) {
-ECG_FLAGS.msecDelay++;
-ECG_HEARTRATE.msecDelay++;
-ECG_FLAGS.processInterrupt = 1;
-}
-
-uint16_t Ecg_CheckLeads(void) {
-uint8_t leadsStatus = 0;
-if(PORTCbits.RC5 == 1) leadsStatus |= 0b00000010;
-if(PORTCbits.RC4 == 1) leadsStatus |= 0b00000001;
-ECG_FLAGS.leadsOk = (leadsStatus == 0) ? 1 : 0;
-return leadsStatus;
-}
-
-uint16_t Ecg_Read(void) {
-uint16_t ecg;
-ADCON0bits.CHS = 0b0000;
-ADCON0bits.ADON = 1;
-GO_nDONE = 1;
-while(GO_nDONE == 1);
-ecg = ADRESH;
-ecg = ecg << 8;
-ecg &= 0xFF00;
-ecg |= ADRESL;
-ADCON0bits.ADON = 0;
-ECG_BUFFER.data[ECG_BUFFER.i++] = (uint8_t)(ecg >> 2);
-if(ECG_BUFFER.i == 4) ECG_BUFFER.i = 0;
-return ecg;
-}
-
-void Ecg_Draw(void) {
-uint16_t ecg = Ecg_Read();
-ecg /= 5;
-Ecg_X = 240 - ecg - 1;
-TFT_DrawFillRect(33, (Ecg_Y - 20 + 1), (240 - 33), 20, 0x0000);
-TFT_DrawLine(Ecg_Xold, Ecg_Yold, Ecg_X, Ecg_Y, 0x07E0);
-Ecg_Xold = Ecg_X;
-Ecg_Yold = Ecg_Y;
-Ecg_Y--;
-if(Ecg_Y == 0) {
-Ecg_Y = 400 - 1;
-Ecg_Yold = Ecg_Y;
-}
-}
-
-void Ecg_Background_Leads_Ok(void) {
-TFT_FillScreen(0x0000);
-TFT_DrawString(8, (400 - 10), "Frequenza:", 0xFFFF, 0x0000, 2);
-TFT_DrawLine((33 - 1), 0, (33 - 1), 400, 0xFFFF);
-Ecg_Y = 400 - 1;
-Ecg_Yold = 400 - 1;
-}
-
-void Ecg_Background_Leads_Failure(void) {
-TFT_FillScreen(0x0000);
-TFT_DrawString(70, 362, "*** Collegare elettrodi ***", 0xFFFF, 0x0000, 2);
+return;
 }

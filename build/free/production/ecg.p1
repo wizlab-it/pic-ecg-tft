@@ -1,16 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "30 ecg.h
-[s S327 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S327 . unused leadsOk leadsOkFlag processHeartRate processInterrupt processEcg msecDelay ]
+[s S328 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S328 . unused leadsOk leadsOkFlag processHeartRate processInterrupt processEcg msecDelay ]
 "40
-[s S328 :6 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S328 . unused processHeartbeat heartIconShown heartIconMsecDelay heartbeatMsecDelay msecDelay ]
+[s S329 :6 `uc 1 :1 `uc 1 :1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S329 . unused processHeartbeat heartIconShown heartIconMsecDelay heartbeatMsecDelay msecDelay ]
 "49
-[s S329 `ul -> 3 `i `uc 1 ]
-[n S329 . data i ]
-"54
-[s S330 `uc -> 4 `i `uc 1 ]
+[s S330 `ul -> 3 `i `uc 1 ]
 [n S330 . data i ]
+"54
+[s S331 `uc -> 4 `i `uc 1 ]
+[n S331 . data i ]
 "73
 [v _Ecg_CheckLeads `(ui ~T0 @X0 0 ef ]
 "76
@@ -33,7 +33,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
 "110 /opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h
 [v _abs `(i ~T0 @X0 0 ef1`i ]
-"24 commons.h
+"36 commons.h
 [v _MILLISECONDS `ul ~T0 @X0 0 e ]
 "77 TFT.h
 [v _TFT_DrawBitmap `(v ~T0 @X0 0 ef4`uc`uc`*Cuc`ui ]
@@ -5362,18 +5362,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-[; ;commons.h: 24: extern uint32_t MILLISECONDS;
-[; ;commons.h: 27: extern void init(void);
-[; ;commons.h: 28: extern void Ecg_Init(void);
-[; ;commons.h: 29: extern void Ecg_Process(void);
-[; ;commons.h: 30: extern void Ecg_Interrupt(void);
-[; ;commons.h: 31: extern void EUSART_Init(void);
-[; ;commons.h: 32: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 33: extern void EUSART_TX_String(char *str, uint8_t len);
-[; ;commons.h: 34: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 35: extern void EUSART_RX_Process(void);
+[; ;commons.h: 26: typedef struct {
+[; ;commons.h: 27: uint8_t processRX;
+[; ;commons.h: 28: uint8_t iRead;
+[; ;commons.h: 29: uint8_t iWrite;
+[; ;commons.h: 30: uint8_t zzzzzzzzz;
+[; ;commons.h: 31: char buffer[64];
+[; ;commons.h: 32: char line[32];
+[; ;commons.h: 33: } STRUCT_EUSART_RX;
+[; ;commons.h: 36: extern uint32_t MILLISECONDS;
+[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
+[; ;commons.h: 40: extern void init(void);
+[; ;commons.h: 41: extern void Ecg_Init(void);
+[; ;commons.h: 42: extern void Ecg_Process(void);
+[; ;commons.h: 43: extern void Ecg_Interrupt(void);
+[; ;commons.h: 44: extern void EUSART_Init(void);
+[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 49: extern void EUSART_RX_Process(void);
+[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
+[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
+[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
 "38 ecg.h
-[v _ECG_FLAGS `S327 ~T0 @X0 1 e ]
+[v _ECG_FLAGS `S328 ~T0 @X0 1 e ]
 [; ;ecg.h: 30: struct {
 [; ;ecg.h: 31: unsigned unused : 1;
 [; ;ecg.h: 32: unsigned leadsOk : 1;
@@ -5384,7 +5397,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecg.h: 37: unsigned msecDelay : 3;
 [; ;ecg.h: 38: } ECG_FLAGS;
 "47
-[v _ECG_HEARTRATE `S328 ~T0 @X0 1 e ]
+[v _ECG_HEARTRATE `S329 ~T0 @X0 1 e ]
 [; ;ecg.h: 40: struct {
 [; ;ecg.h: 41: unsigned unused : 6;
 [; ;ecg.h: 42: unsigned processHeartbeat : 1;
@@ -5394,13 +5407,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecg.h: 46: uint8_t msecDelay;
 [; ;ecg.h: 47: } ECG_HEARTRATE;
 "52
-[v _ECG_HEARTBEAT `S329 ~T0 @X0 1 e ]
+[v _ECG_HEARTBEAT `S330 ~T0 @X0 1 e ]
 [; ;ecg.h: 49: struct {
 [; ;ecg.h: 50: uint32_t data[3];
 [; ;ecg.h: 51: uint8_t i;
 [; ;ecg.h: 52: } ECG_HEARTBEAT;
 "57
-[v _ECG_BUFFER `S330 ~T0 @X0 1 e ]
+[v _ECG_BUFFER `S331 ~T0 @X0 1 e ]
 [; ;ecg.h: 54: struct {
 [; ;ecg.h: 55: uint8_t data[4];
 [; ;ecg.h: 56: uint8_t i;
@@ -5532,7 +5545,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;ecg.c: 13: if(Ecg_CheckLeads() == 0) {
 "13
-[e $ ! == ( _Ecg_CheckLeads ..  -> -> 0 `i `ui 332  ]
+[e $ ! == ( _Ecg_CheckLeads ..  -> -> 0 `i `ui 333  ]
 {
 [; ;ecg.c: 14: Ecg_Background_Leads_Ok();
 "14
@@ -5540,15 +5553,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15
 }
 [; ;ecg.c: 15: } else {
-[e $U 333  ]
-[e :U 332 ]
+[e $U 334  ]
+[e :U 333 ]
 {
 [; ;ecg.c: 16: Ecg_Background_Leads_Failure();
 "16
 [e ( _Ecg_Background_Leads_Failure ..  ]
 "17
 }
-[e :U 333 ]
+[e :U 334 ]
 [; ;ecg.c: 17: }
 [; ;ecg.c: 18: ECG_HEARTBEAT.i = 0;
 "18
@@ -5561,7 +5574,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_HEARTRATE 1 -> -> 1 `i `uc ]
 [; ;ecg.c: 21: }
 "21
-[e :UE 331 ]
+[e :UE 332 ]
 }
 "23
 [v _Ecg_Process `(v ~T0 @X0 1 ef ]
@@ -5571,7 +5584,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;ecg.c: 24: if(ECG_FLAGS.processInterrupt) {
 "24
-[e $ ! != -> . _ECG_FLAGS 4 `i -> -> -> 0 `i `uc `i 335  ]
+[e $ ! != -> . _ECG_FLAGS 4 `i -> -> -> 0 `i `uc `i 336  ]
 {
 [; ;ecg.c: 25: Ecg_ProcessInterrupt();
 "25
@@ -5581,11 +5594,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 4 -> -> 0 `i `uc ]
 "27
 }
-[e :U 335 ]
+[e :U 336 ]
 [; ;ecg.c: 27: }
 [; ;ecg.c: 29: if(ECG_FLAGS.processEcg) {
 "29
-[e $ ! != -> . _ECG_FLAGS 5 `i -> -> -> 0 `i `uc `i 336  ]
+[e $ ! != -> . _ECG_FLAGS 5 `i -> -> -> 0 `i `uc `i 337  ]
 {
 [; ;ecg.c: 30: Ecg_ProcessEcg();
 "30
@@ -5595,11 +5608,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 5 -> -> 0 `i `uc ]
 "32
 }
-[e :U 336 ]
+[e :U 337 ]
 [; ;ecg.c: 32: }
 [; ;ecg.c: 34: if(ECG_FLAGS.processHeartRate && ECG_FLAGS.leadsOk) {
 "34
-[e $ ! && != -> . _ECG_FLAGS 3 `i -> -> -> 0 `i `uc `i != -> . _ECG_FLAGS 1 `i -> -> -> 0 `i `uc `i 337  ]
+[e $ ! && != -> . _ECG_FLAGS 3 `i -> -> -> 0 `i `uc `i != -> . _ECG_FLAGS 1 `i -> -> -> 0 `i `uc `i 338  ]
 {
 [; ;ecg.c: 35: Ecg_ProcessHeartRate();
 "35
@@ -5609,11 +5622,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 3 -> -> 0 `i `uc ]
 "37
 }
-[e :U 337 ]
+[e :U 338 ]
 [; ;ecg.c: 37: }
 [; ;ecg.c: 38: }
 "38
-[e :UE 334 ]
+[e :UE 335 ]
 }
 "40
 [v _Ecg_ProcessInterrupt `(v ~T0 @X0 1 ef ]
@@ -5623,7 +5636,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;ecg.c: 41: if(ECG_FLAGS.msecDelay >= (10 / 5)) {
 "41
-[e $ ! >= -> . _ECG_FLAGS 6 `i / -> 10 `i -> 5 `i 339  ]
+[e $ ! >= -> . _ECG_FLAGS 6 `i / -> 10 `i -> 5 `i 340  ]
 {
 [; ;ecg.c: 42: ECG_FLAGS.processEcg = 1;
 "42
@@ -5633,11 +5646,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 6 -> -> 0 `i `uc ]
 "44
 }
-[e :U 339 ]
+[e :U 340 ]
 [; ;ecg.c: 44: }
 [; ;ecg.c: 45: if(ECG_HEARTRATE.msecDelay >= (1200 / 5)) {
 "45
-[e $ ! >= -> . _ECG_HEARTRATE 5 `i / -> 1200 `i -> 5 `i 340  ]
+[e $ ! >= -> . _ECG_HEARTRATE 5 `i / -> 1200 `i -> 5 `i 341  ]
 {
 [; ;ecg.c: 46: ECG_FLAGS.processHeartRate = 1;
 "46
@@ -5647,11 +5660,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_HEARTRATE 5 -> -> 0 `i `uc ]
 "48
 }
-[e :U 340 ]
+[e :U 341 ]
 [; ;ecg.c: 48: }
 [; ;ecg.c: 49: }
 "49
-[e :UE 338 ]
+[e :UE 339 ]
 }
 "51
 [v _Ecg_ProcessEcg `(v ~T0 @X0 1 ef ]
@@ -5664,11 +5677,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Ecg_CheckLeads ..  ]
 [; ;ecg.c: 54: if(ECG_FLAGS.leadsOk) {
 "54
-[e $ ! != -> . _ECG_FLAGS 1 `i -> -> -> 0 `i `uc `i 342  ]
+[e $ ! != -> . _ECG_FLAGS 1 `i -> -> -> 0 `i `uc `i 343  ]
 {
 [; ;ecg.c: 56: if(ECG_FLAGS.leadsOkFlag == 0) {
 "56
-[e $ ! == -> . _ECG_FLAGS 2 `i -> 0 `i 343  ]
+[e $ ! == -> . _ECG_FLAGS 2 `i -> 0 `i 344  ]
 {
 [; ;ecg.c: 57: Ecg_Background_Leads_Ok();
 "57
@@ -5678,7 +5691,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 2 -> -> 1 `i `uc ]
 "59
 }
-[e :U 343 ]
+[e :U 344 ]
 [; ;ecg.c: 59: }
 [; ;ecg.c: 62: Ecg_Draw();
 "62
@@ -5689,12 +5702,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 "66
 }
 [; ;ecg.c: 66: } else {
-[e $U 344  ]
-[e :U 342 ]
+[e $U 345  ]
+[e :U 343 ]
 {
 [; ;ecg.c: 68: if(ECG_FLAGS.leadsOkFlag == 1) {
 "68
-[e $ ! == -> . _ECG_FLAGS 2 `i -> 1 `i 345  ]
+[e $ ! == -> . _ECG_FLAGS 2 `i -> 1 `i 346  ]
 {
 [; ;ecg.c: 69: Ecg_Background_Leads_Failure();
 "69
@@ -5704,15 +5717,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 2 -> -> 0 `i `uc ]
 "71
 }
-[e :U 345 ]
+[e :U 346 ]
 "72
 }
-[e :U 344 ]
+[e :U 345 ]
 [; ;ecg.c: 71: }
 [; ;ecg.c: 72: }
 [; ;ecg.c: 73: }
 "73
-[e :UE 341 ]
+[e :UE 342 ]
 }
 "75
 [v _Ecg_ProcessHeartRate `(v ~T0 @X0 1 ef ]
@@ -5740,9 +5753,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _j . _ECG_HEARTBEAT 1 ]
 [v _jPrev `uc ~T0 @X0 1 a ]
 [e = _jPrev -> -> 0 `i `uc ]
-[e $ < -> _i `i - -> 3 `i -> 1 `i 347  ]
-[e $U 348  ]
-[e :U 347 ]
+[e $ < -> _i `i - -> 3 `i -> 1 `i 348  ]
+[e $U 349  ]
+[e :U 348 ]
 {
 [; ;ecg.c: 81: j = (j == 0) ? (3 - 1) : (j - 1);
 "81
@@ -5757,8 +5770,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "80
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i - -> 3 `i -> 1 `i 347  ]
-[e :U 348 ]
+[e $ < -> _i `i - -> 3 `i -> 1 `i 348  ]
+[e :U 349 ]
 "84
 }
 [; ;ecg.c: 84: }
@@ -5776,7 +5789,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_DrawString (4 , , , , , -> -> 8 `i `ui -> - -> 400 `i -> 140 `i `ui -> &U _heartrateString `*Cuc -> -> 2016 `i `ui -> -> 0 `i `ui -> -> 2 `i `uc ]
 [; ;ecg.c: 89: }
 "89
-[e :UE 346 ]
+[e :UE 347 ]
 }
 "91
 [v _Ecg_ProcessHeartbeat `(v ~T0 @X0 1 ef ]
@@ -5786,7 +5799,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;ecg.c: 92: if(ECG_HEARTRATE.processHeartbeat == 1) {
 "92
-[e $ ! == -> . _ECG_HEARTRATE 1 `i -> 1 `i 351  ]
+[e $ ! == -> . _ECG_HEARTRATE 1 `i -> 1 `i 352  ]
 {
 "94
 [v _ecgDeltaSum `i ~T0 @X0 1 a ]
@@ -5801,9 +5814,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 352  ]
-[e $U 353  ]
-[e :U 352 ]
+[e $ < -> _i `i -> 4 `i 353  ]
+[e $U 354  ]
+[e :U 353 ]
 {
 "96
 [v _delta `i ~T0 @X0 1 a ]
@@ -5819,8 +5832,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "95
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 4 `i 352  ]
-[e :U 353 ]
+[e $ < -> _i `i -> 4 `i 353  ]
+[e :U 354 ]
 "99
 }
 [; ;ecg.c: 99: }
@@ -5829,16 +5842,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ecgDeltaDiff - _ecgDeltaAbsSum _ecgDeltaSum ]
 [; ;ecg.c: 103: if(ecgDeltaDiff > 60) {
 "103
-[e $ ! > _ecgDeltaDiff -> 60 `i 355  ]
+[e $ ! > _ecgDeltaDiff -> 60 `i 356  ]
 {
 [; ;ecg.c: 105: ECG_HEARTBEAT.data[ECG_HEARTBEAT.i++] = MILLISECONDS;
 "105
 [e = *U + &U . _ECG_HEARTBEAT 0 * -> ++ . _ECG_HEARTBEAT 1 -> -> 1 `i `uc `ux -> -> # *U &U . _ECG_HEARTBEAT 0 `ui `ux _MILLISECONDS ]
 [; ;ecg.c: 106: if(ECG_HEARTBEAT.i == 3) ECG_HEARTBEAT.i = 0;
 "106
-[e $ ! == -> . _ECG_HEARTBEAT 1 `i -> 3 `i 356  ]
+[e $ ! == -> . _ECG_HEARTBEAT 1 `i -> 3 `i 357  ]
 [e = . _ECG_HEARTBEAT 1 -> -> 0 `i `uc ]
-[e :U 356 ]
+[e :U 357 ]
 [; ;ecg.c: 109: TFT_DrawBitmap(5, 25, ECG_ICON_HEART, 0xF800);
 "109
 [e ( _TFT_DrawBitmap (4 , , , -> -> 5 `i `uc -> -> 25 `i `uc &U _ECG_ICON_HEART -> 63488 `ui ]
@@ -5856,24 +5869,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_HEARTRATE 1 -> -> 0 `i `uc ]
 "116
 }
-[e :U 355 ]
+[e :U 356 ]
 "117
 }
 [; ;ecg.c: 116: }
 [; ;ecg.c: 117: } else {
-[e $U 357  ]
-[e :U 351 ]
+[e $U 358  ]
+[e :U 352 ]
 {
 [; ;ecg.c: 119: if(ECG_HEARTRATE.heartIconShown == 1) {
 "119
-[e $ ! == -> . _ECG_HEARTRATE 2 `i -> 1 `i 358  ]
+[e $ ! == -> . _ECG_HEARTRATE 2 `i -> 1 `i 359  ]
 {
 [; ;ecg.c: 120: ECG_HEARTRATE.heartIconMsecDelay--;
 "120
 [e -- . _ECG_HEARTRATE 3 -> -> 1 `i `uc ]
 [; ;ecg.c: 121: if(ECG_HEARTRATE.heartIconMsecDelay == 0) {
 "121
-[e $ ! == -> . _ECG_HEARTRATE 3 `i -> 0 `i 359  ]
+[e $ ! == -> . _ECG_HEARTRATE 3 `i -> 0 `i 360  ]
 {
 [; ;ecg.c: 122: TFT_DrawFillRect(5, 5, 20, 20, 0x0000);
 "122
@@ -5883,10 +5896,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_HEARTRATE 2 -> -> 0 `i `uc ]
 "124
 }
-[e :U 359 ]
+[e :U 360 ]
 "125
 }
-[e :U 358 ]
+[e :U 359 ]
 [; ;ecg.c: 124: }
 [; ;ecg.c: 125: }
 [; ;ecg.c: 128: ECG_HEARTRATE.heartbeatMsecDelay--;
@@ -5894,22 +5907,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- . _ECG_HEARTRATE 4 -> -> 1 `i `uc ]
 [; ;ecg.c: 129: if(ECG_HEARTRATE.heartbeatMsecDelay == 0) {
 "129
-[e $ ! == -> . _ECG_HEARTRATE 4 `i -> 0 `i 360  ]
+[e $ ! == -> . _ECG_HEARTRATE 4 `i -> 0 `i 361  ]
 {
 [; ;ecg.c: 130: ECG_HEARTRATE.processHeartbeat = 1;
 "130
 [e = . _ECG_HEARTRATE 1 -> -> 1 `i `uc ]
 "131
 }
-[e :U 360 ]
+[e :U 361 ]
 "132
 }
-[e :U 357 ]
+[e :U 358 ]
 [; ;ecg.c: 131: }
 [; ;ecg.c: 132: }
 [; ;ecg.c: 133: }
 "133
-[e :UE 350 ]
+[e :UE 351 ]
 }
 "135
 [v _Ecg_Interrupt `(v ~T0 @X0 1 ef ]
@@ -5928,7 +5941,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _ECG_FLAGS 4 -> -> 1 `i `uc ]
 [; ;ecg.c: 139: }
 "139
-[e :UE 361 ]
+[e :UE 362 ]
 }
 "141
 [v _Ecg_CheckLeads `(ui ~T0 @X0 1 ef ]
@@ -5942,24 +5955,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _leadsStatus -> -> 0 `i `uc ]
 [; ;ecg.c: 143: if(PORTCbits.RC5 == 1) leadsStatus |= 0b00000010;
 "143
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 363  ]
+[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 364  ]
 [e =| _leadsStatus -> -> 2 `i `uc ]
-[e :U 363 ]
+[e :U 364 ]
 [; ;ecg.c: 144: if(PORTCbits.RC4 == 1) leadsStatus |= 0b00000001;
 "144
-[e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 364  ]
+[e $ ! == -> . . _PORTCbits 0 4 `i -> 1 `i 365  ]
 [e =| _leadsStatus -> -> 1 `i `uc ]
-[e :U 364 ]
+[e :U 365 ]
 [; ;ecg.c: 145: ECG_FLAGS.leadsOk = (leadsStatus == 0) ? 1 : 0;
 "145
 [e = . _ECG_FLAGS 1 -> ? == -> _leadsStatus `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
 [; ;ecg.c: 146: return leadsStatus;
 "146
 [e ) -> _leadsStatus `ui ]
-[e $UE 362  ]
+[e $UE 363  ]
 [; ;ecg.c: 147: }
 "147
-[e :UE 362 ]
+[e :UE 363 ]
 }
 "149
 [v _Ecg_Read `(ui ~T0 @X0 1 ef ]
@@ -5981,11 +5994,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GO_nDONE -> -> 1 `i `b ]
 [; ;ecg.c: 154: while(GO_nDONE == 1);
 "154
-[e $U 366  ]
-[e :U 367 ]
-[e :U 366 ]
-[e $ == -> _GO_nDONE `i -> 1 `i 367  ]
+[e $U 367  ]
 [e :U 368 ]
+[e :U 367 ]
+[e $ == -> _GO_nDONE `i -> 1 `i 368  ]
+[e :U 369 ]
 [; ;ecg.c: 155: ecg = ADRESH;
 "155
 [e = _ecg -> _ADRESH `ui ]
@@ -6006,16 +6019,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U . _ECG_BUFFER 0 * -> ++ . _ECG_BUFFER 1 -> -> 1 `i `uc `ux -> -> # *U &U . _ECG_BUFFER 0 `ui `ux -> >> _ecg -> 2 `i `uc ]
 [; ;ecg.c: 161: if(ECG_BUFFER.i == 4) ECG_BUFFER.i = 0;
 "161
-[e $ ! == -> . _ECG_BUFFER 1 `i -> 4 `i 369  ]
+[e $ ! == -> . _ECG_BUFFER 1 `i -> 4 `i 370  ]
 [e = . _ECG_BUFFER 1 -> -> 0 `i `uc ]
-[e :U 369 ]
+[e :U 370 ]
 [; ;ecg.c: 162: return ecg;
 "162
 [e ) _ecg ]
-[e $UE 365  ]
+[e $UE 366  ]
 [; ;ecg.c: 163: }
 "163
-[e :UE 365 ]
+[e :UE 366 ]
 }
 "165
 [v _Ecg_Draw `(v ~T0 @X0 1 ef ]
@@ -6050,7 +6063,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _Ecg_Y -> -> 1 `i `ui ]
 [; ;ecg.c: 174: if(Ecg_Y == 0) {
 "174
-[e $ ! == _Ecg_Y -> -> 0 `i `ui 371  ]
+[e $ ! == _Ecg_Y -> -> 0 `i `ui 372  ]
 {
 [; ;ecg.c: 175: Ecg_Y = 400 - 1;
 "175
@@ -6060,11 +6073,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Ecg_Yold _Ecg_Y ]
 "177
 }
-[e :U 371 ]
+[e :U 372 ]
 [; ;ecg.c: 177: }
 [; ;ecg.c: 178: }
 "178
-[e :UE 370 ]
+[e :UE 371 ]
 }
 "180
 [v _Ecg_Background_Leads_Ok `(v ~T0 @X0 1 ef ]
@@ -6089,7 +6102,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Ecg_Yold -> - -> 400 `i -> 1 `i `ui ]
 [; ;ecg.c: 186: }
 "186
-[e :UE 372 ]
+[e :UE 373 ]
 }
 "188
 [v _Ecg_Background_Leads_Failure `(v ~T0 @X0 1 ef ]
@@ -6105,7 +6118,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_DrawString (4 , , , , , -> -> 70 `i `ui -> -> 362 `i `ui :s 3C -> 65535 `ui -> -> 0 `i `ui -> -> 2 `i `uc ]
 [; ;ecg.c: 191: }
 "191
-[e :UE 373 ]
+[e :UE 374 ]
 }
 [p f _sprintf 8421504 ]
 [a 1C 37 51 100 0 ]

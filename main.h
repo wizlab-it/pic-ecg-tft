@@ -12,6 +12,11 @@
 
 #include "commons.h"
 
+uint32_t tmp1 = 0;
+uint32_t tmp2 = 0;
+uint8_t tmp3 = 0;
+uint32_t tmp4 = 0;
+
 void loop(void);
 
 #endif

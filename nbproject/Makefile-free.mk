@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c init.c TFT.c ecg.c eusart.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c init.c TFT.c ecg.c eusart.c A6Lib.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/TFT.p1 ${OBJECTDIR}/ecg.p1 ${OBJECTDIR}/eusart.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/init.p1.d ${OBJECTDIR}/TFT.p1.d ${OBJECTDIR}/ecg.p1.d ${OBJECTDIR}/eusart.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/TFT.p1 ${OBJECTDIR}/ecg.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/A6Lib.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/init.p1.d ${OBJECTDIR}/TFT.p1.d ${OBJECTDIR}/ecg.p1.d ${OBJECTDIR}/eusart.p1.d ${OBJECTDIR}/A6Lib.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/TFT.p1 ${OBJECTDIR}/ecg.p1 ${OBJECTDIR}/eusart.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/init.p1 ${OBJECTDIR}/TFT.p1 ${OBJECTDIR}/ecg.p1 ${OBJECTDIR}/eusart.p1 ${OBJECTDIR}/A6Lib.p1
 
 # Source Files
-SOURCEFILES=main.c init.c TFT.c ecg.c eusart.c
+SOURCEFILES=main.c init.c TFT.c ecg.c eusart.c A6Lib.c
 
 
 
@@ -134,6 +134,14 @@ ${OBJECTDIR}/eusart.p1: eusart.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/eusart.d ${OBJECTDIR}/eusart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/eusart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/A6Lib.p1: A6Lib.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/A6Lib.p1.d 
+	@${RM} ${OBJECTDIR}/A6Lib.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -mext=cci -Wa,-a -DXPRJ_free=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/A6Lib.p1 A6Lib.c 
+	@-${MV} ${OBJECTDIR}/A6Lib.d ${OBJECTDIR}/A6Lib.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/A6Lib.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -174,6 +182,14 @@ ${OBJECTDIR}/eusart.p1: eusart.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -mext=cci -Wa,-a -DXPRJ_free=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/eusart.p1 eusart.c 
 	@-${MV} ${OBJECTDIR}/eusart.d ${OBJECTDIR}/eusart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/eusart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/A6Lib.p1: A6Lib.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/A6Lib.p1.d 
+	@${RM} ${OBJECTDIR}/A6Lib.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=0 -mext=cci -Wa,-a -DXPRJ_free=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -mc90lib $(COMPARISON_BUILD)  -std=c90 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/A6Lib.p1 A6Lib.c 
+	@-${MV} ${OBJECTDIR}/A6Lib.d ${OBJECTDIR}/A6Lib.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/A6Lib.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
