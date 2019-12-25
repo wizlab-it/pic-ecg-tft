@@ -5522,7 +5522,6 @@ char line[32];
 
 extern uint32_t MILLISECONDS;
 extern STRUCT_EUSART_RX EUSART_RX;
-extern uint32_t A6_SPEED;
 
 
 extern void init(void);
@@ -5538,12 +5537,14 @@ extern void EUSART_TX_Char(uint8_t c);
 extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
+
 extern void A6_Init(void);
 extern uint8_t A6_IsAlive(void);
-extern void A6_SpeedAutoDetect(void);
-extern uint8_t A6_SpeedSet(const uint32_t speed);
-extern void A6_ReadLine(char *response, int timeout);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
+extern uint32_t A6_SpeedAutoDetect(void);
+extern uint32_t A6_SpeedGet(void);
+extern uint32_t A6_SpeedSet(const uint32_t speed);
+extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
 
 # 15 "main.h"
 uint32_t tmp1 = 0;
@@ -5556,14 +5557,12 @@ void sleepMS(uint32_t ms);
 void printLine(const char *str, uint16_t color);
 
 # 12 "main.c"
-char x1[] = "AT+IPR?\r";
 char x2[] = "AT+CCLK?\r";
 char x3[] = "AT+CSQ\r";
 char x4[] = "AT+CCID\r";
 char x5[] = "AT+CREG?\r";
 char x6[] = "AT+COPS?\r";
 char x7[] = "AT+COPS=?\r";
-char x8[] = "AT\r";
 
 void main(void) {
 
@@ -5577,30 +5576,39 @@ A6_Init();
 while(1) loop();
 }
 
-# 37
+# 35
 void loop(void) {
 
 
 
 
 if((MILLISECONDS > 20000) && (tmp4 < (MILLISECONDS - 20000))) {
-printLine("Change speed", 0xFFE0);
 tmp4 = MILLISECONDS;
 
-uint8_t zz;
-switch(A6_SPEED) {
-case 9600:
-zz = A6_SpeedSet(57600);
-break;
+char zzzz[32];
+sprintf(zzzz, "Change speed (%lu)", A6_SpeedGet());
+printLine(zzzz, 0xFFE0);
+
+uint32_t zz = 0;
+switch(A6_SpeedGet()) {
 case 57600:
 zz = A6_SpeedSet(115200);
 break;
 case 115200:
 zz = A6_SpeedSet(9600);
 break;
+case 9600:
+zz = A6_SpeedSet(57600);
+break;
+default:
+sprintf(zzzz, "Invalid current speed (%lu)", A6_SpeedGet());
+printLine(zzzz, 0xFFE0);
+A6_SpeedAutoDetect();
+break;
 }
 
-printLine(((zz == 1) ? "Yes!" : "No..."), 0x001F);
+sprintf(zzzz, "Speed changed (-> %lu)", zz);
+printLine(((zz == 0) ? "Error changing speed" : zzzz), 0xF81F);
 
 if(A6_IsAlive() == 0) {
 printLine("Comm is dead. Retry...", 0x001F);
@@ -5610,26 +5618,22 @@ printLine(((A6_IsAlive() == 0) ? "Still dead" : "Resurrected!"), 0x001F);
 }
 
 if((MILLISECONDS > 2500) && (tmp1 < (MILLISECONDS - 2500))) {
-printLine("Send AT", 0xFFE0);
 tmp1 = MILLISECONDS;
 
+printLine("Check time", 0xFFE0);
 char response[32];
-A6_Command(x8, "aa", "bb", 0, response);
-printLine(response, 0xF800);
+A6_Command("AT+CCLK?\r", "aa", "bb", 0, response, 32);
+printLine(response, 0x07E0);
 }
 
 if((MILLISECONDS > 4000) && (tmp2 < (MILLISECONDS - 4000))) {
-printLine("Check speed", 0xFFE0);
 tmp2 = MILLISECONDS;
 
-char response[32];
-memset(response, 0x00, 32);
-A6_Command(x1, "aa", "bb", 0, response);
-
-printLine(response, 0xF800);
+printLine("Check speed", 0xFFE0);
+char zzzz[32];
+sprintf(zzzz, "%lu", A6_SpeedGet());
+printLine(zzzz, 0xF800);
 }
-
-# 129
 }
 
 void sleepMS(uint32_t ms) {
@@ -5638,7 +5642,7 @@ while(t > MILLISECONDS);
 }
 
 void printLine(const char *str, uint16_t color) {
-EUSART_RX.zzzzzzzzz += 8;
-TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
+EUSART_RX.zzzzzzzzz += 10;
+TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 40, 400, 0x0000);
 TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), str, color, 0x0000, 1);
 }

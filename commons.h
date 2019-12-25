@@ -36,7 +36,6 @@ typedef struct {
 //External variables
 extern uint32_t MILLISECONDS;
 extern STRUCT_EUSART_RX EUSART_RX;
-extern uint32_t A6_SPEED;
 
 //External functions
 extern void init(void);
@@ -52,11 +51,13 @@ extern void EUSART_TX_Char(uint8_t c);
 extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
+
 extern void A6_Init(void);
 extern uint8_t A6_IsAlive(void);
-extern void A6_SpeedAutoDetect(void);
-extern uint8_t A6_SpeedSet(const uint32_t speed);
-extern void A6_ReadLine(char *response, int timeout);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
+extern uint32_t A6_SpeedAutoDetect(void);
+extern uint32_t A6_SpeedGet(void);
+extern uint32_t A6_SpeedSet(const uint32_t speed);
+extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
 
 #endif

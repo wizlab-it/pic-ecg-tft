@@ -1,18 +1,24 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "57 commons.h
-[v _A6_SpeedAutoDetect `(v ~T0 @X0 0 ef ]
-"43
+[v _A6_SpeedAutoDetect `(ul ~T0 @X0 0 ef ]
+"42
 [v _sleepMS `(v ~T0 @X0 0 ef1`ul ]
-"60
-[v _A6_Command `(v ~T0 @X0 0 ef5`*Cuc`*Cuc`*Cuc`ui`*uc ]
+"61
+[v _A6_Command `(v ~T0 @X0 0 ef6`*Cuc`*Cuc`*Cuc`ui`*uc`uc ]
 "45 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
 [v _strcmp `(i ~T0 @X0 0 ef2`*Cuc`*Cuc ]
+"53
+[v _strstr `(*uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
+"41
+[v _strtok `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"69 /opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h
+[v _atol `(l ~T0 @X0 0 ef1`*Cuc ]
 "194 /opt/microchip/xc8/v2.10/pic/include/c90/stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"50 commons.h
-[v _EUSART_SetSpeed `(v ~T0 @X0 0 ef1`Cul ]
-"44
+"43 commons.h
 [v _printLine `(v ~T0 @X0 0 ef2`*Cuc`ui ]
+"49
+[v _EUSART_SetSpeed `(v ~T0 @X0 0 ef1`Cul ]
 "37
 [v _MILLISECONDS `ul ~T0 @X0 0 e ]
 "27
@@ -22,7 +28,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EUSART_RX `S327 ~T0 @X0 0 e ]
 "16 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"52 commons.h
+"51 commons.h
 [v _EUSART_TX_String `(v ~T0 @X0 0 ef2`*Cuc`uc ]
 "56 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
@@ -5300,37 +5306,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 34: } STRUCT_EUSART_RX;
 [; ;commons.h: 37: extern uint32_t MILLISECONDS;
 [; ;commons.h: 38: extern STRUCT_EUSART_RX EUSART_RX;
-[; ;commons.h: 39: extern uint32_t A6_SPEED;
-[; ;commons.h: 42: extern void init(void);
-[; ;commons.h: 43: extern void sleepMS(uint32_t ms);
-[; ;commons.h: 44: extern void printLine(const char *str, uint16_t color);
-[; ;commons.h: 46: extern void Ecg_Init(void);
-[; ;commons.h: 47: extern void Ecg_Process(void);
-[; ;commons.h: 48: extern void Ecg_Interrupt(void);
-[; ;commons.h: 49: extern void EUSART_Init(void);
-[; ;commons.h: 50: extern void EUSART_SetSpeed(const uint32_t speed);
-[; ;commons.h: 51: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 52: extern void EUSART_TX_String(const char *str, uint8_t len);
-[; ;commons.h: 53: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 54: extern void EUSART_RX_Process(void);
+[; ;commons.h: 41: extern void init(void);
+[; ;commons.h: 42: extern void sleepMS(uint32_t ms);
+[; ;commons.h: 43: extern void printLine(const char *str, uint16_t color);
+[; ;commons.h: 45: extern void Ecg_Init(void);
+[; ;commons.h: 46: extern void Ecg_Process(void);
+[; ;commons.h: 47: extern void Ecg_Interrupt(void);
+[; ;commons.h: 48: extern void EUSART_Init(void);
+[; ;commons.h: 49: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 50: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 51: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 52: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 53: extern void EUSART_RX_Process(void);
 [; ;commons.h: 55: extern void A6_Init(void);
 [; ;commons.h: 56: extern uint8_t A6_IsAlive(void);
-[; ;commons.h: 57: extern void A6_SpeedAutoDetect(void);
-[; ;commons.h: 58: extern uint8_t A6_SpeedSet(const uint32_t speed);
-[; ;commons.h: 59: extern void A6_ReadLine(char *response, int timeout);
-[; ;commons.h: 60: extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
+[; ;commons.h: 57: extern uint32_t A6_SpeedAutoDetect(void);
+[; ;commons.h: 58: extern uint32_t A6_SpeedGet(void);
+[; ;commons.h: 59: extern uint32_t A6_SpeedSet(const uint32_t speed);
+[; ;commons.h: 60: extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
+[; ;commons.h: 61: extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
 "18 A6Lib.h
-[v _A6_SPEED `ul ~T0 @X0 1 e ]
-[i _A6_SPEED
+[v _A6_SPEEDS `Cul ~T0 @X0 -> 0 `x e ]
+[i _A6_SPEEDS
+:U ..
 -> -> -> 9600 `i `l `ul
+-> -> 57600 `l `ul
+-> -> 115200 `l `ul
+..
 ]
-[; ;A6Lib.h: 18: uint32_t A6_SPEED = 9600;
+[; ;A6Lib.h: 18: const uint32_t A6_SPEEDS[] = { 9600, 57600, 115200 };
 [; ;A6Lib.h: 20: void A6_Init(void);
 [; ;A6Lib.h: 21: uint8_t A6_IsAlive(void);
-[; ;A6Lib.h: 22: void A6_SpeedAutoDetect(void);
-[; ;A6Lib.h: 23: uint8_t A6_SpeedSet(const uint32_t speed);
-[; ;A6Lib.h: 24: void A6_ReadLine(char *response, int timeout);
-[; ;A6Lib.h: 25: void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
+[; ;A6Lib.h: 22: uint32_t A6_SpeedAutoDetect(void);
+[; ;A6Lib.h: 23: uint32_t A6_SpeedGet(void);
+[; ;A6Lib.h: 24: uint32_t A6_SpeedSet(const uint32_t speed);
+[; ;A6Lib.h: 25: void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
+[; ;A6Lib.h: 26: void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
 "12 A6Lib.c
 [v _A6_Init `(v ~T0 @X0 1 ef ]
 {
@@ -5354,20 +5365,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _A6_IsAlive ]
 [f ]
 "18
-[v _loop `uc ~T0 @X0 1 a ]
-[; ;A6Lib.c: 18: uint8_t loop = 3;
-[e = _loop -> -> 3 `i `uc ]
-"19
 [v _response `uc ~T0 @X0 -> 32 `i a ]
-[; ;A6Lib.c: 19: char response[32];
+"20
+[v _loop `uc ~T0 @X0 1 a ]
+[; ;A6Lib.c: 18: char response[32];
+[; ;A6Lib.c: 20: uint8_t loop = 3;
+[e = _loop -> -> 3 `i `uc ]
 [; ;A6Lib.c: 21: while(loop--) {
 "21
 [e $U 330  ]
 [e :U 331 ]
 {
-[; ;A6Lib.c: 22: A6_Command("AT\r", "aa", "bb", 0, response);
+[; ;A6Lib.c: 22: A6_Command("AT\r", "aa", "bb", 0, response, 32);
 "22
-[e ( _A6_Command (4 , , , , :s 1C :s 2C :s 3C -> -> 0 `i `ui &U _response ]
+[e ( _A6_Command (4 , , , , , :s 1C :s 2C :s 3C -> -> 0 `i `ui &U _response -> -> 32 `i `uc ]
 [; ;A6Lib.c: 23: if(strcmp(response, "OK") == 0) {
 "23
 [e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 4C -> 0 `i 333  ]
@@ -5396,280 +5407,392 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 329 ]
 }
 "30
-[v _A6_SpeedSet `(uc ~T0 @X0 1 ef1`Cul ]
+[v _A6_SpeedGet `(ul ~T0 @X0 1 ef ]
 {
-[; ;A6Lib.c: 30: uint8_t A6_SpeedSet(const uint32_t speed) {
-[e :U _A6_SpeedSet ]
-[v _speed `Cul ~T0 @X0 1 r1 ]
+[; ;A6Lib.c: 30: uint32_t A6_SpeedGet(void) {
+[e :U _A6_SpeedGet ]
 [f ]
 "31
-[v _request `uc ~T0 @X0 -> 20 `i a ]
+[v _speed `ul ~T0 @X0 1 a ]
 "32
+[v _speedToken `*uc ~T0 @X0 1 a ]
+"33
 [v _response `uc ~T0 @X0 -> 32 `i a ]
-[; ;A6Lib.c: 31: char request[20];
-[; ;A6Lib.c: 32: char response[32];
-[; ;A6Lib.c: 35: sprintf(request, "AT+IPR=%lu\r", speed);
 "35
-[e ( _sprintf (1 , (. , &U _request :s 5C _speed ]
-[; ;A6Lib.c: 36: A6_Command(request, "aa", "bb", 0, response);
+[v _loop `uc ~T0 @X0 1 a ]
+[; ;A6Lib.c: 31: uint32_t speed;
+[; ;A6Lib.c: 32: char *speedToken;
+[; ;A6Lib.c: 33: char response[32];
+[; ;A6Lib.c: 35: uint8_t loop = 5;
+[e = _loop -> -> 5 `i `uc ]
+[; ;A6Lib.c: 36: while(loop--) {
 "36
-[e ( _A6_Command (4 , , , , -> &U _request `*Cuc :s 6C :s 7C -> -> 0 `i `ui &U _response ]
-[; ;A6Lib.c: 37: if(strcmp(response, "OK") == 0) {
+[e $U 335  ]
+[e :U 336 ]
+{
+[; ;A6Lib.c: 37: A6_Command("AT+IPR?\r", "aa", "bb", 0, response, 32);
 "37
-[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 8C -> 0 `i 335  ]
-{
-[; ;A6Lib.c: 38: sleepMS(1000);
+[e ( _A6_Command (4 , , , , , :s 5C :s 6C :s 7C -> -> 0 `i `ui &U _response -> -> 32 `i `uc ]
+[; ;A6Lib.c: 38: if(strstr(response, "+IPR: ") != (0)) {
 "38
-[e ( _sleepMS (1 -> -> -> 1000 `i `l `ul ]
-[; ;A6Lib.c: 41: EUSART_SetSpeed(speed);
-"41
-[e ( _EUSART_SetSpeed (1 _speed ]
-[; ;A6Lib.c: 42: if(A6_IsAlive() == 1) {
-"42
-[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 336  ]
+[e $ ! != ( _strstr (2 , -> &U _response `*Cuc :s 8C -> -> 0 `i `*uc 338  ]
 {
-[; ;A6Lib.c: 44: A6_SPEED = speed;
+[; ;A6Lib.c: 39: speedToken = strtok(response, " ");
+"39
+[e = _speedToken ( _strtok (2 , &U _response :s 9C ]
+[; ;A6Lib.c: 40: speedToken = strtok((0), response);
+"40
+[e = _speedToken ( _strtok (2 , -> -> 0 `i `*uc -> &U _response `*Cuc ]
+[; ;A6Lib.c: 41: if(speedToken != (0)) {
+"41
+[e $ ! != _speedToken -> -> 0 `i `*uc 339  ]
+{
+[; ;A6Lib.c: 42: speed = atol(speedToken);
+"42
+[e = _speed -> ( _atol (1 -> _speedToken `*Cuc `ul ]
+[; ;A6Lib.c: 43: for(uint8_t j=0; j<3; j++) {
+"43
+{
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 3 `i 340  ]
+[e $U 341  ]
+[e :U 340 ]
+{
+[; ;A6Lib.c: 44: if(speed == A6_SPEEDS[j]) {
 "44
-[e = _A6_SPEED _speed ]
-[; ;A6Lib.c: 45: return 1;
+[e $ ! == _speed *U + &U _A6_SPEEDS * -> _j `ux -> -> # *U &U _A6_SPEEDS `ui `ux 343  ]
+{
+[; ;A6Lib.c: 45: return speed;
 "45
-[e ) -> -> 1 `i `uc ]
+[e ) _speed ]
 [e $UE 334  ]
 "46
 }
-[e :U 336 ]
+[e :U 343 ]
 "47
 }
-[e :U 335 ]
+"43
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 3 `i 340  ]
+[e :U 341 ]
+"47
+}
+"48
+}
+[e :U 339 ]
+"49
+}
+[e :U 338 ]
 [; ;A6Lib.c: 46: }
 [; ;A6Lib.c: 47: }
-[; ;A6Lib.c: 50: EUSART_SetSpeed(A6_SPEED);
+[; ;A6Lib.c: 48: }
+[; ;A6Lib.c: 49: }
+[; ;A6Lib.c: 50: sleepMS(250);
 "50
-[e ( _EUSART_SetSpeed (1 _A6_SPEED ]
-[; ;A6Lib.c: 51: return 0;
+[e ( _sleepMS (1 -> -> -> 250 `i `l `ul ]
 "51
-[e ) -> -> 0 `i `uc ]
+}
+[e :U 335 ]
+"36
+[e $ != -> -- _loop -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 336  ]
+[e :U 337 ]
+[; ;A6Lib.c: 51: }
+[; ;A6Lib.c: 53: return 0;
+"53
+[e ) -> -> -> 0 `i `l `ul ]
 [e $UE 334  ]
-[; ;A6Lib.c: 52: }
-"52
+[; ;A6Lib.c: 54: }
+"54
 [e :UE 334 ]
 }
-"54
-[v _A6_SpeedAutoDetect `(v ~T0 @X0 1 ef ]
+"56
+[v _A6_SpeedSet `(ul ~T0 @X0 1 ef1`Cul ]
 {
-[; ;A6Lib.c: 54: void A6_SpeedAutoDetect(void) {
+[; ;A6Lib.c: 56: uint32_t A6_SpeedSet(const uint32_t speed) {
+[e :U _A6_SpeedSet ]
+[v _speed `Cul ~T0 @X0 1 r1 ]
+[f ]
+"57
+[v _request `uc ~T0 @X0 -> 20 `i a ]
+"58
+[v _response `uc ~T0 @X0 -> 32 `i a ]
+"59
+[v _currentSpeed `ul ~T0 @X0 1 a ]
+[; ;A6Lib.c: 57: char request[20];
+[; ;A6Lib.c: 58: char response[32];
+[; ;A6Lib.c: 59: uint32_t currentSpeed = A6_SpeedGet();
+[e = _currentSpeed ( _A6_SpeedGet ..  ]
+[; ;A6Lib.c: 62: if(currentSpeed == 0) return 0;
+"62
+[e $ ! == _currentSpeed -> -> -> 0 `i `l `ul 345  ]
+[e ) -> -> -> 0 `i `l `ul ]
+[e $UE 344  ]
+[e :U 345 ]
+[; ;A6Lib.c: 65: sprintf(request, "AT+IPR=%lu\r", speed);
+"65
+[e ( _sprintf (1 , (. , &U _request :s 10C _speed ]
+[; ;A6Lib.c: 66: A6_Command(request, "aa", "bb", 0, response, 32);
+"66
+[e ( _A6_Command (4 , , , , , -> &U _request `*Cuc :s 11C :s 12C -> -> 0 `i `ui &U _response -> -> 32 `i `uc ]
+[; ;A6Lib.c: 67: printLine(request, 0x07E0);
+"67
+[e ( _printLine (2 , -> &U _request `*Cuc -> -> 2016 `i `ui ]
+[; ;A6Lib.c: 68: printLine(response, 0x07E0);
+"68
+[e ( _printLine (2 , -> &U _response `*Cuc -> -> 2016 `i `ui ]
+[; ;A6Lib.c: 69: if(strcmp(response, "OK") == 0) {
+"69
+[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 13C -> 0 `i 346  ]
+{
+[; ;A6Lib.c: 71: EUSART_SetSpeed(speed);
+"71
+[e ( _EUSART_SetSpeed (1 _speed ]
+[; ;A6Lib.c: 72: sleepMS(150);
+"72
+[e ( _sleepMS (1 -> -> -> 150 `i `l `ul ]
+[; ;A6Lib.c: 73: if(A6_IsAlive() == 1) {
+"73
+[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 347  ]
+{
+[; ;A6Lib.c: 74: return speed;
+"74
+[e ) _speed ]
+[e $UE 344  ]
+"75
+}
+[e :U 347 ]
+"76
+}
+[e :U 346 ]
+[; ;A6Lib.c: 75: }
+[; ;A6Lib.c: 76: }
+[; ;A6Lib.c: 79: EUSART_SetSpeed(currentSpeed);
+"79
+[e ( _EUSART_SetSpeed (1 _currentSpeed ]
+[; ;A6Lib.c: 80: return 0;
+"80
+[e ) -> -> -> 0 `i `l `ul ]
+[e $UE 344  ]
+[; ;A6Lib.c: 81: }
+"81
+[e :UE 344 ]
+}
+"83
+[v _A6_SpeedAutoDetect `(ul ~T0 @X0 1 ef ]
+{
+[; ;A6Lib.c: 83: uint32_t A6_SpeedAutoDetect(void) {
 [e :U _A6_SpeedAutoDetect ]
 [f ]
-[v F3081 `ul ~T0 @X0 -> 0 `x s ]
-[i F3081
-:U ..
-"55
--> -> -> 9600 `i `l `ul
--> -> 57600 `l `ul
--> -> 115200 `l `ul
-..
-]
-[v _speeds `ul ~T0 @X0 3  a ]
-[; ;A6Lib.c: 55: uint32_t speeds[] = { 9600, 57600, 115200 };
-[e = _speeds F3081 ]
-"57
-[v _zzzz `uc ~T0 @X0 -> 32 `i a ]
-[; ;A6Lib.c: 57: char zzzz[32];
-[; ;A6Lib.c: 59: printLine("Detecting speed...", 0xF81F);
-"59
-[e ( _printLine (2 , :s 9C -> 63519 `ui ]
-[; ;A6Lib.c: 61: for(uint8_t i=0; i<3; i++) {
-"61
+[; ;A6Lib.c: 84: printLine("Detecting speed...", 0xF81F);
+"84
+[e ( _printLine (2 , :s 14C -> 63519 `ui ]
+[; ;A6Lib.c: 86: for(uint8_t i=0; i<3; i++) {
+"86
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 338  ]
-[e $U 339  ]
-[e :U 338 ]
+[e $ < -> _i `i -> 3 `i 349  ]
+[e $U 350  ]
+[e :U 349 ]
 {
-[; ;A6Lib.c: 62: EUSART_SetSpeed(speeds[i]);
-"62
-[e ( _EUSART_SetSpeed (1 *U + &U _speeds * -> _i `ux -> -> # *U &U _speeds `ui `ux ]
-[; ;A6Lib.c: 63: if(A6_IsAlive() == 1) {
-"63
-[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 341  ]
+[; ;A6Lib.c: 87: EUSART_SetSpeed(A6_SPEEDS[i]);
+"87
+[e ( _EUSART_SetSpeed (1 *U + &U _A6_SPEEDS * -> _i `ux -> -> # *U &U _A6_SPEEDS `ui `ux ]
+[; ;A6Lib.c: 88: if(A6_IsAlive() == 1) {
+"88
+[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 352  ]
 {
-[; ;A6Lib.c: 64: sprintf(zzzz, "%lu FOUND!", speeds[i]);
-"64
-[e ( _sprintf (1 , (. , &U _zzzz :s 10C *U + &U _speeds * -> _i `ux -> -> # *U &U _speeds `ui `ux ]
-[; ;A6Lib.c: 65: printLine(zzzz, 0xF800);
-"65
+"89
+[v _zzzz `uc ~T0 @X0 -> 32 `i a ]
+[; ;A6Lib.c: 89: char zzzz[32];
+[; ;A6Lib.c: 90: sprintf(zzzz, "%lu FOUND!", A6_SPEEDS[i]);
+"90
+[e ( _sprintf (1 , (. , &U _zzzz :s 15C *U + &U _A6_SPEEDS * -> _i `ux -> -> # *U &U _A6_SPEEDS `ui `ux ]
+[; ;A6Lib.c: 91: printLine(zzzz, 0xF800);
+"91
 [e ( _printLine (2 , -> &U _zzzz `*Cuc -> 63488 `ui ]
-[; ;A6Lib.c: 66: A6_SPEED = speeds[i];
-"66
-[e = _A6_SPEED *U + &U _speeds * -> _i `ux -> -> # *U &U _speeds `ui `ux ]
-[; ;A6Lib.c: 67: return;
-"67
-[e $UE 337  ]
-"68
+[; ;A6Lib.c: 92: return A6_SPEEDS[i];
+"92
+[e ) *U + &U _A6_SPEEDS * -> _i `ux -> -> # *U &U _A6_SPEEDS `ui `ux ]
+[e $UE 348  ]
+"93
 }
-[e :U 341 ]
-[; ;A6Lib.c: 68: }
-[; ;A6Lib.c: 69: sleepMS(250);
-"69
+[e :U 352 ]
+[; ;A6Lib.c: 93: }
+[; ;A6Lib.c: 94: sleepMS(250);
+"94
 [e ( _sleepMS (1 -> -> -> 250 `i `l `ul ]
-"70
+"95
 }
-"61
+"86
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 338  ]
-[e :U 339 ]
-"70
+[e $ < -> _i `i -> 3 `i 349  ]
+[e :U 350 ]
+"95
 }
-[; ;A6Lib.c: 70: }
-[; ;A6Lib.c: 71: }
-"71
-[e :UE 337 ]
+[; ;A6Lib.c: 95: }
+[; ;A6Lib.c: 97: return 0;
+"97
+[e ) -> -> -> 0 `i `l `ul ]
+[e $UE 348  ]
+[; ;A6Lib.c: 98: }
+"98
+[e :UE 348 ]
 }
-"73
-[v _A6_ReadLine `(v ~T0 @X0 1 ef2`*uc`i ]
+"100
+[v _A6_ReadLine `(v ~T0 @X0 1 ef3`*uc`uc`i ]
 {
-[; ;A6Lib.c: 73: void A6_ReadLine(char *response, int timeout) {
+[; ;A6Lib.c: 100: void A6_ReadLine(char *response, uint8_t responseLen, int timeout) {
 [e :U _A6_ReadLine ]
 [v _response `*uc ~T0 @X0 1 r1 ]
-[v _timeout `i ~T0 @X0 1 r2 ]
+[v _responseLen `uc ~T0 @X0 1 r2 ]
+[v _timeout `i ~T0 @X0 1 r3 ]
 [f ]
-"74
+"101
 [v _iLine `uc ~T0 @X0 1 a ]
-[; ;A6Lib.c: 74: uint8_t iLine = 0;
+[; ;A6Lib.c: 101: uint8_t iLine = 0;
 [e = _iLine -> -> 0 `i `uc ]
-[; ;A6Lib.c: 75: while(1) {
-"75
-[e :U 344 ]
+[; ;A6Lib.c: 103: while(1) {
+"103
+[e :U 355 ]
 {
-"76
+"104
 [v _t `ul ~T0 @X0 1 a ]
-[; ;A6Lib.c: 76: uint32_t t = MILLISECONDS + timeout;
+[; ;A6Lib.c: 104: uint32_t t = MILLISECONDS + timeout;
 [e = _t + _MILLISECONDS -> -> _timeout `l `ul ]
-[; ;A6Lib.c: 77: while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-"77
-[e $U 346  ]
-[e :U 347 ]
+[; ;A6Lib.c: 105: while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+"105
+[e $U 357  ]
+[e :U 358 ]
 {
-[; ;A6Lib.c: 78: if(t < MILLISECONDS) return;
-"78
-[e $ ! < _t _MILLISECONDS 349  ]
-[e $UE 342  ]
-[e :U 349 ]
-"79
+[; ;A6Lib.c: 106: if(t < MILLISECONDS) return;
+"106
+[e $ ! < _t _MILLISECONDS 360  ]
+[e $UE 353  ]
+[e :U 360 ]
+"107
 }
-[e :U 346 ]
-"77
-[e $ == -> . _EUSART_RX 1 `i -> . _EUSART_RX 2 `i 347  ]
-[e :U 348 ]
-[; ;A6Lib.c: 79: }
-[; ;A6Lib.c: 80: EUSART_RX.iRead++;
-"80
+[e :U 357 ]
+"105
+[e $ == -> . _EUSART_RX 1 `i -> . _EUSART_RX 2 `i 358  ]
+[e :U 359 ]
+[; ;A6Lib.c: 107: }
+[; ;A6Lib.c: 108: EUSART_RX.iRead++;
+"108
 [e ++ . _EUSART_RX 1 -> -> 1 `i `uc ]
-[; ;A6Lib.c: 81: if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
-"81
-[e $ ! == -> *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux `ui -> 13 `ui 350  ]
-[e $U 345  ]
-[e :U 350 ]
-[; ;A6Lib.c: 82: response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
-"82
+[; ;A6Lib.c: 109: if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
+"109
+[e $ ! == -> *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux `ui -> 13 `ui 361  ]
+[e $U 356  ]
+[e :U 361 ]
+[; ;A6Lib.c: 110: response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
+"110
 [e = *U + _response * -> _iLine `ux -> -> # *U _response `ui `ux *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux ]
-[; ;A6Lib.c: 83: iLine++;
-"83
+[; ;A6Lib.c: 111: iLine++;
+"111
 [e ++ _iLine -> -> 1 `i `uc ]
-"84
+[; ;A6Lib.c: 112: if(iLine == responseLen) break;
+"112
+[e $ ! == -> _iLine `i -> _responseLen `i 362  ]
+[e $U 356  ]
+[e :U 362 ]
+"113
 }
-[e :U 343 ]
-"75
-[e $U 344  ]
-[e :U 345 ]
-[; ;A6Lib.c: 84: }
-[; ;A6Lib.c: 85: response[iLine] = 0x00;
-"85
-[e = *U + _response * -> _iLine `ux -> -> # *U _response `ui `ux -> -> 0 `i `uc ]
-[; ;A6Lib.c: 86: return;
-"86
-[e $UE 342  ]
-[; ;A6Lib.c: 87: }
-"87
-[e :UE 342 ]
+[e :U 354 ]
+"103
+[e $U 355  ]
+[e :U 356 ]
+[; ;A6Lib.c: 113: }
+[; ;A6Lib.c: 115: return;
+"115
+[e $UE 353  ]
+[; ;A6Lib.c: 116: }
+"116
+[e :UE 353 ]
 }
-"89
-[v _A6_Command `(v ~T0 @X0 1 ef5`*Cuc`*Cuc`*Cuc`ui`*uc ]
+"118
+[v _A6_Command `(v ~T0 @X0 1 ef6`*Cuc`*Cuc`*Cuc`ui`*uc`uc ]
 {
-[; ;A6Lib.c: 89: void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response) {
+[; ;A6Lib.c: 118: void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen) {
 [e :U _A6_Command ]
 [v _command `*Cuc ~T0 @X0 1 r1 ]
 [v _resp1 `*Cuc ~T0 @X0 1 r2 ]
 [v _resp2 `*Cuc ~T0 @X0 1 r3 ]
 [v _timeout `ui ~T0 @X0 1 r4 ]
 [v _response `*uc ~T0 @X0 1 r5 ]
+[v _responseLen `uc ~T0 @X0 1 r6 ]
 [f ]
-[; ;A6Lib.c: 90: if(timeout == 0) timeout = 1000;
-"90
-[e $ ! == _timeout -> -> 0 `i `ui 352  ]
+[; ;A6Lib.c: 119: if(timeout == 0) timeout = 1000;
+"119
+[e $ ! == _timeout -> -> 0 `i `ui 364  ]
 [e = _timeout -> -> 1000 `i `ui ]
-[e :U 352 ]
-[; ;A6Lib.c: 91: memset(response, 0x00, sizeof(response));
-"91
-[e ( _memset (3 , , -> _response `*v -> 0 `i -> # _response `ui ]
-[; ;A6Lib.c: 93: EUSART_RX.iRead = EUSART_RX.iWrite;
-"93
+[e :U 364 ]
+[; ;A6Lib.c: 120: memset(response, 0x00, responseLen);
+"120
+[e ( _memset (3 , , -> _response `*v -> 0 `i -> _responseLen `ui ]
+[; ;A6Lib.c: 122: EUSART_RX.iRead = EUSART_RX.iWrite;
+"122
 [e = . _EUSART_RX 1 . _EUSART_RX 2 ]
-[; ;A6Lib.c: 94: EUSART_TX_String(command, strlen(command));
-"94
+[; ;A6Lib.c: 123: EUSART_TX_String(command, strlen(command));
+"123
 [e ( _EUSART_TX_String (2 , _command -> ( _strlen (1 _command `uc ]
-[; ;A6Lib.c: 97: do {
-"97
-[e :U 355 ]
+[; ;A6Lib.c: 126: do {
+"126
+[e :U 367 ]
 {
-"98
+"127
 [v _t `ul ~T0 @X0 1 a ]
-[; ;A6Lib.c: 98: uint32_t t = MILLISECONDS + timeout;
+[; ;A6Lib.c: 127: uint32_t t = MILLISECONDS + timeout;
 [e = _t + _MILLISECONDS -> _timeout `ul ]
-[; ;A6Lib.c: 99: while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-"99
-[e $U 356  ]
-[e :U 357 ]
+[; ;A6Lib.c: 128: while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+"128
+[e $U 368  ]
+[e :U 369 ]
 {
-[; ;A6Lib.c: 100: if(t < MILLISECONDS) return;
-"100
-[e $ ! < _t _MILLISECONDS 359  ]
-[e $UE 351  ]
-[e :U 359 ]
-"101
+[; ;A6Lib.c: 129: if(t < MILLISECONDS) return;
+"129
+[e $ ! < _t _MILLISECONDS 371  ]
+[e $UE 363  ]
+[e :U 371 ]
+"130
 }
-[e :U 356 ]
-"99
-[e $ == -> . _EUSART_RX 1 `i -> . _EUSART_RX 2 `i 357  ]
-[e :U 358 ]
-[; ;A6Lib.c: 101: }
-[; ;A6Lib.c: 102: EUSART_RX.iRead++;
-"102
+[e :U 368 ]
+"128
+[e $ == -> . _EUSART_RX 1 `i -> . _EUSART_RX 2 `i 369  ]
+[e :U 370 ]
+[; ;A6Lib.c: 130: }
+[; ;A6Lib.c: 131: EUSART_RX.iRead++;
+"131
 [e ++ . _EUSART_RX 1 -> -> 1 `i `uc ]
-"103
+"132
 }
-[; ;A6Lib.c: 103: } while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
-[e $ != -> *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux `ui -> 10 `ui 355  ]
-[e :U 354 ]
-[; ;A6Lib.c: 106: A6_ReadLine(response, timeout);
-"106
-[e ( _A6_ReadLine (2 , _response -> _timeout `i ]
-[; ;A6Lib.c: 108: return;
-"108
-[e $UE 351  ]
-[; ;A6Lib.c: 109: }
-"109
-[e :UE 351 ]
+[; ;A6Lib.c: 132: } while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
+[e $ != -> *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux `ui -> 10 `ui 367  ]
+[e :U 366 ]
+[; ;A6Lib.c: 135: A6_ReadLine(response, responseLen, timeout);
+"135
+[e ( _A6_ReadLine (3 , , _response _responseLen -> _timeout `i ]
+[; ;A6Lib.c: 137: return;
+"137
+[e $UE 363  ]
+[; ;A6Lib.c: 138: }
+"138
+[e :UE 363 ]
 }
 [p f _sprintf 8389648 ]
 [a 3C 98 98 0 ]
 [a 7C 98 98 0 ]
+[a 12C 98 98 0 ]
 [a 2C 97 97 0 ]
 [a 6C 97 97 0 ]
+[a 11C 97 97 0 ]
 [a 4C 79 75 0 ]
-[a 8C 79 75 0 ]
-[a 9C 68 101 116 101 99 116 105 110 103 32 115 112 101 101 100 46 46 46 0 ]
-[a 10C 37 108 117 32 70 79 85 78 68 33 0 ]
-[a 5C 65 84 43 73 80 82 61 37 108 117 13 0 ]
+[a 13C 79 75 0 ]
+[a 14C 68 101 116 101 99 116 105 110 103 32 115 112 101 101 100 46 46 46 0 ]
+[a 15C 37 108 117 32 70 79 85 78 68 33 0 ]
+[a 8C 43 73 80 82 58 32 0 ]
+[a 9C 32 0 ]
+[a 10C 65 84 43 73 80 82 61 37 108 117 13 0 ]
 [a 1C 65 84 13 0 ]
+[a 5C 65 84 43 73 80 82 63 13 0 ]
