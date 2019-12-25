@@ -4926,6 +4926,66 @@ extern __nonreentrant void _delay3(unsigned char);
 # 4 "/opt/microchip/xc8/v2.10/pic/include/__size_t.h"
 typedef unsigned size_t;
 
+# 7 "/opt/microchip/xc8/v2.10/pic/include/c90/stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 43 "/opt/microchip/xc8/v2.10/pic/include/c90/stdio.h"
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 29 "/opt/microchip/xc8/v2.10/pic/include/c90/errno.h"
+extern int errno;
+
+# 12 "/opt/microchip/xc8/v2.10/pic/include/c90/conio.h"
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 23
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 88 "/opt/microchip/xc8/v2.10/pic/include/c90/stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 180
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
 # 7 "/opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h"
 typedef unsigned short wchar_t;
 
@@ -5449,7 +5509,7 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 26 "commons.h"
+# 27 "commons.h"
 typedef struct {
 uint8_t processRX;
 uint8_t iRead;
@@ -5462,9 +5522,13 @@ char line[32];
 
 extern uint32_t MILLISECONDS;
 extern STRUCT_EUSART_RX EUSART_RX;
+extern uint32_t A6_SPEED;
 
 
 extern void init(void);
+extern void sleepMS(uint32_t ms);
+extern void printLine(const char *str, uint16_t color);
+
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
@@ -5474,21 +5538,92 @@ extern void EUSART_TX_Char(uint8_t c);
 extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
-extern void A6_SetSpeed(const uint32_t speed);
-extern void A6_ReadLine(char *response, uint8_t len);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+extern void A6_Init(void);
+extern uint8_t A6_IsAlive(void);
+extern void A6_SpeedAutoDetect(void);
+extern uint8_t A6_SpeedSet(const uint32_t speed);
+extern void A6_ReadLine(char *response, int timeout);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 
-# 16 "A6Lib.h"
-void A6_SetSpeed(const uint32_t speed);
-void A6_ReadLine(char *response, uint8_t len);
-void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+# 18 "A6Lib.h"
+uint32_t A6_SPEED = 9600;
+
+void A6_Init(void);
+uint8_t A6_IsAlive(void);
+void A6_SpeedAutoDetect(void);
+uint8_t A6_SpeedSet(const uint32_t speed);
+void A6_ReadLine(char *response, int timeout);
+void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 
 # 12 "A6Lib.c"
-void A6_ReadLine(char *response, uint8_t len) {
+void A6_Init(void) {
+A6_SpeedAutoDetect();
+sleepMS(2500);
+}
+
+uint8_t A6_IsAlive(void) {
+uint8_t loop = 3;
+char response[32];
+
+while(loop--) {
+A6_Command("AT\r", "aa", "bb", 0, response);
+if(strcmp(response, "OK") == 0) {
+return 1;
+}
+}
+return 0;
+}
+
+uint8_t A6_SpeedSet(const uint32_t speed) {
+char request[20];
+char response[32];
+
+
+sprintf(request, "AT+IPR=%lu\r", speed);
+A6_Command(request, "aa", "bb", 0, response);
+if(strcmp(response, "OK") == 0) {
+sleepMS(1000);
+
+
+EUSART_SetSpeed(speed);
+if(A6_IsAlive() == 1) {
+
+A6_SPEED = speed;
+return 1;
+}
+}
+
+
+EUSART_SetSpeed(A6_SPEED);
+return 0;
+}
+
+void A6_SpeedAutoDetect(void) {
+uint32_t speeds[] = { 9600, 57600, 115200 };
+
+char zzzz[32];
+
+printLine("Detecting speed...", 0xF81F);
+
+for(uint8_t i=0; i<3; i++) {
+EUSART_SetSpeed(speeds[i]);
+if(A6_IsAlive() == 1) {
+sprintf(zzzz, "%lu FOUND!", speeds[i]);
+printLine(zzzz, 0xF800);
+A6_SPEED = speeds[i];
+return;
+}
+sleepMS(250);
+}
+}
+
+void A6_ReadLine(char *response, int timeout) {
 uint8_t iLine = 0;
-memset(response, 0x00, len);
 while(1) {
-while(EUSART_RX.iRead == EUSART_RX.iWrite);
+uint32_t t = MILLISECONDS + timeout;
+while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+if(t < MILLISECONDS) return;
+}
 EUSART_RX.iRead++;
 if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
 response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
@@ -5498,44 +5633,24 @@ response[iLine] = 0x00;
 return;
 }
 
-void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response) {
+void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response) {
+if(timeout == 0) timeout = 1000;
+memset(response, 0x00, sizeof(response));
+
 EUSART_RX.iRead = EUSART_RX.iWrite;
 EUSART_TX_String(command, strlen(command));
 
 
 do {
-while(EUSART_RX.iRead == EUSART_RX.iWrite);
+uint32_t t = MILLISECONDS + timeout;
+while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+if(t < MILLISECONDS) return;
+}
 EUSART_RX.iRead++;
 } while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
 
 
-A6_ReadLine(response, 32);
-
-return;
-}
-
-void A6_SetSpeed(const uint32_t speed) {
-char response[32];
-memset(response, 0x00, 32);
-
-switch(speed) {
-case 57600:
-A6_Command("AT+IPR=57600\r\0", "aa", "bb", 123, response);
-break;
-case 115200:
-A6_Command("AT+IPR=115200\r\0", "aa", "bb", 123, response);
-break;
-case 9600:
-default:
-A6_Command("AT+IPR=9600\r\0", "aa", "bb", 123, response);
-break;
-}
-EUSART_SetSpeed(speed);
-
-EUSART_RX.zzzzzzzzz += 8;
-TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, 400, 0x0000);
-TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), response, 0x07E0, 0x0000, 1);
-_delay((unsigned long)((500)*(48000000/4000.0)));
+A6_ReadLine(response, timeout);
 
 return;
 }

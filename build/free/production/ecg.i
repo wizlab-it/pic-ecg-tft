@@ -5509,7 +5509,7 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 26 "commons.h"
+# 27 "commons.h"
 typedef struct {
 uint8_t processRX;
 uint8_t iRead;
@@ -5522,9 +5522,13 @@ char line[32];
 
 extern uint32_t MILLISECONDS;
 extern STRUCT_EUSART_RX EUSART_RX;
+extern uint32_t A6_SPEED;
 
 
 extern void init(void);
+extern void sleepMS(uint32_t ms);
+extern void printLine(const char *str, uint16_t color);
+
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
@@ -5534,9 +5538,12 @@ extern void EUSART_TX_Char(uint8_t c);
 extern void EUSART_TX_String(const char *str, uint8_t len);
 extern void EUSART_RX_Interrupt(void);
 extern void EUSART_RX_Process(void);
-extern void A6_SetSpeed(const uint32_t speed);
-extern void A6_ReadLine(char *response, uint8_t len);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+extern void A6_Init(void);
+extern uint8_t A6_IsAlive(void);
+extern void A6_SpeedAutoDetect(void);
+extern uint8_t A6_SpeedSet(const uint32_t speed);
+extern void A6_ReadLine(char *response, int timeout);
+extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 
 # 30 "ecg.h"
 struct {

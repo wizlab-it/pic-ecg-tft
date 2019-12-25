@@ -1,5 +1,5 @@
 /*
- * 20191224.001
+ * 20191225.006
  * A6 GSM Module Library
  *
  * File: A6Lib.h
@@ -13,8 +13,15 @@
 
 #include "commons.h"
 
-void A6_SetSpeed(const uint32_t speed);
-void A6_ReadLine(char *response, uint8_t len);
-void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+#define A6_TIMEOUT_DEFAULT  1000
+
+uint32_t A6_SPEED = 9600;
+
+void A6_Init(void);
+uint8_t A6_IsAlive(void);
+void A6_SpeedAutoDetect(void);
+uint8_t A6_SpeedSet(const uint32_t speed);
+void A6_ReadLine(char *response, int timeout);
+void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 
 #endif

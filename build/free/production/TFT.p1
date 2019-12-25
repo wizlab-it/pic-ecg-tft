@@ -3155,6 +3155,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 189: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 191: extern __nonreentrant void _delay3(unsigned char);
 [; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdlib.h: 7: typedef unsigned short wchar_t;
 [; ;stdlib.h: 15: typedef struct {
 [; ;stdlib.h: 16: int rem;
@@ -3257,29 +3286,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 58: extern char * strichr(const char *, int);
 [; ;string.h: 59: extern char * strrchr(const char *, int);
 [; ;string.h: 60: extern char * strrichr(const char *, int);
-[; ;commons.h: 26: typedef struct {
-[; ;commons.h: 27: uint8_t processRX;
-[; ;commons.h: 28: uint8_t iRead;
-[; ;commons.h: 29: uint8_t iWrite;
-[; ;commons.h: 30: uint8_t zzzzzzzzz;
-[; ;commons.h: 31: char buffer[64];
-[; ;commons.h: 32: char line[32];
-[; ;commons.h: 33: } STRUCT_EUSART_RX;
-[; ;commons.h: 36: extern uint32_t MILLISECONDS;
-[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
-[; ;commons.h: 40: extern void init(void);
-[; ;commons.h: 41: extern void Ecg_Init(void);
-[; ;commons.h: 42: extern void Ecg_Process(void);
-[; ;commons.h: 43: extern void Ecg_Interrupt(void);
-[; ;commons.h: 44: extern void EUSART_Init(void);
-[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
-[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
-[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 49: extern void EUSART_RX_Process(void);
-[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
-[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
-[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+[; ;commons.h: 27: typedef struct {
+[; ;commons.h: 28: uint8_t processRX;
+[; ;commons.h: 29: uint8_t iRead;
+[; ;commons.h: 30: uint8_t iWrite;
+[; ;commons.h: 31: uint8_t zzzzzzzzz;
+[; ;commons.h: 32: char buffer[64];
+[; ;commons.h: 33: char line[32];
+[; ;commons.h: 34: } STRUCT_EUSART_RX;
+[; ;commons.h: 37: extern uint32_t MILLISECONDS;
+[; ;commons.h: 38: extern STRUCT_EUSART_RX EUSART_RX;
+[; ;commons.h: 39: extern uint32_t A6_SPEED;
+[; ;commons.h: 42: extern void init(void);
+[; ;commons.h: 43: extern void sleepMS(uint32_t ms);
+[; ;commons.h: 44: extern void printLine(const char *str, uint16_t color);
+[; ;commons.h: 46: extern void Ecg_Init(void);
+[; ;commons.h: 47: extern void Ecg_Process(void);
+[; ;commons.h: 48: extern void Ecg_Interrupt(void);
+[; ;commons.h: 49: extern void EUSART_Init(void);
+[; ;commons.h: 50: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 51: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 52: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 53: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 54: extern void EUSART_RX_Process(void);
+[; ;commons.h: 55: extern void A6_Init(void);
+[; ;commons.h: 56: extern uint8_t A6_IsAlive(void);
+[; ;commons.h: 57: extern void A6_SpeedAutoDetect(void);
+[; ;commons.h: 58: extern uint8_t A6_SpeedSet(const uint32_t speed);
+[; ;commons.h: 59: extern void A6_ReadLine(char *response, int timeout);
+[; ;commons.h: 60: extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 [; ;TFT.h: 61: void TFT_WriteRegister(uint16_t reg, uint16_t data);
 [; ;TFT.h: 62: void TFT_WriteRegisters(uint16_t reg, uint8_t *data, uint8_t dataSize);
 [; ;TFT.h: 63: uint16_t TFT_ReadRegister(uint16_t reg);
@@ -5402,7 +5437,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 [; ;TFT.c: 17: }
 "17
-[e :UE 327 ]
+[e :UE 328 ]
 }
 "19
 [v _TFT_WriteRegisters `(v ~T0 @X0 1 ef3`ui`*uc`uc ]
@@ -5465,8 +5500,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _i -> -> 0 `i `uc ]
 [; ;TFT.c: 24: while(i != dataSize) {
 "24
-[e $U 329  ]
-[e :U 330 ]
+[e $U 330  ]
+[e :U 331 ]
 {
 [; ;TFT.c: 25: { PORTB = data[i++]; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
 "25
@@ -5484,17 +5519,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "26
 }
-[e :U 329 ]
+[e :U 330 ]
 "24
-[e $ != -> _i `i -> _dataSize `i 330  ]
-[e :U 331 ]
+[e $ != -> _i `i -> _dataSize `i 331  ]
+[e :U 332 ]
 [; ;TFT.c: 26: }
 [; ;TFT.c: 27: PORTCbits.RC0 = 1;;
 "27
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 [; ;TFT.c: 28: }
 "28
-[e :UE 328 ]
+[e :UE 329 ]
 }
 "30
 [v _TFT_ReadRegister `(ui ~T0 @X0 1 ef1`ui ]
@@ -5590,10 +5625,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.c: 39: return data;
 "39
 [e ) _data ]
-[e $UE 332  ]
+[e $UE 333  ]
 [; ;TFT.c: 40: }
 "40
-[e :UE 332 ]
+[e :UE 333 ]
 }
 "42
 [v _TFT_ReadID `(ui ~T0 @X0 1 ef ]
@@ -5604,10 +5639,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.c: 43: return TFT_ReadRegister(0x0000);
 "43
 [e ) ( _TFT_ReadRegister (1 -> -> 0 `i `ui ]
-[e $UE 333  ]
+[e $UE 334  ]
 [; ;TFT.c: 44: }
 "44
-[e :UE 333 ]
+[e :UE 334 ]
 }
 "46
 [v _TFT_Reset `(v ~T0 @X0 1 ef ]
@@ -5638,7 +5673,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 [; ;TFT.c: 54: }
 "54
-[e :UE 334 ]
+[e :UE 335 ]
 }
 "56
 [v _TFT_SetAddrWindow `(v ~T0 @X0 1 ef4`ui`ui`ui`ui ]
@@ -5670,7 +5705,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _y2 ]
 [; ;TFT.c: 66: }
 "66
-[e :UE 335 ]
+[e :UE 336 ]
 }
 "68
 [v _TFT_FullScreen `(v ~T0 @X0 1 ef ]
@@ -5683,7 +5718,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_SetAddrWindow (4 , , , -> -> 0 `i `ui -> -> 0 `i `ui -> - -> 240 `i -> 1 `i `ui -> - -> 400 `i -> 1 `i `ui ]
 [; ;TFT.c: 70: }
 "70
-[e :UE 336 ]
+[e :UE 337 ]
 }
 "72
 [v _TFT_Init `(v ~T0 @X0 1 ef ]
@@ -5709,8 +5744,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _initSequenceSize / -> # _TFT_Init_Sequence `ui -> # `ui `ui ]
 [; ;TFT.c: 79: while(i != initSequenceSize) {
 "79
-[e $U 338  ]
-[e :U 339 ]
+[e $U 339  ]
+[e :U 340 ]
 {
 [; ;TFT.c: 80: cmd = TFT_Init_Sequence[i++];
 "80
@@ -5720,7 +5755,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _data *U + &U _TFT_Init_Sequence * -> ++ _i -> -> 1 `i `ui `ux -> -> # *U &U _TFT_Init_Sequence `ui `ux ]
 [; ;TFT.c: 82: if(cmd == 0xFFFF) {
 "82
-[e $ ! == _cmd -> 65535 `ui 341  ]
+[e $ ! == _cmd -> 65535 `ui 342  ]
 {
 [; ;TFT.c: 83: _delay((unsigned long)((200)*(48000000/4000.0)));
 "83
@@ -5728,21 +5763,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "84
 }
 [; ;TFT.c: 84: } else {
-[e $U 342  ]
-[e :U 341 ]
+[e $U 343  ]
+[e :U 342 ]
 {
 [; ;TFT.c: 85: TFT_WriteRegister(cmd, data);
 "85
 [e ( _TFT_WriteRegister (2 , _cmd _data ]
 "86
 }
-[e :U 342 ]
+[e :U 343 ]
 "87
 }
-[e :U 338 ]
+[e :U 339 ]
 "79
-[e $ != _i _initSequenceSize 339  ]
-[e :U 340 ]
+[e $ != _i _initSequenceSize 340  ]
+[e :U 341 ]
 [; ;TFT.c: 86: }
 [; ;TFT.c: 87: }
 [; ;TFT.c: 90: TFT_FullScreen();
@@ -5753,7 +5788,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_FillScreen (1 -> -> 0 `i `ui ]
 [; ;TFT.c: 92: }
 "92
-[e :UE 337 ]
+[e :UE 338 ]
 }
 "94
 [v _TFT_DrawPixel `(v ~T0 @X0 1 ef3`ui`ui`ui ]
@@ -5775,7 +5810,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_WriteRegister (2 , -> -> 514 `i `ui _color ]
 [; ;TFT.c: 98: }
 "98
-[e :UE 343 ]
+[e :UE 344 ]
 }
 "100
 [v _TFT_DrawLine `(v ~T0 @X0 1 ef5`i`i`i`i`ui ]
@@ -5794,7 +5829,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _steep -> > ( _abs (1 - _y1 _y0 ( _abs (1 - _x1 _x0 `i ]
 [; ;TFT.c: 102: if(steep) {
 "102
-[e $ ! != _steep -> 0 `i 345  ]
+[e $ ! != _steep -> 0 `i 346  ]
 {
 [; ;TFT.c: 103: { int16_t t = x0; x0 = y0; y0 = t; };
 "103
@@ -5814,11 +5849,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "105
 }
-[e :U 345 ]
+[e :U 346 ]
 [; ;TFT.c: 105: }
 [; ;TFT.c: 106: if(x0 > x1) {
 "106
-[e $ ! > _x0 _x1 346  ]
+[e $ ! > _x0 _x1 347  ]
 {
 [; ;TFT.c: 107: { int16_t t = x0; x0 = x1; x1 = t; };
 "107
@@ -5838,7 +5873,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "109
 }
-[e :U 346 ]
+[e :U 347 ]
 "111
 [v _dx `i ~T0 @X0 1 a ]
 [v _dy `i ~T0 @X0 1 a ]
@@ -5859,7 +5894,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.c: 116: int16_t ystep;
 [; ;TFT.c: 118: if(y0 < y1) {
 "118
-[e $ ! < _y0 _y1 347  ]
+[e $ ! < _y0 _y1 348  ]
 {
 [; ;TFT.c: 119: ystep = 1;
 "119
@@ -5867,25 +5902,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 "120
 }
 [; ;TFT.c: 120: } else {
-[e $U 348  ]
-[e :U 347 ]
+[e $U 349  ]
+[e :U 348 ]
 {
 [; ;TFT.c: 121: ystep = -1;
 "121
 [e = _ystep -U -> 1 `i ]
 "122
 }
-[e :U 348 ]
+[e :U 349 ]
 [; ;TFT.c: 122: }
 [; ;TFT.c: 124: for(; x0<=x1; x0++) {
 "124
 {
-[e $U 352  ]
-[e :U 349 ]
+[e $U 353  ]
+[e :U 350 ]
 {
 [; ;TFT.c: 125: if(steep) {
 "125
-[e $ ! != _steep -> 0 `i 353  ]
+[e $ ! != _steep -> 0 `i 354  ]
 {
 [; ;TFT.c: 126: TFT_DrawPixel(y0, x0, color);
 "126
@@ -5893,22 +5928,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 "127
 }
 [; ;TFT.c: 127: } else {
-[e $U 354  ]
-[e :U 353 ]
+[e $U 355  ]
+[e :U 354 ]
 {
 [; ;TFT.c: 128: TFT_DrawPixel(x0, y0, color);
 "128
 [e ( _TFT_DrawPixel (3 , , -> _x0 `ui -> _y0 `ui _color ]
 "129
 }
-[e :U 354 ]
+[e :U 355 ]
 [; ;TFT.c: 129: }
 [; ;TFT.c: 130: err -= dy;
 "130
 [e =- _err _dy ]
 [; ;TFT.c: 131: if(err < 0) {
 "131
-[e $ ! < _err -> 0 `i 355  ]
+[e $ ! < _err -> 0 `i 356  ]
 {
 [; ;TFT.c: 132: y0 += ystep;
 "132
@@ -5918,21 +5953,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =+ _err _dx ]
 "134
 }
-[e :U 355 ]
+[e :U 356 ]
 "135
 }
 "124
 [e ++ _x0 -> 1 `i ]
-[e :U 352 ]
-[e $ <= _x0 _x1 349  ]
-[e :U 350 ]
+[e :U 353 ]
+[e $ <= _x0 _x1 350  ]
+[e :U 351 ]
 "135
 }
 [; ;TFT.c: 134: }
 [; ;TFT.c: 135: }
 [; ;TFT.c: 136: }
 "136
-[e :UE 344 ]
+[e :UE 345 ]
 }
 "138
 [v _TFT_DrawFillRect `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`ui ]
@@ -5956,7 +5991,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_FullScreen ..  ]
 [; ;TFT.c: 142: }
 "142
-[e :UE 356 ]
+[e :UE 357 ]
 }
 "144
 [v _TFT_Flood `(v ~T0 @X0 1 ef2`ui`ul ]
@@ -5999,12 +6034,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _blocks -> / _len -> -> -> 4 `i `l `ul `ui ]
 [; ;TFT.c: 158: if(color_hi == color_lo) {
 "158
-[e $ ! == -> _color_hi `i -> _color_lo `i 358  ]
+[e $ ! == -> _color_hi `i -> _color_lo `i 359  ]
 {
 [; ;TFT.c: 159: while(blocks--) {
 "159
-[e $U 359  ]
-[e :U 360 ]
+[e $U 360  ]
+[e :U 361 ]
 {
 [; ;TFT.c: 160: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
 "160
@@ -6088,17 +6123,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "164
 }
-[e :U 359 ]
+[e :U 360 ]
 "159
-[e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 360  ]
-[e :U 361 ]
+[e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 361  ]
+[e :U 362 ]
 [; ;TFT.c: 164: }
 [; ;TFT.c: 165: for(i = (uint8_t)len & 3; i--; ) {
 "165
 {
 [e = _i -> & -> -> _len `uc `i -> 3 `i `uc ]
-[e $U 365  ]
-[e :U 362 ]
+[e $U 366  ]
+[e :U 363 ]
 {
 [; ;TFT.c: 166: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
 "166
@@ -6123,22 +6158,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 "167
 }
 "165
-[e :U 365 ]
-[e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 362  ]
-[e :U 363 ]
+[e :U 366 ]
+[e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 363  ]
+[e :U 364 ]
 "167
 }
 "168
 }
 [; ;TFT.c: 167: }
 [; ;TFT.c: 168: } else {
-[e $U 366  ]
-[e :U 358 ]
+[e $U 367  ]
+[e :U 359 ]
 {
 [; ;TFT.c: 169: while(blocks--) {
 "169
-[e $U 367  ]
-[e :U 368 ]
+[e $U 368  ]
+[e :U 369 ]
 {
 [; ;TFT.c: 170: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
 "170
@@ -6246,17 +6281,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "174
 }
-[e :U 367 ]
+[e :U 368 ]
 "169
-[e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 368  ]
-[e :U 369 ]
+[e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 369  ]
+[e :U 370 ]
 [; ;TFT.c: 174: }
 [; ;TFT.c: 175: for(i = (uint8_t)len & 3; i--; ) {
 "175
 {
 [e = _i -> & -> -> _len `uc `i -> 3 `i `uc ]
-[e $U 373  ]
-[e :U 370 ]
+[e $U 374  ]
+[e :U 371 ]
 {
 [; ;TFT.c: 176: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
 "176
@@ -6287,14 +6322,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "177
 }
 "175
-[e :U 373 ]
-[e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 370  ]
-[e :U 371 ]
+[e :U 374 ]
+[e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 371  ]
+[e :U 372 ]
 "177
 }
 "178
 }
-[e :U 366 ]
+[e :U 367 ]
 [; ;TFT.c: 177: }
 [; ;TFT.c: 178: }
 [; ;TFT.c: 179: PORTCbits.RC0 = 1;;
@@ -6302,7 +6337,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 [; ;TFT.c: 180: }
 "180
-[e :UE 357 ]
+[e :UE 358 ]
 }
 "182
 [v _TFT_FillScreen `(v ~T0 @X0 1 ef1`ui ]
@@ -6322,7 +6357,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TFT_Flood (2 , _color * -> -> 240 `i `ul -> -> 400 `i `ul ]
 [; ;TFT.c: 186: }
 "186
-[e :UE 374 ]
+[e :UE 375 ]
 }
 "188
 [v _TFT_ColorRGBTo16Bit `(ui ~T0 @X0 1 ef3`uc`uc`uc ]
@@ -6336,10 +6371,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.c: 189: return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
 "189
 [e ) -> | | << & -> _r `i -> 248 `i -> 8 `i << & -> _g `i -> 252 `i -> 3 `i >> -> _b `i -> 3 `i `ui ]
-[e $UE 375  ]
+[e $UE 376  ]
 [; ;TFT.c: 190: }
 "190
-[e :UE 375 ]
+[e :UE 376 ]
 }
 "192
 [v _TFT_DrawChar `(v ~T0 @X0 1 ef6`ui`ui`uc`ui`ui`uc ]
@@ -6358,9 +6393,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `c ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `c ]
-[e $ < -> _i `i -> 5 `i 377  ]
-[e $U 378  ]
-[e :U 377 ]
+[e $ < -> _i `i -> 5 `i 378  ]
+[e $U 379  ]
+[e :U 378 ]
 {
 "194
 [v _line `uc ~T0 @X0 1 a ]
@@ -6371,17 +6406,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _j `c ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `c ]
-[e $ < -> _j `i -> 8 `i 380  ]
-[e $U 381  ]
-[e :U 380 ]
+[e $ < -> _j `i -> 8 `i 381  ]
+[e $U 382  ]
+[e :U 381 ]
 {
 [; ;TFT.c: 196: if(line & 1) {
 "196
-[e $ ! != & -> _line `i -> 1 `i -> 0 `i 383  ]
+[e $ ! != & -> _line `i -> 1 `i -> 0 `i 384  ]
 {
 [; ;TFT.c: 197: if(size == 1) {
 "197
-[e $ ! == -> _size `i -> 1 `i 384  ]
+[e $ ! == -> _size `i -> 1 `i 385  ]
 {
 [; ;TFT.c: 198: TFT_DrawPixel((x + j), (y - i), color);
 "198
@@ -6389,26 +6424,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 "199
 }
 [; ;TFT.c: 199: } else {
-[e $U 385  ]
-[e :U 384 ]
+[e $U 386  ]
+[e :U 385 ]
 {
 [; ;TFT.c: 200: TFT_DrawFillRect((x + j * size), (y - i * size), size, size, color);
 "200
 [e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> _j `i -> _size `i `ui - _y -> * -> _i `i -> _size `i `ui -> _size `ui -> _size `ui _color ]
 "201
 }
-[e :U 385 ]
+[e :U 386 ]
 "202
 }
 [; ;TFT.c: 201: }
 [; ;TFT.c: 202: } else if(bg != color) {
-[e $U 386  ]
-[e :U 383 ]
-[e $ ! != _bg _color 387  ]
+[e $U 387  ]
+[e :U 384 ]
+[e $ ! != _bg _color 388  ]
 {
 [; ;TFT.c: 203: if(size == 1) {
 "203
-[e $ ! == -> _size `i -> 1 `i 388  ]
+[e $ ! == -> _size `i -> 1 `i 389  ]
 {
 [; ;TFT.c: 204: TFT_DrawPixel((x + j), (y - i), bg);
 "204
@@ -6416,33 +6451,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "205
 }
 [; ;TFT.c: 205: } else {
-[e $U 389  ]
-[e :U 388 ]
+[e $U 390  ]
+[e :U 389 ]
 {
 [; ;TFT.c: 206: TFT_DrawFillRect((x + j * size), (y - i * size), size, size, bg);
 "206
 [e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> _j `i -> _size `i `ui - _y -> * -> _i `i -> _size `i `ui -> _size `ui -> _size `ui _bg ]
 "207
 }
-[e :U 389 ]
+[e :U 390 ]
 "208
 }
-[e :U 387 ]
+[e :U 388 ]
 "209
-[e :U 386 ]
+[e :U 387 ]
 }
 "195
 [e ; ++ _j -> -> 1 `i `c =>> _line -> 1 `i ]
-[e $ < -> _j `i -> 8 `i 380  ]
-[e :U 381 ]
+[e $ < -> _j `i -> 8 `i 381  ]
+[e :U 382 ]
 "209
 }
 "210
 }
 "193
 [e ++ _i -> -> 1 `i `c ]
-[e $ < -> _i `i -> 5 `i 377  ]
-[e :U 378 ]
+[e $ < -> _i `i -> 5 `i 378  ]
+[e :U 379 ]
 "210
 }
 [; ;TFT.c: 207: }
@@ -6451,7 +6486,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.c: 210: }
 [; ;TFT.c: 211: }
 "211
-[e :UE 376 ]
+[e :UE 377 ]
 }
 "213
 [v _TFT_DrawString `(v ~T0 @X0 1 ef6`ui`ui`*Cuc`ui`ui`uc ]
@@ -6467,8 +6502,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;TFT.c: 214: while(*str) {
 "214
-[e $U 391  ]
-[e :U 392 ]
+[e $U 392  ]
+[e :U 393 ]
 {
 [; ;TFT.c: 215: TFT_DrawChar(x, y, *str, color, bg, size);
 "215
@@ -6481,14 +6516,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
 "218
 }
-[e :U 391 ]
+[e :U 392 ]
 "214
-[e $ != -> *U _str `i -> -> -> 0 `i `Cuc `i 392  ]
-[e :U 393 ]
+[e $ != -> *U _str `i -> -> -> 0 `i `Cuc `i 393  ]
+[e :U 394 ]
 [; ;TFT.c: 218: }
 [; ;TFT.c: 219: }
 "219
-[e :UE 390 ]
+[e :UE 391 ]
 }
 "221
 [v _TFT_DrawBitmap `(v ~T0 @X0 1 ef4`uc`uc`*Cuc`ui ]
@@ -6517,20 +6552,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `uc ]
-[e $U 398  ]
-[e :U 395 ]
+[e $U 399  ]
+[e :U 396 ]
 {
 [; ;TFT.c: 227: for(uint8_t i=0; i<h; i++) {
 "227
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 402  ]
-[e :U 399 ]
+[e $U 403  ]
+[e :U 400 ]
 {
 [; ;TFT.c: 228: if(i & 7) {
 "228
-[e $ ! != & -> _i `i -> 7 `i -> 0 `i 403  ]
+[e $ ! != & -> _i `i -> 7 `i -> 0 `i 404  ]
 {
 [; ;TFT.c: 229: byte >>= 1;
 "229
@@ -6538,42 +6573,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 "230
 }
 [; ;TFT.c: 230: } else {
-[e $U 404  ]
-[e :U 403 ]
+[e $U 405  ]
+[e :U 404 ]
 {
 [; ;TFT.c: 231: byte = *bitmap++;
 "231
 [e = _byte *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
 "232
 }
-[e :U 404 ]
+[e :U 405 ]
 [; ;TFT.c: 232: }
 [; ;TFT.c: 233: if(byte & 0x01) TFT_DrawPixel(x, (y - i), color);
 "233
-[e $ ! != & -> _byte `i -> 1 `i -> 0 `i 405  ]
+[e $ ! != & -> _byte `i -> 1 `i -> 0 `i 406  ]
 [e ( _TFT_DrawPixel (3 , , -> _x `ui -> - -> _y `i -> _i `i `ui _color ]
-[e :U 405 ]
+[e :U 406 ]
 "234
 }
 "227
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 402 ]
-[e $ < -> _i `i -> _h `i 399  ]
-[e :U 400 ]
+[e :U 403 ]
+[e $ < -> _i `i -> _h `i 400  ]
+[e :U 401 ]
 "234
 }
 "235
 }
 "226
 [e ; ++ _j -> -> 1 `i `uc ++ _x -> -> 1 `i `uc ]
-[e :U 398 ]
-[e $ < -> _j `i -> _w `i 395  ]
-[e :U 396 ]
+[e :U 399 ]
+[e $ < -> _j `i -> _w `i 396  ]
+[e :U 397 ]
 "235
 }
 [; ;TFT.c: 234: }
 [; ;TFT.c: 235: }
 [; ;TFT.c: 236: }
 "236
-[e :UE 394 ]
+[e :UE 395 ]
 }

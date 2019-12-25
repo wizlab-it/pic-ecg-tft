@@ -33,7 +33,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
 "110 /opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h
 [v _abs `(i ~T0 @X0 0 ef1`i ]
-"36 commons.h
+"37 commons.h
 [v _MILLISECONDS `ul ~T0 @X0 0 e ]
 "77 TFT.h
 [v _TFT_DrawBitmap `(v ~T0 @X0 0 ef4`uc`uc`*Cuc`ui ]
@@ -5362,29 +5362,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-[; ;commons.h: 26: typedef struct {
-[; ;commons.h: 27: uint8_t processRX;
-[; ;commons.h: 28: uint8_t iRead;
-[; ;commons.h: 29: uint8_t iWrite;
-[; ;commons.h: 30: uint8_t zzzzzzzzz;
-[; ;commons.h: 31: char buffer[64];
-[; ;commons.h: 32: char line[32];
-[; ;commons.h: 33: } STRUCT_EUSART_RX;
-[; ;commons.h: 36: extern uint32_t MILLISECONDS;
-[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
-[; ;commons.h: 40: extern void init(void);
-[; ;commons.h: 41: extern void Ecg_Init(void);
-[; ;commons.h: 42: extern void Ecg_Process(void);
-[; ;commons.h: 43: extern void Ecg_Interrupt(void);
-[; ;commons.h: 44: extern void EUSART_Init(void);
-[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
-[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
-[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 49: extern void EUSART_RX_Process(void);
-[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
-[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
-[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+[; ;commons.h: 27: typedef struct {
+[; ;commons.h: 28: uint8_t processRX;
+[; ;commons.h: 29: uint8_t iRead;
+[; ;commons.h: 30: uint8_t iWrite;
+[; ;commons.h: 31: uint8_t zzzzzzzzz;
+[; ;commons.h: 32: char buffer[64];
+[; ;commons.h: 33: char line[32];
+[; ;commons.h: 34: } STRUCT_EUSART_RX;
+[; ;commons.h: 37: extern uint32_t MILLISECONDS;
+[; ;commons.h: 38: extern STRUCT_EUSART_RX EUSART_RX;
+[; ;commons.h: 39: extern uint32_t A6_SPEED;
+[; ;commons.h: 42: extern void init(void);
+[; ;commons.h: 43: extern void sleepMS(uint32_t ms);
+[; ;commons.h: 44: extern void printLine(const char *str, uint16_t color);
+[; ;commons.h: 46: extern void Ecg_Init(void);
+[; ;commons.h: 47: extern void Ecg_Process(void);
+[; ;commons.h: 48: extern void Ecg_Interrupt(void);
+[; ;commons.h: 49: extern void EUSART_Init(void);
+[; ;commons.h: 50: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 51: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 52: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 53: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 54: extern void EUSART_RX_Process(void);
+[; ;commons.h: 55: extern void A6_Init(void);
+[; ;commons.h: 56: extern uint8_t A6_IsAlive(void);
+[; ;commons.h: 57: extern void A6_SpeedAutoDetect(void);
+[; ;commons.h: 58: extern uint8_t A6_SpeedSet(const uint32_t speed);
+[; ;commons.h: 59: extern void A6_ReadLine(char *response, int timeout);
+[; ;commons.h: 60: extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 "38 ecg.h
 [v _ECG_FLAGS `S328 ~T0 @X0 1 e ]
 [; ;ecg.h: 30: struct {

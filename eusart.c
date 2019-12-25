@@ -95,8 +95,7 @@ void EUSART_RX_Process(void) {
     }
     EUSART_RX.line[EUSART_LINE_SIZE - 1] = 0x00;
 
-    TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 50, _TFT_HEIGHT, _TFT_COLOR_BLACK);
-    TFT_DrawString(EUSART_RX.zzzzzzzzz, (_TFT_HEIGHT - 1), EUSART_RX.line, _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+    printLine(EUSART_RX.line, _TFT_COLOR_WHITE);
 
     return;
 }

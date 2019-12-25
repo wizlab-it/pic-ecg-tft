@@ -145,10 +145,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "8530
 [v _GIE `Vb ~T0 @X0 0 e@32663 ]
 [t ~ __interrupt . k ]
-[t T935 __interrupt  ]
+[t T941 __interrupt  ]
 "9433
 [v _TMR3IF `Vb ~T0 @X0 0 e@32009 ]
-"43 commons.h
+"48 commons.h
 [v _Ecg_Interrupt `(v ~T0 @X0 0 ef ]
 "4627 /opt/microchip/xc8/v2.10/pic/include/pic18f2455.h
 [v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
@@ -158,7 +158,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIE `Vb ~T0 @X0 0 e@31981 ]
 "9109
 [v _RCIF `Vb ~T0 @X0 0 e@31989 ]
-"48 commons.h
+"53 commons.h
 [v _EUSART_RX_Interrupt `(v ~T0 @X0 0 ef ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
@@ -3262,6 +3262,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 189: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 191: extern __nonreentrant void _delay3(unsigned char);
 [; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;stdlib.h: 7: typedef unsigned short wchar_t;
 [; ;stdlib.h: 15: typedef struct {
 [; ;stdlib.h: 16: int rem;
@@ -5395,29 +5424,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-[; ;commons.h: 26: typedef struct {
-[; ;commons.h: 27: uint8_t processRX;
-[; ;commons.h: 28: uint8_t iRead;
-[; ;commons.h: 29: uint8_t iWrite;
-[; ;commons.h: 30: uint8_t zzzzzzzzz;
-[; ;commons.h: 31: char buffer[64];
-[; ;commons.h: 32: char line[32];
-[; ;commons.h: 33: } STRUCT_EUSART_RX;
-[; ;commons.h: 36: extern uint32_t MILLISECONDS;
-[; ;commons.h: 37: extern STRUCT_EUSART_RX EUSART_RX;
-[; ;commons.h: 40: extern void init(void);
-[; ;commons.h: 41: extern void Ecg_Init(void);
-[; ;commons.h: 42: extern void Ecg_Process(void);
-[; ;commons.h: 43: extern void Ecg_Interrupt(void);
-[; ;commons.h: 44: extern void EUSART_Init(void);
-[; ;commons.h: 45: extern void EUSART_SetSpeed(const uint32_t speed);
-[; ;commons.h: 46: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 47: extern void EUSART_TX_String(const char *str, uint8_t len);
-[; ;commons.h: 48: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 49: extern void EUSART_RX_Process(void);
-[; ;commons.h: 50: extern void A6_SetSpeed(const uint32_t speed);
-[; ;commons.h: 51: extern void A6_ReadLine(char *response, uint8_t len);
-[; ;commons.h: 52: extern void A6_Command(const char *command, const char *resp1, const char *resp2, int timeout, char *response);
+[; ;commons.h: 27: typedef struct {
+[; ;commons.h: 28: uint8_t processRX;
+[; ;commons.h: 29: uint8_t iRead;
+[; ;commons.h: 30: uint8_t iWrite;
+[; ;commons.h: 31: uint8_t zzzzzzzzz;
+[; ;commons.h: 32: char buffer[64];
+[; ;commons.h: 33: char line[32];
+[; ;commons.h: 34: } STRUCT_EUSART_RX;
+[; ;commons.h: 37: extern uint32_t MILLISECONDS;
+[; ;commons.h: 38: extern STRUCT_EUSART_RX EUSART_RX;
+[; ;commons.h: 39: extern uint32_t A6_SPEED;
+[; ;commons.h: 42: extern void init(void);
+[; ;commons.h: 43: extern void sleepMS(uint32_t ms);
+[; ;commons.h: 44: extern void printLine(const char *str, uint16_t color);
+[; ;commons.h: 46: extern void Ecg_Init(void);
+[; ;commons.h: 47: extern void Ecg_Process(void);
+[; ;commons.h: 48: extern void Ecg_Interrupt(void);
+[; ;commons.h: 49: extern void EUSART_Init(void);
+[; ;commons.h: 50: extern void EUSART_SetSpeed(const uint32_t speed);
+[; ;commons.h: 51: extern void EUSART_TX_Char(uint8_t c);
+[; ;commons.h: 52: extern void EUSART_TX_String(const char *str, uint8_t len);
+[; ;commons.h: 53: extern void EUSART_RX_Interrupt(void);
+[; ;commons.h: 54: extern void EUSART_RX_Process(void);
+[; ;commons.h: 55: extern void A6_Init(void);
+[; ;commons.h: 56: extern uint8_t A6_IsAlive(void);
+[; ;commons.h: 57: extern void A6_SpeedAutoDetect(void);
+[; ;commons.h: 58: extern uint8_t A6_SpeedSet(const uint32_t speed);
+[; ;commons.h: 59: extern void A6_ReadLine(char *response, int timeout);
+[; ;commons.h: 60: extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response);
 "15 init.h
 [p x PLLDIV=1 ]
 "16
@@ -5583,21 +5618,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;init.c: 84: return;
 "84
-[e $UE 327  ]
+[e $UE 328  ]
 [; ;init.c: 85: }
 "85
-[e :UE 327 ]
+[e :UE 328 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
 "90
-[v _isr `(v ~T935 @X0 1 ef ]
+[v _isr `(v ~T941 @X0 1 ef ]
 {
 [; ;init.c: 90: void __interrupt() isr(void) {
 [e :U _isr ]
 [f ]
 [; ;init.c: 92: if(TMR3IE && TMR3IF) {
 "92
-[e $ ! && _TMR3IE _TMR3IF 329  ]
+[e $ ! && _TMR3IE _TMR3IF 330  ]
 {
 [; ;init.c: 93: MILLISECONDS += 5;
 "93
@@ -5616,23 +5651,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TMR3IF -> -> 0 `i `b ]
 "100
 }
-[e :U 329 ]
+[e :U 330 ]
 [; ;init.c: 100: }
 [; ;init.c: 103: if(RCIE && RCIF) {
 "103
-[e $ ! && _RCIE _RCIF 330  ]
+[e $ ! && _RCIE _RCIF 331  ]
 {
 [; ;init.c: 104: EUSART_RX_Interrupt();
 "104
 [e ( _EUSART_RX_Interrupt ..  ]
 "105
 }
-[e :U 330 ]
+[e :U 331 ]
 [; ;init.c: 105: }
 [; ;init.c: 107: return;
 "107
-[e $UE 328  ]
+[e $UE 329  ]
 [; ;init.c: 108: }
 "108
-[e :UE 328 ]
+[e :UE 329 ]
 }
