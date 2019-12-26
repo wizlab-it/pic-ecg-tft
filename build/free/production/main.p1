@@ -11,33 +11,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EUSART_Init `(v ~T0 @X0 0 ef ]
 "34 commons.h
 [v _Ecg_Init `(v ~T0 @X0 0 ef ]
-"25 A6Lib.h
+"28 A6Lib.h
 [v _A6_Init `(v ~T0 @X0 0 ef ]
 "22 main.h
 [v _loop `(v ~T0 @X0 0 ef ]
-"32 A6Lib.h
+"35 A6Lib.h
 [v _A6_Process_Random_Comms `(v ~T0 @X0 0 ef ]
 "27 commons.h
 [v _MILLISECONDS `ul ~T0 @X0 0 e ]
 "194 /opt/microchip/xc8/v2.10/pic/include/c90/stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"28 A6Lib.h
+"31 A6Lib.h
 [v _A6_BaudRateGet `(ul ~T0 @X0 0 ef ]
 "32 commons.h
 [v _printLine `(v ~T0 @X0 0 ef2`*Cuc`ui ]
-"29 A6Lib.h
+"32 A6Lib.h
 [v _A6_BaudRateSet `(ul ~T0 @X0 0 ef1`Cul ]
-"27
-[v _A6_BaudRateAutoDetect `(ul ~T0 @X0 0 ef ]
-"26
-[v _A6_IsAlive `(uc ~T0 @X0 0 ef ]
 "30
-[v _A6_Command `(v ~T0 @X0 0 ef4`*Cuc`i`*uc`uc ]
-"34
-[v _A6_NetworkGetRSSI `(uc ~T0 @X0 0 ef ]
-"35
-[v _A6_NetworkGetRSSILevel `(c ~T0 @X0 0 ef ]
+[v _A6_BaudRateAutoDetect `(ul ~T0 @X0 0 ef ]
+"29
+[v _A6_IsAlive `(uc ~T0 @X0 0 ef ]
 "33
+[v _A6_Command `(v ~T0 @X0 0 ef4`*Cuc`i`*uc`uc ]
+"37
+[v _A6_NetworkGetRSSI `(uc ~T0 @X0 0 ef ]
+"38
+[v _A6_NetworkGetRSSILevel `(c ~T0 @X0 0 ef ]
+"36
 [v _A6_NetworkGetStatus `(uc ~T0 @X0 0 ef ]
 "71 TFT.h
 [v _TFT_DrawFillRect `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
@@ -5307,7 +5307,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-"23 A6Lib.h
+"25 A6Lib.h
 [v _A6_BAUDRATES `Cul ~T0 @X0 -> 0 `x e ]
 [i _A6_BAUDRATES
 :U ..
@@ -5316,18 +5316,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 115200 `l `ul
 ..
 ]
-[; ;A6Lib.h: 23: const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
-[; ;A6Lib.h: 25: void A6_Init(void);
-[; ;A6Lib.h: 26: uint8_t A6_IsAlive(void);
-[; ;A6Lib.h: 27: uint32_t A6_BaudRateAutoDetect(void);
-[; ;A6Lib.h: 28: uint32_t A6_BaudRateGet(void);
-[; ;A6Lib.h: 29: uint32_t A6_BaudRateSet(const uint32_t baudRate);
-[; ;A6Lib.h: 30: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-[; ;A6Lib.h: 31: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
-[; ;A6Lib.h: 32: void A6_Process_Random_Comms(void);
-[; ;A6Lib.h: 33: uint8_t A6_NetworkGetStatus(void);
-[; ;A6Lib.h: 34: uint8_t A6_NetworkGetRSSI(void);
-[; ;A6Lib.h: 35: int8_t A6_NetworkGetRSSILevel(void);
+[; ;A6Lib.h: 25: const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+"26
+[v _A6_LAST_COMMAND_MILLISECONDS `ul ~T0 @X0 1 e ]
+[i _A6_LAST_COMMAND_MILLISECONDS
+-> -> -> 0 `i `l `ul
+]
+[; ;A6Lib.h: 26: uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
+[; ;A6Lib.h: 28: void A6_Init(void);
+[; ;A6Lib.h: 29: uint8_t A6_IsAlive(void);
+[; ;A6Lib.h: 30: uint32_t A6_BaudRateAutoDetect(void);
+[; ;A6Lib.h: 31: uint32_t A6_BaudRateGet(void);
+[; ;A6Lib.h: 32: uint32_t A6_BaudRateSet(const uint32_t baudRate);
+[; ;A6Lib.h: 33: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+[; ;A6Lib.h: 34: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+[; ;A6Lib.h: 35: void A6_Process_Random_Comms(void);
+[; ;A6Lib.h: 36: uint8_t A6_NetworkGetStatus(void);
+[; ;A6Lib.h: 37: uint8_t A6_NetworkGetRSSI(void);
+[; ;A6Lib.h: 38: int8_t A6_NetworkGetRSSILevel(void);
 "22 EUSART.h
 [v _EUSART_RX `S327 ~T0 @X0 1 e ]
 [; ;EUSART.h: 18: struct {
@@ -5595,118 +5601,111 @@ Version 3.2 HI-TECH Software Intermediate Code
 "89
 [v _zzzz `uc ~T0 @X0 -> 32 `i a ]
 [; ;main.c: 89: char zzzz[32];
-[; ;main.c: 90: sprintf(zzzz, "RSSI: %u", A6_NetworkGetRSSI());
+[; ;main.c: 90: sprintf(zzzz, "Quality: %u; Level: %d", A6_NetworkGetRSSI(), A6_NetworkGetRSSILevel());
 "90
-[e ( _sprintf (1 , (. , &U _zzzz :s 13C -> ( _A6_NetworkGetRSSI ..  `i ]
+[e ( _sprintf (1 , , (. , &U _zzzz :s 13C -> ( _A6_NetworkGetRSSI ..  `i -> ( _A6_NetworkGetRSSILevel ..  `i ]
 [; ;main.c: 91: printLine(zzzz, 0xFFFF);
 "91
 [e ( _printLine (2 , -> &U _zzzz `*Cuc -> 65535 `ui ]
-[; ;main.c: 92: sprintf(zzzz, "Level: %u", A6_NetworkGetRSSILevel());
 "92
-[e ( _sprintf (1 , (. , &U _zzzz :s 14C -> ( _A6_NetworkGetRSSILevel ..  `i ]
-[; ;main.c: 93: printLine(zzzz, 0xFFFF);
-"93
-[e ( _printLine (2 , -> &U _zzzz `*Cuc -> 65535 `ui ]
-"94
 }
 [e :U 343 ]
-[; ;main.c: 94: }
-[; ;main.c: 96: if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
-"96
+[; ;main.c: 92: }
+[; ;main.c: 94: if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
+"94
 [e $ ! && > _MILLISECONDS -> -> -> 8500 `i `l `ul < _tmp5 - _MILLISECONDS -> -> -> 8500 `i `l `ul 344  ]
 {
-[; ;main.c: 97: tmp5 = MILLISECONDS;
-"97
+[; ;main.c: 95: tmp5 = MILLISECONDS;
+"95
 [e = _tmp5 _MILLISECONDS ]
-[; ;main.c: 99: printLine("Check network registration", 0xFFE0);
-"99
-[e ( _printLine (2 , :s 15C -> 65504 `ui ]
-"100
+[; ;main.c: 97: printLine("Check network registration", 0xFFE0);
+"97
+[e ( _printLine (2 , :s 14C -> 65504 `ui ]
+"98
 [v _ns `uc ~T0 @X0 1 a ]
-[; ;main.c: 100: uint8_t ns = A6_NetworkGetStatus();
+[; ;main.c: 98: uint8_t ns = A6_NetworkGetStatus();
 [e = _ns ( _A6_NetworkGetStatus ..  ]
-"101
+"99
 [v _zzzz `uc ~T0 @X0 -> 32 `i a ]
-[; ;main.c: 101: char zzzz[32];
-[; ;main.c: 102: sprintf(zzzz, "Network status: %u (%s)", ns, ((ns == 2) ? "Searching..." : ((ns == 1) ? "Registered" : "Other")));
-"102
-[e ( _sprintf (1 , , (. , &U _zzzz :s 16C -> _ns `i ? == -> _ns `i -> 2 `i : :s 17C ? == -> _ns `i -> 1 `i : :s 18C :s 19C ]
-[; ;main.c: 103: printLine(zzzz, 0xFFFF);
-"103
+[; ;main.c: 99: char zzzz[32];
+[; ;main.c: 100: sprintf(zzzz, "Network status: %u (%s)", ns, ((ns == 2) ? "Searching..." : ((ns == 1) ? "Registered" : "Other")));
+"100
+[e ( _sprintf (1 , , (. , &U _zzzz :s 15C -> _ns `i ? == -> _ns `i -> 2 `i : :s 16C ? == -> _ns `i -> 1 `i : :s 17C :s 18C ]
+[; ;main.c: 101: printLine(zzzz, 0xFFFF);
+"101
 [e ( _printLine (2 , -> &U _zzzz `*Cuc -> 65535 `ui ]
-"104
+"102
 }
 [e :U 344 ]
-[; ;main.c: 104: }
-[; ;main.c: 105: }
-"105
+[; ;main.c: 102: }
+[; ;main.c: 103: }
+"103
 [e :UE 332 ]
 }
-"107
+"105
 [v _sleepMS `(v ~T0 @X0 1 ef1`ul ]
 {
-[; ;main.c: 107: void sleepMS(uint32_t ms) {
+[; ;main.c: 105: void sleepMS(uint32_t ms) {
 [e :U _sleepMS ]
 [v _ms `ul ~T0 @X0 1 r1 ]
 [f ]
-"108
+"106
 [v _t `ul ~T0 @X0 1 a ]
-[; ;main.c: 108: uint32_t t = MILLISECONDS + ms;
+[; ;main.c: 106: uint32_t t = MILLISECONDS + ms;
 [e = _t + _MILLISECONDS _ms ]
-[; ;main.c: 109: while(t > MILLISECONDS);
-"109
+[; ;main.c: 107: while(t > MILLISECONDS);
+"107
 [e $U 346  ]
 [e :U 347 ]
 [e :U 346 ]
 [e $ > _t _MILLISECONDS 347  ]
 [e :U 348 ]
-[; ;main.c: 110: }
-"110
+[; ;main.c: 108: }
+"108
 [e :UE 345 ]
 }
-"112
+"110
 [v _printLine `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {
-[; ;main.c: 112: void printLine(const char *str, uint16_t color) {
+[; ;main.c: 110: void printLine(const char *str, uint16_t color) {
 [e :U _printLine ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [v _color `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 113: consoleX += 10;
-"113
+[; ;main.c: 111: consoleX += 10;
+"111
 [e =+ _consoleX -> -> 10 `i `ui ]
-[; ;main.c: 114: TFT_DrawFillRect(consoleX, 0, 40, 400, 0x0000);
-"114
+[; ;main.c: 112: TFT_DrawFillRect(consoleX, 0, 40, 400, 0x0000);
+"112
 [e ( _TFT_DrawFillRect (4 , , , , _consoleX -> -> 0 `i `ui -> -> 40 `i `ui -> -> 400 `i `ui -> -> 0 `i `ui ]
-[; ;main.c: 115: TFT_DrawString(consoleX, (400 - 1), str, color, 0x0000, 1);
-"115
+[; ;main.c: 113: TFT_DrawString(consoleX, (400 - 1), str, color, 0x0000, 1);
+"113
 [e ( _TFT_DrawString (4 , , , , , _consoleX -> - -> 400 `i -> 1 `i `ui _str _color -> -> 0 `i `ui -> -> 1 `i `uc ]
-[; ;main.c: 116: if(consoleX > (240 - 35)) consoleX = 0;
-"116
+[; ;main.c: 114: if(consoleX > (240 - 35)) consoleX = 0;
+"114
 [e $ ! > _consoleX -> - -> 240 `i -> 35 `i `ui 350  ]
 [e = _consoleX -> -> 0 `i `ui ]
 [e :U 350 ]
-[; ;main.c: 117: }
-"117
+[; ;main.c: 115: }
+"115
 [e :UE 349 ]
 }
-[p f _sprintf 8651792 ]
+[p f _sprintf 8651920 ]
 [a 11C 37 108 117 0 ]
-[a 14C 76 101 118 101 108 58 32 37 117 0 ]
-[a 13C 82 83 83 73 58 32 37 117 0 ]
-[a 19C 79 116 104 101 114 0 ]
-[a 15C 67 104 101 99 107 32 110 101 116 119 111 114 107 32 114 101 103 105 115 116 114 97 116 105 111 110 0 ]
+[a 18C 79 116 104 101 114 0 ]
+[a 14C 67 104 101 99 107 32 110 101 116 119 111 114 107 32 114 101 103 105 115 116 114 97 116 105 111 110 0 ]
 [a 10C 67 104 101 99 107 32 98 97 117 100 32 114 97 116 101 0 ]
 [a 4C 69 114 114 111 114 32 99 104 97 110 103 105 110 103 32 98 97 117 100 32 114 97 116 101 0 ]
 [a 8C 67 104 101 99 107 32 116 105 109 101 0 ]
-[a 18C 82 101 103 105 115 116 101 114 101 100 0 ]
+[a 17C 82 101 103 105 115 116 101 114 101 100 0 ]
 [a 6C 83 116 105 108 108 32 100 101 97 100 0 ]
+[a 13C 81 117 97 108 105 116 121 58 32 37 117 59 32 76 101 118 101 108 58 32 37 100 0 ]
 [a 12C 67 104 101 99 107 32 82 83 83 73 0 ]
 [a 5C 67 111 109 109 32 105 115 32 100 101 97 100 46 32 82 101 116 114 121 46 46 46 0 ]
-[a 17C 83 101 97 114 99 104 105 110 103 46 46 46 0 ]
+[a 16C 83 101 97 114 99 104 105 110 103 46 46 46 0 ]
 [a 2C 73 110 118 97 108 105 100 32 99 117 114 114 101 110 116 32 98 97 117 100 32 114 97 116 101 32 40 37 108 117 41 0 ]
 [a 1C 67 104 97 110 103 101 32 98 97 117 100 32 114 97 116 101 32 40 37 108 117 41 0 ]
 [a 3C 66 97 117 100 32 114 97 116 101 32 99 104 97 110 103 101 100 32 40 45 62 32 37 108 117 41 0 ]
-[a 16C 78 101 116 119 111 114 107 32 115 116 97 116 117 115 58 32 37 117 32 40 37 115 41 0 ]
+[a 15C 78 101 116 119 111 114 107 32 115 116 97 116 117 115 58 32 37 117 32 40 37 115 41 0 ]
 [a 7C 82 101 115 117 114 114 101 99 116 101 100 33 0 ]
 [a 9C 65 84 43 67 67 76 75 63 13 0 ]

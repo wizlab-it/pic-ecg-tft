@@ -5537,8 +5537,9 @@ extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 
-# 23 "A6Lib.h"
+# 25 "A6Lib.h"
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
 void A6_Init(void);
 uint8_t A6_IsAlive(void);
@@ -5554,8 +5555,8 @@ int8_t A6_NetworkGetRSSILevel(void);
 
 # 12 "A6Lib.c"
 void A6_Init(void) {
+sleepMS(5000);
 A6_BaudRateAutoDetect();
-sleepMS(1000);
 }
 
 uint8_t A6_IsAlive(void) {
@@ -5633,6 +5634,10 @@ return 0;
 }
 
 void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
+A6_LAST_COMMAND_MILLISECONDS += 75;
+while(MILLISECONDS < A6_LAST_COMMAND_MILLISECONDS);
+A6_LAST_COMMAND_MILLISECONDS = MILLISECONDS;
+
 EUSART_RX_Flush();
 EUSART_TX_String(command, strlen(command));
 A6_ReadLine(response, responseLen, timeout);

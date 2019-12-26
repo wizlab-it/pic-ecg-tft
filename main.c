@@ -1,5 +1,5 @@
 /*
- * 20191226.055
+ * 20191226.056
  * ECG-TFT
  *
  * File: main.c
@@ -87,9 +87,7 @@ void loop(void) {
 
         printLine("Check RSSI", _TFT_COLOR_YELLOW);
         char zzzz[32];
-        sprintf(zzzz, "RSSI: %u", A6_NetworkGetRSSI());
-        printLine(zzzz, _TFT_COLOR_WHITE);
-        sprintf(zzzz, "Level: %u", A6_NetworkGetRSSILevel());
+        sprintf(zzzz, "Quality: %u; Level: %d", A6_NetworkGetRSSI(), A6_NetworkGetRSSILevel());
         printLine(zzzz, _TFT_COLOR_WHITE);
     }
 

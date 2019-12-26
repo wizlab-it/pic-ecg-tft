@@ -5171,8 +5171,9 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 23 "A6Lib.h"
+# 25 "A6Lib.h"
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
 void A6_Init(void);
 uint8_t A6_IsAlive(void);

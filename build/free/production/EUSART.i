@@ -5509,8 +5509,9 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 23 "A6Lib.h"
+# 25 "A6Lib.h"
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
 void A6_Init(void);
 uint8_t A6_IsAlive(void);

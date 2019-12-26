@@ -1,5 +1,5 @@
 /*
- * 20191226.029
+ * 20191226.033
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -10,8 +10,8 @@
 #include "A6Lib.h"
 
 void A6_Init(void) {
+    sleepMS(5000);
     A6_BaudRateAutoDetect();
-    sleepMS(1000);
 }
 
 uint8_t A6_IsAlive(void) {
@@ -89,6 +89,10 @@ uint32_t A6_BaudRateAutoDetect(void) {
 }
 
 void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
+    A6_LAST_COMMAND_MILLISECONDS += A6_NEXT_COMMAND_WAIT_TIME;
+    while(MILLISECONDS < A6_LAST_COMMAND_MILLISECONDS);
+    A6_LAST_COMMAND_MILLISECONDS = MILLISECONDS;
+
     EUSART_RX_Flush();
     EUSART_TX_String(command, strlen(command));
     A6_ReadLine(response, responseLen, timeout);

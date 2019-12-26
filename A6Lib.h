@@ -1,5 +1,5 @@
 /*
- * 20191226.023
+ * 20191226.026
  * A6 GSM Module Library
  *
  * File: A6Lib.h
@@ -13,6 +13,8 @@
 
 #include "commons.h"
 
+#define A6_NEXT_COMMAND_WAIT_TIME       75
+
 #define	A6_NETWORK_STATUS_IDLE          0
 #define	A6_NETWORK_STATUS_REGISTERED    1
 #define	A6_NETWORK_STATUS_SEARCHING     2
@@ -21,6 +23,7 @@
 #define	A6_NETWORK_STATUS_ROAMING       5
 
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
 void A6_Init(void);
 uint8_t A6_IsAlive(void);
