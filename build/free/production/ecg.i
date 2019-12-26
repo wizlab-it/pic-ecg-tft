@@ -5509,7 +5509,7 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 16 "A6Lib.h"
+# 23 "A6Lib.h"
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 
 void A6_Init(void);
@@ -5520,6 +5520,9 @@ uint32_t A6_BaudRateSet(const uint32_t baudRate);
 void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
 uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
 void A6_Process_Random_Comms(void);
+uint8_t A6_NetworkGetStatus(void);
+uint8_t A6_NetworkGetRSSI(void);
+int8_t A6_NetworkGetRSSILevel(void);
 
 # 18 "EUSART.h"
 struct {

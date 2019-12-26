@@ -5537,7 +5537,7 @@ extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 
-# 16 "A6Lib.h"
+# 23 "A6Lib.h"
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 
 void A6_Init(void);
@@ -5548,6 +5548,9 @@ uint32_t A6_BaudRateSet(const uint32_t baudRate);
 void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
 uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
 void A6_Process_Random_Comms(void);
+uint8_t A6_NetworkGetStatus(void);
+uint8_t A6_NetworkGetRSSI(void);
+int8_t A6_NetworkGetRSSILevel(void);
 
 # 12 "A6Lib.c"
 void A6_Init(void) {
@@ -5557,13 +5560,9 @@ sleepMS(1000);
 
 uint8_t A6_IsAlive(void) {
 char response[32];
-
-uint8_t loop = 3;
-while(loop--) {
 A6_Command("AT\r", 0, response, 32);
 if(strcmp(response, "OK") == 0) {
 return 1;
-}
 }
 return 0;
 }
@@ -5573,8 +5572,6 @@ uint32_t baudRate;
 char *baudRateToken;
 char response[32];
 
-uint8_t loop = 5;
-while(loop--) {
 A6_Command("AT+IPR?\r", 0, response, 32);
 if(strstr(response, "+IPR: ") != (0)) {
 baudRateToken = strtok(response, " ");
@@ -5587,8 +5584,6 @@ return baudRate;
 }
 }
 }
-}
-sleepMS(250);
 }
 
 return 0;
@@ -5675,4 +5670,49 @@ uint8_t cnt = A6_ReadLine(response, 32, 0);
 if(cnt == 0) return;
 if(strcmp(response, "OK") == 0) return;
 printLine(response, 0x07FF);
+}
+
+uint8_t A6_NetworkGetStatus(void) {
+char *networkStatusToken;
+char response[32];
+
+A6_Command("AT+CREG?\r", 0, response, 32);
+if(strstr(response, "+CREG: ") != (0)) {
+networkStatusToken = strtok(response, " ");
+networkStatusToken = strtok((0), response);
+if(networkStatusToken != (0)) {
+networkStatusToken = strtok(networkStatusToken, ",");
+networkStatusToken = strtok((0), networkStatusToken);
+return atoi(networkStatusToken);
+}
+}
+
+return 4;
+}
+
+uint8_t A6_NetworkGetRSSI(void) {
+char *RSSIToken;
+char response[32];
+
+A6_Command("AT+CSQ\r", 0, response, 32);
+if(strstr(response, "+CSQ: ") != (0)) {
+RSSIToken = strtok(response, " ");
+RSSIToken = strtok((0), response);
+if(RSSIToken != (0)) {
+RSSIToken = strtok(RSSIToken, ",");
+return atoi(RSSIToken);
+}
+}
+
+return 0;
+}
+
+int8_t A6_NetworkGetRSSILevel(void) {
+uint8_t RSSI = A6_NetworkGetRSSI();
+if(RSSI == 99) return -1;
+if(RSSI < 3) return 0;
+if(RSSI < 10) return 1;
+if(RSSI < 15) return 2;
+if(RSSI < 20) return 3;
+return 4;
 }

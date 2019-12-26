@@ -2,11 +2,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18 EUSART.h
 [s S327 `uc 1 `uc 1 `uc -> 128 `i ]
 [n S327 . iRead iWrite buffer ]
-"20 A6Lib.h
+"27 A6Lib.h
 [v _A6_BaudRateAutoDetect `(ul ~T0 @X0 0 ef ]
 "31 commons.h
 [v _sleepMS `(v ~T0 @X0 0 ef1`ul ]
-"23 A6Lib.h
+"30 A6Lib.h
 [v _A6_Command `(v ~T0 @X0 0 ef4`*Cuc`i`*uc`uc ]
 "45 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
 [v _strcmp `(i ~T0 @X0 0 ef2`*Cuc`*Cuc ]
@@ -28,7 +28,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EUSART_TX_String `(v ~T0 @X0 0 ef2`*Cuc`uc ]
 "56 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
-"24 A6Lib.h
+"31 A6Lib.h
 [v _A6_ReadLine `(uc ~T0 @X0 0 ef3`*uc`uc`i ]
 "16 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
 [v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
@@ -36,6 +36,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EUSART_BufferGetChar `(uc ~T0 @X0 0 ef1`i ]
 "29
 [v _EUSART_RX_AvailableData `(uc ~T0 @X0 0 ef1`i ]
+"67 /opt/microchip/xc8/v2.10/pic/include/c90/stdlib.h
+[v _atoi `(i ~T0 @X0 0 ef1`*Cuc ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5322,7 +5324,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 34: extern void Ecg_Init(void);
 [; ;commons.h: 35: extern void Ecg_Process(void);
 [; ;commons.h: 36: extern void Ecg_Interrupt(void);
-"16 A6Lib.h
+"23 A6Lib.h
 [v _A6_BAUDRATES `Cul ~T0 @X0 -> 0 `x e ]
 [i _A6_BAUDRATES
 :U ..
@@ -5331,15 +5333,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 115200 `l `ul
 ..
 ]
-[; ;A6Lib.h: 16: const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
-[; ;A6Lib.h: 18: void A6_Init(void);
-[; ;A6Lib.h: 19: uint8_t A6_IsAlive(void);
-[; ;A6Lib.h: 20: uint32_t A6_BaudRateAutoDetect(void);
-[; ;A6Lib.h: 21: uint32_t A6_BaudRateGet(void);
-[; ;A6Lib.h: 22: uint32_t A6_BaudRateSet(const uint32_t baudRate);
-[; ;A6Lib.h: 23: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-[; ;A6Lib.h: 24: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
-[; ;A6Lib.h: 25: void A6_Process_Random_Comms(void);
+[; ;A6Lib.h: 23: const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+[; ;A6Lib.h: 25: void A6_Init(void);
+[; ;A6Lib.h: 26: uint8_t A6_IsAlive(void);
+[; ;A6Lib.h: 27: uint32_t A6_BaudRateAutoDetect(void);
+[; ;A6Lib.h: 28: uint32_t A6_BaudRateGet(void);
+[; ;A6Lib.h: 29: uint32_t A6_BaudRateSet(const uint32_t baudRate);
+[; ;A6Lib.h: 30: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+[; ;A6Lib.h: 31: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+[; ;A6Lib.h: 32: void A6_Process_Random_Comms(void);
+[; ;A6Lib.h: 33: uint8_t A6_NetworkGetStatus(void);
+[; ;A6Lib.h: 34: uint8_t A6_NetworkGetRSSI(void);
+[; ;A6Lib.h: 35: int8_t A6_NetworkGetRSSILevel(void);
 "12 A6Lib.c
 [v _A6_Init `(v ~T0 @X0 1 ef ]
 {
@@ -5364,423 +5369,551 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "18
 [v _response `uc ~T0 @X0 -> 32 `i a ]
-"20
-[v _loop `uc ~T0 @X0 1 a ]
 [; ;A6Lib.c: 18: char response[32];
-[; ;A6Lib.c: 20: uint8_t loop = 3;
-[e = _loop -> -> 3 `i `uc ]
-[; ;A6Lib.c: 21: while(loop--) {
-"21
-[e $U 330  ]
-[e :U 331 ]
-{
-[; ;A6Lib.c: 22: A6_Command("AT\r", 0, response, 32);
-"22
+[; ;A6Lib.c: 19: A6_Command("AT\r", 0, response, 32);
+"19
 [e ( _A6_Command (4 , , , :s 1C -> 0 `i &U _response -> -> 32 `i `uc ]
-[; ;A6Lib.c: 23: if(strcmp(response, "OK") == 0) {
-"23
-[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 2C -> 0 `i 333  ]
+[; ;A6Lib.c: 20: if(strcmp(response, "OK") == 0) {
+"20
+[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 2C -> 0 `i 330  ]
 {
-[; ;A6Lib.c: 24: return 1;
-"24
+[; ;A6Lib.c: 21: return 1;
+"21
 [e ) -> -> 1 `i `uc ]
 [e $UE 329  ]
-"25
-}
-[e :U 333 ]
-"26
+"22
 }
 [e :U 330 ]
-"21
-[e $ != -> -- _loop -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 331  ]
-[e :U 332 ]
-[; ;A6Lib.c: 25: }
-[; ;A6Lib.c: 26: }
-[; ;A6Lib.c: 27: return 0;
-"27
+[; ;A6Lib.c: 22: }
+[; ;A6Lib.c: 23: return 0;
+"23
 [e ) -> -> 0 `i `uc ]
 [e $UE 329  ]
-[; ;A6Lib.c: 28: }
-"28
+[; ;A6Lib.c: 24: }
+"24
 [e :UE 329 ]
 }
-"30
+"26
 [v _A6_BaudRateGet `(ul ~T0 @X0 1 ef ]
 {
-[; ;A6Lib.c: 30: uint32_t A6_BaudRateGet(void) {
+[; ;A6Lib.c: 26: uint32_t A6_BaudRateGet(void) {
 [e :U _A6_BaudRateGet ]
 [f ]
-"31
+"27
 [v _baudRate `ul ~T0 @X0 1 a ]
-"32
+"28
 [v _baudRateToken `*uc ~T0 @X0 1 a ]
-"33
+"29
 [v _response `uc ~T0 @X0 -> 32 `i a ]
-"35
-[v _loop `uc ~T0 @X0 1 a ]
-[; ;A6Lib.c: 31: uint32_t baudRate;
-[; ;A6Lib.c: 32: char *baudRateToken;
-[; ;A6Lib.c: 33: char response[32];
-[; ;A6Lib.c: 35: uint8_t loop = 5;
-[e = _loop -> -> 5 `i `uc ]
-[; ;A6Lib.c: 36: while(loop--) {
-"36
-[e $U 335  ]
-[e :U 336 ]
-{
-[; ;A6Lib.c: 37: A6_Command("AT+IPR?\r", 0, response, 32);
-"37
+[; ;A6Lib.c: 27: uint32_t baudRate;
+[; ;A6Lib.c: 28: char *baudRateToken;
+[; ;A6Lib.c: 29: char response[32];
+[; ;A6Lib.c: 31: A6_Command("AT+IPR?\r", 0, response, 32);
+"31
 [e ( _A6_Command (4 , , , :s 3C -> 0 `i &U _response -> -> 32 `i `uc ]
-[; ;A6Lib.c: 38: if(strstr(response, "+IPR: ") != (0)) {
-"38
-[e $ ! != ( _strstr (2 , -> &U _response `*Cuc :s 4C -> -> 0 `i `*uc 338  ]
+[; ;A6Lib.c: 32: if(strstr(response, "+IPR: ") != (0)) {
+"32
+[e $ ! != ( _strstr (2 , -> &U _response `*Cuc :s 4C -> -> 0 `i `*uc 332  ]
 {
-[; ;A6Lib.c: 39: baudRateToken = strtok(response, " ");
-"39
+[; ;A6Lib.c: 33: baudRateToken = strtok(response, " ");
+"33
 [e = _baudRateToken ( _strtok (2 , &U _response :s 5C ]
-[; ;A6Lib.c: 40: baudRateToken = strtok((0), response);
-"40
+[; ;A6Lib.c: 34: baudRateToken = strtok((0), response);
+"34
 [e = _baudRateToken ( _strtok (2 , -> -> 0 `i `*uc -> &U _response `*Cuc ]
-[; ;A6Lib.c: 41: if(baudRateToken != (0)) {
-"41
-[e $ ! != _baudRateToken -> -> 0 `i `*uc 339  ]
+[; ;A6Lib.c: 35: if(baudRateToken != (0)) {
+"35
+[e $ ! != _baudRateToken -> -> 0 `i `*uc 333  ]
 {
-[; ;A6Lib.c: 42: baudRate = atol(baudRateToken);
-"42
+[; ;A6Lib.c: 36: baudRate = atol(baudRateToken);
+"36
 [e = _baudRate -> ( _atol (1 -> _baudRateToken `*Cuc `ul ]
-[; ;A6Lib.c: 43: for(uint8_t j=0; j<3; j++) {
-"43
+[; ;A6Lib.c: 37: for(uint8_t j=0; j<3; j++) {
+"37
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `uc ]
-[e $ < -> _j `i -> 3 `i 340  ]
-[e $U 341  ]
-[e :U 340 ]
+[e $ < -> _j `i -> 3 `i 334  ]
+[e $U 335  ]
+[e :U 334 ]
 {
-[; ;A6Lib.c: 44: if(baudRate == A6_BAUDRATES[j]) {
-"44
-[e $ ! == _baudRate *U + &U _A6_BAUDRATES * -> _j `ux -> -> # *U &U _A6_BAUDRATES `ui `ux 343  ]
+[; ;A6Lib.c: 38: if(baudRate == A6_BAUDRATES[j]) {
+"38
+[e $ ! == _baudRate *U + &U _A6_BAUDRATES * -> _j `ux -> -> # *U &U _A6_BAUDRATES `ui `ux 337  ]
 {
-[; ;A6Lib.c: 45: return baudRate;
-"45
+[; ;A6Lib.c: 39: return baudRate;
+"39
 [e ) _baudRate ]
-[e $UE 334  ]
-"46
+[e $UE 331  ]
+"40
 }
-[e :U 343 ]
-"47
+[e :U 337 ]
+"41
 }
-"43
+"37
 [e ++ _j -> -> 1 `i `uc ]
-[e $ < -> _j `i -> 3 `i 340  ]
-[e :U 341 ]
-"47
+[e $ < -> _j `i -> 3 `i 334  ]
+[e :U 335 ]
+"41
+}
+"42
+}
+[e :U 333 ]
+"43
+}
+[e :U 332 ]
+[; ;A6Lib.c: 40: }
+[; ;A6Lib.c: 41: }
+[; ;A6Lib.c: 42: }
+[; ;A6Lib.c: 43: }
+[; ;A6Lib.c: 45: return 0;
+"45
+[e ) -> -> -> 0 `i `l `ul ]
+[e $UE 331  ]
+[; ;A6Lib.c: 46: }
+"46
+[e :UE 331 ]
 }
 "48
-}
-[e :U 339 ]
-"49
-}
-[e :U 338 ]
-[; ;A6Lib.c: 46: }
-[; ;A6Lib.c: 47: }
-[; ;A6Lib.c: 48: }
-[; ;A6Lib.c: 49: }
-[; ;A6Lib.c: 50: sleepMS(250);
-"50
-[e ( _sleepMS (1 -> -> -> 250 `i `l `ul ]
-"51
-}
-[e :U 335 ]
-"36
-[e $ != -> -- _loop -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 336  ]
-[e :U 337 ]
-[; ;A6Lib.c: 51: }
-[; ;A6Lib.c: 53: return 0;
-"53
-[e ) -> -> -> 0 `i `l `ul ]
-[e $UE 334  ]
-[; ;A6Lib.c: 54: }
-"54
-[e :UE 334 ]
-}
-"56
 [v _A6_BaudRateSet `(ul ~T0 @X0 1 ef1`Cul ]
 {
-[; ;A6Lib.c: 56: uint32_t A6_BaudRateSet(const uint32_t baudRate) {
+[; ;A6Lib.c: 48: uint32_t A6_BaudRateSet(const uint32_t baudRate) {
 [e :U _A6_BaudRateSet ]
 [v _baudRate `Cul ~T0 @X0 1 r1 ]
 [f ]
-"57
+"49
 [v _request `uc ~T0 @X0 -> 20 `i a ]
-"58
+"50
 [v _response `uc ~T0 @X0 -> 32 `i a ]
-"59
+"51
 [v _currentBaudRate `ul ~T0 @X0 1 a ]
-[; ;A6Lib.c: 57: char request[20];
-[; ;A6Lib.c: 58: char response[32];
-[; ;A6Lib.c: 59: uint32_t currentBaudRate = A6_BaudRateGet();
+[; ;A6Lib.c: 49: char request[20];
+[; ;A6Lib.c: 50: char response[32];
+[; ;A6Lib.c: 51: uint32_t currentBaudRate = A6_BaudRateGet();
 [e = _currentBaudRate ( _A6_BaudRateGet ..  ]
-[; ;A6Lib.c: 62: if(currentBaudRate == 0) return 0;
-"62
-[e $ ! == _currentBaudRate -> -> -> 0 `i `l `ul 345  ]
+[; ;A6Lib.c: 54: if(currentBaudRate == 0) return 0;
+"54
+[e $ ! == _currentBaudRate -> -> -> 0 `i `l `ul 339  ]
 [e ) -> -> -> 0 `i `l `ul ]
-[e $UE 344  ]
-[e :U 345 ]
-[; ;A6Lib.c: 65: sprintf(request, "AT+IPR=%lu\r", baudRate);
-"65
+[e $UE 338  ]
+[e :U 339 ]
+[; ;A6Lib.c: 57: sprintf(request, "AT+IPR=%lu\r", baudRate);
+"57
 [e ( _sprintf (1 , (. , &U _request :s 6C _baudRate ]
-[; ;A6Lib.c: 66: A6_Command(request, 0, response, 32);
-"66
+[; ;A6Lib.c: 58: A6_Command(request, 0, response, 32);
+"58
 [e ( _A6_Command (4 , , , -> &U _request `*Cuc -> 0 `i &U _response -> -> 32 `i `uc ]
-[; ;A6Lib.c: 67: sleepMS(250);
-"67
+[; ;A6Lib.c: 59: sleepMS(250);
+"59
 [e ( _sleepMS (1 -> -> -> 250 `i `l `ul ]
-[; ;A6Lib.c: 68: if(strcmp(response, "OK") == 0) {
-"68
-[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 7C -> 0 `i 346  ]
+[; ;A6Lib.c: 60: if(strcmp(response, "OK") == 0) {
+"60
+[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 7C -> 0 `i 340  ]
 {
-[; ;A6Lib.c: 70: EUSART_BaudRateSet(baudRate);
-"70
+[; ;A6Lib.c: 62: EUSART_BaudRateSet(baudRate);
+"62
 [e ( _EUSART_BaudRateSet (1 _baudRate ]
-[; ;A6Lib.c: 71: sleepMS(150);
-"71
+[; ;A6Lib.c: 63: sleepMS(150);
+"63
 [e ( _sleepMS (1 -> -> -> 150 `i `l `ul ]
-[; ;A6Lib.c: 72: if(A6_IsAlive() == 1) {
-"72
-[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 347  ]
+[; ;A6Lib.c: 64: if(A6_IsAlive() == 1) {
+"64
+[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 341  ]
 {
-[; ;A6Lib.c: 73: return baudRate;
-"73
+[; ;A6Lib.c: 65: return baudRate;
+"65
 [e ) _baudRate ]
-[e $UE 344  ]
-"74
+[e $UE 338  ]
+"66
 }
-[e :U 347 ]
-"75
+[e :U 341 ]
+"67
 }
-[e :U 346 ]
-[; ;A6Lib.c: 74: }
-[; ;A6Lib.c: 75: }
-[; ;A6Lib.c: 78: EUSART_BaudRateSet(currentBaudRate);
-"78
+[e :U 340 ]
+[; ;A6Lib.c: 66: }
+[; ;A6Lib.c: 67: }
+[; ;A6Lib.c: 70: EUSART_BaudRateSet(currentBaudRate);
+"70
 [e ( _EUSART_BaudRateSet (1 _currentBaudRate ]
-[; ;A6Lib.c: 79: return 0;
-"79
+[; ;A6Lib.c: 71: return 0;
+"71
 [e ) -> -> -> 0 `i `l `ul ]
-[e $UE 344  ]
-[; ;A6Lib.c: 80: }
-"80
-[e :UE 344 ]
+[e $UE 338  ]
+[; ;A6Lib.c: 72: }
+"72
+[e :UE 338 ]
 }
-"82
+"74
 [v _A6_BaudRateAutoDetect `(ul ~T0 @X0 1 ef ]
 {
-[; ;A6Lib.c: 82: uint32_t A6_BaudRateAutoDetect(void) {
+[; ;A6Lib.c: 74: uint32_t A6_BaudRateAutoDetect(void) {
 [e :U _A6_BaudRateAutoDetect ]
 [f ]
-[; ;A6Lib.c: 83: printLine("Detecting baud rate...", 0xF81F);
-"83
+[; ;A6Lib.c: 75: printLine("Detecting baud rate...", 0xF81F);
+"75
 [e ( _printLine (2 , :s 8C -> 63519 `ui ]
-[; ;A6Lib.c: 85: for(uint8_t i=0; i<3; i++) {
-"85
+[; ;A6Lib.c: 77: for(uint8_t i=0; i<3; i++) {
+"77
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 349  ]
-[e $U 350  ]
-[e :U 349 ]
+[e $ < -> _i `i -> 3 `i 343  ]
+[e $U 344  ]
+[e :U 343 ]
 {
-[; ;A6Lib.c: 86: EUSART_BaudRateSet(A6_BAUDRATES[i]);
-"86
+[; ;A6Lib.c: 78: EUSART_BaudRateSet(A6_BAUDRATES[i]);
+"78
 [e ( _EUSART_BaudRateSet (1 *U + &U _A6_BAUDRATES * -> _i `ux -> -> # *U &U _A6_BAUDRATES `ui `ux ]
-[; ;A6Lib.c: 87: if(A6_IsAlive() == 1) {
-"87
-[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 352  ]
+[; ;A6Lib.c: 79: if(A6_IsAlive() == 1) {
+"79
+[e $ ! == -> ( _A6_IsAlive ..  `i -> 1 `i 346  ]
 {
-"88
+"80
 [v _zzzz `uc ~T0 @X0 -> 32 `i a ]
-[; ;A6Lib.c: 88: char zzzz[32];
-[; ;A6Lib.c: 89: sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
-"89
+[; ;A6Lib.c: 80: char zzzz[32];
+[; ;A6Lib.c: 81: sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
+"81
 [e ( _sprintf (1 , (. , &U _zzzz :s 9C *U + &U _A6_BAUDRATES * -> _i `ux -> -> # *U &U _A6_BAUDRATES `ui `ux ]
-[; ;A6Lib.c: 90: printLine(zzzz, 0xF800);
-"90
+[; ;A6Lib.c: 82: printLine(zzzz, 0xF800);
+"82
 [e ( _printLine (2 , -> &U _zzzz `*Cuc -> 63488 `ui ]
-[; ;A6Lib.c: 91: return A6_BAUDRATES[i];
-"91
+[; ;A6Lib.c: 83: return A6_BAUDRATES[i];
+"83
 [e ) *U + &U _A6_BAUDRATES * -> _i `ux -> -> # *U &U _A6_BAUDRATES `ui `ux ]
-[e $UE 348  ]
-"92
+[e $UE 342  ]
+"84
 }
-[e :U 352 ]
-[; ;A6Lib.c: 92: }
-[; ;A6Lib.c: 93: sleepMS(100);
-"93
-[e ( _sleepMS (1 -> -> -> 100 `i `l `ul ]
-"94
-}
+[e :U 346 ]
+[; ;A6Lib.c: 84: }
+[; ;A6Lib.c: 85: sleepMS(100);
 "85
+[e ( _sleepMS (1 -> -> -> 100 `i `l `ul ]
+"86
+}
+"77
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 349  ]
-[e :U 350 ]
-"94
+[e $ < -> _i `i -> 3 `i 343  ]
+[e :U 344 ]
+"86
 }
-[; ;A6Lib.c: 94: }
-[; ;A6Lib.c: 96: return 0;
-"96
+[; ;A6Lib.c: 86: }
+[; ;A6Lib.c: 88: return 0;
+"88
 [e ) -> -> -> 0 `i `l `ul ]
-[e $UE 348  ]
-[; ;A6Lib.c: 97: }
-"97
-[e :UE 348 ]
+[e $UE 342  ]
+[; ;A6Lib.c: 89: }
+"89
+[e :UE 342 ]
 }
-"99
+"91
 [v _A6_Command `(v ~T0 @X0 1 ef4`*Cuc`i`*uc`uc ]
 {
-[; ;A6Lib.c: 99: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
+[; ;A6Lib.c: 91: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
 [e :U _A6_Command ]
 [v _command `*Cuc ~T0 @X0 1 r1 ]
 [v _timeout `i ~T0 @X0 1 r2 ]
 [v _response `*uc ~T0 @X0 1 r3 ]
 [v _responseLen `uc ~T0 @X0 1 r4 ]
 [f ]
-[; ;A6Lib.c: 100: EUSART_RX_Flush();
-"100
+[; ;A6Lib.c: 92: EUSART_RX_Flush();
+"92
 [e ( _EUSART_RX_Flush ..  ]
-[; ;A6Lib.c: 101: EUSART_TX_String(command, strlen(command));
-"101
+[; ;A6Lib.c: 93: EUSART_TX_String(command, strlen(command));
+"93
 [e ( _EUSART_TX_String (2 , _command -> ( _strlen (1 _command `uc ]
-[; ;A6Lib.c: 102: A6_ReadLine(response, responseLen, timeout);
-"102
+[; ;A6Lib.c: 94: A6_ReadLine(response, responseLen, timeout);
+"94
 [e ( _A6_ReadLine (3 , , _response _responseLen _timeout ]
-[; ;A6Lib.c: 103: return;
-"103
-[e $UE 353  ]
-[; ;A6Lib.c: 104: }
-"104
-[e :UE 353 ]
+[; ;A6Lib.c: 95: return;
+"95
+[e $UE 347  ]
+[; ;A6Lib.c: 96: }
+"96
+[e :UE 347 ]
 }
-"106
+"98
 [v _A6_ReadLine `(uc ~T0 @X0 1 ef3`*uc`uc`i ]
 {
-[; ;A6Lib.c: 106: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout) {
+[; ;A6Lib.c: 98: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout) {
 [e :U _A6_ReadLine ]
 [v _response `*uc ~T0 @X0 1 r1 ]
 [v _responseLen `uc ~T0 @X0 1 r2 ]
 [v _timeout `i ~T0 @X0 1 r3 ]
 [f ]
-"107
+"99
 [v _c `uc ~T0 @X0 1 a ]
-[; ;A6Lib.c: 107: char c;
-[; ;A6Lib.c: 108: memset(response, 0x00, responseLen);
-"108
+[; ;A6Lib.c: 99: char c;
+[; ;A6Lib.c: 100: memset(response, 0x00, responseLen);
+"100
 [e ( _memset (3 , , -> _response `*v -> 0 `i -> _responseLen `ui ]
-[; ;A6Lib.c: 111: while(1) {
+[; ;A6Lib.c: 103: while(1) {
+"103
+[e :U 350 ]
+{
+[; ;A6Lib.c: 104: c = EUSART_BufferGetChar(timeout);
+"104
+[e = _c ( _EUSART_BufferGetChar (1 _timeout ]
+[; ;A6Lib.c: 105: if(c == (0)) return 0;
+"105
+[e $ ! == -> _c `i -> 0 `i 352  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 348  ]
+[e :U 352 ]
+[; ;A6Lib.c: 106: if((c != '\r') && (c != '\n')) break;
+"106
+[e $ ! && != -> _c `ui -> 13 `ui != -> _c `ui -> 10 `ui 353  ]
+[e $U 351  ]
+[e :U 353 ]
+"107
+}
+[e :U 349 ]
+"103
+[e $U 350  ]
+[e :U 351 ]
+"110
+[v _iResponse `uc ~T0 @X0 1 a ]
+[; ;A6Lib.c: 107: }
+[; ;A6Lib.c: 110: uint8_t iResponse = 0;
+[e = _iResponse -> -> 0 `i `uc ]
+[; ;A6Lib.c: 111: do {
 "111
 [e :U 356 ]
 {
-[; ;A6Lib.c: 112: c = EUSART_BufferGetChar(timeout);
+[; ;A6Lib.c: 112: if((c == '\r') || (c == (0))) break;
 "112
-[e = _c ( _EUSART_BufferGetChar (1 _timeout ]
-[; ;A6Lib.c: 113: if(c == (0)) return 0;
-"113
-[e $ ! == -> _c `i -> 0 `i 358  ]
-[e ) -> -> 0 `i `uc ]
-[e $UE 354  ]
-[e :U 358 ]
-[; ;A6Lib.c: 114: if((c != '\r') && (c != '\n')) break;
-"114
-[e $ ! && != -> _c `ui -> 13 `ui != -> _c `ui -> 10 `ui 359  ]
-[e $U 357  ]
-[e :U 359 ]
-"115
-}
-[e :U 355 ]
-"111
-[e $U 356  ]
+[e $ ! || == -> _c `ui -> 13 `ui == -> _c `i -> 0 `i 357  ]
+[e $U 355  ]
 [e :U 357 ]
-"118
-[v _iResponse `uc ~T0 @X0 1 a ]
-[; ;A6Lib.c: 115: }
-[; ;A6Lib.c: 118: uint8_t iResponse = 0;
-[e = _iResponse -> -> 0 `i `uc ]
-[; ;A6Lib.c: 119: do {
-"119
-[e :U 362 ]
-{
-[; ;A6Lib.c: 120: if((c == '\r') || (c == (0))) break;
-"120
-[e $ ! || == -> _c `ui -> 13 `ui == -> _c `i -> 0 `i 363  ]
-[e $U 361  ]
-[e :U 363 ]
-[; ;A6Lib.c: 121: response[iResponse] = c;
-"121
+[; ;A6Lib.c: 113: response[iResponse] = c;
+"113
 [e = *U + _response * -> _iResponse `ux -> -> # *U _response `ui `ux _c ]
-[; ;A6Lib.c: 122: iResponse++;
-"122
+[; ;A6Lib.c: 114: iResponse++;
+"114
 [e ++ _iResponse -> -> 1 `i `uc ]
-[; ;A6Lib.c: 123: if(iResponse == responseLen) break;
-"123
-[e $ ! == -> _iResponse `i -> _responseLen `i 364  ]
-[e $U 361  ]
-[e :U 364 ]
-"124
+[; ;A6Lib.c: 115: if(iResponse == responseLen) break;
+"115
+[e $ ! == -> _iResponse `i -> _responseLen `i 358  ]
+[e $U 355  ]
+[e :U 358 ]
+"116
 }
-[; ;A6Lib.c: 124: } while(c = EUSART_BufferGetChar(timeout));
-[e $ != -> = _c ( _EUSART_BufferGetChar (1 _timeout `i -> -> -> 0 `i `uc `i 362  ]
-[e :U 361 ]
-[; ;A6Lib.c: 126: return iResponse;
-"126
+[; ;A6Lib.c: 116: } while(c = EUSART_BufferGetChar(timeout));
+[e $ != -> = _c ( _EUSART_BufferGetChar (1 _timeout `i -> -> -> 0 `i `uc `i 356  ]
+[e :U 355 ]
+[; ;A6Lib.c: 118: return iResponse;
+"118
 [e ) _iResponse ]
-[e $UE 354  ]
-[; ;A6Lib.c: 127: }
-"127
-[e :UE 354 ]
+[e $UE 348  ]
+[; ;A6Lib.c: 119: }
+"119
+[e :UE 348 ]
 }
-"129
+"121
 [v _A6_Process_Random_Comms `(v ~T0 @X0 1 ef ]
 {
-[; ;A6Lib.c: 129: void A6_Process_Random_Comms(void) {
+[; ;A6Lib.c: 121: void A6_Process_Random_Comms(void) {
 [e :U _A6_Process_Random_Comms ]
 [f ]
-[; ;A6Lib.c: 130: if(EUSART_RX_AvailableData(-1) == 0) return;
-"130
-[e $ ! == -> ( _EUSART_RX_AvailableData (1 -U -> 1 `i `i -> 0 `i 366  ]
-[e $UE 365  ]
-[e :U 366 ]
-"132
+[; ;A6Lib.c: 122: if(EUSART_RX_AvailableData(-1) == 0) return;
+"122
+[e $ ! == -> ( _EUSART_RX_AvailableData (1 -U -> 1 `i `i -> 0 `i 360  ]
+[e $UE 359  ]
+[e :U 360 ]
+"124
 [v _response `uc ~T0 @X0 -> 32 `i a ]
-"133
+"125
 [v _cnt `uc ~T0 @X0 1 a ]
-[; ;A6Lib.c: 132: char response[32];
-[; ;A6Lib.c: 133: uint8_t cnt = A6_ReadLine(response, 32, 0);
+[; ;A6Lib.c: 124: char response[32];
+[; ;A6Lib.c: 125: uint8_t cnt = A6_ReadLine(response, 32, 0);
 [e = _cnt ( _A6_ReadLine (3 , , &U _response -> -> 32 `i `uc -> 0 `i ]
-[; ;A6Lib.c: 134: if(cnt == 0) return;
-"134
-[e $ ! == -> _cnt `i -> 0 `i 367  ]
-[e $UE 365  ]
-[e :U 367 ]
-[; ;A6Lib.c: 135: if(strcmp(response, "OK") == 0) return;
-"135
-[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 10C -> 0 `i 368  ]
-[e $UE 365  ]
-[e :U 368 ]
-[; ;A6Lib.c: 136: printLine(response, 0x07FF);
-"136
+[; ;A6Lib.c: 126: if(cnt == 0) return;
+"126
+[e $ ! == -> _cnt `i -> 0 `i 361  ]
+[e $UE 359  ]
+[e :U 361 ]
+[; ;A6Lib.c: 127: if(strcmp(response, "OK") == 0) return;
+"127
+[e $ ! == ( _strcmp (2 , -> &U _response `*Cuc :s 10C -> 0 `i 362  ]
+[e $UE 359  ]
+[e :U 362 ]
+[; ;A6Lib.c: 128: printLine(response, 0x07FF);
+"128
 [e ( _printLine (2 , -> &U _response `*Cuc -> -> 2047 `i `ui ]
-[; ;A6Lib.c: 137: }
+[; ;A6Lib.c: 129: }
+"129
+[e :UE 359 ]
+}
+"131
+[v _A6_NetworkGetStatus `(uc ~T0 @X0 1 ef ]
+{
+[; ;A6Lib.c: 131: uint8_t A6_NetworkGetStatus(void) {
+[e :U _A6_NetworkGetStatus ]
+[f ]
+"132
+[v _networkStatusToken `*uc ~T0 @X0 1 a ]
+"133
+[v _response `uc ~T0 @X0 -> 32 `i a ]
+[; ;A6Lib.c: 132: char *networkStatusToken;
+[; ;A6Lib.c: 133: char response[32];
+[; ;A6Lib.c: 135: A6_Command("AT+CREG?\r", 0, response, 32);
+"135
+[e ( _A6_Command (4 , , , :s 11C -> 0 `i &U _response -> -> 32 `i `uc ]
+[; ;A6Lib.c: 136: if(strstr(response, "+CREG: ") != (0)) {
+"136
+[e $ ! != ( _strstr (2 , -> &U _response `*Cuc :s 12C -> -> 0 `i `*uc 364  ]
+{
+[; ;A6Lib.c: 137: networkStatusToken = strtok(response, " ");
 "137
-[e :UE 365 ]
+[e = _networkStatusToken ( _strtok (2 , &U _response :s 13C ]
+[; ;A6Lib.c: 138: networkStatusToken = strtok((0), response);
+"138
+[e = _networkStatusToken ( _strtok (2 , -> -> 0 `i `*uc -> &U _response `*Cuc ]
+[; ;A6Lib.c: 139: if(networkStatusToken != (0)) {
+"139
+[e $ ! != _networkStatusToken -> -> 0 `i `*uc 365  ]
+{
+[; ;A6Lib.c: 140: networkStatusToken = strtok(networkStatusToken, ",");
+"140
+[e = _networkStatusToken ( _strtok (2 , _networkStatusToken :s 14C ]
+[; ;A6Lib.c: 141: networkStatusToken = strtok((0), networkStatusToken);
+"141
+[e = _networkStatusToken ( _strtok (2 , -> -> 0 `i `*uc -> _networkStatusToken `*Cuc ]
+[; ;A6Lib.c: 142: return atoi(networkStatusToken);
+"142
+[e ) -> ( _atoi (1 -> _networkStatusToken `*Cuc `uc ]
+[e $UE 363  ]
+"143
+}
+[e :U 365 ]
+"144
+}
+[e :U 364 ]
+[; ;A6Lib.c: 143: }
+[; ;A6Lib.c: 144: }
+[; ;A6Lib.c: 146: return 4;
+"146
+[e ) -> -> 4 `i `uc ]
+[e $UE 363  ]
+[; ;A6Lib.c: 147: }
+"147
+[e :UE 363 ]
+}
+"149
+[v _A6_NetworkGetRSSI `(uc ~T0 @X0 1 ef ]
+{
+[; ;A6Lib.c: 149: uint8_t A6_NetworkGetRSSI(void) {
+[e :U _A6_NetworkGetRSSI ]
+[f ]
+"150
+[v _RSSIToken `*uc ~T0 @X0 1 a ]
+"151
+[v _response `uc ~T0 @X0 -> 32 `i a ]
+[; ;A6Lib.c: 150: char *RSSIToken;
+[; ;A6Lib.c: 151: char response[32];
+[; ;A6Lib.c: 153: A6_Command("AT+CSQ\r", 0, response, 32);
+"153
+[e ( _A6_Command (4 , , , :s 15C -> 0 `i &U _response -> -> 32 `i `uc ]
+[; ;A6Lib.c: 154: if(strstr(response, "+CSQ: ") != (0)) {
+"154
+[e $ ! != ( _strstr (2 , -> &U _response `*Cuc :s 16C -> -> 0 `i `*uc 367  ]
+{
+[; ;A6Lib.c: 155: RSSIToken = strtok(response, " ");
+"155
+[e = _RSSIToken ( _strtok (2 , &U _response :s 17C ]
+[; ;A6Lib.c: 156: RSSIToken = strtok((0), response);
+"156
+[e = _RSSIToken ( _strtok (2 , -> -> 0 `i `*uc -> &U _response `*Cuc ]
+[; ;A6Lib.c: 157: if(RSSIToken != (0)) {
+"157
+[e $ ! != _RSSIToken -> -> 0 `i `*uc 368  ]
+{
+[; ;A6Lib.c: 158: RSSIToken = strtok(RSSIToken, ",");
+"158
+[e = _RSSIToken ( _strtok (2 , _RSSIToken :s 18C ]
+[; ;A6Lib.c: 159: return atoi(RSSIToken);
+"159
+[e ) -> ( _atoi (1 -> _RSSIToken `*Cuc `uc ]
+[e $UE 366  ]
+"160
+}
+[e :U 368 ]
+"161
+}
+[e :U 367 ]
+[; ;A6Lib.c: 160: }
+[; ;A6Lib.c: 161: }
+[; ;A6Lib.c: 163: return 0;
+"163
+[e ) -> -> 0 `i `uc ]
+[e $UE 366  ]
+[; ;A6Lib.c: 164: }
+"164
+[e :UE 366 ]
+}
+"166
+[v _A6_NetworkGetRSSILevel `(c ~T0 @X0 1 ef ]
+{
+[; ;A6Lib.c: 166: int8_t A6_NetworkGetRSSILevel(void) {
+[e :U _A6_NetworkGetRSSILevel ]
+[f ]
+"167
+[v _RSSI `uc ~T0 @X0 1 a ]
+[; ;A6Lib.c: 167: uint8_t RSSI = A6_NetworkGetRSSI();
+[e = _RSSI ( _A6_NetworkGetRSSI ..  ]
+[; ;A6Lib.c: 168: if(RSSI == 99) return -1;
+"168
+[e $ ! == -> _RSSI `i -> 99 `i 370  ]
+[e ) -> -U -> 1 `i `c ]
+[e $UE 369  ]
+[e :U 370 ]
+[; ;A6Lib.c: 169: if(RSSI < 3) return 0;
+"169
+[e $ ! < -> _RSSI `i -> 3 `i 371  ]
+[e ) -> -> 0 `i `c ]
+[e $UE 369  ]
+[e :U 371 ]
+[; ;A6Lib.c: 170: if(RSSI < 10) return 1;
+"170
+[e $ ! < -> _RSSI `i -> 10 `i 372  ]
+[e ) -> -> 1 `i `c ]
+[e $UE 369  ]
+[e :U 372 ]
+[; ;A6Lib.c: 171: if(RSSI < 15) return 2;
+"171
+[e $ ! < -> _RSSI `i -> 15 `i 373  ]
+[e ) -> -> 2 `i `c ]
+[e $UE 369  ]
+[e :U 373 ]
+[; ;A6Lib.c: 172: if(RSSI < 20) return 3;
+"172
+[e $ ! < -> _RSSI `i -> 20 `i 374  ]
+[e ) -> -> 3 `i `c ]
+[e $UE 369  ]
+[e :U 374 ]
+[; ;A6Lib.c: 173: return 4;
+"173
+[e ) -> -> 4 `i `c ]
+[e $UE 369  ]
+[; ;A6Lib.c: 174: }
+"174
+[e :UE 369 ]
 }
 [p f _sprintf 8389648 ]
 [a 2C 79 75 0 ]
 [a 7C 79 75 0 ]
 [a 10C 79 75 0 ]
 [a 8C 68 101 116 101 99 116 105 110 103 32 98 97 117 100 32 114 97 116 101 46 46 46 0 ]
+[a 14C 44 0 ]
+[a 18C 44 0 ]
 [a 9C 37 108 117 32 70 79 85 78 68 33 0 ]
 [a 4C 43 73 80 82 58 32 0 ]
+[a 16C 43 67 83 81 58 32 0 ]
+[a 12C 43 67 82 69 71 58 32 0 ]
 [a 5C 32 0 ]
+[a 13C 32 0 ]
+[a 17C 32 0 ]
 [a 6C 65 84 43 73 80 82 61 37 108 117 13 0 ]
 [a 1C 65 84 13 0 ]
+[a 15C 65 84 43 67 83 81 13 0 ]
 [a 3C 65 84 43 73 80 82 63 13 0 ]
+[a 11C 65 84 43 67 82 69 71 63 13 0 ]

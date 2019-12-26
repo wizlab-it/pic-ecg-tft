@@ -1,5 +1,5 @@
 /*
- * 20191226.024
+ * 20191226.029
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -16,13 +16,9 @@ void A6_Init(void) {
 
 uint8_t A6_IsAlive(void) {
     char response[32];
-
-    uint8_t loop = 3;
-    while(loop--) {
-        A6_Command("AT\r", 0, response, 32);
-        if(strcmp(response, "OK") == 0) {
-            return 1;
-        }
+    A6_Command("AT\r", 0, response, 32);
+    if(strcmp(response, "OK") == 0) {
+        return 1;
     }
     return 0;
 }
@@ -32,22 +28,18 @@ uint32_t A6_BaudRateGet(void) {
     char *baudRateToken;
     char response[32];
 
-    uint8_t loop = 5;
-    while(loop--) {
-        A6_Command("AT+IPR?\r", 0, response, 32);
-        if(strstr(response, "+IPR: ") != NULL) {
-            baudRateToken = strtok(response, " ");
-            baudRateToken = strtok(NULL, response);
-            if(baudRateToken != NULL) {
-                baudRate = atol(baudRateToken);
-                for(uint8_t j=0; j<3; j++) {
-                    if(baudRate == A6_BAUDRATES[j]) {
-                        return baudRate;
-                    }
+    A6_Command("AT+IPR?\r", 0, response, 32);
+    if(strstr(response, "+IPR: ") != NULL) {
+        baudRateToken = strtok(response, " ");
+        baudRateToken = strtok(NULL, response);
+        if(baudRateToken != NULL) {
+            baudRate = atol(baudRateToken);
+            for(uint8_t j=0; j<3; j++) {
+                if(baudRate == A6_BAUDRATES[j]) {
+                    return baudRate;
                 }
             }
         }
-        sleepMS(250);
     }
 
     return 0;
@@ -134,4 +126,49 @@ void A6_Process_Random_Comms(void) {
     if(cnt == 0) return;
     if(strcmp(response, "OK") == 0) return;
     printLine(response, _TFT_COLOR_CYAN);
+}
+
+uint8_t A6_NetworkGetStatus(void) {
+    char *networkStatusToken;
+    char response[32];
+
+    A6_Command("AT+CREG?\r", 0, response, 32);
+    if(strstr(response, "+CREG: ") != NULL) {
+        networkStatusToken = strtok(response, " ");
+        networkStatusToken = strtok(NULL, response);
+        if(networkStatusToken != NULL) {
+            networkStatusToken = strtok(networkStatusToken, ",");
+            networkStatusToken = strtok(NULL, networkStatusToken);
+            return atoi(networkStatusToken);
+        }
+    }
+
+    return A6_NETWORK_STATUS_UNKNOWN;
+}
+
+uint8_t A6_NetworkGetRSSI(void) {
+    char *RSSIToken;
+    char response[32];
+
+    A6_Command("AT+CSQ\r", 0, response, 32);
+    if(strstr(response, "+CSQ: ") != NULL) {
+        RSSIToken = strtok(response, " ");
+        RSSIToken = strtok(NULL, response);
+        if(RSSIToken != NULL) {
+            RSSIToken = strtok(RSSIToken, ",");
+            return atoi(RSSIToken);
+        }
+    }
+
+    return 0;
+}
+
+int8_t A6_NetworkGetRSSILevel(void) {
+    uint8_t RSSI = A6_NetworkGetRSSI();
+    if(RSSI == 99) return -1;
+    if(RSSI < 3) return 0;
+    if(RSSI < 10) return 1;
+    if(RSSI < 15) return 2;
+    if(RSSI < 20) return 3;
+    return 4;
 }

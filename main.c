@@ -1,5 +1,5 @@
 /*
- * 20191226.053
+ * 20191226.055
  * ECG-TFT
  *
  * File: main.c
@@ -85,41 +85,22 @@ void loop(void) {
     if((MILLISECONDS > 6500) && (tmp3 < (MILLISECONDS - 6500))) {
         tmp3 = MILLISECONDS;
 
-        printLine("Check signal", _TFT_COLOR_YELLOW);
-        char response[32];
-        A6_Command("AT+CSQ\r", 0, response, 32);
-        printLine(response, _TFT_COLOR_WHITE);
-        
-        /*
-        2-9 - Merda
-        10-14 - OK
-        15-19 - Buono
-        20-30 - Ottimp
-        99 - Boh
-        */
+        printLine("Check RSSI", _TFT_COLOR_YELLOW);
+        char zzzz[32];
+        sprintf(zzzz, "RSSI: %u", A6_NetworkGetRSSI());
+        printLine(zzzz, _TFT_COLOR_WHITE);
+        sprintf(zzzz, "Level: %u", A6_NetworkGetRSSILevel());
+        printLine(zzzz, _TFT_COLOR_WHITE);
     }
 
     if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
         tmp5 = MILLISECONDS;
 
-        printLine("Check registration", _TFT_COLOR_YELLOW);
-        char response[32];
-        A6_Command("AT+CREG?\r", 0, response, 32);
-        printLine(response, _TFT_COLOR_WHITE);
-        
-        /*
-        <n>:
-        0 - disable network registration unsolicited result code
-        1 - enable network registration unsolicited result code +CREG: <stat>
-        2 - enable network registration and location information unsolicited result code +CREG: <stat>[,<lac>,<ci>]
-        <stat>:
-        0 - not registered, MT is not currently searching a new operator to register to
-        1 - registered, home network
-        2 - not registered, but MT is currently searching a new operator to register to
-        3 - registration denied
-        4 - unknown
-        5 - registered, roaming
-        */
+        printLine("Check network registration", _TFT_COLOR_YELLOW);
+        uint8_t ns = A6_NetworkGetStatus();
+        char zzzz[32];
+        sprintf(zzzz, "Network status: %u (%s)", ns, ((ns == 2) ? "Searching..." : ((ns == 1) ? "Registered" : "Other")));
+        printLine(zzzz, _TFT_COLOR_WHITE);
     }
 }
 

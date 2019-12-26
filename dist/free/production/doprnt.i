@@ -310,6 +310,38 @@ case 'd':
 case 'i':
 break;
 
+# 754
+case 's':
+
+# 760
+cp = (*(const char * *)__va_arg((*(const char * **)ap), (const char *)0));
+
+# 766
+if(!cp)
+cp = "(null)";
+
+
+
+len = 0;
+while(cp[len])
+len++;
+
+# 783
+if(((unsigned)width) > len)
+width -= len;
+else
+width = 0;
+
+# 790
+while(width--)
+((*sp++ = (' ')));
+
+while(len--)
+((*sp++ = (*cp++)));
+
+# 800
+continue;
+
 # 828
 default:
 

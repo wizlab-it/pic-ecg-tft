@@ -5509,7 +5509,7 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 16 "A6Lib.h"
+# 23 "A6Lib.h"
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 
 void A6_Init(void);
@@ -5520,6 +5520,9 @@ uint32_t A6_BaudRateSet(const uint32_t baudRate);
 void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
 uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
 void A6_Process_Random_Comms(void);
+uint8_t A6_NetworkGetStatus(void);
+uint8_t A6_NetworkGetRSSI(void);
+int8_t A6_NetworkGetRSSILevel(void);
 
 # 18 "EUSART.h"
 struct {
@@ -5635,23 +5638,22 @@ printLine(zzzz, 0xF800);
 if((MILLISECONDS > 6500) && (tmp3 < (MILLISECONDS - 6500))) {
 tmp3 = MILLISECONDS;
 
-printLine("Check signal", 0xFFE0);
-char response[32];
-A6_Command("AT+CSQ\r", 0, response, 32);
-printLine(response, 0xFFFF);
-
-# 100
+printLine("Check RSSI", 0xFFE0);
+char zzzz[32];
+sprintf(zzzz, "RSSI: %u", A6_NetworkGetRSSI());
+printLine(zzzz, 0xFFFF);
+sprintf(zzzz, "Level: %u", A6_NetworkGetRSSILevel());
+printLine(zzzz, 0xFFFF);
 }
 
 if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
 tmp5 = MILLISECONDS;
 
-printLine("Check registration", 0xFFE0);
-char response[32];
-A6_Command("AT+CREG?\r", 0, response, 32);
-printLine(response, 0xFFFF);
-
-# 123
+printLine("Check network registration", 0xFFE0);
+uint8_t ns = A6_NetworkGetStatus();
+char zzzz[32];
+sprintf(zzzz, "Network status: %u (%s)", ns, ((ns == 2) ? "Searching..." : ((ns == 1) ? "Registered" : "Other")));
+printLine(zzzz, 0xFFFF);
 }
 }
 
