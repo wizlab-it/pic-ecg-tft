@@ -88,7 +88,7 @@ dataBANK0 BANK0 1 CE CE 6 1
 dataCOMRAM COMRAM 1 58 58 2 1
 bssCOMRAM COMRAM 1 56 56 2 1
 mediumconst MEDIUMCONST 0 57F0 57F0 810 1
-$/tmp/xcXQj5BdN.o
+$/tmp/xcXba8Uhh.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -138,7 +138,7 @@ MEDIUMCONST 2BD2-57EF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/free/production/ECG-TFT.X.production.o
-8 intcode CODE >17002:/tmp/xcXwLC0bE.s
+8 intcode CODE >16998:/tmp/xcXVJT4SY.s
 8 intcode CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
 2658 text60 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
 2658 text60 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
@@ -832,60 +832,60 @@ E8 text1 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 2B40 text0 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 2B44 text0 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 2B48 text0 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2446 cinit CODE >4393:/tmp/xcXwLC0bE.s
-2446 cinit CODE >4395:/tmp/xcXwLC0bE.s
-2446 cinit CODE >4398:/tmp/xcXwLC0bE.s
-2446 cinit CODE >4486:/tmp/xcXwLC0bE.s
-2448 cinit CODE >4487:/tmp/xcXwLC0bE.s
-244A cinit CODE >4488:/tmp/xcXwLC0bE.s
-244C cinit CODE >4489:/tmp/xcXwLC0bE.s
-244E cinit CODE >4490:/tmp/xcXwLC0bE.s
-2450 cinit CODE >4491:/tmp/xcXwLC0bE.s
-2452 cinit CODE >4492:/tmp/xcXwLC0bE.s
-2456 cinit CODE >4493:/tmp/xcXwLC0bE.s
-245A cinit CODE >4494:/tmp/xcXwLC0bE.s
-245A cinit CODE >4495:/tmp/xcXwLC0bE.s
-245C cinit CODE >4496:/tmp/xcXwLC0bE.s
-2460 cinit CODE >4497:/tmp/xcXwLC0bE.s
-2462 cinit CODE >4498:/tmp/xcXwLC0bE.s
-2464 cinit CODE >4499:/tmp/xcXwLC0bE.s
-2466 cinit CODE >4503:/tmp/xcXwLC0bE.s
-2468 cinit CODE >4504:/tmp/xcXwLC0bE.s
-246A cinit CODE >4505:/tmp/xcXwLC0bE.s
-246C cinit CODE >4506:/tmp/xcXwLC0bE.s
-246E cinit CODE >4507:/tmp/xcXwLC0bE.s
-2470 cinit CODE >4508:/tmp/xcXwLC0bE.s
-2472 cinit CODE >4509:/tmp/xcXwLC0bE.s
-2474 cinit CODE >4510:/tmp/xcXwLC0bE.s
-2478 cinit CODE >4511:/tmp/xcXwLC0bE.s
-247A cinit CODE >4512:/tmp/xcXwLC0bE.s
-247E cinit CODE >4516:/tmp/xcXwLC0bE.s
-2482 cinit CODE >4517:/tmp/xcXwLC0bE.s
-2484 cinit CODE >4518:/tmp/xcXwLC0bE.s
-2484 cinit CODE >4519:/tmp/xcXwLC0bE.s
-2486 cinit CODE >4520:/tmp/xcXwLC0bE.s
-2488 cinit CODE >4521:/tmp/xcXwLC0bE.s
-248A cinit CODE >4524:/tmp/xcXwLC0bE.s
-248E cinit CODE >4525:/tmp/xcXwLC0bE.s
-2490 cinit CODE >4526:/tmp/xcXwLC0bE.s
-2490 cinit CODE >4527:/tmp/xcXwLC0bE.s
-2492 cinit CODE >4528:/tmp/xcXwLC0bE.s
-2494 cinit CODE >4529:/tmp/xcXwLC0bE.s
-2496 cinit CODE >4532:/tmp/xcXwLC0bE.s
-249A cinit CODE >4533:/tmp/xcXwLC0bE.s
-249C cinit CODE >4534:/tmp/xcXwLC0bE.s
-249C cinit CODE >4535:/tmp/xcXwLC0bE.s
-249E cinit CODE >4536:/tmp/xcXwLC0bE.s
-24A0 cinit CODE >4537:/tmp/xcXwLC0bE.s
-24A2 cinit CODE >4540:/tmp/xcXwLC0bE.s
-24A4 cinit CODE >4541:/tmp/xcXwLC0bE.s
-24A6 cinit CODE >4547:/tmp/xcXwLC0bE.s
-24A6 cinit CODE >4549:/tmp/xcXwLC0bE.s
-24A8 cinit CODE >4550:/tmp/xcXwLC0bE.s
-24AA cinit CODE >4552:/tmp/xcXwLC0bE.s
-24AC cinit CODE >4553:/tmp/xcXwLC0bE.s
-24AE cinit CODE >4554:/tmp/xcXwLC0bE.s
-24B0 cinit CODE >4555:/tmp/xcXwLC0bE.s
+2446 cinit CODE >4393:/tmp/xcXVJT4SY.s
+2446 cinit CODE >4395:/tmp/xcXVJT4SY.s
+2446 cinit CODE >4398:/tmp/xcXVJT4SY.s
+2446 cinit CODE >4486:/tmp/xcXVJT4SY.s
+2448 cinit CODE >4487:/tmp/xcXVJT4SY.s
+244A cinit CODE >4488:/tmp/xcXVJT4SY.s
+244C cinit CODE >4489:/tmp/xcXVJT4SY.s
+244E cinit CODE >4490:/tmp/xcXVJT4SY.s
+2450 cinit CODE >4491:/tmp/xcXVJT4SY.s
+2452 cinit CODE >4492:/tmp/xcXVJT4SY.s
+2456 cinit CODE >4493:/tmp/xcXVJT4SY.s
+245A cinit CODE >4494:/tmp/xcXVJT4SY.s
+245A cinit CODE >4495:/tmp/xcXVJT4SY.s
+245C cinit CODE >4496:/tmp/xcXVJT4SY.s
+2460 cinit CODE >4497:/tmp/xcXVJT4SY.s
+2462 cinit CODE >4498:/tmp/xcXVJT4SY.s
+2464 cinit CODE >4499:/tmp/xcXVJT4SY.s
+2466 cinit CODE >4503:/tmp/xcXVJT4SY.s
+2468 cinit CODE >4504:/tmp/xcXVJT4SY.s
+246A cinit CODE >4505:/tmp/xcXVJT4SY.s
+246C cinit CODE >4506:/tmp/xcXVJT4SY.s
+246E cinit CODE >4507:/tmp/xcXVJT4SY.s
+2470 cinit CODE >4508:/tmp/xcXVJT4SY.s
+2472 cinit CODE >4509:/tmp/xcXVJT4SY.s
+2474 cinit CODE >4510:/tmp/xcXVJT4SY.s
+2478 cinit CODE >4511:/tmp/xcXVJT4SY.s
+247A cinit CODE >4512:/tmp/xcXVJT4SY.s
+247E cinit CODE >4516:/tmp/xcXVJT4SY.s
+2482 cinit CODE >4517:/tmp/xcXVJT4SY.s
+2484 cinit CODE >4518:/tmp/xcXVJT4SY.s
+2484 cinit CODE >4519:/tmp/xcXVJT4SY.s
+2486 cinit CODE >4520:/tmp/xcXVJT4SY.s
+2488 cinit CODE >4521:/tmp/xcXVJT4SY.s
+248A cinit CODE >4524:/tmp/xcXVJT4SY.s
+248E cinit CODE >4525:/tmp/xcXVJT4SY.s
+2490 cinit CODE >4526:/tmp/xcXVJT4SY.s
+2490 cinit CODE >4527:/tmp/xcXVJT4SY.s
+2492 cinit CODE >4528:/tmp/xcXVJT4SY.s
+2494 cinit CODE >4529:/tmp/xcXVJT4SY.s
+2496 cinit CODE >4532:/tmp/xcXVJT4SY.s
+249A cinit CODE >4533:/tmp/xcXVJT4SY.s
+249C cinit CODE >4534:/tmp/xcXVJT4SY.s
+249C cinit CODE >4535:/tmp/xcXVJT4SY.s
+249E cinit CODE >4536:/tmp/xcXVJT4SY.s
+24A0 cinit CODE >4537:/tmp/xcXVJT4SY.s
+24A2 cinit CODE >4540:/tmp/xcXVJT4SY.s
+24A4 cinit CODE >4541:/tmp/xcXVJT4SY.s
+24A6 cinit CODE >4547:/tmp/xcXVJT4SY.s
+24A6 cinit CODE >4549:/tmp/xcXVJT4SY.s
+24A8 cinit CODE >4550:/tmp/xcXVJT4SY.s
+24AA cinit CODE >4552:/tmp/xcXVJT4SY.s
+24AC cinit CODE >4553:/tmp/xcXVJT4SY.s
+24AE cinit CODE >4554:/tmp/xcXVJT4SY.s
+24B0 cinit CODE >4555:/tmp/xcXVJT4SY.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -916,7 +916,7 @@ strncmp@s1 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strncmp@s2 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateAutoDetect@zzzz 70 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/free/production/ECG-TFT.X.production.o
-__mediumconst 57F0 0 MEDIUMCONST 0 mediumconst /tmp/xcXQj5BdN.o
+__mediumconst 57F0 0 MEDIUMCONST 0 mediumconst /tmp/xcXba8Uhh.o
 A6_Command@command 18 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/free/production/ECG-TFT.X.production.o
 __end_of_TFT_DrawString 1E42 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
@@ -935,7 +935,7 @@ _RBPU 7F8F 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _RCIE 7CED 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _RCIF 7CF5 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _TXIF 7CF4 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcXQj5BdN.o
+___sp 0 0 STACK 2 stack /tmp/xcXba8Uhh.o
 _atoi 148A 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
 _atol 1102 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
 _init 23D4 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
@@ -948,7 +948,7 @@ _tmp4 1B1 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
 _tmp5 1AD 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
 abs@a 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 btemp 5A 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
-start E 0 CODE 0 init /tmp/xcXQj5BdN.o
+start E 0 CODE 0 init /tmp/xcXba8Uhh.o
 __size_of___awdiv 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_atoi 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_atol 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -981,11 +981,11 @@ __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
 _EUSART_RX 200 0 BANK2 1 bssBANK2 dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_BaudRateAutoDetect 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetRSSILevel@RSSI 41 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__accesstop 60 0 ABS 0 - /tmp/xcXQj5BdN.o
-intlevel0 0 0 CODE 0 text /tmp/xcXQj5BdN.o
-intlevel1 0 0 CODE 0 text /tmp/xcXQj5BdN.o
-intlevel2 0 0 CODE 0 text /tmp/xcXQj5BdN.o
-intlevel3 0 0 CODE 0 text /tmp/xcXQj5BdN.o
+__accesstop 60 0 ABS 0 - /tmp/xcXba8Uhh.o
+intlevel0 0 0 CODE 0 text /tmp/xcXba8Uhh.o
+intlevel1 0 0 CODE 0 text /tmp/xcXba8Uhh.o
+intlevel2 0 0 CODE 0 text /tmp/xcXba8Uhh.o
+intlevel3 0 0 CODE 0 text /tmp/xcXba8Uhh.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_USBDIV$2 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_IsAlive 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -1020,8 +1020,8 @@ A6_BaudRateSet@baudRate 70 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.
 _EUSART_BufferGetChar 2808 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
 ___awdiv@dividend 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_sleepMS 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-___inthi_sp 0 0 STACK 2 stack /tmp/xcXQj5BdN.o
-___intlo_sp 0 0 STACK 2 stack /tmp/xcXQj5BdN.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcXba8Uhh.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcXba8Uhh.o
 _TFT_SetAddrWindow 226C 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
 __end_of_A6_NetworkGetRSSI 1C50 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
@@ -1155,7 +1155,7 @@ __Htext9 0 0 ABS 0 text9 dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_Init 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/free/production/ECG-TFT.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/free/production/ECG-TFT.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXQj5BdN.o
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXba8Uhh.o
 _UCFGbits F6F 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __end_of_TFT_DrawPixel 29A4 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
 __end_of_sprintf BA4 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
@@ -1468,8 +1468,8 @@ TFT_DrawFillRect@x 1C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.pro
 TFT_DrawFillRect@y 1E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_CCP2MX$ON 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _TFT_Flood F80 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
-stackhi 7FF 0 ABS 0 - /tmp/xcXQj5BdN.o
-stacklo 282 0 ABS 0 - /tmp/xcXQj5BdN.o
+stackhi 7FF 0 ABS 0 - /tmp/xcXba8Uhh.o
+stacklo 282 0 ABS 0 - /tmp/xcXba8Uhh.o
 _TFT_Reset 2B74 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/free/production/ECG-TFT.X.production.o
 strspn@s1 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
@@ -1600,7 +1600,7 @@ __Ltext57 0 0 ABS 0 text57 dist/free/production/ECG-TFT.X.production.o
 __Ltext59 0 0 ABS 0 text59 dist/free/production/ECG-TFT.X.production.o
 __Ltext60 0 0 ABS 0 text60 dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetStatus@networkStatusToken 3F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__ramtop 800 0 RAM 0 ramtop /tmp/xcXQj5BdN.o
+__ramtop 800 0 RAM 0 ramtop /tmp/xcXba8Uhh.o
 _sprintf 678 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_SetAddrWindow 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 sleepMS@ms 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o

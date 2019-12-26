@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v2.10/pic/dat/en_msgs.txt -cs \
   -h+dist/free/production/ECG-TFT.X.production.sym \
   --cmf=dist/free/production/ECG-TFT.X.production.cmf -z -Q18F2455 \
-  -o/tmp/xcXSNeqLr --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xcXFv0EC8 --defsym=__MPLAB_BUILD=1 \
   -Mdist/free/production/ECG-TFT.X.production.map -E1 -ver=XC8 --acfsm=1493 \
   -ASTACK=0282h-07FFh -pstack=STACK -ACODE=00h-05FFFh -ACONST=00h-05FFFh \
   -ASMALLCONST=0800h-08FFhx88 -AMEDIUMCONST=0800h-05FFFh -ACOMRAM=01h-05Fh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXQj5BdN.o dist/free/production/ECG-TFT.X.production.o 
+  /tmp/xcXba8Uhh.o dist/free/production/ECG-TFT.X.production.o 
 
 Object code version is 3.11
 
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXQj5BdN.o
+/tmp/xcXba8Uhh.o
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -1465,8 +1465,7 @@ Total ram usage:       43 bytes
 		 -> A6_NetworkGetRSSI@response(32), A6_NetworkGetStatus@response(32), NULL(0), A6_BaudRateGet@response(32), 
   s2              2   19[COMRAM] PTR const unsigned char 
 		 -> STR_39(2), STR_38(2), A6_NetworkGetRSSI@response(32), STR_35(2), 
-		 -> STR_34(2), A6_NetworkGetStatus@response(32), STR_26(2), NULL(0), 
-		 -> A6_BaudRateGet@response(32), 
+		 -> STR_34(2), A6_NetworkGetStatus@response(32), STR_26(2), A6_BaudRateGet@response(32), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1503,8 +1502,7 @@ Total ram usage:        4 bytes
 		 -> A6_NetworkGetRSSI@response(32), A6_NetworkGetStatus@response(32), NULL(0), A6_BaudRateGet@response(32), 
   s2              2   12[COMRAM] PTR const unsigned char 
 		 -> STR_39(2), STR_38(2), A6_NetworkGetRSSI@response(32), STR_35(2), 
-		 -> STR_34(2), A6_NetworkGetStatus@response(32), STR_26(2), NULL(0), 
-		 -> A6_BaudRateGet@response(32), 
+		 -> STR_34(2), A6_NetworkGetStatus@response(32), STR_26(2), A6_BaudRateGet@response(32), 
  Auto vars:     Size  Location     Type
   i               2   15[COMRAM] unsigned int 
  Return value:  Size  Location     Type
@@ -1538,8 +1536,7 @@ Total ram usage:        7 bytes
 		 -> A6_NetworkGetRSSI@response(32), A6_NetworkGetStatus@response(32), NULL(0), A6_BaudRateGet@response(32), 
   s2              2   12[COMRAM] PTR const unsigned char 
 		 -> STR_39(2), STR_38(2), A6_NetworkGetRSSI@response(32), STR_35(2), 
-		 -> STR_34(2), A6_NetworkGetStatus@response(32), STR_26(2), NULL(0), 
-		 -> A6_BaudRateGet@response(32), 
+		 -> STR_34(2), A6_NetworkGetStatus@response(32), STR_26(2), A6_BaudRateGet@response(32), 
  Auto vars:     Size  Location     Type
   i               2   15[COMRAM] unsigned int 
  Return value:  Size  Location     Type

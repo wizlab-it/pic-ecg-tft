@@ -1,5 +1,5 @@
 /*
- * 20191226.033
+ * 20191226.034
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -142,7 +142,7 @@ uint8_t A6_NetworkGetStatus(void) {
         networkStatusToken = strtok(NULL, response);
         if(networkStatusToken != NULL) {
             networkStatusToken = strtok(networkStatusToken, ",");
-            networkStatusToken = strtok(NULL, networkStatusToken);
+            networkStatusToken = strtok(NULL, response);
             return atoi(networkStatusToken);
         }
     }

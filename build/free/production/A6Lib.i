@@ -5687,7 +5687,7 @@ networkStatusToken = strtok(response, " ");
 networkStatusToken = strtok((0), response);
 if(networkStatusToken != (0)) {
 networkStatusToken = strtok(networkStatusToken, ",");
-networkStatusToken = strtok((0), networkStatusToken);
+networkStatusToken = strtok((0), response);
 return atoi(networkStatusToken);
 }
 }

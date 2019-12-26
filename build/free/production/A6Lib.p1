@@ -5796,9 +5796,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;A6Lib.c: 144: networkStatusToken = strtok(networkStatusToken, ",");
 "144
 [e = _networkStatusToken ( _strtok (2 , _networkStatusToken :s 14C ]
-[; ;A6Lib.c: 145: networkStatusToken = strtok((0), networkStatusToken);
+[; ;A6Lib.c: 145: networkStatusToken = strtok((0), response);
 "145
-[e = _networkStatusToken ( _strtok (2 , -> -> 0 `i `*uc -> _networkStatusToken `*Cuc ]
+[e = _networkStatusToken ( _strtok (2 , -> -> 0 `i `*uc -> &U _response `*Cuc ]
 [; ;A6Lib.c: 146: return atoi(networkStatusToken);
 "146
 [e ) -> ( _atoi (1 -> _networkStatusToken `*Cuc `uc ]
