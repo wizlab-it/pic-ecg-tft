@@ -1,5 +1,5 @@
 /*
- * 20191225.013
+ * 20191226.024
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -10,8 +10,8 @@
 #include "A6Lib.h"
 
 void A6_Init(void) {
-    A6_SpeedAutoDetect();
-    sleepMS(2500);
+    A6_BaudRateAutoDetect();
+    sleepMS(1000);
 }
 
 uint8_t A6_IsAlive(void) {
@@ -19,7 +19,7 @@ uint8_t A6_IsAlive(void) {
 
     uint8_t loop = 3;
     while(loop--) {
-        A6_Command("AT\r", "aa", "bb", 0, response, 32);
+        A6_Command("AT\r", 0, response, 32);
         if(strcmp(response, "OK") == 0) {
             return 1;
         }
@@ -27,22 +27,22 @@ uint8_t A6_IsAlive(void) {
     return 0;
 }
 
-uint32_t A6_SpeedGet(void) {
-    uint32_t speed;
-    char *speedToken;
+uint32_t A6_BaudRateGet(void) {
+    uint32_t baudRate;
+    char *baudRateToken;
     char response[32];
 
     uint8_t loop = 5;
     while(loop--) {
-        A6_Command("AT+IPR?\r", "aa", "bb", 0, response, 32);
+        A6_Command("AT+IPR?\r", 0, response, 32);
         if(strstr(response, "+IPR: ") != NULL) {
-            speedToken = strtok(response, " ");
-            speedToken = strtok(NULL, response);
-            if(speedToken != NULL) {
-                speed = atol(speedToken);
+            baudRateToken = strtok(response, " ");
+            baudRateToken = strtok(NULL, response);
+            if(baudRateToken != NULL) {
+                baudRate = atol(baudRateToken);
                 for(uint8_t j=0; j<3; j++) {
-                    if(speed == A6_SPEEDS[j]) {
-                        return speed;
+                    if(baudRate == A6_BAUDRATES[j]) {
+                        return baudRate;
                     }
                 }
             }
@@ -53,86 +53,85 @@ uint32_t A6_SpeedGet(void) {
     return 0;
 }
 
-uint32_t A6_SpeedSet(const uint32_t speed) {
+uint32_t A6_BaudRateSet(const uint32_t baudRate) {
     char request[20];
     char response[32];
-    uint32_t currentSpeed = A6_SpeedGet();
+    uint32_t currentBaudRate = A6_BaudRateGet();
 
-    //If unable to detect current speed then exit
-    if(currentSpeed == 0) return 0;
+    //If unable to detect current baud rate then exit
+    if(currentBaudRate == 0) return 0;
 
     //Send IPR Command
-    sprintf(request, "AT+IPR=%lu\r", speed);
-    A6_Command(request, "aa", "bb", 0, response, 32);
-    printLine(request, _TFT_COLOR_GREEN);
-    printLine(response, _TFT_COLOR_GREEN);
+    sprintf(request, "AT+IPR=%lu\r", baudRate);
+    A6_Command(request, 0, response, 32);
+    sleepMS(250);
     if(strcmp(response, "OK") == 0) {
-        //Set new speed on EUSART
-        EUSART_SetSpeed(speed);
+        //Set new baud rate on EUSART
+        EUSART_BaudRateSet(baudRate);
         sleepMS(150);
         if(A6_IsAlive() == 1) {
-            return speed;
+            return baudRate;
         }
     }
 
-    //If here, new speed has not been set, restore EUSART original speed and return error
-    EUSART_SetSpeed(currentSpeed);
+    //If here, new baud rate has not been set, restore EUSART original baud rate and return error
+    EUSART_BaudRateSet(currentBaudRate);
     return 0;
 }
 
-uint32_t A6_SpeedAutoDetect(void) {
-    printLine("Detecting speed...", _TFT_COLOR_MAGENTA);
+uint32_t A6_BaudRateAutoDetect(void) {
+    printLine("Detecting baud rate...", _TFT_COLOR_MAGENTA);
 
     for(uint8_t i=0; i<3; i++) {
-        EUSART_SetSpeed(A6_SPEEDS[i]);
+        EUSART_BaudRateSet(A6_BAUDRATES[i]);
         if(A6_IsAlive() == 1) {
             char zzzz[32];
-            sprintf(zzzz, "%lu FOUND!", A6_SPEEDS[i]);
+            sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
             printLine(zzzz, _TFT_COLOR_RED);
-            return A6_SPEEDS[i];
+            return A6_BAUDRATES[i];
         }
-        sleepMS(250);
+        sleepMS(100);
     }
 
     return 0;
 }
 
-void A6_ReadLine(char *response, uint8_t responseLen, int timeout) {
-    uint8_t iLine = 0;
-
-    while(1) {
-        uint32_t t = MILLISECONDS + timeout;
-        while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-            if(t < MILLISECONDS) return;
-        }
-        EUSART_RX.iRead++;
-        if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
-        response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
-        iLine++;
-        if(iLine == responseLen) break;
-    }
-
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
+    EUSART_RX_Flush();
+    EUSART_TX_String(command, strlen(command));
+    A6_ReadLine(response, responseLen, timeout);
     return;
 }
 
-void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen) {
-    if(timeout == 0) timeout = A6_TIMEOUT_DEFAULT;
+uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout) {
+    char c;
     memset(response, 0x00, responseLen);
 
-    EUSART_RX.iRead = EUSART_RX.iWrite;
-    EUSART_TX_String(command, strlen(command));
-
     //Skip initial CRLF
+    while(1) {
+        c = EUSART_BufferGetChar(timeout);
+        if(c == NULL) return 0;
+        if((c != '\r') && (c != '\n')) break;
+    }
+
+    //Read real data
+    uint8_t iResponse = 0;
     do {
-        uint32_t t = MILLISECONDS + timeout;
-        while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-            if(t < MILLISECONDS) return;
-        }
-        EUSART_RX.iRead++;
-    } while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
+        if((c == '\r') || (c == NULL)) break;
+        response[iResponse] = c;
+        iResponse++;
+        if(iResponse == responseLen) break;
+    } while(c = EUSART_BufferGetChar(timeout));
 
-    //Get response
-    A6_ReadLine(response, responseLen, timeout);
+    return iResponse;
+}
 
-    return;
+void A6_Process_Random_Comms(void) {
+    if(EUSART_RX_AvailableData(-1) == 0) return;
+
+    char response[32];
+    uint8_t cnt = A6_ReadLine(response, 32, 0);
+    if(cnt == 0) return;
+    if(strcmp(response, "OK") == 0) return;
+    printLine(response, _TFT_COLOR_CYAN);
 }

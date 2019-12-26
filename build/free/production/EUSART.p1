@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"27 commons.h
-[s S327 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 64 `i `uc -> 32 `i ]
-[n S327 . processRX iRead iWrite zzzzzzzzz buffer line ]
+"18 EUSART.h
+[s S327 `uc 1 `uc 1 `uc -> 128 `i ]
+[n S327 . iRead iWrite buffer ]
 "4204 /opt/microchip/xc8/v2.10/pic/include/pic18f2455.h
 [s S170 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S170 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
@@ -77,8 +77,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OERR `Vb ~T0 @X0 0 e@32089 ]
 "7996
 [v _CREN `Vb ~T0 @X0 0 e@32092 ]
-"43 commons.h
-[v _printLine `(v ~T0 @X0 0 ef2`*Cuc`ui ]
+"2123
+[s S85 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S85 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 ]
+"2132
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . AN0 AN1 AN2 AN3 T0CKI AN4 OSC2 ]
+"2141
+[s S87 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . VREFM VREFP . LVDIN ]
+"2148
+[s S88 :5 `uc 1 :1 `uc 1 ]
+[n S88 . . HLVDIN ]
+"2152
+[s S89 :1 `uc 1 ]
+[n S89 . ULPWUIN ]
+"2122
+[u S84 `S85 1 `S86 1 `S87 1 `S88 1 `S89 1 ]
+[n S84 . . . . . . ]
+"2156
+[v _PORTAbits `VS84 ~T0 @X0 0 e@3968 ]
+"27 commons.h
+[v _MILLISECONDS `ul ~T0 @X0 0 e ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -5343,162 +5363,155 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TFT.h: 394: 0x00, 0x3C, 0x3C, 0x3C, 0x3C,
 [; ;TFT.h: 395: 0x00, 0x00, 0x00, 0x00, 0x00
 [; ;TFT.h: 396: };
-[; ;commons.h: 27: typedef struct {
-[; ;commons.h: 28: uint8_t processRX;
-[; ;commons.h: 29: uint8_t iRead;
-[; ;commons.h: 30: uint8_t iWrite;
-[; ;commons.h: 31: uint8_t zzzzzzzzz;
-[; ;commons.h: 32: char buffer[64];
-[; ;commons.h: 33: char line[32];
-[; ;commons.h: 34: } STRUCT_EUSART_RX;
-[; ;commons.h: 37: extern uint32_t MILLISECONDS;
-[; ;commons.h: 38: extern STRUCT_EUSART_RX EUSART_RX;
-[; ;commons.h: 41: extern void init(void);
-[; ;commons.h: 42: extern void sleepMS(uint32_t ms);
-[; ;commons.h: 43: extern void printLine(const char *str, uint16_t color);
-[; ;commons.h: 45: extern void Ecg_Init(void);
-[; ;commons.h: 46: extern void Ecg_Process(void);
-[; ;commons.h: 47: extern void Ecg_Interrupt(void);
-[; ;commons.h: 48: extern void EUSART_Init(void);
-[; ;commons.h: 49: extern void EUSART_SetSpeed(const uint32_t speed);
-[; ;commons.h: 50: extern void EUSART_TX_Char(uint8_t c);
-[; ;commons.h: 51: extern void EUSART_TX_String(const char *str, uint8_t len);
-[; ;commons.h: 52: extern void EUSART_RX_Interrupt(void);
-[; ;commons.h: 53: extern void EUSART_RX_Process(void);
-[; ;commons.h: 55: extern void A6_Init(void);
-[; ;commons.h: 56: extern uint8_t A6_IsAlive(void);
-[; ;commons.h: 57: extern uint32_t A6_SpeedAutoDetect(void);
-[; ;commons.h: 58: extern uint32_t A6_SpeedGet(void);
-[; ;commons.h: 59: extern uint32_t A6_SpeedSet(const uint32_t speed);
-[; ;commons.h: 60: extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
-[; ;commons.h: 61: extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
-"15 eusart.h
+"16 A6Lib.h
+[v _A6_BAUDRATES `Cul ~T0 @X0 -> 0 `x e ]
+[i _A6_BAUDRATES
+:U ..
+-> -> -> 9600 `i `l `ul
+-> -> 57600 `l `ul
+-> -> 115200 `l `ul
+..
+]
+[; ;A6Lib.h: 16: const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+[; ;A6Lib.h: 18: void A6_Init(void);
+[; ;A6Lib.h: 19: uint8_t A6_IsAlive(void);
+[; ;A6Lib.h: 20: uint32_t A6_BaudRateAutoDetect(void);
+[; ;A6Lib.h: 21: uint32_t A6_BaudRateGet(void);
+[; ;A6Lib.h: 22: uint32_t A6_BaudRateSet(const uint32_t baudRate);
+[; ;A6Lib.h: 23: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+[; ;A6Lib.h: 24: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+[; ;A6Lib.h: 25: void A6_Process_Random_Comms(void);
+[; ;commons.h: 27: extern uint32_t MILLISECONDS;
+[; ;commons.h: 30: extern void init(void);
+[; ;commons.h: 31: extern void sleepMS(uint32_t ms);
+[; ;commons.h: 32: extern void printLine(const char *str, uint16_t color);
+[; ;commons.h: 34: extern void Ecg_Init(void);
+[; ;commons.h: 35: extern void Ecg_Process(void);
+[; ;commons.h: 36: extern void Ecg_Interrupt(void);
+"22 EUSART.h
 [v _EUSART_RX `S327 ~T0 @X0 1 e ]
-[; ;eusart.h: 15: STRUCT_EUSART_RX EUSART_RX;
-[; ;eusart.h: 17: void EUSART_Init(void);
-[; ;eusart.h: 18: void EUSART_SetSpeed(const uint32_t speed);
-[; ;eusart.h: 19: void EUSART_TX_Char(uint8_t c);
-[; ;eusart.h: 20: void EUSART_TX_String(const char *str, uint8_t len);
-[; ;eusart.h: 21: void EUSART_RX_Interrupt(void);
-[; ;eusart.h: 22: void EUSART_RX_Process(void);
-"12 eusart.c
+[; ;EUSART.h: 18: struct {
+[; ;EUSART.h: 19: uint8_t iRead;
+[; ;EUSART.h: 20: uint8_t iWrite;
+[; ;EUSART.h: 21: char buffer[128];
+[; ;EUSART.h: 22: } EUSART_RX;
+[; ;EUSART.h: 24: void EUSART_Init(void);
+[; ;EUSART.h: 25: void EUSART_BaudRateSet(const uint32_t baudRate);
+[; ;EUSART.h: 26: void EUSART_TX_Char(uint8_t c);
+[; ;EUSART.h: 27: void EUSART_TX_String(const char *str, uint8_t len);
+[; ;EUSART.h: 28: void EUSART_RX_Interrupt(void);
+[; ;EUSART.h: 29: uint8_t EUSART_RX_AvailableData(int16_t timeout);
+[; ;EUSART.h: 30: void EUSART_RX_Flush(void);
+[; ;EUSART.h: 31: char EUSART_BufferGetChar(int16_t timeout);
+"12 EUSART.c
 [v _EUSART_Init `(v ~T0 @X0 1 ef ]
 {
-[; ;eusart.c: 12: void EUSART_Init(void) {
+[; ;EUSART.c: 12: void EUSART_Init(void) {
 [e :U _EUSART_Init ]
 [f ]
-[; ;eusart.c: 14: TXSTAbits.TX9 = 0;
+[; ;EUSART.c: 14: TXSTAbits.TX9 = 0;
 "14
 [e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;eusart.c: 15: TXSTAbits.TXEN = 1;
+[; ;EUSART.c: 15: TXSTAbits.TXEN = 1;
 "15
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;eusart.c: 16: TXSTAbits.SYNC = 0;
+[; ;EUSART.c: 16: TXSTAbits.SYNC = 0;
 "16
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;eusart.c: 17: TXSTAbits.SENDB = 0;
+[; ;EUSART.c: 17: TXSTAbits.SENDB = 0;
 "17
 [e = . . _TXSTAbits 0 3 -> -> 0 `i `uc ]
-[; ;eusart.c: 18: TXSTAbits.BRGH = 1;
+[; ;EUSART.c: 18: TXSTAbits.BRGH = 1;
 "18
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-[; ;eusart.c: 21: RCSTAbits.SPEN = 1;
+[; ;EUSART.c: 21: RCSTAbits.SPEN = 1;
 "21
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;eusart.c: 22: RCSTAbits.RX9 = 0;
+[; ;EUSART.c: 22: RCSTAbits.RX9 = 0;
 "22
 [e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;eusart.c: 23: RCSTAbits.CREN = 1;
+[; ;EUSART.c: 23: RCSTAbits.CREN = 1;
 "23
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;eusart.c: 26: BAUDCONbits.BRG16 = 1;
+[; ;EUSART.c: 26: BAUDCONbits.BRG16 = 1;
 "26
 [e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
-[; ;eusart.c: 27: BAUDCONbits.WUE = 0;
+[; ;EUSART.c: 27: BAUDCONbits.WUE = 0;
 "27
 [e = . . _BAUDCONbits 0 1 -> -> 0 `i `uc ]
-[; ;eusart.c: 28: BAUDCONbits.ABDEN = 0;
+[; ;EUSART.c: 28: BAUDCONbits.ABDEN = 0;
 "28
 [e = . . _BAUDCONbits 0 0 -> -> 0 `i `uc ]
-[; ;eusart.c: 29: SPBRGH = 0x04;
+[; ;EUSART.c: 29: SPBRGH = 0x04;
 "29
 [e = _SPBRGH -> -> 4 `i `uc ]
-[; ;eusart.c: 30: SPBRG = 0xE1;
+[; ;EUSART.c: 30: SPBRG = 0xE1;
 "30
 [e = _SPBRG -> -> 225 `i `uc ]
-[; ;eusart.c: 33: RCIE = 1;
+[; ;EUSART.c: 33: RCIE = 1;
 "33
 [e = _RCIE -> -> 1 `i `b ]
-[; ;eusart.c: 36: EUSART_RX.iRead = 0;
+[; ;EUSART.c: 36: EUSART_RX.iRead = 0;
 "36
-[e = . _EUSART_RX 1 -> -> 0 `i `uc ]
-[; ;eusart.c: 37: EUSART_RX.iWrite = 0;
-"37
-[e = . _EUSART_RX 2 -> -> 0 `i `uc ]
-[; ;eusart.c: 38: EUSART_RX.processRX = 0;
-"38
 [e = . _EUSART_RX 0 -> -> 0 `i `uc ]
-[; ;eusart.c: 39: EUSART_RX.zzzzzzzzz = 1;
+[; ;EUSART.c: 37: EUSART_RX.iWrite = 0;
+"37
+[e = . _EUSART_RX 1 -> -> 0 `i `uc ]
+[; ;EUSART.c: 38: memset(EUSART_RX.buffer, 0x00, 128);
+"38
+[e ( _memset (3 , , -> &U . _EUSART_RX 2 `*v -> 0 `i -> -> 128 `i `ui ]
+[; ;EUSART.c: 39: }
 "39
-[e = . _EUSART_RX 3 -> -> 1 `i `uc ]
-[; ;eusart.c: 40: memset(EUSART_RX.buffer, 0x00, 64);
-"40
-[e ( _memset (3 , , -> &U . _EUSART_RX 4 `*v -> 0 `i -> -> 64 `i `ui ]
-[; ;eusart.c: 41: memset(EUSART_RX.line, 0x00, 32);
-"41
-[e ( _memset (3 , , -> &U . _EUSART_RX 5 `*v -> 0 `i -> -> 32 `i `ui ]
-[; ;eusart.c: 42: }
-"42
 [e :UE 328 ]
 }
-"44
-[v _EUSART_SetSpeed `(v ~T0 @X0 1 ef1`Cul ]
+"41
+[v _EUSART_BaudRateSet `(v ~T0 @X0 1 ef1`Cul ]
 {
-[; ;eusart.c: 44: void EUSART_SetSpeed(const uint32_t speed) {
-[e :U _EUSART_SetSpeed ]
-[v _speed `Cul ~T0 @X0 1 r1 ]
+[; ;EUSART.c: 41: void EUSART_BaudRateSet(const uint32_t baudRate) {
+[e :U _EUSART_BaudRateSet ]
+[v _baudRate `Cul ~T0 @X0 1 r1 ]
 [f ]
-[; ;eusart.c: 45: TXSTAbits.SYNC = 0;
-"45
+[; ;EUSART.c: 42: TXSTAbits.SYNC = 0;
+"42
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;eusart.c: 46: TXSTAbits.BRGH = 1;
-"46
+[; ;EUSART.c: 43: TXSTAbits.BRGH = 1;
+"43
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-[; ;eusart.c: 47: BAUDCONbits.BRG16 = 1;
-"47
+[; ;EUSART.c: 44: BAUDCONbits.BRG16 = 1;
+"44
 [e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
-"49
+"46
 [v _tmp `ul ~T0 @X0 1 a ]
-[; ;eusart.c: 49: uint32_t tmp = (48000000 / speed);
-[e = _tmp / -> -> 48000000 `l `ul _speed ]
-[; ;eusart.c: 50: tmp = tmp / 4;
-"50
+[; ;EUSART.c: 46: uint32_t tmp = (48000000 / baudRate);
+[e = _tmp / -> -> 48000000 `l `ul _baudRate ]
+[; ;EUSART.c: 47: tmp = tmp / 4;
+"47
 [e = _tmp / _tmp -> -> -> 4 `i `l `ul ]
-[; ;eusart.c: 51: tmp--;
-"51
+[; ;EUSART.c: 48: tmp--;
+"48
 [e -- _tmp -> -> -> 1 `i `l `ul ]
-[; ;eusart.c: 53: SPBRG = (uint8_t) tmp;
-"53
+[; ;EUSART.c: 50: SPBRG = (uint8_t) tmp;
+"50
 [e = _SPBRG -> _tmp `uc ]
-[; ;eusart.c: 54: SPBRGH = (uint8_t) (tmp >> 8);
-"54
+[; ;EUSART.c: 51: SPBRGH = (uint8_t) (tmp >> 8);
+"51
 [e = _SPBRGH -> >> _tmp -> 8 `i `uc ]
-[; ;eusart.c: 56: return;
-"56
+[; ;EUSART.c: 53: return;
+"53
 [e $UE 329  ]
-[; ;eusart.c: 57: }
-"57
+[; ;EUSART.c: 54: }
+"54
 [e :UE 329 ]
 }
-"59
+"56
 [v _EUSART_TX_Char `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;eusart.c: 59: void EUSART_TX_Char(uint8_t c) {
+[; ;EUSART.c: 56: void EUSART_TX_Char(uint8_t c) {
 [e :U _EUSART_TX_Char ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;eusart.c: 60: while(TXIF == 0) { }
-"60
+[; ;EUSART.c: 57: while(TXIF == 0) { }
+"57
 [e $U 331  ]
 [e :U 332 ]
 {
@@ -5506,146 +5519,169 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 331 ]
 [e $ == -> _TXIF `i -> 0 `i 332  ]
 [e :U 333 ]
-[; ;eusart.c: 61: TXREG = c;
-"61
+[; ;EUSART.c: 58: TXREG = c;
+"58
 [e = _TXREG _c ]
-[; ;eusart.c: 62: asm("nop");
-"62
+[; ;EUSART.c: 59: asm("nop");
+"59
 [; <" nop ;# ">
-[; ;eusart.c: 63: }
-"63
+[; ;EUSART.c: 60: }
+"60
 [e :UE 330 ]
 }
-"65
+"62
 [v _EUSART_TX_String `(v ~T0 @X0 1 ef2`*Cuc`uc ]
 {
-[; ;eusart.c: 65: void EUSART_TX_String(const char *str, uint8_t len) {
+[; ;EUSART.c: 62: void EUSART_TX_String(const char *str, uint8_t len) {
 [e :U _EUSART_TX_String ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [v _len `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;eusart.c: 66: while(len--) {
-"66
+[; ;EUSART.c: 63: while(len--) {
+"63
 [e $U 335  ]
 [e :U 336 ]
 {
-[; ;eusart.c: 67: EUSART_TX_Char(*str++);
-"67
+[; ;EUSART.c: 64: EUSART_TX_Char(*str++);
+"64
 [e ( _EUSART_TX_Char (1 *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"68
+"65
 }
 [e :U 335 ]
-"66
+"63
 [e $ != -> -- _len -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 336  ]
 [e :U 337 ]
-[; ;eusart.c: 68: }
-[; ;eusart.c: 69: }
-"69
+[; ;EUSART.c: 65: }
+[; ;EUSART.c: 66: }
+"66
 [e :UE 334 ]
 }
-"71
+"68
 [v _EUSART_RX_Interrupt `(v ~T0 @X0 1 ef ]
 {
-[; ;eusart.c: 71: void EUSART_RX_Interrupt(void) {
+[; ;EUSART.c: 68: void EUSART_RX_Interrupt(void) {
 [e :U _EUSART_RX_Interrupt ]
 [f ]
-"72
+"69
 [v _c `uc ~T0 @X0 1 a ]
-[; ;eusart.c: 72: uint8_t c = RCREG;
+[; ;EUSART.c: 69: uint8_t c = RCREG;
 [e = _c _RCREG ]
-[; ;eusart.c: 73: if(OERR == 1) {
-"73
+[; ;EUSART.c: 70: if(OERR == 1) {
+"70
 [e $ ! == -> _OERR `i -> 1 `i 339  ]
 {
-[; ;eusart.c: 74: CREN = 0;
-"74
+[; ;EUSART.c: 71: CREN = 0;
+"71
 [e = _CREN -> -> 0 `i `b ]
-[; ;eusart.c: 75: CREN = 1;
-"75
+[; ;EUSART.c: 72: CREN = 1;
+"72
 [e = _CREN -> -> 1 `i `b ]
-"76
+[; ;EUSART.c: 73: PORTAbits.RA2 = !PORTAbits.RA2;
+"73
+[e = . . _PORTAbits 0 2 -> -> ! != -> . . _PORTAbits 0 2 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+"74
 }
 [e :U 339 ]
-[; ;eusart.c: 76: }
-[; ;eusart.c: 77: EUSART_RX.iWrite++;
+[; ;EUSART.c: 74: }
+[; ;EUSART.c: 76: EUSART_RX.iWrite++;
+"76
+[e ++ . _EUSART_RX 1 -> -> 1 `i `uc ]
+[; ;EUSART.c: 77: if(EUSART_RX.iWrite == 128) EUSART_RX.iWrite = 0;
 "77
-[e ++ . _EUSART_RX 2 -> -> 1 `i `uc ]
-[; ;eusart.c: 78: if(EUSART_RX.iWrite == 64) EUSART_RX.iWrite = 0;
-"78
-[e $ ! == -> . _EUSART_RX 2 `i -> 64 `i 340  ]
-[e = . _EUSART_RX 2 -> -> 0 `i `uc ]
+[e $ ! == -> . _EUSART_RX 1 `i -> 128 `i 340  ]
+[e = . _EUSART_RX 1 -> -> 0 `i `uc ]
 [e :U 340 ]
-[; ;eusart.c: 79: EUSART_RX.buffer[EUSART_RX.iWrite] = c;
+[; ;EUSART.c: 78: EUSART_RX.buffer[EUSART_RX.iWrite] = c;
+"78
+[e = *U + &U . _EUSART_RX 2 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 2 `ui `ux _c ]
+[; ;EUSART.c: 79: return;
 "79
-[e = *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 2 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux _c ]
-[; ;eusart.c: 80: return;
-"80
 [e $UE 338  ]
-[; ;eusart.c: 81: }
-"81
+[; ;EUSART.c: 80: }
+"80
 [e :UE 338 ]
 }
-"83
-[v _EUSART_RX_Process `(v ~T0 @X0 1 ef ]
+"82
+[v _EUSART_RX_Flush `(v ~T0 @X0 1 ef ]
 {
-[; ;eusart.c: 83: void EUSART_RX_Process(void) {
-[e :U _EUSART_RX_Process ]
+[; ;EUSART.c: 82: void EUSART_RX_Flush(void) {
+[e :U _EUSART_RX_Flush ]
 [f ]
-[; ;eusart.c: 85: if(EUSART_RX.processRX == 0) return;
-"85
-[e $ ! == -> . _EUSART_RX 0 `i -> 0 `i 342  ]
-[e $UE 341  ]
-[e :U 342 ]
-[; ;eusart.c: 86: EUSART_RX.processRX--;
-"86
-[e -- . _EUSART_RX 0 -> -> 1 `i `uc ]
-[; ;eusart.c: 89: EUSART_RX.zzzzzzzzz += 8;
-"89
-[e =+ . _EUSART_RX 3 -> -> 8 `i `uc ]
-[; ;eusart.c: 90: for(uint8_t iLine=0; iLine<32; iLine++) {
-"90
-{
-[v _iLine `uc ~T0 @X0 1 a ]
-[e = _iLine -> -> 0 `i `uc ]
-[e $ < -> _iLine `i -> 32 `i 343  ]
-[e $U 344  ]
-[e :U 343 ]
-{
-[; ;eusart.c: 91: EUSART_RX.line[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
-"91
-[e = *U + &U . _EUSART_RX 5 * -> _iLine `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux *U + &U . _EUSART_RX 4 * -> . _EUSART_RX 1 `ux -> -> # *U &U . _EUSART_RX 4 `ui `ux ]
-[; ;eusart.c: 92: EUSART_RX.iRead++;
-"92
-[e ++ . _EUSART_RX 1 -> -> 1 `i `uc ]
-[; ;eusart.c: 93: if(EUSART_RX.iRead == 64) EUSART_RX.iRead = 0;
-"93
-[e $ ! == -> . _EUSART_RX 1 `i -> 64 `i 346  ]
-[e = . _EUSART_RX 1 -> -> 0 `i `uc ]
-[e :U 346 ]
-[; ;eusart.c: 94: if(EUSART_RX.line[iLine] == 0x00) break;
-"94
-[e $ ! == -> *U + &U . _EUSART_RX 5 * -> _iLine `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux `i -> 0 `i 347  ]
-[e $U 344  ]
-[e :U 347 ]
-"95
-}
-"90
-[e ++ _iLine -> -> 1 `i `uc ]
-[e $ < -> _iLine `i -> 32 `i 343  ]
-[e :U 344 ]
-"95
-}
-[; ;eusart.c: 95: }
-[; ;eusart.c: 96: EUSART_RX.line[32 - 1] = 0x00;
-"96
-[e = *U + &U . _EUSART_RX 5 * -> -> - -> 32 `i -> 1 `i `ui `ux -> -> # *U &U . _EUSART_RX 5 `ui `ux -> -> 0 `i `uc ]
-[; ;eusart.c: 98: printLine(EUSART_RX.line, 0xFFFF);
-"98
-[e ( _printLine (2 , -> &U . _EUSART_RX 5 `*Cuc -> 65535 `ui ]
-[; ;eusart.c: 100: return;
-"100
-[e $UE 341  ]
-[; ;eusart.c: 101: }
-"101
+[; ;EUSART.c: 83: EUSART_RX.iRead = EUSART_RX.iWrite;
+"83
+[e = . _EUSART_RX 0 . _EUSART_RX 1 ]
+[; ;EUSART.c: 84: }
+"84
 [e :UE 341 ]
+}
+"86
+[v _EUSART_RX_AvailableData `(uc ~T0 @X0 1 ef1`i ]
+{
+[; ;EUSART.c: 86: uint8_t EUSART_RX_AvailableData(int16_t timeout) {
+[e :U _EUSART_RX_AvailableData ]
+[v _timeout `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;EUSART.c: 87: if(timeout == 0) timeout = 1000;
+"87
+[e $ ! == _timeout -> 0 `i 343  ]
+[e = _timeout -> 1000 `i ]
+[e :U 343 ]
+"88
+[v _t `ul ~T0 @X0 1 a ]
+[; ;EUSART.c: 88: uint32_t t = MILLISECONDS + timeout;
+[e = _t + _MILLISECONDS -> -> _timeout `l `ul ]
+[; ;EUSART.c: 89: while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+"89
+[e $U 344  ]
+[e :U 345 ]
+{
+[; ;EUSART.c: 90: if(t < MILLISECONDS) return 0;
+"90
+[e $ ! < _t _MILLISECONDS 347  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 342  ]
+[e :U 347 ]
+"91
+}
+[e :U 344 ]
+"89
+[e $ == -> . _EUSART_RX 0 `i -> . _EUSART_RX 1 `i 345  ]
+[e :U 346 ]
+[; ;EUSART.c: 91: }
+[; ;EUSART.c: 92: return 1;
+"92
+[e ) -> -> 1 `i `uc ]
+[e $UE 342  ]
+[; ;EUSART.c: 93: }
+"93
+[e :UE 342 ]
+}
+"95
+[v _EUSART_BufferGetChar `(uc ~T0 @X0 1 ef1`i ]
+{
+[; ;EUSART.c: 95: char EUSART_BufferGetChar(int16_t timeout) {
+[e :U _EUSART_BufferGetChar ]
+[v _timeout `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;EUSART.c: 96: if(EUSART_RX_AvailableData(timeout) == 0) return (0);
+"96
+[e $ ! == -> ( _EUSART_RX_AvailableData (1 _timeout `i -> 0 `i 349  ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 348  ]
+[e :U 349 ]
+[; ;EUSART.c: 97: EUSART_RX.iRead++;
+"97
+[e ++ . _EUSART_RX 0 -> -> 1 `i `uc ]
+[; ;EUSART.c: 98: if(EUSART_RX.iRead == 128) EUSART_RX.iRead = 0;
+"98
+[e $ ! == -> . _EUSART_RX 0 `i -> 128 `i 350  ]
+[e = . _EUSART_RX 0 -> -> 0 `i `uc ]
+[e :U 350 ]
+[; ;EUSART.c: 99: return EUSART_RX.buffer[EUSART_RX.iRead];
+"99
+[e ) *U + &U . _EUSART_RX 2 * -> . _EUSART_RX 0 `ux -> -> # *U &U . _EUSART_RX 2 `ui `ux ]
+[e $UE 348  ]
+[; ;EUSART.c: 100: }
+"100
+[e :UE 348 ]
 }

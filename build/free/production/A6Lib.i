@@ -5509,19 +5509,24 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 27 "commons.h"
-typedef struct {
-uint8_t processRX;
+# 18 "EUSART.h"
+struct {
 uint8_t iRead;
 uint8_t iWrite;
-uint8_t zzzzzzzzz;
-char buffer[64];
-char line[32];
-} STRUCT_EUSART_RX;
+char buffer[128];
+} EUSART_RX;
 
+void EUSART_Init(void);
+void EUSART_BaudRateSet(const uint32_t baudRate);
+void EUSART_TX_Char(uint8_t c);
+void EUSART_TX_String(const char *str, uint8_t len);
+void EUSART_RX_Interrupt(void);
+uint8_t EUSART_RX_AvailableData(int16_t timeout);
+void EUSART_RX_Flush(void);
+char EUSART_BufferGetChar(int16_t timeout);
 
+# 27 "commons.h"
 extern uint32_t MILLISECONDS;
-extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5531,36 +5536,23 @@ extern void printLine(const char *str, uint16_t color);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
-extern void EUSART_Init(void);
-extern void EUSART_SetSpeed(const uint32_t speed);
-extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(const char *str, uint8_t len);
-extern void EUSART_RX_Interrupt(void);
-extern void EUSART_RX_Process(void);
 
-extern void A6_Init(void);
-extern uint8_t A6_IsAlive(void);
-extern uint32_t A6_SpeedAutoDetect(void);
-extern uint32_t A6_SpeedGet(void);
-extern uint32_t A6_SpeedSet(const uint32_t speed);
-extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
-
-# 18 "A6Lib.h"
-const uint32_t A6_SPEEDS[] = { 9600, 57600, 115200 };
+# 16 "A6Lib.h"
+const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 
 void A6_Init(void);
 uint8_t A6_IsAlive(void);
-uint32_t A6_SpeedAutoDetect(void);
-uint32_t A6_SpeedGet(void);
-uint32_t A6_SpeedSet(const uint32_t speed);
-void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
-void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
+uint32_t A6_BaudRateAutoDetect(void);
+uint32_t A6_BaudRateGet(void);
+uint32_t A6_BaudRateSet(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+void A6_Process_Random_Comms(void);
 
 # 12 "A6Lib.c"
 void A6_Init(void) {
-A6_SpeedAutoDetect();
-sleepMS(2500);
+A6_BaudRateAutoDetect();
+sleepMS(1000);
 }
 
 uint8_t A6_IsAlive(void) {
@@ -5568,7 +5560,7 @@ char response[32];
 
 uint8_t loop = 3;
 while(loop--) {
-A6_Command("AT\r", "aa", "bb", 0, response, 32);
+A6_Command("AT\r", 0, response, 32);
 if(strcmp(response, "OK") == 0) {
 return 1;
 }
@@ -5576,22 +5568,22 @@ return 1;
 return 0;
 }
 
-uint32_t A6_SpeedGet(void) {
-uint32_t speed;
-char *speedToken;
+uint32_t A6_BaudRateGet(void) {
+uint32_t baudRate;
+char *baudRateToken;
 char response[32];
 
 uint8_t loop = 5;
 while(loop--) {
-A6_Command("AT+IPR?\r", "aa", "bb", 0, response, 32);
+A6_Command("AT+IPR?\r", 0, response, 32);
 if(strstr(response, "+IPR: ") != (0)) {
-speedToken = strtok(response, " ");
-speedToken = strtok((0), response);
-if(speedToken != (0)) {
-speed = atol(speedToken);
+baudRateToken = strtok(response, " ");
+baudRateToken = strtok((0), response);
+if(baudRateToken != (0)) {
+baudRate = atol(baudRateToken);
 for(uint8_t j=0; j<3; j++) {
-if(speed == A6_SPEEDS[j]) {
-return speed;
+if(baudRate == A6_BAUDRATES[j]) {
+return baudRate;
 }
 }
 }
@@ -5602,86 +5594,85 @@ sleepMS(250);
 return 0;
 }
 
-uint32_t A6_SpeedSet(const uint32_t speed) {
+uint32_t A6_BaudRateSet(const uint32_t baudRate) {
 char request[20];
 char response[32];
-uint32_t currentSpeed = A6_SpeedGet();
+uint32_t currentBaudRate = A6_BaudRateGet();
 
 
-if(currentSpeed == 0) return 0;
+if(currentBaudRate == 0) return 0;
 
 
-sprintf(request, "AT+IPR=%lu\r", speed);
-A6_Command(request, "aa", "bb", 0, response, 32);
-printLine(request, 0x07E0);
-printLine(response, 0x07E0);
+sprintf(request, "AT+IPR=%lu\r", baudRate);
+A6_Command(request, 0, response, 32);
+sleepMS(250);
 if(strcmp(response, "OK") == 0) {
 
-EUSART_SetSpeed(speed);
+EUSART_BaudRateSet(baudRate);
 sleepMS(150);
 if(A6_IsAlive() == 1) {
-return speed;
+return baudRate;
 }
 }
 
 
-EUSART_SetSpeed(currentSpeed);
+EUSART_BaudRateSet(currentBaudRate);
 return 0;
 }
 
-uint32_t A6_SpeedAutoDetect(void) {
-printLine("Detecting speed...", 0xF81F);
+uint32_t A6_BaudRateAutoDetect(void) {
+printLine("Detecting baud rate...", 0xF81F);
 
 for(uint8_t i=0; i<3; i++) {
-EUSART_SetSpeed(A6_SPEEDS[i]);
+EUSART_BaudRateSet(A6_BAUDRATES[i]);
 if(A6_IsAlive() == 1) {
 char zzzz[32];
-sprintf(zzzz, "%lu FOUND!", A6_SPEEDS[i]);
+sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
 printLine(zzzz, 0xF800);
-return A6_SPEEDS[i];
+return A6_BAUDRATES[i];
 }
-sleepMS(250);
+sleepMS(100);
 }
 
 return 0;
 }
 
-void A6_ReadLine(char *response, uint8_t responseLen, int timeout) {
-uint8_t iLine = 0;
-
-while(1) {
-uint32_t t = MILLISECONDS + timeout;
-while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-if(t < MILLISECONDS) return;
-}
-EUSART_RX.iRead++;
-if(EUSART_RX.buffer[EUSART_RX.iRead] == '\r') break;
-response[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
-iLine++;
-if(iLine == responseLen) break;
-}
-
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
+EUSART_RX_Flush();
+EUSART_TX_String(command, strlen(command));
+A6_ReadLine(response, responseLen, timeout);
 return;
 }
 
-void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen) {
-if(timeout == 0) timeout = 1000;
+uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout) {
+char c;
 memset(response, 0x00, responseLen);
 
-EUSART_RX.iRead = EUSART_RX.iWrite;
-EUSART_TX_String(command, strlen(command));
 
-
-do {
-uint32_t t = MILLISECONDS + timeout;
-while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-if(t < MILLISECONDS) return;
+while(1) {
+c = EUSART_BufferGetChar(timeout);
+if(c == (0)) return 0;
+if((c != '\r') && (c != '\n')) break;
 }
-EUSART_RX.iRead++;
-} while(EUSART_RX.buffer[EUSART_RX.iRead] != '\n');
 
 
-A6_ReadLine(response, responseLen, timeout);
+uint8_t iResponse = 0;
+do {
+if((c == '\r') || (c == (0))) break;
+response[iResponse] = c;
+iResponse++;
+if(iResponse == responseLen) break;
+} while(c = EUSART_BufferGetChar(timeout));
 
-return;
+return iResponse;
+}
+
+void A6_Process_Random_Comms(void) {
+if(EUSART_RX_AvailableData(-1) == 0) return;
+
+char response[32];
+uint8_t cnt = A6_ReadLine(response, 32, 0);
+if(cnt == 0) return;
+if(strcmp(response, "OK") == 0) return;
+printLine(response, 0x07FF);
 }

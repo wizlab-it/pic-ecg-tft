@@ -5509,19 +5509,36 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 27 "commons.h"
-typedef struct {
-uint8_t processRX;
+# 16 "A6Lib.h"
+const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+
+void A6_Init(void);
+uint8_t A6_IsAlive(void);
+uint32_t A6_BaudRateAutoDetect(void);
+uint32_t A6_BaudRateGet(void);
+uint32_t A6_BaudRateSet(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+void A6_Process_Random_Comms(void);
+
+# 18 "EUSART.h"
+struct {
 uint8_t iRead;
 uint8_t iWrite;
-uint8_t zzzzzzzzz;
-char buffer[64];
-char line[32];
-} STRUCT_EUSART_RX;
+char buffer[128];
+} EUSART_RX;
 
+void EUSART_Init(void);
+void EUSART_BaudRateSet(const uint32_t baudRate);
+void EUSART_TX_Char(uint8_t c);
+void EUSART_TX_String(const char *str, uint8_t len);
+void EUSART_RX_Interrupt(void);
+uint8_t EUSART_RX_AvailableData(int16_t timeout);
+void EUSART_RX_Flush(void);
+char EUSART_BufferGetChar(int16_t timeout);
 
+# 27 "commons.h"
 extern uint32_t MILLISECONDS;
-extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5531,20 +5548,6 @@ extern void printLine(const char *str, uint16_t color);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
-extern void EUSART_Init(void);
-extern void EUSART_SetSpeed(const uint32_t speed);
-extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(const char *str, uint8_t len);
-extern void EUSART_RX_Interrupt(void);
-extern void EUSART_RX_Process(void);
-
-extern void A6_Init(void);
-extern uint8_t A6_IsAlive(void);
-extern uint32_t A6_SpeedAutoDetect(void);
-extern uint32_t A6_SpeedGet(void);
-extern uint32_t A6_SpeedSet(const uint32_t speed);
-extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
 
 # 30 "ecg.h"
 struct {

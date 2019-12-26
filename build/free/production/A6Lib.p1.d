@@ -3,4 +3,5 @@
  A6Lib.c  \
 A6Lib.h  \
 TFT.h  \
+EUSART.h  \
 commons.h 

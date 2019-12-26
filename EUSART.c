@@ -1,5 +1,5 @@
 /*
- * 20191224.019
+ * 20191226.027
  * ECG-TFT
  *
  * File: eusart.c
@@ -7,7 +7,7 @@
  * Author: wizlab.it
  */
 
-#include "eusart.h"
+#include "EUSART.h"
 
 void EUSART_Init(void) {
     //TX Register
@@ -15,7 +15,7 @@ void EUSART_Init(void) {
     TXSTAbits.TXEN = 1;     //Enable TX
     TXSTAbits.SYNC = 0;     //Asynchronous
     TXSTAbits.SENDB = 0;    //Sync Break transmission completed
-    TXSTAbits.BRGH = 1;     //High speed
+    TXSTAbits.BRGH = 1;     //High baud rate
 
     //RX Register
     RCSTAbits.SPEN = 1;     //Enable EUSART
@@ -35,18 +35,15 @@ void EUSART_Init(void) {
     //Init RX Buffer
     EUSART_RX.iRead = 0;
     EUSART_RX.iWrite = 0;
-    EUSART_RX.processRX = 0;
-    EUSART_RX.zzzzzzzzz = 1;
     memset(EUSART_RX.buffer, 0x00, EUSART_BUFFER_SIZE);
-    memset(EUSART_RX.line, 0x00, EUSART_LINE_SIZE);
 }
 
-void EUSART_SetSpeed(const uint32_t speed) {
+void EUSART_BaudRateSet(const uint32_t baudRate) {
     TXSTAbits.SYNC = 0;     //Asynchronous
-    TXSTAbits.BRGH = 1;     //High speed
+    TXSTAbits.BRGH = 1;     //High baud rate
     BAUDCONbits.BRG16 = 1;  //16-bit baud rate generator
 
-    uint32_t tmp = (_XTAL_FREQ / speed);
+    uint32_t tmp = (_XTAL_FREQ / baudRate);
     tmp = tmp / 4;
     tmp--;
 
@@ -73,29 +70,31 @@ void EUSART_RX_Interrupt(void) {
     if(OERR == 1) {
         CREN = 0;
         CREN = 1;
+        _LED = !_LED;
     }
+
     EUSART_RX.iWrite++;
     if(EUSART_RX.iWrite == EUSART_BUFFER_SIZE) EUSART_RX.iWrite = 0;
     EUSART_RX.buffer[EUSART_RX.iWrite] = c;
     return;
 }
 
-void EUSART_RX_Process(void) {
-    //if(EUSART_RX.iRead == EUSART_RX.iWrite)
-    if(EUSART_RX.processRX == 0) return;
-    EUSART_RX.processRX--;
+void EUSART_RX_Flush(void) {
+    EUSART_RX.iRead = EUSART_RX.iWrite;
+}
 
-    //Extract line
-    EUSART_RX.zzzzzzzzz += 8;
-    for(uint8_t iLine=0; iLine<EUSART_LINE_SIZE; iLine++) {
-        EUSART_RX.line[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
-        EUSART_RX.iRead++;
-        if(EUSART_RX.iRead == EUSART_BUFFER_SIZE) EUSART_RX.iRead = 0;
-        if(EUSART_RX.line[iLine] == 0x00) break;
+uint8_t EUSART_RX_AvailableData(int16_t timeout) {
+    if(timeout == 0) timeout = EUSART_TIMEOUT_DEFAULT;
+    uint32_t t = MILLISECONDS + timeout;
+    while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+        if(t < MILLISECONDS) return 0;
     }
-    EUSART_RX.line[EUSART_LINE_SIZE - 1] = 0x00;
+    return 1;
+}
 
-    printLine(EUSART_RX.line, _TFT_COLOR_WHITE);
-
-    return;
+char EUSART_BufferGetChar(int16_t timeout) {
+    if(EUSART_RX_AvailableData(timeout) == 0) return NULL;
+    EUSART_RX.iRead++;
+    if(EUSART_RX.iRead == EUSART_BUFFER_SIZE) EUSART_RX.iRead = 0;
+    return EUSART_RX.buffer[EUSART_RX.iRead];
 }

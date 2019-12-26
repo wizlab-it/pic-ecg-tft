@@ -1,5 +1,5 @@
 
-# 1 "eusart.c"
+# 1 "EUSART.c"
 
 # 18 "/opt/microchip/xc8/v2.10/pic/include/xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -5509,19 +5509,20 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
+# 16 "A6Lib.h"
+const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+
+void A6_Init(void);
+uint8_t A6_IsAlive(void);
+uint32_t A6_BaudRateAutoDetect(void);
+uint32_t A6_BaudRateGet(void);
+uint32_t A6_BaudRateSet(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+void A6_Process_Random_Comms(void);
+
 # 27 "commons.h"
-typedef struct {
-uint8_t processRX;
-uint8_t iRead;
-uint8_t iWrite;
-uint8_t zzzzzzzzz;
-char buffer[64];
-char line[32];
-} STRUCT_EUSART_RX;
-
-
 extern uint32_t MILLISECONDS;
-extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5531,32 +5532,24 @@ extern void printLine(const char *str, uint16_t color);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
-extern void EUSART_Init(void);
-extern void EUSART_SetSpeed(const uint32_t speed);
-extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(const char *str, uint8_t len);
-extern void EUSART_RX_Interrupt(void);
-extern void EUSART_RX_Process(void);
 
-extern void A6_Init(void);
-extern uint8_t A6_IsAlive(void);
-extern uint32_t A6_SpeedAutoDetect(void);
-extern uint32_t A6_SpeedGet(void);
-extern uint32_t A6_SpeedSet(const uint32_t speed);
-extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
-
-# 15 "eusart.h"
-STRUCT_EUSART_RX EUSART_RX;
+# 18 "EUSART.h"
+struct {
+uint8_t iRead;
+uint8_t iWrite;
+char buffer[128];
+} EUSART_RX;
 
 void EUSART_Init(void);
-void EUSART_SetSpeed(const uint32_t speed);
+void EUSART_BaudRateSet(const uint32_t baudRate);
 void EUSART_TX_Char(uint8_t c);
 void EUSART_TX_String(const char *str, uint8_t len);
 void EUSART_RX_Interrupt(void);
-void EUSART_RX_Process(void);
+uint8_t EUSART_RX_AvailableData(int16_t timeout);
+void EUSART_RX_Flush(void);
+char EUSART_BufferGetChar(int16_t timeout);
 
-# 12 "eusart.c"
+# 12 "EUSART.c"
 void EUSART_Init(void) {
 
 TXSTAbits.TX9 = 0;
@@ -5583,18 +5576,15 @@ RCIE = 1;
 
 EUSART_RX.iRead = 0;
 EUSART_RX.iWrite = 0;
-EUSART_RX.processRX = 0;
-EUSART_RX.zzzzzzzzz = 1;
-memset(EUSART_RX.buffer, 0x00, 64);
-memset(EUSART_RX.line, 0x00, 32);
+memset(EUSART_RX.buffer, 0x00, 128);
 }
 
-void EUSART_SetSpeed(const uint32_t speed) {
+void EUSART_BaudRateSet(const uint32_t baudRate) {
 TXSTAbits.SYNC = 0;
 TXSTAbits.BRGH = 1;
 BAUDCONbits.BRG16 = 1;
 
-uint32_t tmp = (48000000 / speed);
+uint32_t tmp = (48000000 / baudRate);
 tmp = tmp / 4;
 tmp--;
 
@@ -5621,29 +5611,31 @@ uint8_t c = RCREG;
 if(OERR == 1) {
 CREN = 0;
 CREN = 1;
+PORTAbits.RA2 = !PORTAbits.RA2;
 }
+
 EUSART_RX.iWrite++;
-if(EUSART_RX.iWrite == 64) EUSART_RX.iWrite = 0;
+if(EUSART_RX.iWrite == 128) EUSART_RX.iWrite = 0;
 EUSART_RX.buffer[EUSART_RX.iWrite] = c;
 return;
 }
 
-void EUSART_RX_Process(void) {
-
-if(EUSART_RX.processRX == 0) return;
-EUSART_RX.processRX--;
-
-
-EUSART_RX.zzzzzzzzz += 8;
-for(uint8_t iLine=0; iLine<32; iLine++) {
-EUSART_RX.line[iLine] = EUSART_RX.buffer[EUSART_RX.iRead];
-EUSART_RX.iRead++;
-if(EUSART_RX.iRead == 64) EUSART_RX.iRead = 0;
-if(EUSART_RX.line[iLine] == 0x00) break;
+void EUSART_RX_Flush(void) {
+EUSART_RX.iRead = EUSART_RX.iWrite;
 }
-EUSART_RX.line[32 - 1] = 0x00;
 
-printLine(EUSART_RX.line, 0xFFFF);
+uint8_t EUSART_RX_AvailableData(int16_t timeout) {
+if(timeout == 0) timeout = 1000;
+uint32_t t = MILLISECONDS + timeout;
+while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+if(t < MILLISECONDS) return 0;
+}
+return 1;
+}
 
-return;
+char EUSART_BufferGetChar(int16_t timeout) {
+if(EUSART_RX_AvailableData(timeout) == 0) return (0);
+EUSART_RX.iRead++;
+if(EUSART_RX.iRead == 128) EUSART_RX.iRead = 0;
+return EUSART_RX.buffer[EUSART_RX.iRead];
 }

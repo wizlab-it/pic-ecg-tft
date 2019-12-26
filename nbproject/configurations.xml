@@ -9,8 +9,8 @@
       <itemPath>init.h</itemPath>
       <itemPath>TFT.h</itemPath>
       <itemPath>ecg.h</itemPath>
-      <itemPath>eusart.h</itemPath>
       <itemPath>A6Lib.h</itemPath>
+      <itemPath>EUSART.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -19,8 +19,8 @@
       <itemPath>init.c</itemPath>
       <itemPath>TFT.c</itemPath>
       <itemPath>ecg.c</itemPath>
-      <itemPath>eusart.c</itemPath>
       <itemPath>A6Lib.c</itemPath>
+      <itemPath>EUSART.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

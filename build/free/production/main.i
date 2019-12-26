@@ -5509,19 +5509,36 @@ const uint8_t TFT_Font[] = {
 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-# 27 "commons.h"
-typedef struct {
-uint8_t processRX;
+# 16 "A6Lib.h"
+const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
+
+void A6_Init(void);
+uint8_t A6_IsAlive(void);
+uint32_t A6_BaudRateAutoDetect(void);
+uint32_t A6_BaudRateGet(void);
+uint32_t A6_BaudRateSet(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+void A6_Process_Random_Comms(void);
+
+# 18 "EUSART.h"
+struct {
 uint8_t iRead;
 uint8_t iWrite;
-uint8_t zzzzzzzzz;
-char buffer[64];
-char line[32];
-} STRUCT_EUSART_RX;
+char buffer[128];
+} EUSART_RX;
 
+void EUSART_Init(void);
+void EUSART_BaudRateSet(const uint32_t baudRate);
+void EUSART_TX_Char(uint8_t c);
+void EUSART_TX_String(const char *str, uint8_t len);
+void EUSART_RX_Interrupt(void);
+uint8_t EUSART_RX_AvailableData(int16_t timeout);
+void EUSART_RX_Flush(void);
+char EUSART_BufferGetChar(int16_t timeout);
 
+# 27 "commons.h"
 extern uint32_t MILLISECONDS;
-extern STRUCT_EUSART_RX EUSART_RX;
 
 
 extern void init(void);
@@ -5531,39 +5548,20 @@ extern void printLine(const char *str, uint16_t color);
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
-extern void EUSART_Init(void);
-extern void EUSART_SetSpeed(const uint32_t speed);
-extern void EUSART_TX_Char(uint8_t c);
-extern void EUSART_TX_String(const char *str, uint8_t len);
-extern void EUSART_RX_Interrupt(void);
-extern void EUSART_RX_Process(void);
-
-extern void A6_Init(void);
-extern uint8_t A6_IsAlive(void);
-extern uint32_t A6_SpeedAutoDetect(void);
-extern uint32_t A6_SpeedGet(void);
-extern uint32_t A6_SpeedSet(const uint32_t speed);
-extern void A6_ReadLine(char *response, uint8_t responseLen, int timeout);
-extern void A6_Command(const char *command, const char *resp1, const char *resp2, uint16_t timeout, char *response, uint8_t responseLen);
 
 # 15 "main.h"
 uint32_t tmp1 = 0;
 uint32_t tmp2 = 0;
 uint32_t tmp3 = 0;
 uint32_t tmp4 = 0;
+uint32_t tmp5 = 0;
+uint16_t consoleX = 0;
 
 void loop(void);
 void sleepMS(uint32_t ms);
 void printLine(const char *str, uint16_t color);
 
 # 12 "main.c"
-char x2[] = "AT+CCLK?\r";
-char x3[] = "AT+CSQ\r";
-char x4[] = "AT+CCID\r";
-char x5[] = "AT+CREG?\r";
-char x6[] = "AT+COPS?\r";
-char x7[] = "AT+COPS=?\r";
-
 void main(void) {
 
 init();
@@ -5576,43 +5574,43 @@ A6_Init();
 while(1) loop();
 }
 
-# 35
+# 28
 void loop(void) {
 
 
-
+A6_Process_Random_Comms();
 
 if((MILLISECONDS > 20000) && (tmp4 < (MILLISECONDS - 20000))) {
 tmp4 = MILLISECONDS;
 
 char zzzz[32];
-sprintf(zzzz, "Change speed (%lu)", A6_SpeedGet());
+sprintf(zzzz, "Change baud rate (%lu)", A6_BaudRateGet());
 printLine(zzzz, 0xFFE0);
 
 uint32_t zz = 0;
-switch(A6_SpeedGet()) {
+switch(A6_BaudRateGet()) {
 case 57600:
-zz = A6_SpeedSet(115200);
+zz = A6_BaudRateSet(115200);
 break;
 case 115200:
-zz = A6_SpeedSet(9600);
+zz = A6_BaudRateSet(9600);
 break;
 case 9600:
-zz = A6_SpeedSet(57600);
+zz = A6_BaudRateSet(57600);
 break;
 default:
-sprintf(zzzz, "Invalid current speed (%lu)", A6_SpeedGet());
+sprintf(zzzz, "Invalid current baud rate (%lu)", A6_BaudRateGet());
 printLine(zzzz, 0xFFE0);
-A6_SpeedAutoDetect();
+A6_BaudRateAutoDetect();
 break;
 }
 
-sprintf(zzzz, "Speed changed (-> %lu)", zz);
-printLine(((zz == 0) ? "Error changing speed" : zzzz), 0xF81F);
+sprintf(zzzz, "Baud rate changed (-> %lu)", zz);
+printLine(((zz == 0) ? "Error changing baud rate" : zzzz), 0xF81F);
 
 if(A6_IsAlive() == 0) {
 printLine("Comm is dead. Retry...", 0x001F);
-A6_SpeedAutoDetect();
+A6_BaudRateAutoDetect();
 printLine(((A6_IsAlive() == 0) ? "Still dead" : "Resurrected!"), 0x001F);
 }
 }
@@ -5622,17 +5620,38 @@ tmp1 = MILLISECONDS;
 
 printLine("Check time", 0xFFE0);
 char response[32];
-A6_Command("AT+CCLK?\r", "aa", "bb", 0, response, 32);
+A6_Command("AT+CCLK?\r", 0, response, 32);
 printLine(response, 0x07E0);
 }
 
 if((MILLISECONDS > 4000) && (tmp2 < (MILLISECONDS - 4000))) {
 tmp2 = MILLISECONDS;
-
-printLine("Check speed", 0xFFE0);
+printLine("Check baud rate", 0xFFE0);
 char zzzz[32];
-sprintf(zzzz, "%lu", A6_SpeedGet());
+sprintf(zzzz, "%lu", A6_BaudRateGet());
 printLine(zzzz, 0xF800);
+}
+
+if((MILLISECONDS > 6500) && (tmp3 < (MILLISECONDS - 6500))) {
+tmp3 = MILLISECONDS;
+
+printLine("Check signal", 0xFFE0);
+char response[32];
+A6_Command("AT+CSQ\r", 0, response, 32);
+printLine(response, 0xFFFF);
+
+# 100
+}
+
+if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
+tmp5 = MILLISECONDS;
+
+printLine("Check registration", 0xFFE0);
+char response[32];
+A6_Command("AT+CREG?\r", 0, response, 32);
+printLine(response, 0xFFFF);
+
+# 123
 }
 }
 
@@ -5642,7 +5661,8 @@ while(t > MILLISECONDS);
 }
 
 void printLine(const char *str, uint16_t color) {
-EUSART_RX.zzzzzzzzz += 10;
-TFT_DrawFillRect(EUSART_RX.zzzzzzzzz, 0, 40, 400, 0x0000);
-TFT_DrawString(EUSART_RX.zzzzzzzzz, (400 - 1), str, color, 0x0000, 1);
+consoleX += 10;
+TFT_DrawFillRect(consoleX, 0, 40, 400, 0x0000);
+TFT_DrawString(consoleX, (400 - 1), str, color, 0x0000, 1);
+if(consoleX > (240 - 35)) consoleX = 0;
 }
