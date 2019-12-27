@@ -1,5 +1,5 @@
 /*
- * 20190327.046
+ * 20191227.055
  * ECG-TFT
  *
  * File: TFT.h
@@ -17,7 +17,7 @@
 
 #define _TFT_DELAY_FLAG     0xFFFF
 
-#define _TFT_COLOR_BLACK    0x0000
+#define _TFT_COLOR_BLACK    0x0821
 #define	_TFT_COLOR_BLUE     0x001F
 #define	_TFT_COLOR_RED      0xF800
 #define	_TFT_COLOR_GREEN    0x07E0
@@ -58,23 +58,36 @@
 #define _TFT_DELAY              { __asm("nop"); }
 #define _TFT_SWAP_INT16_T(a, b) { int16_t t = a; a = b; b = t; }
 
+#define _TFT_ORIENTATION_PORTRAIT       0
+#define _TFT_ORIENTATION_LANDSCAPE      1
+#define _TFT_ORIENTATION_INV_PORTRAIT   2
+#define _TFT_ORIENTATION_INV_LANDSCAPE  3
+
+uint8_t TFT_Orientation = 0;
+uint16_t TFT_ConsoleRow = 0;
+
 void TFT_WriteRegister(uint16_t reg, uint16_t data);
 void TFT_WriteRegisters(uint16_t reg, uint8_t *data, uint8_t dataSize);
 uint16_t TFT_ReadRegister(uint16_t reg);
 uint16_t TFT_ReadID(void);
+void TFT_Init(uint8_t orientation, uint16_t color);
 void TFT_Reset(void);
+uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b);
+uint16_t TFT_GetWidth(void);
+uint16_t TFT_GetHeight(void);
+uint8_t TFT_OrientationGet(void);
+void TFT_OrientationSet(uint8_t orientation, uint16_t color);
 void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
-void TFT_FullScreen(void);
-void TFT_Init(void);
+void TFT_FullScreen(uint16_t color);
 void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
 void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
 void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void TFT_Flood(uint16_t color, uint32_t len);
-void TFT_FillScreen(uint16_t color);
-uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b);
 void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size);
 void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size);
-void TFT_DrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint16_t color);
+void TFT_DrawBitmap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t color);
+void TFT_ConsoleInit(uint8_t orientation);
+void TFT_ConsolePrintLine(const char *str, uint16_t color);
 
 const uint16_t TFT_Init_Sequence[] = {
     //Initial Sequence

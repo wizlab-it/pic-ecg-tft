@@ -1,5 +1,5 @@
-/* 
- * 20191226.004
+/*
+ * 20191227.009
  * ECG-TFT
  *
  * File: main.h
@@ -17,10 +17,9 @@ uint32_t tmp2 = 0;
 uint32_t tmp3 = 0;
 uint32_t tmp4 = 0;
 uint32_t tmp5 = 0;
-uint16_t consoleX = 0;
+uint32_t tmp6 = 0;
+uint32_t tmp7 = 0;
 
 void loop(void);
-void sleepMS(uint32_t ms);
-void printLine(const char *str, uint16_t color);
 
 #endif

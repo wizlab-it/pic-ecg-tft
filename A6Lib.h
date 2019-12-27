@@ -1,5 +1,5 @@
 /*
- * 20191226.026
+ * 20191227.027
  * A6 GSM Module Library
  *
  * File: A6Lib.h

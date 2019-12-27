@@ -1,5 +1,5 @@
 /*
- * 20190326.004
+ * 20191227.005
  * ECG-TFT
  *
  * File: init.h
@@ -51,5 +51,6 @@ uint32_t MILLISECONDS = 0;
 
 void init(void);
 void __interrupt() isr(void);
+void sleepMS(uint32_t ms);
 
 #endif

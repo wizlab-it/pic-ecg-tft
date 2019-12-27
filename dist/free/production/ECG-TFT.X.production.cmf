@@ -12,83 +12,87 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/free/production/ECG-TFT.X.production.o
-cinit CODE 0 2446 2446 6E 1
-intcode_body CODE 0 24B4 24B4 6E 1
-text0 CODE 0 2B34 2B34 20 1
-text1 CODE 0 12 12 666 1
-text2 CODE 0 1E42 1E42 8C 1
-text3 CODE 0 1684 1684 DE 1
-text4 CODE 0 21F2 21F2 7A 1
-text5 CODE 0 1B8E 1B8E C2 1
-text6 CODE 0 148A 148A 118 1
-text7 CODE 0 123C 123C 12A 1
-text8 CODE 0 1366 1366 124 1
-text9 CODE 0 15A2 15A2 E2 1
-text10 CODE 0 258C 258C 66 1
-text11 CODE 0 25F2 25F2 66 1
-text12 CODE 0 1C50 1C50 BE 1
-text13 CODE 0 1840 1840 DA 1
-text14 CODE 0 2170 2170 82 1
-text15 CODE 0 1102 1102 13A 1
-text16 CODE 0 2522 2522 6A 1
-text17 CODE 0 23D4 23D4 72 1
-text18 CODE 0 1762 1762 DE 1
-text19 CODE 0 2B74 2B74 1E 1
-text20 CODE 0 2AB8 2AB8 30 1
-text21 CODE 0 276C 276C 4E 1
-text22 CODE 0 22E6 22E6 78 1
-text23 CODE 0 D98 D98 1E8 1
-text24 CODE 0 2A52 2A52 34 1
-text25 CODE 0 1ACA 1ACA C4 1
-text26 CODE 0 29A4 29A4 3C 1
-text27 CODE 0 289C 289C 46 1
-text28 CODE 0 2854 2854 48 1
-text29 CODE 0 2B92 2B92 1A 1
-text30 CODE 0 191A 191A DA 1
-text31 CODE 0 678 678 52C 1
-text32 CODE 0 2A86 2A86 32 1
-text33 CODE 0 1ECE 1ECE 88 1
-text34 CODE 0 29E0 29E0 3A 1
-text35 CODE 0 1F56 1F56 88 1
-text36 CODE 0 1DB2 1DB2 90 1
-text37 CODE 0 BA4 BA4 1F4 1
-text38 CODE 0 2966 2966 3E 1
-text39 CODE 0 235E 235E 76 1
-text40 CODE 0 2AE8 2AE8 26 1
-text41 CODE 0 2B0E 2B0E 26 1
-text42 CODE 0 226C 226C 7A 1
-text43 CODE 0 F80 F80 182 1
-text44 CODE 0 28E2 28E2 44 1
-text45 CODE 0 20EC 20EC 84 1
-text46 CODE 0 1D0E 1D0E A4 1
-text47 CODE 0 271C 271C 50 1
-text48 CODE 0 26BC 26BC 60 1
-text49 CODE 0 2066 2066 86 1
-text50 CODE 0 27BA 27BA 4E 1
-text51 CODE 0 2926 2926 40 1
-text52 CODE 0 2BAC 2BAC 18 1
-text53 CODE 0 2BCA 2BCA 6 1
-text54 CODE 0 19F4 19F4 D6 1
-text55 CODE 0 2A1A 2A1A 38 1
-text56 CODE 0 2808 2808 4C 1
-text57 CODE 0 1FDE 1FDE 88 1
-text59 CODE 0 2B54 2B54 20 1
-text60 CODE 0 2658 2658 64 1
-idataCOMRAM CODE 0 2BD0 2BD0 2 1
+cinit CODE 0 28CC 28CC 70 1
+intcode_body CODE 0 293C 293C 6E 1
+text0 CODE 0 2FB6 2FB6 30 1
+text1 CODE 0 12 12 73C 1
+text2 CODE 0 30A2 30A2 1C 1
+text3 CODE 0 23BE 23BE 8E 1
+text4 CODE 0 1A72 1A72 DE 1
+text5 CODE 0 2766 2766 7A 1
+text6 CODE 0 205A 205A C2 1
+text7 CODE 0 1878 1878 118 1
+text8 CODE 0 162A 162A 12A 1
+text9 CODE 0 1754 1754 124 1
+text10 CODE 0 1990 1990 E2 1
+text11 CODE 0 2A14 2A14 66 1
+text12 CODE 0 2A7A 2A7A 66 1
+text13 CODE 0 211C 211C BE 1
+text14 CODE 0 1D0C 1D0C DA 1
+text15 CODE 0 2666 2666 82 1
+text16 CODE 0 14F0 14F0 13A 1
+text17 CODE 0 29AA 29AA 6A 1
+text18 CODE 0 285A 285A 72 1
+text19 CODE 0 1B50 1B50 DE 1
+text20 CODE 0 3084 3084 1E 1
+text21 CODE 0 3016 3016 28 1
+text22 CODE 0 2FE6 2FE6 30 1
+text23 CODE 0 2C50 2C50 4E 1
+text24 CODE 0 27E0 27E0 7A 1
+text25 CODE 0 2EA0 2EA0 3E 1
+text26 CODE 0 2DD4 2DD4 48 1
+text27 CODE 0 30BE 30BE 1A 1
+text28 CODE 0 1C2E 1C2E DE 1
+text29 CODE 0 74E 74E 52C 1
+text30 CODE 0 2F84 2F84 32 1
+text31 CODE 0 244C 244C 88 1
+text32 CODE 0 2EDE 2EDE 3A 1
+text33 CODE 0 21DA 21DA AE 1
+text34 CODE 0 232C 232C 92 1
+text35 CODE 0 C7A C7A 28E 1
+text36 CODE 0 1186 1186 1E8 1
+text37 CODE 0 2F50 2F50 34 1
+text38 CODE 0 1F96 1F96 C4 1
+text39 CODE 0 1DE6 1DE6 DA 1
+text40 CODE 0 26E8 26E8 7E 1
+text41 CODE 0 303E 303E 26 1
+text42 CODE 0 2BA4 2BA4 5C 1
+text43 CODE 0 F08 F08 27E 1
+text44 CODE 0 2C9E 2C9E 4E 1
+text45 CODE 0 2CEC 2CEC 4E 1
+text46 CODE 0 30FC 30FC 4 1
+text47 CODE 0 136E 136E 182 1
+text48 CODE 0 2E1C 2E1C 44 1
+text49 CODE 0 25E2 25E2 84 1
+text50 CODE 0 2288 2288 A4 1
+text51 CODE 0 2C00 2C00 50 1
+text52 CODE 0 2B44 2B44 60 1
+text53 CODE 0 255C 255C 86 1
+text54 CODE 0 2D3A 2D3A 4E 1
+text55 CODE 0 2E60 2E60 40 1
+text56 CODE 0 30D8 30D8 18 1
+text57 CODE 0 30F6 30F6 6 1
+text58 CODE 0 1EC0 1EC0 D6 1
+text59 CODE 0 2F18 2F18 38 1
+text60 CODE 0 2D88 2D88 4C 1
+text61 CODE 0 24D4 24D4 88 1
+text63 CODE 0 3064 3064 20 1
+text64 CODE 0 2AE0 2AE0 64 1
+idataCOMRAM CODE 0 3100 3100 2 1
 cstackCOMRAM COMRAM 1 1 1 55 1
 cstackBANK0 BANK0 1 60 60 50 1
 cstackBANK1 BANK1 1 100 100 AD 1
-temp COMRAM 1 5A 5A 1 1
+temp COMRAM 1 5B 5B 1 1
 bssBANK0 BANK0 1 B0 B0 1E 1
-bssBANK1 BANK1 1 1AD 1AD 18 1
+bssBANK1 BANK1 1 1AD 1AD 20 1
 bssBANK2 BANK2 1 200 200 82 1
 intcode CODE 0 8 8 6 1
-idataBANK0 CODE 0 2BC4 2BC4 6 1
+idataBANK0 CODE 0 30F0 30F0 6 1
 dataBANK0 BANK0 1 CE CE 6 1
-dataCOMRAM COMRAM 1 58 58 2 1
-bssCOMRAM COMRAM 1 56 56 2 1
+dataCOMRAM COMRAM 1 59 59 2 1
+bssCOMRAM COMRAM 1 56 56 3 1
 mediumconst MEDIUMCONST 0 57F0 57F0 810 1
-$/tmp/xcXba8Uhh.o
+$/tmp/xcXMomMQI.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -100,11 +104,11 @@ config CONFIG 0 300000 300000 E 1
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
 RAM D4-FF 1
-RAM 1C5-1FF 1
+RAM 1CD-1FF 1
 RAM 282-7FF 1
 SFR F60-FFF 1
 BANK0 D4-FF 1
-BANK1 1C5-1FF 1
+BANK1 1CD-1FF 1
 BANK2 282-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
@@ -112,18 +116,18 @@ BANK5 500-5FF 1
 BANK6 600-6FF 1
 BANK7 700-7FF 1
 CONST 4-7 1
-CONST 2BD2-57EF 1
+CONST 3102-57EF 1
 STACK 282-7FF 1
-SMALLCONST 2BD2-57EF 1
+SMALLCONST 3102-57EF 1
 CODE 4-7 1
-CODE 2BD2-57EF 1
-BIGRAM 5B-5F 1
+CODE 3102-57EF 1
+BIGRAM 5C-5F 1
 BIGRAM D4-FF 1
-BIGRAM 1C5-1FF 1
+BIGRAM 1CD-1FF 1
 BIGRAM 282-7FF 1
-COMRAM 5B-5F 1
+COMRAM 5C-5F 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 2BD2-57EF 1
+MEDIUMCONST 3102-57EF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -138,754 +142,828 @@ MEDIUMCONST 2BD2-57EF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/free/production/ECG-TFT.X.production.o
-8 intcode CODE >16998:/tmp/xcXVJT4SY.s
-8 intcode CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2658 text60 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2658 text60 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-265C text60 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-266A text60 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-266C text60 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-266E text60 CODE >73:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2690 text60 CODE >76:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2694 text60 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-26AA text60 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-26BA text60 CODE >80:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2B54 text59 CODE >135:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2B54 text59 CODE >136:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2B6C text59 CODE >137:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2B70 text59 CODE >138:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2B72 text59 CODE >139:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-24B4 intcode_body CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24BE intcode_body CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24DA intcode_body CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24E8 intcode_body CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24EC intcode_body CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24F0 intcode_body CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24F4 intcode_body CODE >99:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-24F6 intcode_body CODE >103:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2512 intcode_body CODE >104:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2516 intcode_body CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-1FDE text57 CODE >86:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-1FDE text57 CODE >87:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-1FF8 text57 CODE >88:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2024 text57 CODE >89:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2028 text57 CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-204E text57 CODE >89:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2062 text57 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2064 text57 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2808 text56 CODE >95:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2808 text56 CODE >96:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-282A text56 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-282E text56 CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2844 text56 CODE >99:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2852 text56 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2A1A text55 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-2A1A text55 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-2A22 text55 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-2A26 text55 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-2A36 text55 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-2A50 text55 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
-19F4 text54 CODE >102:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-19F4 text54 CODE >104:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A0E text54 CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A0E text54 CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A1C text54 CODE >109:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A32 text54 CODE >110:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A56 text54 CODE >114:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A5A text54 CODE >116:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A80 text54 CODE >117:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A90 text54 CODE >118:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1A92 text54 CODE >119:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1AA8 text54 CODE >120:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1AC6 text54 CODE >122:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1AC8 text54 CODE >123:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2BCA text53 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BCA text53 CODE >83:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BCE text53 CODE >84:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BAC text52 CODE >56:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BAE text52 CODE >57:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BBC text52 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BC0 text52 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2BC2 text52 CODE >60:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2926 text51 CODE >62:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2926 text51 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-292A text51 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2952 text51 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2964 text51 CODE >66:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-27BA text50 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-27BA text50 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-27C2 text50 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-27C6 text50 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-27CA text50 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-27FA text50 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-2806 text50 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
-2066 text49 CODE >91:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2066 text49 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2074 text49 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-20A2 text49 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-20B2 text49 CODE >96:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-20B6 text49 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-20D2 text49 CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-20EA text49 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-26BC text48 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-26BC text48 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-26C0 text48 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-26C4 text48 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-26C8 text48 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-2710 text48 CODE >41:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-271A text48 CODE >42:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
-271C text47 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-271C text47 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-273C text47 CODE >20:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2762 text47 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2768 text47 CODE >23:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-276A text47 CODE >24:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1D0E text46 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D0E text46 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D1E text46 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D34 text46 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D38 text46 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D3C text46 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D46 text46 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D48 text46 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D56 text46 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D60 text46 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D7E text46 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D8E text46 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D90 text46 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1D9A text46 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1DA0 text46 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1DA0 text46 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-1DB0 text46 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
-20EC text45 CODE >41:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-20EC text45 CODE >42:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-20EE text45 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-20F0 text45 CODE >44:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-20F2 text45 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2126 text45 CODE >47:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-215C text45 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2166 text45 CODE >50:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-216A text45 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-216E text45 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-28E2 text44 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-28E2 text44 CODE >13:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-28E6 text44 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2904 text44 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2922 text44 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2924 text44 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F80 text43 CODE >144:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F80 text43 CODE >147:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F84 text43 CODE >148:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F88 text43 CODE >151:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F9C text43 CODE >152:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-FA6 text43 CODE >156:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-FAA text43 CODE >157:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-FD8 text43 CODE >158:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-FEE text43 CODE >159:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-FEE text43 CODE >160:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-FFA text43 CODE >161:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1006 text43 CODE >162:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1012 text43 CODE >163:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-101E text43 CODE >159:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1038 text43 CODE >165:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1042 text43 CODE >166:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-104E text43 CODE >165:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1064 text43 CODE >169:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1064 text43 CODE >170:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1078 text43 CODE >171:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-108C text43 CODE >172:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10A0 text43 CODE >173:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10B4 text43 CODE >169:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10CE text43 CODE >175:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10D8 text43 CODE >176:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10EC text43 CODE >175:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10FE text43 CODE >178:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-10FE text43 CODE >179:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1100 text43 CODE >180:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-226C text42 CODE >56:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-226C text42 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2280 text42 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2294 text42 CODE >60:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-22A8 text42 CODE >61:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-22BC text42 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-22D0 text42 CODE >65:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-22E4 text42 CODE >66:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B0E text41 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B0E text41 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B32 text41 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2AE8 text40 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-2AE8 text40 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-2AF4 text40 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-2AFC text40 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-2B04 text40 CODE >52:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-2B0C text40 CODE >53:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
-235E text39 CODE >138:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-235E text39 CODE >139:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-23A2 text39 CODE >140:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-23CE text39 CODE >141:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-23D2 text39 CODE >142:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2966 text38 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2966 text38 CODE >95:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-297A text38 CODE >96:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-298E text38 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-29A2 text38 CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BA4 text37 CODE >192:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BA4 text37 CODE >193:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BA8 text37 CODE >194:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BDC text37 CODE >195:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BE0 text37 CODE >196:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BEE text37 CODE >197:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-BFE text37 CODE >198:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-C30 text37 CODE >199:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-C34 text37 CODE >200:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-CA0 text37 CODE >202:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-CB8 text37 CODE >203:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-CC8 text37 CODE >204:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-CFA text37 CODE >205:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-CFE text37 CODE >206:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-D66 text37 CODE >195:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-D80 text37 CODE >193:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-D96 text37 CODE >211:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1DB2 text36 CODE >213:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1DB2 text36 CODE >214:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1DB6 text36 CODE >215:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1E00 text36 CODE >216:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1E0C text36 CODE >217:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1E10 text36 CODE >214:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1E40 text36 CODE >219:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1F56 text35 CODE >110:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1F56 text35 CODE >111:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1F60 text35 CODE >112:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1F8C text35 CODE >113:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1FBC text35 CODE >114:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1FDC text35 CODE >115:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-29E0 text34 CODE >105:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-29E0 text34 CODE >106:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-29FA text34 CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2A18 text34 CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1ECE text33 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1ECE text33 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1EE4 text33 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1EE8 text33 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1EEC text33 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1EF6 text33 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1EF8 text33 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F06 text33 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F24 text33 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F34 text33 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F3E text33 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F44 text33 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F44 text33 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-1F54 text33 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
-2A86 text32 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/isdigit.c
-2A88 text32 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/isdigit.c
-2AB6 text32 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/isdigit.c
-678 text31 CODE >505:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-678 text31 CODE >550:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-682 text31 CODE >553:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-686 text31 CODE >555:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-698 text31 CODE >558:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6A8 text31 CODE >559:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6AC text31 CODE >563:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6B4 text31 CODE >565:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6B8 text31 CODE >614:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6D6 text31 CODE >615:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6E0 text31 CODE >617:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-6FC text31 CODE >618:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-72A text31 CODE >619:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-74C text31 CODE >669:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-74E text31 CODE >670:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-752 text31 CODE >760:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-76A text31 CODE >766:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-77C text31 CODE >767:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-784 text31 CODE >771:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-78C text31 CODE >772:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-790 text31 CODE >773:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-796 text31 CODE >772:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-7D2 text31 CODE >783:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-7EA text31 CODE >784:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-7F6 text31 CODE >786:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-802 text31 CODE >791:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-812 text31 CODE >790:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-830 text31 CODE >794:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-864 text31 CODE >793:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-882 text31 CODE >844:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-884 text31 CODE >845:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-888 text31 CODE >661:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-8D2 text31 CODE >848:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-8D2 text31 CODE >1277:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-8E0 text31 CODE >1281:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-8EE text31 CODE >1282:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-912 text31 CODE >1285:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-934 text31 CODE >1287:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-942 text31 CODE >1288:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-946 text31 CODE >1289:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-95A text31 CODE >1294:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-95A text31 CODE >1307:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-968 text31 CODE >1308:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-98C text31 CODE >1312:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-9B0 text31 CODE >1331:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-9B4 text31 CODE >1332:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-9EE text31 CODE >1331:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A02 text31 CODE >1371:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A2A text31 CODE >1372:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A30 text31 CODE >1407:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A54 text31 CODE >1408:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A60 text31 CODE >1410:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A68 text31 CODE >1454:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A7A text31 CODE >1456:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-A8A text31 CODE >1457:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-AA2 text31 CODE >1464:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-AB8 text31 CODE >1465:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-AC8 text31 CODE >1498:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-ACE text31 CODE >1500:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-AD2 text31 CODE >1515:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-B4A text31 CODE >1550:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-B5A text31 CODE >1500:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-B74 text31 CODE >553:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-B96 text31 CODE >1564:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-BA2 text31 CODE >1567:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
-191A text30 CODE >74:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-191A text30 CODE >75:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-192E text30 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1934 text30 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1960 text30 CODE >79:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1974 text30 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-19B2 text30 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-19CA text30 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-19DE text30 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-19F2 text30 CODE >89:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2B92 text29 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2B92 text29 CODE >13:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2BA6 text29 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2BAA text29 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2854 text28 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2854 text28 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2856 text28 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2858 text28 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-285A text28 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-285C text28 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-285E text28 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2860 text28 CODE >22:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2862 text28 CODE >23:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2864 text28 CODE >26:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2866 text28 CODE >27:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2868 text28 CODE >28:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-286A text28 CODE >29:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-286E text28 CODE >30:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2872 text28 CODE >33:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-2874 text28 CODE >36:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-287A text28 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-287E text28 CODE >38:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-289A text28 CODE >39:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
-289C text27 CODE >182:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-289C text27 CODE >183:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-28B0 text27 CODE >184:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-28C4 text27 CODE >185:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-28E0 text27 CODE >186:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-29A4 text26 CODE >188:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-29A4 text26 CODE >189:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-29B0 text26 CODE >190:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-29DE text26 CODE >191:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-1ACA text25 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1ACA text25 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1ACE text25 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1ADC text25 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1AE4 text25 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1AE8 text25 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1AF6 text25 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1AFE text25 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B02 text25 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B0A text25 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B1C text25 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B20 text25 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B24 text25 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B2A text25 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B2C text25 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B3A text25 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B40 text25 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B56 text25 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B5E text25 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B60 text25 CODE >35:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B66 text25 CODE >36:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B6C text25 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B7C text25 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B84 text25 CODE >40:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-1B8C text25 CODE >41:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
-2A52 text24 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
-2A52 text24 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
-2A60 text24 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
-2A7C text24 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
-2A84 text24 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
-D98 text23 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-D98 text23 CODE >101:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-DE6 text23 CODE >102:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-DF8 text23 CODE >103:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E10 text23 CODE >104:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E28 text23 CODE >106:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E46 text23 CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E5E text23 CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E76 text23 CODE >112:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E82 text23 CODE >113:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-E9A text23 CODE >115:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-EB6 text23 CODE >118:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-ED4 text23 CODE >119:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-EDC text23 CODE >120:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-EE0 text23 CODE >121:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-EE8 text23 CODE >125:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-EFA text23 CODE >126:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F16 text23 CODE >127:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F1A text23 CODE >128:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F36 text23 CODE >130:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F3E text23 CODE >131:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F4C text23 CODE >132:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F54 text23 CODE >133:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F5C text23 CODE >124:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-F7E text23 CODE >136:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-22E6 text22 CODE >180:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-22E6 text22 CODE >181:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-22F2 text22 CODE >182:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2320 text22 CODE >183:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-234A text22 CODE >184:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2352 text22 CODE >185:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-235C text22 CODE >186:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-276C text21 CODE >141:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-276C text21 CODE >142:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2770 text21 CODE >143:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2780 text21 CODE >144:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2790 text21 CODE >145:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-27B2 text21 CODE >146:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-27B8 text21 CODE >147:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AB8 text20 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AB8 text20 CODE >13:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2ACE text20 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AD2 text20 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AD6 text20 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2ADA text20 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AE0 text20 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AE4 text20 CODE >20:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2AE6 text20 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
-2B74 text19 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B74 text19 CODE >47:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B78 text19 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B7A text19 CODE >49:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B7C text19 CODE >50:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B7E text19 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B80 text19 CODE >52:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B8E text19 CODE >53:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-2B90 text19 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1762 text18 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1762 text18 CODE >73:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1766 text18 CODE >74:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-177C text18 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1784 text18 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-178C text18 CODE >79:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1790 text18 CODE >80:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-17B2 text18 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-17D4 text18 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-17E8 text18 CODE >83:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-17FE text18 CODE >84:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1802 text18 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1816 text18 CODE >79:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-182E text18 CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-1832 text18 CODE >91:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-183E text18 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
-23D4 text17 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23D4 text17 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23D6 text17 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23DA text17 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23DE text17 CODE >20:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23E0 text17 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23E4 text17 CODE >24:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23FC text17 CODE >27:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-23FE text17 CODE >28:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2400 text17 CODE >41:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2404 text17 CODE >42:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2408 text17 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-240A text17 CODE >49:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-240E text17 CODE >50:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2412 text17 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2416 text17 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-241A text17 CODE >67:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-241C text17 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2420 text17 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2428 text17 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-242A text17 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-242E text17 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2436 text17 CODE >75:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-243A text17 CODE >76:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-243C text17 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-243E text17 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2440 text17 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2442 text17 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2444 text17 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
-2522 text16 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-2522 text16 CODE >119:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-2532 text16 CODE >121:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-2540 text16 CODE >122:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-2550 text16 CODE >123:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-255A text16 CODE >124:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-2564 text16 CODE >125:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-257A text16 CODE >128:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-258A text16 CODE >129:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
-1102 text15 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-1102 text15 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-1102 text15 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-1112 text15 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-1136 text15 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-1146 text15 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-114A text15 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-115C text15 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-115E text15 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-116E text15 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-1188 text15 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-11D0 text15 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-11E4 text15 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-11F4 text15 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-122A text15 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-123A text15 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
-2170 text14 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-2170 text14 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-2170 text14 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-21A0 text14 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-21AC text14 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-21E8 text14 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-21F0 text14 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
-1840 text13 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-1840 text13 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-1844 text13 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-18B2 text13 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-18EE text13 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-18F2 text13 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-18F6 text13 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-1910 text13 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-1918 text13 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
-1C50 text12 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1C50 text12 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1C54 text12 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1C8E text12 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1C9A text12 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1CC2 text12 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1D04 text12 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-1D0C text12 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
-25F2 text11 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-25F2 text11 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-25FA text11 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-25FE text11 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-2602 text11 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-2606 text11 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-264E text11 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-2656 text11 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
-258C text10 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-258C text10 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-2594 text10 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-2598 text10 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-259C text10 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-25A0 text10 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-25E8 text10 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-25F0 text10 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
-15A2 text9 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-15A2 text9 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-15B4 text9 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-15BC text9 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-15CE text9 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-15DA text9 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-15F6 text9 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-160E text9 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-1624 text9 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-1646 text9 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-165E text9 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-1672 text9 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-167A text9 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-1682 text9 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
-1366 text8 CODE >26:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1366 text8 CODE >31:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1386 text8 CODE >32:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-13AC text8 CODE >33:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-13C8 text8 CODE >34:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-13E4 text8 CODE >35:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-13F6 text8 CODE >36:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1412 text8 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1416 text8 CODE >38:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1452 text8 CODE >39:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1466 text8 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1478 text8 CODE >45:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1488 text8 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-123C text7 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-123C text7 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1250 text7 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-127E text7 CODE >57:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-12A2 text7 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-12C2 text7 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-12D6 text7 CODE >60:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-12FC text7 CODE >62:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1310 text7 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1324 text7 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1338 text7 CODE >65:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-134C text7 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1364 text7 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-148A text6 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-148A text6 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-148E text6 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-1492 text6 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-14C6 text6 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-14CE text6 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-14D2 text6 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-14EC text6 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-14EE text6 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-14F2 text6 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-1510 text6 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-1518 text6 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-1550 text6 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-156C text6 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-157C text6 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-1598 text6 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-15A0 text6 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
-1B8E text5 CODE >153:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1B8E text5 CODE >157:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1BAE text5 CODE >158:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1BD4 text5 CODE >159:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1BF0 text5 CODE >160:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1C0C text5 CODE >161:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1C1E text5 CODE >162:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1C3A text5 CODE >163:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1C4C text5 CODE >167:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1C4E text5 CODE >168:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-21F2 text4 CODE >170:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-21F2 text4 CODE >171:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-21F8 text4 CODE >172:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2210 text4 CODE >173:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2226 text4 CODE >174:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-223C text4 CODE >175:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2252 text4 CODE >176:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-2268 text4 CODE >177:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-226A text4 CODE >178:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1684 text3 CODE >135:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1684 text3 CODE >139:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-16A4 text3 CODE >140:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-16CA text3 CODE >141:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-16E6 text3 CODE >142:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1702 text3 CODE >143:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1714 text3 CODE >144:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1730 text3 CODE >145:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-174C text3 CODE >146:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-175E text3 CODE >150:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1760 text3 CODE >151:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1E42 text2 CODE >125:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1E42 text2 CODE >126:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1E60 text2 CODE >129:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1E7C text2 CODE >130:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1E90 text2 CODE >131:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1EBA text2 CODE >132:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-1ECC text2 CODE >133:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
-12 text1 CODE >28:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-12 text1 CODE >31:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-16 text1 CODE >33:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-86 text1 CODE >34:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-96 text1 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-BE text1 CODE >38:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-D2 text1 CODE >40:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-E4 text1 CODE >41:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-E8 text1 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-10E text1 CODE >44:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-112 text1 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-138 text1 CODE >47:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-13C text1 CODE >49:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-162 text1 CODE >50:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-166 text1 CODE >52:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-18E text1 CODE >53:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1A2 text1 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1A6 text1 CODE >55:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-1AA text1 CODE >41:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-220 text1 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-244 text1 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-284 text1 CODE >61:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-298 text1 CODE >62:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2AC text1 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B0 text1 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2F0 text1 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-360 text1 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-370 text1 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-384 text1 CODE >73:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-3A4 text1 CODE >74:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-3B8 text1 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-428 text1 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-438 text1 CODE >79:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-44C text1 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-474 text1 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-488 text1 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-4F8 text1 CODE >86:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-508 text1 CODE >88:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-51C text1 CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-54A text1 CODE >91:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-55C text1 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-5CC text1 CODE >95:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-5DC text1 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-5F0 text1 CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-5F8 text1 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-664 text1 CODE >101:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-676 text1 CODE >103:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B34 text0 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B34 text0 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B38 text0 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B3C text0 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B40 text0 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B44 text0 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2B48 text0 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
-2446 cinit CODE >4393:/tmp/xcXVJT4SY.s
-2446 cinit CODE >4395:/tmp/xcXVJT4SY.s
-2446 cinit CODE >4398:/tmp/xcXVJT4SY.s
-2446 cinit CODE >4486:/tmp/xcXVJT4SY.s
-2448 cinit CODE >4487:/tmp/xcXVJT4SY.s
-244A cinit CODE >4488:/tmp/xcXVJT4SY.s
-244C cinit CODE >4489:/tmp/xcXVJT4SY.s
-244E cinit CODE >4490:/tmp/xcXVJT4SY.s
-2450 cinit CODE >4491:/tmp/xcXVJT4SY.s
-2452 cinit CODE >4492:/tmp/xcXVJT4SY.s
-2456 cinit CODE >4493:/tmp/xcXVJT4SY.s
-245A cinit CODE >4494:/tmp/xcXVJT4SY.s
-245A cinit CODE >4495:/tmp/xcXVJT4SY.s
-245C cinit CODE >4496:/tmp/xcXVJT4SY.s
-2460 cinit CODE >4497:/tmp/xcXVJT4SY.s
-2462 cinit CODE >4498:/tmp/xcXVJT4SY.s
-2464 cinit CODE >4499:/tmp/xcXVJT4SY.s
-2466 cinit CODE >4503:/tmp/xcXVJT4SY.s
-2468 cinit CODE >4504:/tmp/xcXVJT4SY.s
-246A cinit CODE >4505:/tmp/xcXVJT4SY.s
-246C cinit CODE >4506:/tmp/xcXVJT4SY.s
-246E cinit CODE >4507:/tmp/xcXVJT4SY.s
-2470 cinit CODE >4508:/tmp/xcXVJT4SY.s
-2472 cinit CODE >4509:/tmp/xcXVJT4SY.s
-2474 cinit CODE >4510:/tmp/xcXVJT4SY.s
-2478 cinit CODE >4511:/tmp/xcXVJT4SY.s
-247A cinit CODE >4512:/tmp/xcXVJT4SY.s
-247E cinit CODE >4516:/tmp/xcXVJT4SY.s
-2482 cinit CODE >4517:/tmp/xcXVJT4SY.s
-2484 cinit CODE >4518:/tmp/xcXVJT4SY.s
-2484 cinit CODE >4519:/tmp/xcXVJT4SY.s
-2486 cinit CODE >4520:/tmp/xcXVJT4SY.s
-2488 cinit CODE >4521:/tmp/xcXVJT4SY.s
-248A cinit CODE >4524:/tmp/xcXVJT4SY.s
-248E cinit CODE >4525:/tmp/xcXVJT4SY.s
-2490 cinit CODE >4526:/tmp/xcXVJT4SY.s
-2490 cinit CODE >4527:/tmp/xcXVJT4SY.s
-2492 cinit CODE >4528:/tmp/xcXVJT4SY.s
-2494 cinit CODE >4529:/tmp/xcXVJT4SY.s
-2496 cinit CODE >4532:/tmp/xcXVJT4SY.s
-249A cinit CODE >4533:/tmp/xcXVJT4SY.s
-249C cinit CODE >4534:/tmp/xcXVJT4SY.s
-249C cinit CODE >4535:/tmp/xcXVJT4SY.s
-249E cinit CODE >4536:/tmp/xcXVJT4SY.s
-24A0 cinit CODE >4537:/tmp/xcXVJT4SY.s
-24A2 cinit CODE >4540:/tmp/xcXVJT4SY.s
-24A4 cinit CODE >4541:/tmp/xcXVJT4SY.s
-24A6 cinit CODE >4547:/tmp/xcXVJT4SY.s
-24A6 cinit CODE >4549:/tmp/xcXVJT4SY.s
-24A8 cinit CODE >4550:/tmp/xcXVJT4SY.s
-24AA cinit CODE >4552:/tmp/xcXVJT4SY.s
-24AC cinit CODE >4553:/tmp/xcXVJT4SY.s
-24AE cinit CODE >4554:/tmp/xcXVJT4SY.s
-24B0 cinit CODE >4555:/tmp/xcXVJT4SY.s
+8 intcode CODE >18434:/tmp/xcXw6UCKu.s
+8 intcode CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2AE0 text64 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2AE0 text64 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2AE4 text64 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2AF2 text64 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2AF4 text64 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2AF6 text64 CODE >73:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2B18 text64 CODE >76:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2B1C text64 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2B32 text64 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2B42 text64 CODE >80:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+3064 text63 CODE >135:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3064 text63 CODE >136:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+307C text63 CODE >137:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3080 text63 CODE >138:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3082 text63 CODE >139:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+293C intcode_body CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2946 intcode_body CODE >102:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2962 intcode_body CODE >103:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2970 intcode_body CODE >104:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2974 intcode_body CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2978 intcode_body CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+297C intcode_body CODE >109:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+297E intcode_body CODE >113:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+299A intcode_body CODE >114:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+299E intcode_body CODE >118:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+24D4 text61 CODE >86:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+24D4 text61 CODE >87:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+24EE text61 CODE >88:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+251A text61 CODE >89:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+251E text61 CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2544 text61 CODE >89:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2558 text61 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+255A text61 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2D88 text60 CODE >95:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2D88 text60 CODE >96:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DAA text60 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DAE text60 CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DC4 text60 CODE >99:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DD2 text60 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2F18 text59 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
+2F18 text59 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
+2F20 text59 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
+2F24 text59 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
+2F34 text59 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
+2F4E text59 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/memset.c
+1EC0 text58 CODE >102:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1EC0 text58 CODE >104:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1EDA text58 CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1EDA text58 CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1EE8 text58 CODE >109:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1EFE text58 CODE >110:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F22 text58 CODE >114:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F26 text58 CODE >116:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F4C text58 CODE >117:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F5C text58 CODE >118:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F5E text58 CODE >119:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F74 text58 CODE >120:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F92 text58 CODE >122:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1F94 text58 CODE >123:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+30F6 text57 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30F6 text57 CODE >83:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30FA text57 CODE >84:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30D8 text56 CODE >56:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30DA text56 CODE >57:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30E8 text56 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30EC text56 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+30EE text56 CODE >60:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E60 text55 CODE >62:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E60 text55 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E64 text55 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E8C text55 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E9E text55 CODE >66:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2D3A text54 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+2D3A text54 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+2D42 text54 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+2D46 text54 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+2D4A text54 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+2D7A text54 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+2D86 text54 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strlen.c
+255C text53 CODE >91:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+255C text53 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+256A text53 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2598 text53 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+25A8 text53 CODE >96:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+25AC text53 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+25C8 text53 CODE >98:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+25E0 text53 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2B44 text52 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2B44 text52 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2B48 text52 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2B4C text52 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2B50 text52 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2B98 text52 CODE >41:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2BA2 text52 CODE >42:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcmp.c
+2C00 text51 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2C00 text51 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2C20 text51 CODE >20:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2C46 text51 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2C4C text51 CODE >23:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2C4E text51 CODE >24:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2288 text50 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+2288 text50 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+2298 text50 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22AE text50 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22B2 text50 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22B6 text50 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22C0 text50 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22C2 text50 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22D0 text50 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22DA text50 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+22F8 text50 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+2308 text50 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+230A text50 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+2314 text50 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+231A text50 CODE >28:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+231A text50 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+232A text50 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c90/common/__lldiv.c
+25E2 text49 CODE >41:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+25E2 text49 CODE >42:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+25E4 text49 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+25E6 text49 CODE >44:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+25E8 text49 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+261C text49 CODE >47:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2652 text49 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+265C text49 CODE >50:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2660 text49 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2664 text49 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E1C text48 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2E1C text48 CODE >13:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2E20 text48 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2E3E text48 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2E5C text48 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2E5E text48 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+136E text47 CODE >237:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+136E text47 CODE >240:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1372 text47 CODE >241:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1376 text47 CODE >244:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+138A text47 CODE >245:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1394 text47 CODE >249:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1398 text47 CODE >250:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+13C6 text47 CODE >251:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+13DC text47 CODE >252:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+13DC text47 CODE >253:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+13E8 text47 CODE >254:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+13F4 text47 CODE >255:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1400 text47 CODE >256:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+140C text47 CODE >252:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1426 text47 CODE >258:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1430 text47 CODE >259:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+143C text47 CODE >258:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1452 text47 CODE >262:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1452 text47 CODE >263:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1466 text47 CODE >264:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+147A text47 CODE >265:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+148E text47 CODE >266:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14A2 text47 CODE >262:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14BC text47 CODE >268:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14C6 text47 CODE >269:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14DA text47 CODE >268:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14EC text47 CODE >271:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14EC text47 CODE >272:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+14EE text47 CODE >273:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30FC text46 CODE >105:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30FC text46 CODE >106:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30FE text46 CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CEC text45 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CEC text45 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CF0 text45 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CFC text45 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2D08 text45 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2D30 text45 CODE >102:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2D38 text45 CODE >103:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2C9E text44 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2C9E text44 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CA2 text44 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CAE text44 CODE >88:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CBA text44 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CE2 text44 CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2CEA text44 CODE >91:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F08 text43 CODE >115:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F08 text43 CODE >117:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F0C text43 CODE >120:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F20 text43 CODE >121:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F34 text43 CODE >122:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F48 text43 CODE >123:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F5C text43 CODE >125:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F70 text43 CODE >126:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F84 text43 CODE >127:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F88 text43 CODE >130:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+FA4 text43 CODE >131:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+FC0 text43 CODE >132:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+FD4 text43 CODE >133:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+FE8 text43 CODE >135:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1004 text43 CODE >136:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1018 text43 CODE >137:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+101C text43 CODE >140:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1038 text43 CODE >141:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1054 text43 CODE >142:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1070 text43 CODE >143:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+108C text43 CODE >145:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+10A8 text43 CODE >146:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+10C4 text43 CODE >147:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+10C8 text43 CODE >150:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+10DC text43 CODE >151:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+10F0 text43 CODE >152:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+110C text43 CODE >153:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1128 text43 CODE >155:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+113C text43 CODE >156:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1158 text43 CODE >157:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+115C text43 CODE >117:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1184 text43 CODE >159:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2BA4 text42 CODE >161:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2BA4 text42 CODE >162:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2BD0 text42 CODE >163:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2BE2 text42 CODE >164:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2BFE text42 CODE >166:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+303E text41 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
+303E text41 CODE >37:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
+304A text41 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
+3052 text41 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
+305A text41 CODE >52:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
+3062 text41 CODE >53:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul16.c
+26E8 text40 CODE >231:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+26E8 text40 CODE >232:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+272C text40 CODE >233:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2758 text40 CODE >234:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2764 text40 CODE >235:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DE6 text39 CODE >168:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DE6 text39 CODE >170:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DEA text39 CODE >171:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DEA text39 CODE >172:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DF2 text39 CODE >173:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DFA text39 CODE >174:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1DFE text39 CODE >176:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E0E text39 CODE >177:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E16 text39 CODE >178:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E1A text39 CODE >180:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E2A text39 CODE >181:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E3A text39 CODE >182:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E3E text39 CODE >183:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E3E text39 CODE >184:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E46 text39 CODE >185:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E56 text39 CODE >186:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E5A text39 CODE >170:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E82 text39 CODE >188:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1E96 text39 CODE >189:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1EAA text39 CODE >190:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1EBE text39 CODE >191:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1F96 text38 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1F96 text38 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1F9A text38 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FA8 text38 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FB0 text38 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FB4 text38 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FC2 text38 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FCA text38 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FCE text38 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FD6 text38 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FE8 text38 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FEC text38 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FF0 text38 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FF6 text38 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+1FF8 text38 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2006 text38 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+200C text38 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2022 text38 CODE >32:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+202A text38 CODE >33:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+202C text38 CODE >35:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2032 text38 CODE >36:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2038 text38 CODE >38:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2048 text38 CODE >39:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2050 text38 CODE >40:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2058 text38 CODE >41:/opt/microchip/xc8/v2.10/pic/sources/c90/common/awdiv.c
+2F50 text37 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
+2F50 text37 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
+2F5E text37 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
+2F7A text37 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
+2F82 text37 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/abs.c
+1186 text36 CODE >193:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1186 text36 CODE >194:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+11D4 text36 CODE >195:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+11E6 text36 CODE >196:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+11FE text36 CODE >197:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1216 text36 CODE >199:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1234 text36 CODE >200:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+124C text36 CODE >201:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1264 text36 CODE >205:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1270 text36 CODE >206:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1288 text36 CODE >208:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12A4 text36 CODE >211:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12C2 text36 CODE >212:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12CA text36 CODE >213:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12CE text36 CODE >214:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12D6 text36 CODE >218:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12E8 text36 CODE >219:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1304 text36 CODE >220:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1308 text36 CODE >221:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1324 text36 CODE >223:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+132C text36 CODE >224:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+133A text36 CODE >225:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1342 text36 CODE >226:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+134A text36 CODE >217:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+136C text36 CODE >229:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+C7A text35 CODE >275:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+C7A text35 CODE >276:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+C7E text35 CODE >277:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+CB2 text35 CODE >278:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+CB6 text35 CODE >279:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+CC4 text35 CODE >280:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+CD4 text35 CODE >281:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+D00 text35 CODE >282:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+D04 text35 CODE >283:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+D70 text35 CODE >285:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+D88 text35 CODE >286:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+D98 text35 CODE >287:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+DC4 text35 CODE >288:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+DC8 text35 CODE >289:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+E30 text35 CODE >278:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+E4A text35 CODE >276:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+E60 text35 CODE >294:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+E78 text35 CODE >295:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+E88 text35 CODE >296:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+E94 text35 CODE >297:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+EC4 text35 CODE >298:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+EC8 text35 CODE >299:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+F06 text35 CODE >302:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+232C text34 CODE >304:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+232C text34 CODE >305:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2330 text34 CODE >306:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+237A text34 CODE >307:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2388 text34 CODE >308:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+238C text34 CODE >305:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+23BC text34 CODE >310:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+21DA text33 CODE >334:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+21DA text33 CODE >335:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2212 text33 CODE >336:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2248 text33 CODE >337:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2252 text33 CODE >338:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2286 text33 CODE >339:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+2EDE text32 CODE >91:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2EDE text32 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2EF8 text32 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2F16 text32 CODE >94:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+244C text31 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+244C text31 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+2462 text31 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+2466 text31 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+246A text31 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+2474 text31 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+2476 text31 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+2484 text31 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+24A2 text31 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+24B2 text31 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+24BC text31 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+24C2 text31 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+24C2 text31 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+24D2 text31 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/llmod.c
+2F84 text30 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/isdigit.c
+2F86 text30 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/isdigit.c
+2FB4 text30 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/isdigit.c
+74E text29 CODE >505:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+74E text29 CODE >550:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+758 text29 CODE >553:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+75C text29 CODE >555:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+76E text29 CODE >558:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+77E text29 CODE >559:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+782 text29 CODE >563:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+78A text29 CODE >565:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+78E text29 CODE >614:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+7AC text29 CODE >615:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+7B6 text29 CODE >617:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+7D2 text29 CODE >618:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+800 text29 CODE >619:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+822 text29 CODE >669:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+824 text29 CODE >670:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+828 text29 CODE >760:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+840 text29 CODE >766:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+852 text29 CODE >767:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+85A text29 CODE >771:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+862 text29 CODE >772:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+866 text29 CODE >773:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+86C text29 CODE >772:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+8A8 text29 CODE >783:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+8C0 text29 CODE >784:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+8CC text29 CODE >786:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+8D8 text29 CODE >791:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+8E8 text29 CODE >790:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+906 text29 CODE >794:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+93A text29 CODE >793:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+958 text29 CODE >844:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+95A text29 CODE >845:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+95E text29 CODE >661:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+9A8 text29 CODE >848:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+9A8 text29 CODE >1277:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+9B6 text29 CODE >1281:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+9C4 text29 CODE >1282:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+9E8 text29 CODE >1285:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A0A text29 CODE >1287:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A18 text29 CODE >1288:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A1C text29 CODE >1289:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A30 text29 CODE >1294:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A30 text29 CODE >1307:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A3E text29 CODE >1308:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A62 text29 CODE >1312:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A86 text29 CODE >1331:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+A8A text29 CODE >1332:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+AC4 text29 CODE >1331:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+AD8 text29 CODE >1371:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B00 text29 CODE >1372:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B06 text29 CODE >1407:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B2A text29 CODE >1408:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B36 text29 CODE >1410:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B3E text29 CODE >1454:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B50 text29 CODE >1456:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B60 text29 CODE >1457:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B78 text29 CODE >1464:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B8E text29 CODE >1465:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+B9E text29 CODE >1498:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+BA4 text29 CODE >1500:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+BA8 text29 CODE >1515:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+C20 text29 CODE >1550:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+C30 text29 CODE >1500:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+C4A text29 CODE >553:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+C6C text29 CODE >1564:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+C78 text29 CODE >1567:/opt/microchip/xc8/v2.10/pic/sources/c90/common/doprnt.c
+1C2E text28 CODE >74:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1C2E text28 CODE >75:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1C44 text28 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1C4A text28 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1C76 text28 CODE >79:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1C8A text28 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1CC8 text28 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1CE2 text28 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1CF6 text28 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1D0A text28 CODE >89:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+30BE text27 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+30BE text27 CODE >13:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+30D2 text27 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+30D6 text27 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2DD4 text26 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DD4 text26 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DD6 text26 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DD8 text26 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DDA text26 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DDC text26 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DDE text26 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DE0 text26 CODE >22:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DE2 text26 CODE >23:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DE4 text26 CODE >26:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DE6 text26 CODE >27:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DE8 text26 CODE >28:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DEA text26 CODE >29:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DEE text26 CODE >30:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DF2 text26 CODE >33:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DF4 text26 CODE >36:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DFA text26 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2DFE text26 CODE >38:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2E1A text26 CODE >39:/media/wiz/WYZ/devel/pic/ECG-TFT.X/EUSART.c
+2EA0 text25 CODE >188:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2EA0 text25 CODE >189:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2EAC text25 CODE >190:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2EDC text25 CODE >191:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+27E0 text24 CODE >180:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+27E0 text24 CODE >181:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+27EC text24 CODE >182:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+281C text24 CODE >183:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2846 text24 CODE >184:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+284E text24 CODE >185:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2858 text24 CODE >186:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C50 text23 CODE >141:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C50 text23 CODE >142:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C54 text23 CODE >143:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C64 text23 CODE >144:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C74 text23 CODE >145:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C96 text23 CODE >146:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2C9C text23 CODE >147:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2FE6 text22 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2FE6 text22 CODE >13:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+2FFC text22 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3000 text22 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3004 text22 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3008 text22 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+300E text22 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3012 text22 CODE >20:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3014 text22 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/ecg.c
+3016 text21 CODE >109:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+3018 text21 CODE >110:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+302C text21 CODE >111:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+3030 text21 CODE >112:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+303C text21 CODE >113:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+3084 text20 CODE >67:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+3084 text20 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+3088 text20 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+308A text20 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+308C text20 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+308E text20 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+3090 text20 CODE >73:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+309E text20 CODE >74:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30A0 text20 CODE >75:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B50 text19 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B52 text19 CODE >47:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B56 text19 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B6C text19 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B74 text19 CODE >52:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B7C text19 CODE >53:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1B80 text19 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1BA2 text19 CODE >55:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1BC4 text19 CODE >56:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1BD8 text19 CODE >57:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1BEE text19 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1BF2 text19 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1C06 text19 CODE >53:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1C1E text19 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+1C2C text19 CODE >65:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+285A text18 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+285A text18 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+285C text18 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2860 text18 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2864 text18 CODE >20:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2866 text18 CODE >21:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+286A text18 CODE >24:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2882 text18 CODE >27:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2884 text18 CODE >28:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2886 text18 CODE >41:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+288A text18 CODE >42:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+288E text18 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2890 text18 CODE >49:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2894 text18 CODE >50:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+2898 text18 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+289C text18 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28A0 text18 CODE >67:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28A2 text18 CODE >68:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28A6 text18 CODE >69:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28AE text18 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28B0 text18 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28B4 text18 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28BC text18 CODE >75:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28C0 text18 CODE >76:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28C2 text18 CODE >77:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28C4 text18 CODE >78:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28C6 text18 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28C8 text18 CODE >82:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+28CA text18 CODE >85:/media/wiz/WYZ/devel/pic/ECG-TFT.X/init.c
+29AA text17 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+29AA text17 CODE >119:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+29BA text17 CODE >121:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+29C8 text17 CODE >122:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+29D8 text17 CODE >123:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+29E2 text17 CODE >124:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+29EC text17 CODE >125:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+2A02 text17 CODE >128:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+2A12 text17 CODE >129:/opt/microchip/xc8/v2.10/pic/sources/c90/common/Umul32.c
+14F0 text16 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+14F0 text16 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+14F0 text16 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1500 text16 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1524 text16 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1534 text16 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1538 text16 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+154A text16 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+154C text16 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+155C text16 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1576 text16 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+15BE text16 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+15D2 text16 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+15E2 text16 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1618 text16 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+1628 text16 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atol.c
+2666 text15 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+2666 text15 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+2666 text15 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+2696 text15 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+26A2 text15 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+26DE text15 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+26E6 text15 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strchr.c
+1D0C text14 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1D0C text14 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1D10 text14 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1D7E text14 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1DBA text14 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1DBE text14 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1DC2 text14 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1DDC text14 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+1DE4 text14 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strncmp.c
+211C text13 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+211C text13 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+2120 text13 CODE >7:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+215A text13 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+2166 text13 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+218E text13 CODE >6:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+21D0 text13 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+21D8 text13 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strstr.c
+2A7A text12 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2A7A text12 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2A82 text12 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2A86 text12 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2A8A text12 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2A8E text12 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2AD6 text12 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2ADE text12 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strcspn.c
+2A14 text11 CODE >4:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A14 text11 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A1C text11 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A20 text11 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A24 text11 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A28 text11 CODE >9:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A70 text11 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+2A78 text11 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strspn.c
+1990 text10 CODE >8:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1990 text10 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+19A2 text10 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+19AA text10 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+19BC text10 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+19C8 text10 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+19E4 text10 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+19FC text10 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1A12 text10 CODE >25:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1A34 text10 CODE >26:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1A4C text10 CODE >27:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1A60 text10 CODE >29:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1A68 text10 CODE >30:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1A70 text10 CODE >31:/opt/microchip/xc8/v2.10/pic/sources/c90/common/strtok.c
+1754 text9 CODE >26:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1754 text9 CODE >31:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1774 text9 CODE >32:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+179A text9 CODE >33:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+17B6 text9 CODE >34:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+17D2 text9 CODE >35:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+17E4 text9 CODE >36:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1800 text9 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1804 text9 CODE >38:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1840 text9 CODE >39:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1854 text9 CODE >37:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1866 text9 CODE >45:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1876 text9 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+162A text8 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+162A text8 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+163E text8 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+166C text8 CODE >57:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1690 text8 CODE >58:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+16B0 text8 CODE >59:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+16C4 text8 CODE >60:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+16EA text8 CODE >62:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+16FE text8 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1712 text8 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1726 text8 CODE >65:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+173A text8 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1752 text8 CODE >72:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1878 text7 CODE >5:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+1878 text7 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+187C text7 CODE >11:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+1880 text7 CODE >10:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18B4 text7 CODE >12:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18BC text7 CODE >13:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18C0 text7 CODE >14:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18DA text7 CODE >15:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18DC text7 CODE >16:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18E0 text7 CODE >17:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+18FE text7 CODE >18:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+1906 text7 CODE >20:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+193E text7 CODE >19:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+195A text7 CODE >21:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+196A text7 CODE >22:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+1986 text7 CODE >23:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+198E text7 CODE >24:/opt/microchip/xc8/v2.10/pic/sources/c90/common/atoi.c
+205A text6 CODE >153:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+205A text6 CODE >157:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+207A text6 CODE >158:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+20A0 text6 CODE >159:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+20BC text6 CODE >160:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+20D8 text6 CODE >161:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+20EA text6 CODE >162:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2106 text6 CODE >163:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2118 text6 CODE >167:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+211A text6 CODE >168:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2766 text5 CODE >170:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2766 text5 CODE >171:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+276C text5 CODE >172:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2784 text5 CODE >173:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+279A text5 CODE >174:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+27B0 text5 CODE >175:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+27C6 text5 CODE >176:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+27DC text5 CODE >177:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+27DE text5 CODE >178:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1A72 text4 CODE >135:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1A72 text4 CODE >139:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1A92 text4 CODE >140:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1AB8 text4 CODE >141:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1AD4 text4 CODE >142:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1AF0 text4 CODE >143:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1B02 text4 CODE >144:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1B1E text4 CODE >145:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1B3A text4 CODE >146:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1B4C text4 CODE >150:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+1B4E text4 CODE >151:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+23BE text3 CODE >125:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+23BE text3 CODE >126:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+23DC text3 CODE >129:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+23F8 text3 CODE >130:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+240C text3 CODE >131:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+2436 text3 CODE >132:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+244A text3 CODE >133:/media/wiz/WYZ/devel/pic/ECG-TFT.X/A6Lib.c
+30A2 text2 CODE >329:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30A4 text2 CODE >330:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30AE text2 CODE >331:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+30BC text2 CODE >332:/media/wiz/WYZ/devel/pic/ECG-TFT.X/TFT.c
+12 text1 CODE >29:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+12 text1 CODE >33:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+16 text1 CODE >35:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+86 text1 CODE >36:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+96 text1 CODE >39:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+BE text1 CODE >40:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+D4 text1 CODE >42:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+E6 text1 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+EA text1 CODE >45:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+110 text1 CODE >46:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+114 text1 CODE >48:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+13A text1 CODE >49:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+13E text1 CODE >51:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+164 text1 CODE >52:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+168 text1 CODE >54:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+190 text1 CODE >55:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+1A6 text1 CODE >56:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+1AA text1 CODE >57:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+1AE text1 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+224 text1 CODE >60:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+248 text1 CODE >61:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+28A text1 CODE >63:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+29E text1 CODE >64:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2B4 text1 CODE >65:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2B8 text1 CODE >66:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FA text1 CODE >70:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+36A text1 CODE >71:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+37A text1 CODE >73:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+390 text1 CODE >75:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+3B0 text1 CODE >76:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+3C6 text1 CODE >79:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+436 text1 CODE >80:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+446 text1 CODE >81:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+45C text1 CODE >83:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+484 text1 CODE >84:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+49A text1 CODE >87:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+50A text1 CODE >88:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+51A text1 CODE >90:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+530 text1 CODE >92:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+55E text1 CODE >93:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+572 text1 CODE >96:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+5E2 text1 CODE >97:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+5F2 text1 CODE >99:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+608 text1 CODE >100:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+610 text1 CODE >102:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+67C text1 CODE >103:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+690 text1 CODE >106:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+700 text1 CODE >107:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+710 text1 CODE >108:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+722 text1 CODE >109:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+74C text1 CODE >111:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FB6 text0 CODE >12:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FB6 text0 CODE >14:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FBA text0 CODE >15:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FC8 text0 CODE >16:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FCC text0 CODE >17:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FD0 text0 CODE >18:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FD6 text0 CODE >19:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+2FDA text0 CODE >22:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
+28CC cinit CODE >4407:/tmp/xcXw6UCKu.s
+28CC cinit CODE >4409:/tmp/xcXw6UCKu.s
+28CC cinit CODE >4412:/tmp/xcXw6UCKu.s
+28CC cinit CODE >4509:/tmp/xcXw6UCKu.s
+28CE cinit CODE >4510:/tmp/xcXw6UCKu.s
+28D0 cinit CODE >4511:/tmp/xcXw6UCKu.s
+28D2 cinit CODE >4512:/tmp/xcXw6UCKu.s
+28D4 cinit CODE >4513:/tmp/xcXw6UCKu.s
+28D6 cinit CODE >4514:/tmp/xcXw6UCKu.s
+28D8 cinit CODE >4515:/tmp/xcXw6UCKu.s
+28DC cinit CODE >4516:/tmp/xcXw6UCKu.s
+28E0 cinit CODE >4517:/tmp/xcXw6UCKu.s
+28E0 cinit CODE >4518:/tmp/xcXw6UCKu.s
+28E2 cinit CODE >4519:/tmp/xcXw6UCKu.s
+28E6 cinit CODE >4520:/tmp/xcXw6UCKu.s
+28E8 cinit CODE >4521:/tmp/xcXw6UCKu.s
+28EA cinit CODE >4522:/tmp/xcXw6UCKu.s
+28EC cinit CODE >4526:/tmp/xcXw6UCKu.s
+28EE cinit CODE >4527:/tmp/xcXw6UCKu.s
+28F0 cinit CODE >4528:/tmp/xcXw6UCKu.s
+28F2 cinit CODE >4529:/tmp/xcXw6UCKu.s
+28F4 cinit CODE >4530:/tmp/xcXw6UCKu.s
+28F6 cinit CODE >4531:/tmp/xcXw6UCKu.s
+28F8 cinit CODE >4532:/tmp/xcXw6UCKu.s
+28FA cinit CODE >4533:/tmp/xcXw6UCKu.s
+28FE cinit CODE >4534:/tmp/xcXw6UCKu.s
+2900 cinit CODE >4535:/tmp/xcXw6UCKu.s
+2904 cinit CODE >4539:/tmp/xcXw6UCKu.s
+2908 cinit CODE >4540:/tmp/xcXw6UCKu.s
+290A cinit CODE >4541:/tmp/xcXw6UCKu.s
+290A cinit CODE >4542:/tmp/xcXw6UCKu.s
+290C cinit CODE >4543:/tmp/xcXw6UCKu.s
+290E cinit CODE >4544:/tmp/xcXw6UCKu.s
+2910 cinit CODE >4547:/tmp/xcXw6UCKu.s
+2914 cinit CODE >4548:/tmp/xcXw6UCKu.s
+2916 cinit CODE >4549:/tmp/xcXw6UCKu.s
+2916 cinit CODE >4550:/tmp/xcXw6UCKu.s
+2918 cinit CODE >4551:/tmp/xcXw6UCKu.s
+291A cinit CODE >4552:/tmp/xcXw6UCKu.s
+291C cinit CODE >4555:/tmp/xcXw6UCKu.s
+2920 cinit CODE >4556:/tmp/xcXw6UCKu.s
+2922 cinit CODE >4557:/tmp/xcXw6UCKu.s
+2922 cinit CODE >4558:/tmp/xcXw6UCKu.s
+2924 cinit CODE >4559:/tmp/xcXw6UCKu.s
+2926 cinit CODE >4560:/tmp/xcXw6UCKu.s
+2928 cinit CODE >4563:/tmp/xcXw6UCKu.s
+292A cinit CODE >4564:/tmp/xcXw6UCKu.s
+292C cinit CODE >4565:/tmp/xcXw6UCKu.s
+292E cinit CODE >4571:/tmp/xcXw6UCKu.s
+292E cinit CODE >4573:/tmp/xcXw6UCKu.s
+2930 cinit CODE >4574:/tmp/xcXw6UCKu.s
+2932 cinit CODE >4576:/tmp/xcXw6UCKu.s
+2934 cinit CODE >4577:/tmp/xcXw6UCKu.s
+2936 cinit CODE >4578:/tmp/xcXw6UCKu.s
+2938 cinit CODE >4579:/tmp/xcXw6UCKu.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -898,10 +976,11 @@ E8 text1 CODE >43:/media/wiz/WYZ/devel/pic/ECG-TFT.X/main.c
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_EUSART_Init 2854 0 CODE 0 text28 dist/free/production/ECG-TFT.X.production.o
+_EUSART_Init 2DD4 0 CODE 0 text26 dist/free/production/ECG-TFT.X.production.o
 ___awdiv@counter 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_Command 20EC 0 CODE 0 text49 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_Command 25E2 0 CODE 0 text53 dist/free/production/ECG-TFT.X.production.o
 __end_of_ECG_ICON_HEART 5E2F 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
+__size_of_TFT_GetHeight 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/free/production/ECG-TFT.X.production.o
 __Lmediumconst 57F0 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_DrawChar 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -911,15 +990,16 @@ __Hspace_1 282 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_IESO$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_SetAddrWindow 22E6 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_SetAddrWindow 1186 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
 strncmp@s1 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strncmp@s2 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateAutoDetect@zzzz 70 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/free/production/ECG-TFT.X.production.o
-__mediumconst 57F0 0 MEDIUMCONST 0 mediumconst /tmp/xcXba8Uhh.o
+__mediumconst 57F0 0 MEDIUMCONST 0 mediumconst /tmp/xcXMomMQI.o
+__size_of_TFT_GetWidth 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_Command@command 18 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_DrawString 1E42 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_DrawString 23BE 0 CODE 0 text34 dist/free/production/ECG-TFT.X.production.o
 A6_Command@response 1C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_abs 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_NetworkGetRSSILevel 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -935,20 +1015,22 @@ _RBPU 7F8F 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _RCIE 7CED 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _RCIF 7CF5 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _TXIF 7CF4 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcXba8Uhh.o
-_atoi 148A 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
-_atol 1102 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
-_init 23D4 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcXMomMQI.o
+_atoi 1878 0 CODE 0 text7 dist/free/production/ECG-TFT.X.production.o
+_atol 14F0 0 CODE 0 text16 dist/free/production/ECG-TFT.X.production.o
+_init 285A 0 CODE 0 text18 dist/free/production/ECG-TFT.X.production.o
 _loop 12 0 CODE 0 text1 dist/free/production/ECG-TFT.X.production.o
-_main 2B34 0 CODE 0 text0 dist/free/production/ECG-TFT.X.production.o
-_tmp1 1BD 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
-_tmp2 1B9 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
-_tmp3 1B5 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
-_tmp4 1B1 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
-_tmp5 1AD 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_main 2FB6 0 CODE 0 text0 dist/free/production/ECG-TFT.X.production.o
+_tmp1 1C5 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_tmp2 1C1 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_tmp3 1BD 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_tmp4 1B9 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_tmp5 1B5 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_tmp6 1B1 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_tmp7 1AD 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
 abs@a 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-btemp 5A 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
-start E 0 CODE 0 init /tmp/xcXba8Uhh.o
+btemp 5B 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+start E 0 CODE 0 init /tmp/xcXMomMQI.o
 __size_of___awdiv 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_atoi 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_atol 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -957,80 +1039,85 @@ __size_of_loop 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_main 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of___lldiv 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of___llmod 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_DrawChar D98 0 CODE 0 text37 dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_DrawLine F80 0 CODE 0 text23 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_DrawChar F08 0 CODE 0 text35 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_DrawLine 136E 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_TX_Char 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_ReadLine 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __end_of_TFT_Init_Sequence 5DBD 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
-_Ecg_Interrupt 2B54 0 CODE 0 text59 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_GetHeight 2D3A 0 CODE 0 text45 dist/free/production/ECG-TFT.X.production.o
+_Ecg_Interrupt 3064 0 CODE 0 text63 dist/free/production/ECG-TFT.X.production.o
 ?___lmul 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?___wmul 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_TFT_WriteRegister 28E2 0 CODE 0 text44 dist/free/production/ECG-TFT.X.production.o
+_TFT_WriteRegister 2E1C 0 CODE 0 text48 dist/free/production/ECG-TFT.X.production.o
 A6_Command@timeout 1A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_Process_Random_Comms 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_GetWidth 2CEC 0 CODE 0 text44 dist/free/production/ECG-TFT.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@err 2C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@err 30 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_IsAlive@response 1F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hpowerup E 0 CODE 0 powerup dist/free/production/ECG-TFT.X.production.o
-ttemp5 5B 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
-ttemp6 5E 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
-ttemp7 62 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+ttemp5 5C 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+ttemp6 5F 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+ttemp7 63 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_RX_AvailableData 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
 _EUSART_RX 200 0 BANK2 1 bssBANK2 dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_BaudRateAutoDetect 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetRSSILevel@RSSI 41 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__accesstop 60 0 ABS 0 - /tmp/xcXba8Uhh.o
-intlevel0 0 0 CODE 0 text /tmp/xcXba8Uhh.o
-intlevel1 0 0 CODE 0 text /tmp/xcXba8Uhh.o
-intlevel2 0 0 CODE 0 text /tmp/xcXba8Uhh.o
-intlevel3 0 0 CODE 0 text /tmp/xcXba8Uhh.o
+__accesstop 60 0 ABS 0 - /tmp/xcXMomMQI.o
+intlevel0 0 0 CODE 0 text /tmp/xcXMomMQI.o
+intlevel1 0 0 CODE 0 text /tmp/xcXMomMQI.o
+intlevel2 0 0 CODE 0 text /tmp/xcXMomMQI.o
+intlevel3 0 0 CODE 0 text /tmp/xcXMomMQI.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_USBDIV$2 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
+?_TFT_GetWidth 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_IsAlive 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateGet@baudRateToken 47 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _OSCCONbits FD3 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/free/production/ECG-TFT.X.production.o
-wtemp8 5B 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+wtemp8 5C 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
 __CFG_EBTR0$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawPixel 2966 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawPixel 1DE6 0 CODE 0 text39 dist/free/production/ECG-TFT.X.production.o
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 ___llmod@divisor 16 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_EBTR2$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateSet@response 74 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_A6_BaudRateGet 1366 0 CODE 0 text8 dist/free/production/ECG-TFT.X.production.o
-_A6_BaudRateSet 123C 0 CODE 0 text7 dist/free/production/ECG-TFT.X.production.o
-_TFT_FullScreen 2B0E 0 CODE 0 text41 dist/free/production/ECG-TFT.X.production.o
+TFT_FullScreen@color 1C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+_A6_BaudRateGet 1754 0 CODE 0 text9 dist/free/production/ECG-TFT.X.production.o
+_A6_BaudRateSet 162A 0 CODE 0 text8 dist/free/production/ECG-TFT.X.production.o
+_TFT_FullScreen 2BA4 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
 _A6_BAUDRATES 5DE5 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/free/production/ECG-TFT.X.production.o
 ___awdiv@sign A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/free/production/ECG-TFT.X.production.o
-TFT_Init@i 26 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_Init@i 2C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _ECG_FLAGS 56 0 COMRAM 1 bssCOMRAM dist/free/production/ECG-TFT.X.production.o
-__pidataCOMRAM 2BD0 0 CODE 0 idataCOMRAM dist/free/production/ECG-TFT.X.production.o
+__pidataCOMRAM 3100 0 CODE 0 idataCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_Command@responseLen 1E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ___wmul@multiplicand 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_Init@initSequenceSize 22 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_Init@initSequenceSize 28 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 EUSART_TX_Char@c 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _ADRESH FC4 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _ADRESL FC3 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateSet@baudRate 70 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
-_EUSART_BufferGetChar 2808 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
+_EUSART_BufferGetChar 2D88 0 CODE 0 text60 dist/free/production/ECG-TFT.X.production.o
+TFT_ConsolePrintLine@str 6B 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 ___awdiv@dividend 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_sleepMS 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-___inthi_sp 0 0 STACK 2 stack /tmp/xcXba8Uhh.o
-___intlo_sp 0 0 STACK 2 stack /tmp/xcXba8Uhh.o
-_TFT_SetAddrWindow 226C 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_NetworkGetRSSI 1C50 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcXMomMQI.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcXMomMQI.o
+_TFT_SetAddrWindow F08 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_NetworkGetRSSI 211C 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/free/production/ECG-TFT.X.production.o
-__end_of___lmul 258C 0 CODE 0 text16 dist/free/production/ECG-TFT.X.production.o
-__end_of___wmul 2B0E 0 CODE 0 text40 dist/free/production/ECG-TFT.X.production.o
-_A6_Init 2B92 0 CODE 0 text29 dist/free/production/ECG-TFT.X.production.o
+__end_of___lmul 2A14 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
+__end_of___wmul 3064 0 CODE 0 text41 dist/free/production/ECG-TFT.X.production.o
+_A6_Init 30BE 0 CODE 0 text27 dist/free/production/ECG-TFT.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/free/production/ECG-TFT.X.production.o
-_Ecg_Background_Leads_Failure 29A4 0 CODE 0 text26 dist/free/production/ECG-TFT.X.production.o
+_Ecg_Background_Leads_Failure 2EA0 0 CODE 0 text25 dist/free/production/ECG-TFT.X.production.o
 TFT_WriteRegister@h 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_WriteRegister@l A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_sprintf 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -1038,16 +1125,16 @@ _BAUDCONbits FB8 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Hmediumconst 6000 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 __Hintcodelo E 0 CODE 0 intcodelo dist/free/production/ECG-TFT.X.production.o
 ___awdiv@divisor 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__size_of_TFT_FillScreen 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 TFT_WriteRegister@data 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of___awdiv 1B8E 0 CODE 0 text25 dist/free/production/ECG-TFT.X.production.o
-__end_of___lldiv 1DB2 0 CODE 0 text46 dist/free/production/ECG-TFT.X.production.o
-__end_of___llmod 1F56 0 CODE 0 text33 dist/free/production/ECG-TFT.X.production.o
+__end_of___awdiv 205A 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
+TFT_ConsolePrintLine@color 6D 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+__end_of___lldiv 232C 0 CODE 0 text50 dist/free/production/ECG-TFT.X.production.o
+__end_of___llmod 24D4 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
 __size_of_isdigit 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_loop$152 1A0 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-_loop$157 1A2 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-_loop$176 1A4 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-_loop$177 1A6 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+_loop$143 1A0 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+_loop$148 1A2 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+_loop$167 1A4 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+_loop$168 1A6 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetRSSI@RSSIToken 3F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _TFT_Init_Sequence 5CF1 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 sleepMS@t 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
@@ -1057,23 +1144,25 @@ sleepMS@t 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_strspn B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_strstr 10 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_strtok 12 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-loop@zzzz_162 120 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-loop@zzzz_165 140 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-loop@zzzz_169 160 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_BaudRateGet 148A 0 CODE 0 text8 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_BaudRateSet 1366 0 CODE 0 text7 dist/free/production/ECG-TFT.X.production.o
+loop@zzzz_153 120 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+loop@zzzz_156 140 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+loop@zzzz_160 160 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_BaudRateGet 1878 0 CODE 0 text9 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_BaudRateSet 1754 0 CODE 0 text8 dist/free/production/ECG-TFT.X.production.o
 _OSCTUNEbits F9B 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_strcspn 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_strncmp 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_FullScreen 2B34 0 CODE 0 text41 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_FullScreen 2C00 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
 _dpowers 5DBD 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 __size_of_Ecg_Interrupt 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_WriteRegister@h_747 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_BaudRateSet 2170 0 CODE 0 text45 dist/free/production/ECG-TFT.X.production.o
+TFT_WriteRegister@h_753 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_BaudRateSet 2666 0 CODE 0 text49 dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_NetworkGetStatus 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-TFT_WriteRegister@l_748 C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_RX_Flush 2BD0 0 CODE 0 text53 dist/free/production/ECG-TFT.X.production.o
+TFT_WriteRegister@l_754 C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_RX_Flush 30FC 0 CODE 0 text57 dist/free/production/ECG-TFT.X.production.o
+__size_of_TFT_OrientationGet 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
+__size_of_TFT_OrientationSet 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 EUSART_BaudRateSet@tmp 1A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_A6_BaudRateGet 1F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_A6_BaudRateSet 70 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
@@ -1083,40 +1172,45 @@ TFT_WriteRegister@reg 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.p
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_Command 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-start_initialization 2446 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
+start_initialization 28CC 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
 EUSART_BaudRateSet@baudRate 12 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __end_of_A6_BAUDRATES 5DF1 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/free/production/ECG-TFT.X.production.o
 A6_ReadLine@response 11 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ___lldiv@dividend 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@color 1B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@color 1F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_Init@color 21 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_DrawPixel 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_STVREN$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@steep 2E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@t_792 22 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@t_793 24 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@t_794 26 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__size_of_TFT_ConsolePrintLine 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@steep 32 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@t_814 26 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@t_815 28 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@t_816 2A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _GO_nDONE 7E11 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_memset 2A52 0 CODE 0 text55 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@ystep 2A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__end_of_memset 2F50 0 CODE 0 text59 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@ystep 2E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_WDTPS$32768 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_Ecg_Interrupt 2B74 0 CODE 0 text59 dist/free/production/ECG-TFT.X.production.o
+__end_of_Ecg_Interrupt 3084 0 CODE 0 text63 dist/free/production/ECG-TFT.X.production.o
 _SPBRGH FB0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
+_TFT_Orientation 58 0 COMRAM 1 bssCOMRAM dist/free/production/ECG-TFT.X.production.o
 _TMR3IE 7D01 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _TMR3IF 7D09 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_EUSART_BaudRateSet 20EC 0 CODE 0 text45 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_ConsoleInit 30BE 0 CODE 0 text2 dist/free/production/ECG-TFT.X.production.o
+_EUSART_BaudRateSet 25E2 0 CODE 0 text49 dist/free/production/ECG-TFT.X.production.o
 _A6_LAST_COMMAND_MILLISECONDS C6 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
 TFT_Flood@color D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_sleepMS 2A1A 0 CODE 0 text34 dist/free/production/ECG-TFT.X.production.o
+__end_of_sleepMS 2F18 0 CODE 0 text32 dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetStatus@response 1F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_MILLISECONDS 1C1 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
-_A6_NetworkGetRSSI 1B8E 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
-_Ecg_CheckLeads 276C 0 CODE 0 text21 dist/free/production/ECG-TFT.X.production.o
-_A6_NetworkGetStatus 1684 0 CODE 0 text3 dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_Init 289C 0 CODE 0 text28 dist/free/production/ECG-TFT.X.production.o
+_MILLISECONDS 1C9 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
+_A6_NetworkGetRSSI 205A 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_ConsolePrintLine 2288 0 CODE 0 text33 dist/free/production/ECG-TFT.X.production.o
+_Ecg_CheckLeads 2C50 0 CODE 0 text23 dist/free/production/ECG-TFT.X.production.o
+_A6_NetworkGetStatus 1A72 0 CODE 0 text4 dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_Init 2E1C 0 CODE 0 text26 dist/free/production/ECG-TFT.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/free/production/ECG-TFT.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/free/production/ECG-TFT.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/free/production/ECG-TFT.X.production.o
@@ -1127,19 +1221,19 @@ __Hbank6 0 0 ABS 0 bank6 dist/free/production/ECG-TFT.X.production.o
 __Hbank7 0 0 ABS 0 bank7 dist/free/production/ECG-TFT.X.production.o
 __Hcinit 0 0 ABS 0 cinit dist/free/production/ECG-TFT.X.production.o
 __Hconst 0 0 CONST 0 const dist/free/production/ECG-TFT.X.production.o
-__end_of_strchr 21F2 0 CODE 0 text14 dist/free/production/ECG-TFT.X.production.o
-__end_of_strcmp 271C 0 CODE 0 text48 dist/free/production/ECG-TFT.X.production.o
-__end_of_strlen 2808 0 CODE 0 text50 dist/free/production/ECG-TFT.X.production.o
-__end_of_strspn 25F2 0 CODE 0 text10 dist/free/production/ECG-TFT.X.production.o
-__end_of_strstr 1D0E 0 CODE 0 text12 dist/free/production/ECG-TFT.X.production.o
-__end_of_strtok 1684 0 CODE 0 text9 dist/free/production/ECG-TFT.X.production.o
+__end_of_strchr 26E8 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
+__end_of_strcmp 2BA4 0 CODE 0 text52 dist/free/production/ECG-TFT.X.production.o
+__end_of_strlen 2D88 0 CODE 0 text54 dist/free/production/ECG-TFT.X.production.o
+__end_of_strspn 2A7A 0 CODE 0 text11 dist/free/production/ECG-TFT.X.production.o
+__end_of_strstr 21DA 0 CODE 0 text13 dist/free/production/ECG-TFT.X.production.o
+__end_of_strtok 1A72 0 CODE 0 text10 dist/free/production/ECG-TFT.X.production.o
 __Hidata 0 0 CODE 0 idata dist/free/production/ECG-TFT.X.production.o
 __Hidloc 200008 0 IDLOC 0 idloc dist/free/production/ECG-TFT.X.production.o
 __size_of_Ecg_Background_Leads_Ok 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_EUSART_RX_Flush 2BCA 0 CODE 0 text53 dist/free/production/ECG-TFT.X.production.o
+_EUSART_RX_Flush 30F6 0 CODE 0 text57 dist/free/production/ECG-TFT.X.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/free/production/ECG-TFT.X.production.o
 __Hparam 0 0 COMRAM 1 rparam dist/free/production/ECG-TFT.X.production.o
-_A6_ReadLine 19F4 0 CODE 0 text54 dist/free/production/ECG-TFT.X.production.o
+_A6_ReadLine 1EC0 0 CODE 0 text58 dist/free/production/ECG-TFT.X.production.o
 __Hrdata 0 0 COMRAM 1 rdata dist/free/production/ECG-TFT.X.production.o
 __Hstack 0 0 STACK 2 stack dist/free/production/ECG-TFT.X.production.o
 __Htext0 0 0 ABS 0 text0 dist/free/production/ECG-TFT.X.production.o
@@ -1155,19 +1249,17 @@ __Htext9 0 0 ABS 0 text9 dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_Init 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/free/production/ECG-TFT.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/free/production/ECG-TFT.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXba8Uhh.o
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcXMomMQI.o
 _UCFGbits F6F 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_DrawPixel 29A4 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
-__end_of_sprintf BA4 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_DrawPixel 1EC0 0 CODE 0 text39 dist/free/production/ECG-TFT.X.production.o
+__end_of_sprintf C7A 0 CODE 0 text29 dist/free/production/ECG-TFT.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/free/production/ECG-TFT.X.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/free/production/ECG-TFT.X.production.o
-_A6_NetworkGetRSSILevel 21F2 0 CODE 0 text4 dist/free/production/ECG-TFT.X.production.o
-__end_of_printLine 1FDE 0 CODE 0 text35 dist/free/production/ECG-TFT.X.production.o
+_A6_NetworkGetRSSILevel 2766 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetRSSI@response 1F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_Flood@color_hi 1A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_Flood@color_lo 1B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__size_of_printLine 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Lbank0 0 0 ABS 0 bank0 dist/free/production/ECG-TFT.X.production.o
 __Lbank1 0 0 ABS 0 bank1 dist/free/production/ECG-TFT.X.production.o
 __Lbank2 0 0 ABS 0 bank2 dist/free/production/ECG-TFT.X.production.o
@@ -1176,7 +1268,7 @@ __Lbank4 0 0 ABS 0 bank4 dist/free/production/ECG-TFT.X.production.o
 __Lbank5 0 0 ABS 0 bank5 dist/free/production/ECG-TFT.X.production.o
 __Lbank6 0 0 ABS 0 bank6 dist/free/production/ECG-TFT.X.production.o
 __Lbank7 0 0 ABS 0 bank7 dist/free/production/ECG-TFT.X.production.o
-__end_of_isdigit 2AB8 0 CODE 0 text32 dist/free/production/ECG-TFT.X.production.o
+__end_of_isdigit 2FB6 0 CODE 0 text30 dist/free/production/ECG-TFT.X.production.o
 __Lcinit 0 0 ABS 0 cinit dist/free/production/ECG-TFT.X.production.o
 __Lconst 0 0 CONST 0 const dist/free/production/ECG-TFT.X.production.o
 __Lidata 0 0 CODE 0 idata dist/free/production/ECG-TFT.X.production.o
@@ -1200,35 +1292,35 @@ __Lintcode_body 0 0 ABS 0 intcode_body dist/free/production/ECG-TFT.X.production
 _PORTAbits F80 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _PORTCbits F82 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateGet@j 49 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_strcspn 2658 0 CODE 0 text11 dist/free/production/ECG-TFT.X.production.o
+__end_of_strcspn 2AE0 0 CODE 0 text12 dist/free/production/ECG-TFT.X.production.o
 __size_of_Ecg_Init 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_strncmp 191A 0 CODE 0 text13 dist/free/production/ECG-TFT.X.production.o
+__end_of_strncmp 1DE6 0 CODE 0 text14 dist/free/production/ECG-TFT.X.production.o
 A6_ReadLine@timeout 14 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/free/production/ECG-TFT.X.production.o
 __Hdata 0 0 ABS 0 data dist/free/production/ECG-TFT.X.production.o
 __Hinit 12 0 CODE 0 init dist/free/production/ECG-TFT.X.production.o
 __Hrbit 0 0 COMRAM 1 rbit dist/free/production/ECG-TFT.X.production.o
 __Hrbss 0 0 COMRAM 1 rbss dist/free/production/ECG-TFT.X.production.o
-__Htemp 5B 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+__Htemp 5C 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
 __Htext 0 0 ABS 0 text dist/free/production/ECG-TFT.X.production.o
 __Labs1 0 0 ABS 0 abs1 dist/free/production/ECG-TFT.X.production.o
 __Ldata 0 0 ABS 0 data dist/free/production/ECG-TFT.X.production.o
 __Linit E 0 CODE 0 init dist/free/production/ECG-TFT.X.production.o
 __Lrbit 0 0 COMRAM 1 rbit dist/free/production/ECG-TFT.X.production.o
 __Lrbss 0 0 COMRAM 1 rbss dist/free/production/ECG-TFT.X.production.o
-__Ltemp 5A 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+__Ltemp 5B 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
 __Ltext 0 0 ABS 0 text dist/free/production/ECG-TFT.X.production.o
 __CFG_XINST$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 memset@c 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 memset@n 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 memset@p B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-___lmul 2522 0 CODE 0 text16 dist/free/production/ECG-TFT.X.production.o
-___wmul 2AE8 0 CODE 0 text40 dist/free/production/ECG-TFT.X.production.o
+___lmul 29AA 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
+___wmul 303E 0 CODE 0 text41 dist/free/production/ECG-TFT.X.production.o
 Ecg_CheckLeads@leadsStatus 8 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_DrawString 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-int$flags 5A 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
+int$flags 5B 0 COMRAM 1 temp dist/free/production/ECG-TFT.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _ECG_HEARTBEAT B0 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
 _ECG_HEARTRATE C2 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
@@ -1238,56 +1330,59 @@ _GIE 7F97 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __S0 30000E 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __S1 282 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __S2 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_abs 2A52 0 CODE 0 text24 dist/free/production/ECG-TFT.X.production.o
+_abs 2F50 0 CODE 0 text37 dist/free/production/ECG-TFT.X.production.o
 _isr 8 0 CODE 0 intcode dist/free/production/ECG-TFT.X.production.o
+_TFT_ConsoleInit 30A2 0 CODE 0 text2 dist/free/production/ECG-TFT.X.production.o
 __CFG_VREGEN$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_printLine 1F56 0 CODE 0 text35 dist/free/production/ECG-TFT.X.production.o
 atoi@sign F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_Init@data 20 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_Init@data 26 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 EUSART_BufferGetChar@timeout F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_FillScreen@color 1C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _UCONbits F6D 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 loop@response 100 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
 __CFG_PLLDIV$1 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-TFT_DrawString@size 49 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawString@size 6A 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 TFT_SetAddrWindow@x1 D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_SetAddrWindow@x2 11 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_SetAddrWindow@y1 F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_SetAddrWindow@y2 13 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_Ecg_CheckLeads 27BA 0 CODE 0 text21 dist/free/production/ECG-TFT.X.production.o
+__end_of_Ecg_CheckLeads 2C9E 0 CODE 0 text23 dist/free/production/ECG-TFT.X.production.o
+TFT_ConsoleInit@orientation 21 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 atol@sign 19 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_RX_Interrupt 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_PBADEN$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateSet@currentBaudRate A8 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
-_EUSART_TX_Char 2BAC 0 CODE 0 text52 dist/free/production/ECG-TFT.X.production.o
+_EUSART_TX_Char 30D8 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
 __size_of_Ecg_Background_Leads_Failure 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/free/production/ECG-TFT.X.production.o
+TFT_Init@orientation 25 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/free/production/ECG-TFT.X.production.o
 loop@ns 1AC 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
 loop@zz 1A8 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
 sprintf@len 64 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 sprintf@val 66 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@line 38 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@size 33 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@line 44 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@size 3F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _TFT_Font 57F1 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
-_TFT_Init 1762 0 CODE 0 text18 dist/free/production/ECG-TFT.X.production.o
+_TFT_Init 1B50 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
+?_TFT_GetHeight 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strcmp@s1 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strcmp@s2 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strcspn@i 10 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_abs 2A86 0 CODE 0 text24 dist/free/production/ECG-TFT.X.production.o
-__end_of_isr 2522 0 CODE 0 intcode_body dist/free/production/ECG-TFT.X.production.o
+__end_of_abs 2F84 0 CODE 0 text37 dist/free/production/ECG-TFT.X.production.o
+__end_of_isr 29AA 0 CODE 0 intcode_body dist/free/production/ECG-TFT.X.production.o
 ?_Ecg_CheckLeads 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_Ecg_Background_Leads_Failure 29E0 0 CODE 0 text26 dist/free/production/ECG-TFT.X.production.o
-int_func 24B4 0 CODE 0 intcode_body dist/free/production/ECG-TFT.X.production.o
+__end_of_Ecg_Background_Leads_Failure 2EDE 0 CODE 0 text25 dist/free/production/ECG-TFT.X.production.o
+int_func 293C 0 CODE 0 intcode_body dist/free/production/ECG-TFT.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/free/production/ECG-TFT.X.production.o
 ___lldiv@divisor 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_EUSART_TX_String 2926 0 CODE 0 text51 dist/free/production/ECG-TFT.X.production.o
+_EUSART_TX_String 2E60 0 CODE 0 text55 dist/free/production/ECG-TFT.X.production.o
 strcmp@r B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_OrientationSet@orientation 20 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hramtop 800 0 RAM 0 ramtop dist/free/production/ECG-TFT.X.production.o
 strlen@s 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __end_of_TFT_Font 5CF1 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_Init 1840 0 CODE 0 text18 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_Init 1C2E 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
 strspn@i 10 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/free/production/ECG-TFT.X.production.o
 __pdataBANK0 CE 0 BANK0 1 dataBANK0 dist/free/production/ECG-TFT.X.production.o
@@ -1346,131 +1441,142 @@ __Htext54 0 0 ABS 0 text54 dist/free/production/ECG-TFT.X.production.o
 __Htext55 0 0 ABS 0 text55 dist/free/production/ECG-TFT.X.production.o
 __Htext56 0 0 ABS 0 text56 dist/free/production/ECG-TFT.X.production.o
 __Htext57 0 0 ABS 0 text57 dist/free/production/ECG-TFT.X.production.o
+__Htext58 0 0 ABS 0 text58 dist/free/production/ECG-TFT.X.production.o
 __Htext59 0 0 ABS 0 text59 dist/free/production/ECG-TFT.X.production.o
 __Htext60 0 0 ABS 0 text60 dist/free/production/ECG-TFT.X.production.o
-_Ecg_Init 2AB8 0 CODE 0 text20 dist/free/production/ECG-TFT.X.production.o
+__Htext61 0 0 ABS 0 text61 dist/free/production/ECG-TFT.X.production.o
+__Htext63 0 0 ABS 0 text63 dist/free/production/ECG-TFT.X.production.o
+__Htext64 0 0 ABS 0 text64 dist/free/production/ECG-TFT.X.production.o
+_TFT_ConsolePrintLine$2240 4F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+_Ecg_Init 2FE6 0 CODE 0 text22 dist/free/production/ECG-TFT.X.production.o
 _Ecg_Xold D0 0 BANK0 1 dataBANK0 dist/free/production/ECG-TFT.X.production.o
 _Ecg_Yold CE 0 BANK0 1 dataBANK0 dist/free/production/ECG-TFT.X.production.o
+_TFT_ConsoleRow CC 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
 _RCSTAbits FAB 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_RX_Flush 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_NetworkGetStatus 1762 0 CODE 0 text3 dist/free/production/ECG-TFT.X.production.o
-_A6_Process_Random_Comms 1E42 0 CODE 0 text2 dist/free/production/ECG-TFT.X.production.o
-_memset 2A1A 0 CODE 0 text55 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_NetworkGetStatus 1B50 0 CODE 0 text4 dist/free/production/ECG-TFT.X.production.o
+_A6_Process_Random_Comms 23BE 0 CODE 0 text3 dist/free/production/ECG-TFT.X.production.o
+_memset 2F18 0 CODE 0 text59 dist/free/production/ECG-TFT.X.production.o
 sprintf@flag 6A 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 sprintf@prec 60 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 memset@p1 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@dx 30 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@dy 28 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@x0 13 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@x1 17 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@y0 15 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@y1 19 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__ptext10 258C 0 CODE 0 text10 dist/free/production/ECG-TFT.X.production.o
-__ptext11 25F2 0 CODE 0 text11 dist/free/production/ECG-TFT.X.production.o
-__ptext12 1C50 0 CODE 0 text12 dist/free/production/ECG-TFT.X.production.o
-__ptext13 1840 0 CODE 0 text13 dist/free/production/ECG-TFT.X.production.o
-__ptext14 2170 0 CODE 0 text14 dist/free/production/ECG-TFT.X.production.o
-__ptext15 1102 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
-__ptext16 2522 0 CODE 0 text16 dist/free/production/ECG-TFT.X.production.o
-__ptext17 23D4 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
-__ptext18 1762 0 CODE 0 text18 dist/free/production/ECG-TFT.X.production.o
-__ptext19 2B74 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
-__ptext20 2AB8 0 CODE 0 text20 dist/free/production/ECG-TFT.X.production.o
-__ptext21 276C 0 CODE 0 text21 dist/free/production/ECG-TFT.X.production.o
-__ptext22 22E6 0 CODE 0 text22 dist/free/production/ECG-TFT.X.production.o
-__ptext23 D98 0 CODE 0 text23 dist/free/production/ECG-TFT.X.production.o
-__ptext24 2A52 0 CODE 0 text24 dist/free/production/ECG-TFT.X.production.o
-__ptext25 1ACA 0 CODE 0 text25 dist/free/production/ECG-TFT.X.production.o
-__ptext26 29A4 0 CODE 0 text26 dist/free/production/ECG-TFT.X.production.o
-__ptext27 289C 0 CODE 0 text27 dist/free/production/ECG-TFT.X.production.o
-__ptext28 2854 0 CODE 0 text28 dist/free/production/ECG-TFT.X.production.o
-__ptext29 2B92 0 CODE 0 text29 dist/free/production/ECG-TFT.X.production.o
-__ptext30 191A 0 CODE 0 text30 dist/free/production/ECG-TFT.X.production.o
-__ptext31 678 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
-__ptext32 2A86 0 CODE 0 text32 dist/free/production/ECG-TFT.X.production.o
-__ptext33 1ECE 0 CODE 0 text33 dist/free/production/ECG-TFT.X.production.o
-__ptext34 29E0 0 CODE 0 text34 dist/free/production/ECG-TFT.X.production.o
-__ptext35 1F56 0 CODE 0 text35 dist/free/production/ECG-TFT.X.production.o
-__ptext36 1DB2 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
-__ptext37 BA4 0 CODE 0 text37 dist/free/production/ECG-TFT.X.production.o
-__ptext38 2966 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
-__ptext39 235E 0 CODE 0 text39 dist/free/production/ECG-TFT.X.production.o
-__ptext40 2AE8 0 CODE 0 text40 dist/free/production/ECG-TFT.X.production.o
-__ptext41 2B0E 0 CODE 0 text41 dist/free/production/ECG-TFT.X.production.o
-__ptext42 226C 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
-__ptext43 F80 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
-__ptext44 28E2 0 CODE 0 text44 dist/free/production/ECG-TFT.X.production.o
-__ptext45 20EC 0 CODE 0 text45 dist/free/production/ECG-TFT.X.production.o
-__ptext46 1D0E 0 CODE 0 text46 dist/free/production/ECG-TFT.X.production.o
-__ptext47 271C 0 CODE 0 text47 dist/free/production/ECG-TFT.X.production.o
-__ptext48 26BC 0 CODE 0 text48 dist/free/production/ECG-TFT.X.production.o
-__ptext49 2066 0 CODE 0 text49 dist/free/production/ECG-TFT.X.production.o
-__ptext50 27BA 0 CODE 0 text50 dist/free/production/ECG-TFT.X.production.o
-__ptext51 2926 0 CODE 0 text51 dist/free/production/ECG-TFT.X.production.o
-__ptext52 2BAC 0 CODE 0 text52 dist/free/production/ECG-TFT.X.production.o
-__ptext53 2BCA 0 CODE 0 text53 dist/free/production/ECG-TFT.X.production.o
-__ptext54 19F4 0 CODE 0 text54 dist/free/production/ECG-TFT.X.production.o
-__ptext55 2A1A 0 CODE 0 text55 dist/free/production/ECG-TFT.X.production.o
-__ptext56 2808 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
-__ptext57 1FDE 0 CODE 0 text57 dist/free/production/ECG-TFT.X.production.o
-__ptext59 2B54 0 CODE 0 text59 dist/free/production/ECG-TFT.X.production.o
-__ptext60 2658 0 CODE 0 text60 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@dx 34 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@dy 2C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@x0 17 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@x1 1B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@y0 19 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@y1 1D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__ptext10 1990 0 CODE 0 text10 dist/free/production/ECG-TFT.X.production.o
+__ptext11 2A14 0 CODE 0 text11 dist/free/production/ECG-TFT.X.production.o
+__ptext12 2A7A 0 CODE 0 text12 dist/free/production/ECG-TFT.X.production.o
+__ptext13 211C 0 CODE 0 text13 dist/free/production/ECG-TFT.X.production.o
+__ptext14 1D0C 0 CODE 0 text14 dist/free/production/ECG-TFT.X.production.o
+__ptext15 2666 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
+__ptext16 14F0 0 CODE 0 text16 dist/free/production/ECG-TFT.X.production.o
+__ptext17 29AA 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
+__ptext18 285A 0 CODE 0 text18 dist/free/production/ECG-TFT.X.production.o
+__ptext19 1B50 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
+__ptext20 3084 0 CODE 0 text20 dist/free/production/ECG-TFT.X.production.o
+__ptext21 3016 0 CODE 0 text21 dist/free/production/ECG-TFT.X.production.o
+__ptext22 2FE6 0 CODE 0 text22 dist/free/production/ECG-TFT.X.production.o
+__ptext23 2C50 0 CODE 0 text23 dist/free/production/ECG-TFT.X.production.o
+__ptext24 27E0 0 CODE 0 text24 dist/free/production/ECG-TFT.X.production.o
+__ptext25 2EA0 0 CODE 0 text25 dist/free/production/ECG-TFT.X.production.o
+__ptext26 2DD4 0 CODE 0 text26 dist/free/production/ECG-TFT.X.production.o
+__ptext27 30BE 0 CODE 0 text27 dist/free/production/ECG-TFT.X.production.o
+__ptext28 1C2E 0 CODE 0 text28 dist/free/production/ECG-TFT.X.production.o
+__ptext29 74E 0 CODE 0 text29 dist/free/production/ECG-TFT.X.production.o
+__ptext30 2F84 0 CODE 0 text30 dist/free/production/ECG-TFT.X.production.o
+__ptext31 244C 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
+__ptext32 2EDE 0 CODE 0 text32 dist/free/production/ECG-TFT.X.production.o
+__ptext33 21DA 0 CODE 0 text33 dist/free/production/ECG-TFT.X.production.o
+__ptext34 232C 0 CODE 0 text34 dist/free/production/ECG-TFT.X.production.o
+__ptext35 C7A 0 CODE 0 text35 dist/free/production/ECG-TFT.X.production.o
+__ptext36 1186 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
+__ptext37 2F50 0 CODE 0 text37 dist/free/production/ECG-TFT.X.production.o
+__ptext38 1F96 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
+__ptext39 1DE6 0 CODE 0 text39 dist/free/production/ECG-TFT.X.production.o
+__ptext40 26E8 0 CODE 0 text40 dist/free/production/ECG-TFT.X.production.o
+__ptext41 303E 0 CODE 0 text41 dist/free/production/ECG-TFT.X.production.o
+__ptext42 2BA4 0 CODE 0 text42 dist/free/production/ECG-TFT.X.production.o
+__ptext43 F08 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
+__ptext44 2C9E 0 CODE 0 text44 dist/free/production/ECG-TFT.X.production.o
+__ptext45 2CEC 0 CODE 0 text45 dist/free/production/ECG-TFT.X.production.o
+__ptext46 30FC 0 CODE 0 text46 dist/free/production/ECG-TFT.X.production.o
+__ptext47 136E 0 CODE 0 text47 dist/free/production/ECG-TFT.X.production.o
+__ptext48 2E1C 0 CODE 0 text48 dist/free/production/ECG-TFT.X.production.o
+__ptext49 25E2 0 CODE 0 text49 dist/free/production/ECG-TFT.X.production.o
+__ptext50 2288 0 CODE 0 text50 dist/free/production/ECG-TFT.X.production.o
+__ptext51 2C00 0 CODE 0 text51 dist/free/production/ECG-TFT.X.production.o
+__ptext52 2B44 0 CODE 0 text52 dist/free/production/ECG-TFT.X.production.o
+__ptext53 255C 0 CODE 0 text53 dist/free/production/ECG-TFT.X.production.o
+__ptext54 2D3A 0 CODE 0 text54 dist/free/production/ECG-TFT.X.production.o
+__ptext55 2E60 0 CODE 0 text55 dist/free/production/ECG-TFT.X.production.o
+__ptext56 30D8 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
+__ptext57 30F6 0 CODE 0 text57 dist/free/production/ECG-TFT.X.production.o
+__ptext58 1EC0 0 CODE 0 text58 dist/free/production/ECG-TFT.X.production.o
+__ptext59 2F18 0 CODE 0 text59 dist/free/production/ECG-TFT.X.production.o
+__ptext60 2D88 0 CODE 0 text60 dist/free/production/ECG-TFT.X.production.o
+__ptext61 24D4 0 CODE 0 text61 dist/free/production/ECG-TFT.X.production.o
+__ptext63 3064 0 CODE 0 text63 dist/free/production/ECG-TFT.X.production.o
+__ptext64 2AE0 0 CODE 0 text64 dist/free/production/ECG-TFT.X.production.o
 EUSART_TX_String@len B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 EUSART_TX_String@str 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_Ecg_Init 2AE8 0 CODE 0 text20 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_Process_Random_Comms 1ECE 0 CODE 0 text2 dist/free/production/ECG-TFT.X.production.o
-___awdiv 1ACA 0 CODE 0 text25 dist/free/production/ECG-TFT.X.production.o
-__pintcode_body 24B4 0 CODE 0 intcode_body dist/free/production/ECG-TFT.X.production.o
-___lldiv 1D0E 0 CODE 0 text46 dist/free/production/ECG-TFT.X.production.o
-___llmod 1ECE 0 CODE 0 text33 dist/free/production/ECG-TFT.X.production.o
+__end_of_Ecg_Init 3016 0 CODE 0 text22 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_Process_Random_Comms 244C 0 CODE 0 text3 dist/free/production/ECG-TFT.X.production.o
+___awdiv 1F96 0 CODE 0 text38 dist/free/production/ECG-TFT.X.production.o
+__pintcode_body 293C 0 CODE 0 intcode_body dist/free/production/ECG-TFT.X.production.o
+___lldiv 2288 0 CODE 0 text50 dist/free/production/ECG-TFT.X.production.o
+___llmod 244C 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
 strlen@cp 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_Flood 1102 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_Flood 14F0 0 CODE 0 text47 dist/free/production/ECG-TFT.X.production.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/free/production/ECG-TFT.X.production.o
 __Lbigram 0 0 ABS 0 bigram dist/free/production/ECG-TFT.X.production.o
 __CFG_BOR$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_Reset 2B92 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
-_EUSART_RX_Interrupt 2658 0 CODE 0 text60 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_Reset 30A2 0 CODE 0 text20 dist/free/production/ECG-TFT.X.production.o
+_EUSART_RX_Interrupt 2AE0 0 CODE 0 text64 dist/free/production/ECG-TFT.X.production.o
 ___lmul@multiplier 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_BORV$0 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_Flood 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_EUSART_RX_AvailableData 1FDE 0 CODE 0 text57 dist/free/production/ECG-TFT.X.production.o
+_EUSART_RX_AvailableData 24D4 0 CODE 0 text61 dist/free/production/ECG-TFT.X.production.o
 ?_atoi B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_atol 11 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/free/production/ECG-TFT.X.production.o
 __Lconfig 300000 0 CONFIG 0 config dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@c 2E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@i 3E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@j 3D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@x 2A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@y 2C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@c 3A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@i 4C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@j 4B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@x 36 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@y 38 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_Reset 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 ___wmul@multiplier 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_TX_Char 2BC4 0 CODE 0 text52 dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_RX_AvailableData 2066 0 CODE 0 text57 dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_TX_Char 30F0 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_RX_AvailableData 255C 0 CODE 0 text61 dist/free/production/ECG-TFT.X.production.o
 TFT_Flood@blocks 17 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawFillRect@color 24 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawFillRect@color 26 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@color 2F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_BaudRateAutoDetect 19F4 0 CODE 0 text30 dist/free/production/ECG-TFT.X.production.o
-_strchr 2170 0 CODE 0 text14 dist/free/production/ECG-TFT.X.production.o
-_strcmp 26BC 0 CODE 0 text48 dist/free/production/ECG-TFT.X.production.o
-_strlen 27BA 0 CODE 0 text50 dist/free/production/ECG-TFT.X.production.o
-_strspn 258C 0 CODE 0 text10 dist/free/production/ECG-TFT.X.production.o
-_strstr 1C50 0 CODE 0 text12 dist/free/production/ECG-TFT.X.production.o
-_strtok 15A2 0 CODE 0 text9 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@color 3B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_BaudRateAutoDetect 1D0C 0 CODE 0 text28 dist/free/production/ECG-TFT.X.production.o
+_strchr 2666 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
+_strcmp 2B44 0 CODE 0 text52 dist/free/production/ECG-TFT.X.production.o
+_strlen 2D3A 0 CODE 0 text54 dist/free/production/ECG-TFT.X.production.o
+_strspn 2A14 0 CODE 0 text11 dist/free/production/ECG-TFT.X.production.o
+_strstr 211C 0 CODE 0 text13 dist/free/production/ECG-TFT.X.production.o
+_strtok 1990 0 CODE 0 text10 dist/free/production/ECG-TFT.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_WriteRegister 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_Init 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_A6_Init 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-TFT_DrawFillRect@h 22 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawFillRect@w 20 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawFillRect@x 1C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawFillRect@y 1E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawFillRect@h 24 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawFillRect@w 22 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawFillRect@x 1E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawFillRect@y 20 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__size_of_TFT_ConsoleInit 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_CCP2MX$ON 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_TFT_Flood F80 0 CODE 0 text43 dist/free/production/ECG-TFT.X.production.o
-stackhi 7FF 0 ABS 0 - /tmp/xcXba8Uhh.o
-stacklo 282 0 ABS 0 - /tmp/xcXba8Uhh.o
-_TFT_Reset 2B74 0 CODE 0 text19 dist/free/production/ECG-TFT.X.production.o
+_TFT_Flood 136E 0 CODE 0 text47 dist/free/production/ECG-TFT.X.production.o
+stackhi 7FF 0 ABS 0 - /tmp/xcXMomMQI.o
+stacklo 282 0 ABS 0 - /tmp/xcXMomMQI.o
+_TFT_Reset 3084 0 CODE 0 text20 dist/free/production/ECG-TFT.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/free/production/ECG-TFT.X.production.o
 strspn@s1 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strspn@s2 D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
@@ -1485,8 +1591,7 @@ __CFG_LVP$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 strtok@s1 12 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strtok@s2 14 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strtok@sp CA 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
-_A6_IsAlive 271C 0 CODE 0 text47 dist/free/production/ECG-TFT.X.production.o
-_TFT_FillScreen 289C 0 CODE 0 text27 dist/free/production/ECG-TFT.X.production.o
+_A6_IsAlive 2C00 0 CODE 0 text51 dist/free/production/ECG-TFT.X.production.o
 _ECG_BUFFER BD 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -1498,16 +1603,16 @@ __size_of_memset 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_FullScreen 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
-_A6_BaudRateAutoDetect 191A 0 CODE 0 text30 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawLine@t 20 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+_A6_BaudRateAutoDetect 1C2E 0 CODE 0 text28 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawLine@t 24 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_BufferGetChar 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 EUSART_RX_AvailableData@t B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_ReadLine@responseLen 13 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_CPUDIV$OSC1_PLL2 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-end_of_initialization 24A6 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_TX_String 2966 0 CODE 0 text51 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_NetworkGetRSSILevel 226C 0 CODE 0 text4 dist/free/production/ECG-TFT.X.production.o
+end_of_initialization 292E 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_TX_String 2EA0 0 CODE 0 text55 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_NetworkGetRSSILevel 27E0 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/free/production/ECG-TFT.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_BaudRateSet 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -1516,7 +1621,7 @@ ___awdiv@quotient B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.produ
 ?___awdiv 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?___lldiv 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?___llmod 12 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_sleepMS 29E0 0 CODE 0 text34 dist/free/production/ECG-TFT.X.production.o
+_sleepMS 2EDE 0 CODE 0 text32 dist/free/production/ECG-TFT.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/free/production/ECG-TFT.X.production.o
 __size_of_EUSART_TX_String 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/free/production/ECG-TFT.X.production.o
@@ -1531,24 +1636,24 @@ __size_of_strlen 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_strspn 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_strstr 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_strtok 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawFillRect 235E 0 CODE 0 text39 dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawFillRect 26E8 0 CODE 0 text40 dist/free/production/ECG-TFT.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/free/production/ECG-TFT.X.production.o
-__pcinit 2446 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_BufferGetChar 2854 0 CODE 0 text56 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawString@str 43 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__ptext0 2B34 0 CODE 0 text0 dist/free/production/ECG-TFT.X.production.o
+__pcinit 28CC 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_BufferGetChar 2DD4 0 CODE 0 text60 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawString@str 64 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+__ptext0 2FB6 0 CODE 0 text0 dist/free/production/ECG-TFT.X.production.o
 __ptext1 12 0 CODE 0 text1 dist/free/production/ECG-TFT.X.production.o
-__ptext2 1E42 0 CODE 0 text2 dist/free/production/ECG-TFT.X.production.o
-__ptext3 1684 0 CODE 0 text3 dist/free/production/ECG-TFT.X.production.o
-__ptext4 21F2 0 CODE 0 text4 dist/free/production/ECG-TFT.X.production.o
-__ptext5 1B8E 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
-__ptext6 148A 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
-__ptext7 123C 0 CODE 0 text7 dist/free/production/ECG-TFT.X.production.o
-__ptext8 1366 0 CODE 0 text8 dist/free/production/ECG-TFT.X.production.o
-__ptext9 15A2 0 CODE 0 text9 dist/free/production/ECG-TFT.X.production.o
+__ptext2 30A2 0 CODE 0 text2 dist/free/production/ECG-TFT.X.production.o
+__ptext3 23BE 0 CODE 0 text3 dist/free/production/ECG-TFT.X.production.o
+__ptext4 1A72 0 CODE 0 text4 dist/free/production/ECG-TFT.X.production.o
+__ptext5 2766 0 CODE 0 text5 dist/free/production/ECG-TFT.X.production.o
+__ptext6 205A 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
+__ptext7 1878 0 CODE 0 text7 dist/free/production/ECG-TFT.X.production.o
+__ptext8 162A 0 CODE 0 text8 dist/free/production/ECG-TFT.X.production.o
+__ptext9 1754 0 CODE 0 text9 dist/free/production/ECG-TFT.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawChar$2204 39 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawChar$2205 3B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawChar$2238 47 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawChar$2239 49 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Ltext10 0 0 ABS 0 text10 dist/free/production/ECG-TFT.X.production.o
 __Ltext11 0 0 ABS 0 text11 dist/free/production/ECG-TFT.X.production.o
 __Ltext12 0 0 ABS 0 text12 dist/free/production/ECG-TFT.X.production.o
@@ -1597,33 +1702,41 @@ __Ltext54 0 0 ABS 0 text54 dist/free/production/ECG-TFT.X.production.o
 __Ltext55 0 0 ABS 0 text55 dist/free/production/ECG-TFT.X.production.o
 __Ltext56 0 0 ABS 0 text56 dist/free/production/ECG-TFT.X.production.o
 __Ltext57 0 0 ABS 0 text57 dist/free/production/ECG-TFT.X.production.o
+__Ltext58 0 0 ABS 0 text58 dist/free/production/ECG-TFT.X.production.o
 __Ltext59 0 0 ABS 0 text59 dist/free/production/ECG-TFT.X.production.o
 __Ltext60 0 0 ABS 0 text60 dist/free/production/ECG-TFT.X.production.o
+__Ltext61 0 0 ABS 0 text61 dist/free/production/ECG-TFT.X.production.o
+__Ltext63 0 0 ABS 0 text63 dist/free/production/ECG-TFT.X.production.o
+__Ltext64 0 0 ABS 0 text64 dist/free/production/ECG-TFT.X.production.o
 A6_NetworkGetStatus@networkStatusToken 3F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__ramtop 800 0 RAM 0 ramtop /tmp/xcXba8Uhh.o
-_sprintf 678 0 CODE 0 text31 dist/free/production/ECG-TFT.X.production.o
+__ramtop 800 0 RAM 0 ramtop /tmp/xcXMomMQI.o
+_sprintf 74E 0 CODE 0 text29 dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_SetAddrWindow 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 sleepMS@ms 5 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Lpowerup E 0 CODE 0 powerup dist/free/production/ECG-TFT.X.production.o
+TFT_OrientationSet@color 1E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/free/production/ECG-TFT.X.production.o
 sprintf@ap 6B 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 sprintf@cp 62 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 sprintf@sp 4A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_isdigit 2A86 0 CODE 0 text32 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_ReadLine 1ACA 0 CODE 0 text54 dist/free/production/ECG-TFT.X.production.o
+_isdigit 2F84 0 CODE 0 text30 dist/free/production/ECG-TFT.X.production.o
+_TFT_GetHeight 2CEC 0 CODE 0 text45 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_ReadLine 1F96 0 CODE 0 text58 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawPixel@h 13 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawPixel@v 15 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_DrawPixel@x D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_DrawPixel@y F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_FillScreen 28E2 0 CODE 0 text27 dist/free/production/ECG-TFT.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/free/production/ECG-TFT.X.production.o
-__end_of_EUSART_RX_Interrupt 26BC 0 CODE 0 text60 dist/free/production/ECG-TFT.X.production.o
-_strcspn 25F2 0 CODE 0 text11 dist/free/production/ECG-TFT.X.production.o
-_strncmp 1840 0 CODE 0 text13 dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_IsAlive 276C 0 CODE 0 text47 dist/free/production/ECG-TFT.X.production.o
+_TFT_ConsolePrintLine 21DA 0 CODE 0 text33 dist/free/production/ECG-TFT.X.production.o
+__end_of_EUSART_RX_Interrupt 2B44 0 CODE 0 text64 dist/free/production/ECG-TFT.X.production.o
+_strcspn 2A7A 0 CODE 0 text12 dist/free/production/ECG-TFT.X.production.o
+_strncmp 1D0C 0 CODE 0 text14 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_IsAlive 2C50 0 CODE 0 text51 dist/free/production/ECG-TFT.X.production.o
 ___param_bank 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_WDT$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/free/production/ECG-TFT.X.production.o
-A6_Process_Random_Comms@response 60 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
-__end_of__initialization 24A6 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
+A6_Process_Random_Comms@response 6F 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+__end_of__initialization 292E 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 strncmp@len D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -1632,17 +1745,19 @@ __CFG_WRTB$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/free/production/ECG-TFT.X.production.o
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__pidataBANK0 2BC4 0 CODE 0 idataBANK0 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_OrientationGet 3100 0 CODE 0 text46 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_OrientationSet 303E 0 CODE 0 text21 dist/free/production/ECG-TFT.X.production.o
+__pidataBANK0 30F0 0 CODE 0 idataBANK0 dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateGet@response 23 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_A6_Init 2BAC 0 CODE 0 text29 dist/free/production/ECG-TFT.X.production.o
+__end_of_A6_Init 30D8 0 CODE 0 text27 dist/free/production/ECG-TFT.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/free/production/ECG-TFT.X.production.o
-TFT_Init@cmd 24 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_Init@cmd 2A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strcspn@s1 B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 strcspn@s2 D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 TFT_DrawPixel@color 11 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ___lmul@product D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_FOSC$HSPLL_HS 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_A6_Command 2066 0 CODE 0 text49 dist/free/production/ECG-TFT.X.production.o
+_A6_Command 255C 0 CODE 0 text53 dist/free/production/ECG-TFT.X.production.o
 ___lmul@multiplicand 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 ___lldiv@quotient D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
@@ -1650,36 +1765,35 @@ __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.product
 _ECG_ICON_HEART 5DF1 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 _TXSTAbits FAC 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _T3CONbits FB1 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-TFT_DrawString@color 45 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawChar@bg 31 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawString@color 66 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@bg 3D 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+TFT_DrawChar@xl 45 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __pmediumconst 57F0 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
-A6_Process_Random_Comms@cnt 80 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+A6_Process_Random_Comms@cnt 8F 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 ___llmod@dividend 12 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_WriteRegister 2926 0 CODE 0 text44 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_WriteRegister 2E60 0 CODE 0 text48 dist/free/production/ECG-TFT.X.production.o
 ___llmod@counter 1A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateGet@baudRate 43 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 sprintf@c 6F 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 sprintf@f 4C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__end_of_atoi 15A2 0 CODE 0 text6 dist/free/production/ECG-TFT.X.production.o
-__end_of_atol 123C 0 CODE 0 text15 dist/free/production/ECG-TFT.X.production.o
-__end_of_init 2446 0 CODE 0 text17 dist/free/production/ECG-TFT.X.production.o
-__end_of_loop 678 0 CODE 0 text1 dist/free/production/ECG-TFT.X.production.o
-__end_of_main 2B54 0 CODE 0 text0 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawString@x 3F 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-TFT_DrawString@y 41 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__end_of_atoi 1990 0 CODE 0 text7 dist/free/production/ECG-TFT.X.production.o
+__end_of_atol 162A 0 CODE 0 text16 dist/free/production/ECG-TFT.X.production.o
+__end_of_init 28CC 0 CODE 0 text18 dist/free/production/ECG-TFT.X.production.o
+__end_of_loop 74E 0 CODE 0 text1 dist/free/production/ECG-TFT.X.production.o
+__end_of_main 2FE6 0 CODE 0 text0 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawString@x 60 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawString@y 62 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/free/production/ECG-TFT.X.production.o
 isdigit@c 7 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-printLine@str 4A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-printLine@color 4C 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_BaudRateSet@request 94 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawChar BA4 0 CODE 0 text37 dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawLine D98 0 CODE 0 text23 dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawChar C7A 0 CODE 0 text35 dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawLine 1186 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
 __end_of_dpowers 5DE5 0 MEDIUMCONST 0 mediumconst dist/free/production/ECG-TFT.X.production.o
 _Ecg_X D2 0 BANK0 1 dataBANK0 dist/free/production/ECG-TFT.X.production.o
-_Ecg_Y 58 0 COMRAM 1 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
-_Ecg_Background_Leads_Ok 22E6 0 CODE 0 text22 dist/free/production/ECG-TFT.X.production.o
+_Ecg_Y 59 0 COMRAM 1 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
+_Ecg_Background_Leads_Ok 27E0 0 CODE 0 text24 dist/free/production/ECG-TFT.X.production.o
 ?_sprintf 4A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_isdigit$1933 6 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+_isdigit$1963 6 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 _PORTB F81 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _RCREG FAE 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
@@ -1701,16 +1815,19 @@ __Lbss 0 0 RAM 1 bss dist/free/production/ECG-TFT.X.production.o
 __Lram 0 0 ABS 0 ram dist/free/production/ECG-TFT.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/free/production/ECG-TFT.X.production.o
 __CFG_CP2$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-_TFT_DrawString 1DB2 0 CODE 0 text36 dist/free/production/ECG-TFT.X.production.o
+_TFT_DrawString 232C 0 CODE 0 text34 dist/free/production/ECG-TFT.X.production.o
 __CFG_CPB$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __CFG_CPD$OFF 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
-__end_of_Ecg_Background_Leads_Ok 235E 0 CODE 0 text22 dist/free/production/ECG-TFT.X.production.o
-TFT_DrawString@bg 47 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
+__end_of_Ecg_Background_Leads_Ok 285A 0 CODE 0 text24 dist/free/production/ECG-TFT.X.production.o
+TFT_DrawString@bg 68 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+_TFT_OrientationGet 30FC 0 CODE 0 text46 dist/free/production/ECG-TFT.X.production.o
+_TFT_OrientationSet 3016 0 CODE 0 text21 dist/free/production/ECG-TFT.X.production.o
 sprintf@width 6D 0 BANK0 1 cstackBANK0 dist/free/production/ECG-TFT.X.production.o
+_TFT_GetWidth 2C9E 0 CODE 0 text44 dist/free/production/ECG-TFT.X.production.o
 __size_of_abs 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/free/production/ECG-TFT.X.production.o
-__end_of_TFT_DrawFillRect 23D4 0 CODE 0 text39 dist/free/production/ECG-TFT.X.production.o
+__end_of_TFT_DrawFillRect 2766 0 CODE 0 text40 dist/free/production/ECG-TFT.X.production.o
 loop@zzzz 180 0 BANK1 1 cstackBANK1 dist/free/production/ECG-TFT.X.production.o
 __size_of_Ecg_CheckLeads 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 atoi@a 10 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
@@ -1718,16 +1835,15 @@ atoi@s B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 atol@a 1A 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 atol@c 1E 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 atol@s 11 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-_consoleX CC 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
 ?_strcspn B 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 ?_strncmp 9 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
-__initialization 2446 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
+__initialization 28CC 0 CODE 0 cinit dist/free/production/ECG-TFT.X.production.o
 A6_ReadLine@c 17 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 A6_ReadLine@iResponse 16 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __pbssBANK0 B0 0 BANK0 1 bssBANK0 dist/free/production/ECG-TFT.X.production.o
 __pbssBANK1 1AD 0 BANK1 1 bssBANK1 dist/free/production/ECG-TFT.X.production.o
 __pbssBANK2 200 0 BANK2 1 bssBANK2 dist/free/production/ECG-TFT.X.production.o
-__pdataCOMRAM 58 0 COMRAM 1 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
+__pdataCOMRAM 59 0 COMRAM 1 dataCOMRAM dist/free/production/ECG-TFT.X.production.o
 __size_of_TFT_DrawFillRect 0 0 ABS 0 - dist/free/production/ECG-TFT.X.production.o
 EUSART_RX_Interrupt@c 2 0 COMRAM 1 cstackCOMRAM dist/free/production/ECG-TFT.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/free/production/ECG-TFT.X.production.o
@@ -1763,12 +1879,12 @@ __Hintcode E 0 CODE 0 intcode dist/free/production/ECG-TFT.X.production.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 idloc 0 200000 200000 8 1
-cstackCOMRAM 1 1 1 5A 1
+cstackCOMRAM 1 1 1 5B 1
 cstackBANK0 1 60 60 74 1
-cstackBANK1 1 100 100 C5 1
+cstackBANK1 1 100 100 CD 1
 reset_vec 0 0 0 4 1
 bssBANK2 1 200 200 82 1
-intcode 0 8 8 2BCA 1
+intcode 0 8 8 30FA 1
 mediumconst 0 57F0 57F0 810 1
 config 0 300000 300000 E 1
 # %NOTES Section

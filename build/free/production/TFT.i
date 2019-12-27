@@ -5209,30 +5209,37 @@ extern uint32_t MILLISECONDS;
 
 extern void init(void);
 extern void sleepMS(uint32_t ms);
-extern void printLine(const char *str, uint16_t color);
 
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 
-# 61 "TFT.h"
+# 66 "TFT.h"
+uint8_t TFT_Orientation = 0;
+uint16_t TFT_ConsoleRow = 0;
+
 void TFT_WriteRegister(uint16_t reg, uint16_t data);
 void TFT_WriteRegisters(uint16_t reg, uint8_t *data, uint8_t dataSize);
 uint16_t TFT_ReadRegister(uint16_t reg);
 uint16_t TFT_ReadID(void);
+void TFT_Init(uint8_t orientation, uint16_t color);
 void TFT_Reset(void);
+uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b);
+uint16_t TFT_GetWidth(void);
+uint16_t TFT_GetHeight(void);
+uint8_t TFT_OrientationGet(void);
+void TFT_OrientationSet(uint8_t orientation, uint16_t color);
 void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
-void TFT_FullScreen(void);
-void TFT_Init(void);
+void TFT_FullScreen(uint16_t color);
 void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
 void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
 void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void TFT_Flood(uint16_t color, uint32_t len);
-void TFT_FillScreen(uint16_t color);
-uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b);
 void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size);
 void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size);
-void TFT_DrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint16_t color);
+void TFT_DrawBitmap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t color);
+void TFT_ConsoleInit(uint8_t orientation);
+void TFT_ConsolePrintLine(const char *str, uint16_t color);
 
 const uint16_t TFT_Init_Sequence[] = {
 
@@ -5588,33 +5595,7 @@ uint16_t TFT_ReadID(void) {
 return TFT_ReadRegister(0x0000);
 }
 
-void TFT_Reset(void) {
-TRISB = 0x00;;
-PORTCbits.RC0 = 1;;
-PORTAbits.RA5 = 1;;
-PORTAbits.RA4 = 1;;
-PORTCbits.RC2 = 0;;
-_delay((unsigned long)((2)*(48000000/4000.0)));
-PORTCbits.RC2 = 1;;
-}
-
-void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
-
-TFT_WriteRegister(0x0210, x1);
-TFT_WriteRegister(0x0211, x2);
-TFT_WriteRegister(0x0212, y1);
-TFT_WriteRegister(0x0213, y2);
-
-
-TFT_WriteRegister(0x0200, x1);
-TFT_WriteRegister(0x0201, y2);
-}
-
-void TFT_FullScreen(void) {
-TFT_SetAddrWindow(0, 0, 240 - 1, 400 - 1);
-}
-
-void TFT_Init(void) {
+void TFT_Init(uint8_t orientation, uint16_t color) {
 TFT_Reset();
 _delay((unsigned long)((200)*(48000000/4000.0)));
 
@@ -5632,13 +5613,132 @@ TFT_WriteRegister(cmd, data);
 }
 
 
-TFT_FullScreen();
-TFT_FillScreen(0x0000);
+TFT_OrientationSet(orientation, color);
+}
+
+void TFT_Reset(void) {
+TRISB = 0x00;;
+PORTCbits.RC0 = 1;;
+PORTAbits.RA5 = 1;;
+PORTAbits.RA4 = 1;;
+PORTCbits.RC2 = 0;;
+_delay((unsigned long)((2)*(48000000/4000.0)));
+PORTCbits.RC2 = 1;;
+}
+
+uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b) {
+return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
+}
+
+uint16_t TFT_GetWidth(void) {
+switch(TFT_OrientationGet()) {
+case 0:
+case 2:
+return 240 - 1;
+case 1:
+case 3:
+return 400 - 1;
+}
+return 0;
+}
+
+uint16_t TFT_GetHeight(void) {
+switch(TFT_OrientationGet()) {
+case 0:
+case 2:
+return 400 - 1;
+case 1:
+case 3:
+return 240 - 1;
+}
+return 0;
+}
+
+uint8_t TFT_OrientationGet(void) {
+return TFT_Orientation;
+}
+
+void TFT_OrientationSet(uint8_t orientation, uint16_t color) {
+if(orientation > 3) orientation = 0;
+TFT_Orientation = orientation;
+TFT_FullScreen(color);
+}
+
+void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
+uint16_t tmp;
+switch(TFT_OrientationGet()) {
+case 0:
+
+TFT_WriteRegister(0x0210, x1);
+TFT_WriteRegister(0x0211, x2);
+TFT_WriteRegister(0x0212, y1);
+TFT_WriteRegister(0x0213, y2);
+
+TFT_WriteRegister(0x0200, x1);
+TFT_WriteRegister(0x0201, y2);
+break;
+case 1:
+
+TFT_WriteRegister(0x0210, 240 - 1 - y2);
+TFT_WriteRegister(0x0211, 240 - 1 - y1);
+TFT_WriteRegister(0x0212, x1);
+TFT_WriteRegister(0x0213, x2);
+
+TFT_WriteRegister(0x0200, 240 - 1 - y1);
+TFT_WriteRegister(0x0201, x1);
+break;
+case 2:
+
+TFT_WriteRegister(0x0210, 240 - 1 - x2);
+TFT_WriteRegister(0x0211, 240 - 1 - x1);
+TFT_WriteRegister(0x0212, 400 - 1 - y2);
+TFT_WriteRegister(0x0213, 400 - 1 - y1);
+
+TFT_WriteRegister(0x0200, 240 - 1 - x1);
+TFT_WriteRegister(0x0201, 400 - 1 - y1);
+break;
+case 3:
+
+TFT_WriteRegister(0x0210, y1);
+TFT_WriteRegister(0x0211, y2);
+TFT_WriteRegister(0x0212, 400 - 1 - x2);
+TFT_WriteRegister(0x0213, 400 - 1 - x1);
+
+TFT_WriteRegister(0x0200, y1);
+TFT_WriteRegister(0x0201, 400 - 1 - x1);
+break;
+}
+}
+
+void TFT_FullScreen(uint16_t color) {
+TFT_SetAddrWindow(0, 0, TFT_GetWidth(), TFT_GetHeight());
+if(color != 0) {
+TFT_Flood(color, (uint32_t)240 * (uint32_t)400);
+}
 }
 
 void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
-TFT_WriteRegister(0x0200, x);
-TFT_WriteRegister(0x0201, y);
+uint16_t h, v;
+switch(TFT_OrientationGet()) {
+case 0:
+h = x;
+v = y;
+break;
+case 1:
+h = 240 - y;
+v = x;
+break;
+case 2:
+h = 240 - x;
+v = 400 - y;
+break;
+case 3:
+h = y;
+v = 400 - x;
+break;
+}
+TFT_WriteRegister(0x0200, h);
+TFT_WriteRegister(0x0201, v);
 TFT_WriteRegister(0x0202, color);
 }
 
@@ -5681,9 +5781,9 @@ err += dx;
 }
 
 void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
-TFT_SetAddrWindow(x, y, (x + w - 1), (y + h -1));
+TFT_SetAddrWindow(x, y, (x + w - 1), (y + h - 1));
 TFT_Flood(color, (w * h));
-TFT_FullScreen();
+TFT_FullScreen(0);
 }
 
 void TFT_Flood(uint16_t color, uint32_t len) {
@@ -5724,33 +5824,31 @@ for(i = (uint8_t)len & 3; i--; ) {
 PORTCbits.RC0 = 1;;
 }
 
-void TFT_FillScreen(uint16_t color) {
-TFT_WriteRegister(0x0200, 0);
-TFT_WriteRegister(0x0201, 0);
-TFT_Flood(color, (uint32_t)240 * (uint32_t)400);
-}
-
-uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b) {
-return ((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3);
-}
-
 void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size) {
 for(int8_t i=0; i<5; i++ ) {
 uint8_t line = TFT_Font[c * 5 + i];
 for(int8_t j=0; j<8; j++, line >>= 1) {
 if(line & 1) {
 if(size == 1) {
-TFT_DrawPixel((x + j), (y - i), color);
+TFT_DrawPixel((x + i), (y + j), color);
 } else {
-TFT_DrawFillRect((x + j * size), (y - i * size), size, size, color);
+TFT_DrawFillRect((x + i * size), (y + j * size), size, size, color);
 }
 } else if(bg != color) {
 if(size == 1) {
-TFT_DrawPixel((x + j), (y - i), bg);
+TFT_DrawPixel((x + i), (y + j), bg);
 } else {
-TFT_DrawFillRect((x + j * size), (y - i * size), size, size, bg);
+TFT_DrawFillRect((x + i * size), (y + j * size), size, size, bg);
 }
 }
+}
+}
+if(bg != color) {
+if(size == 1) {
+uint16_t xl = x + 5;
+TFT_DrawLine(xl, y, xl, y + 7, bg);
+} else {
+TFT_DrawFillRect((x + 5 * size), y, size, 8 * size, bg);
 }
 }
 }
@@ -5758,24 +5856,36 @@ TFT_DrawFillRect((x + j * size), (y - i * size), size, size, bg);
 void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size) {
 while(*str) {
 TFT_DrawChar(x, y, *str, color, bg, size);
-y -= (6 * size);
+x += (6 * size);
 str++;
 }
 }
 
-void TFT_DrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint16_t color) {
+void TFT_DrawBitmap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t color) {
 uint8_t w = *bitmap++;
 uint8_t h = *bitmap++;
 uint8_t byte = 0;
 
-for(uint8_t j=0; j<w; j++, x++) {
-for(uint8_t i=0; i<h; i++) {
+for(uint16_t j=0; j<h; j++, y++) {
+for(uint16_t i=0; i<w; i++) {
 if(i & 7) {
 byte >>= 1;
 } else {
 byte = *bitmap++;
 }
-if(byte & 0x01) TFT_DrawPixel(x, (y - i), color);
+if(byte & 0x01) TFT_DrawPixel((x + i), y, color);
 }
 }
+}
+
+void TFT_ConsoleInit(uint8_t orientation) {
+TFT_ConsoleRow = 0;
+TFT_OrientationSet(orientation, 0x0821);
+}
+
+void TFT_ConsolePrintLine(const char *str, uint16_t color) {
+TFT_DrawFillRect(0, TFT_ConsoleRow, TFT_GetWidth(), 40, 0x0821);
+TFT_DrawString(2, TFT_ConsoleRow + 2, str, color, 0x0821, 1);
+TFT_ConsoleRow += 10;
+if(TFT_ConsoleRow > TFT_GetHeight() - 12) TFT_ConsoleRow = 0;
 }

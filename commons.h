@@ -1,5 +1,5 @@
 /*
- * 20191226.047
+ * 20191227.049
  * ECG-TFT
  *
  * File: commons.h
@@ -29,7 +29,6 @@ extern uint32_t MILLISECONDS;
 //External functions
 extern void init(void);
 extern void sleepMS(uint32_t ms);
-extern void printLine(const char *str, uint16_t color);
 
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);

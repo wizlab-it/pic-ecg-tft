@@ -1,5 +1,5 @@
 /*
- * 20190324.035
+ * 20191227.036
  * ECG-TFT
  *
  * File: ecg.c
@@ -85,7 +85,7 @@ void Ecg_ProcessHeartRate(void) {
     heartbeatAverage /= (ECG_HEARTBEAT_SIZE - 1);
     heartrate = (uint8_t)(60000 / heartbeatAverage);
     sprintf(heartrateString, "%3d", heartrate);
-    TFT_DrawString(8, (_TFT_HEIGHT - 140), heartrateString, _TFT_COLOR_GREEN, _TFT_COLOR_BLACK, 2);
+    TFT_DrawString(8, 260, heartrateString, _TFT_COLOR_GREEN, _TFT_COLOR_BLACK, 2);
 }
 
 void Ecg_ProcessHeartbeat(void) {
@@ -178,14 +178,14 @@ void Ecg_Draw(void) {
 }
 
 void Ecg_Background_Leads_Ok(void) {
-    TFT_FillScreen(_TFT_COLOR_BLACK);
-    TFT_DrawString(8, (_TFT_HEIGHT - 10), "Frequenza:", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
+    TFT_FullScreen(_TFT_COLOR_BLACK);
+    TFT_DrawString(8, 390, "Frequenza:", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
     TFT_DrawLine((ECG_GRAPH_TOP_OFFSET - 1), 0, (ECG_GRAPH_TOP_OFFSET -  1), _TFT_HEIGHT, _TFT_COLOR_WHITE);
     Ecg_Y = _TFT_HEIGHT - 1;
     Ecg_Yold = _TFT_HEIGHT - 1;
 }
 
 void Ecg_Background_Leads_Failure(void) {
-    TFT_FillScreen(_TFT_COLOR_BLACK);
+    TFT_FullScreen(_TFT_COLOR_BLACK);
     TFT_DrawString(70, 362, "*** Collegare elettrodi ***", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
 }

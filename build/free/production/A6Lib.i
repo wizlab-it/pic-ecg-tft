@@ -5171,24 +5171,32 @@ extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
 
-# 61 "TFT.h"
+# 66 "TFT.h"
+uint8_t TFT_Orientation = 0;
+uint16_t TFT_ConsoleRow = 0;
+
 void TFT_WriteRegister(uint16_t reg, uint16_t data);
 void TFT_WriteRegisters(uint16_t reg, uint8_t *data, uint8_t dataSize);
 uint16_t TFT_ReadRegister(uint16_t reg);
 uint16_t TFT_ReadID(void);
+void TFT_Init(uint8_t orientation, uint16_t color);
 void TFT_Reset(void);
+uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b);
+uint16_t TFT_GetWidth(void);
+uint16_t TFT_GetHeight(void);
+uint8_t TFT_OrientationGet(void);
+void TFT_OrientationSet(uint8_t orientation, uint16_t color);
 void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
-void TFT_FullScreen(void);
-void TFT_Init(void);
+void TFT_FullScreen(uint16_t color);
 void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
 void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
 void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void TFT_Flood(uint16_t color, uint32_t len);
-void TFT_FillScreen(uint16_t color);
-uint16_t TFT_ColorRGBTo16Bit(uint8_t r, uint8_t g, uint8_t b);
 void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size);
 void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size);
-void TFT_DrawBitmap(uint8_t x, uint8_t y, const uint8_t *bitmap, uint16_t color);
+void TFT_DrawBitmap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t color);
+void TFT_ConsoleInit(uint8_t orientation);
+void TFT_ConsolePrintLine(const char *str, uint16_t color);
 
 const uint16_t TFT_Init_Sequence[] = {
 
@@ -5531,7 +5539,6 @@ extern uint32_t MILLISECONDS;
 
 extern void init(void);
 extern void sleepMS(uint32_t ms);
-extern void printLine(const char *str, uint16_t color);
 
 extern void Ecg_Init(void);
 extern void Ecg_Process(void);
@@ -5617,14 +5624,14 @@ return 0;
 }
 
 uint32_t A6_BaudRateAutoDetect(void) {
-printLine("Detecting baud rate...", 0xF81F);
+TFT_ConsolePrintLine("Detecting baud rate...", 0xF81F);
 
 for(uint8_t i=0; i<3; i++) {
 EUSART_BaudRateSet(A6_BAUDRATES[i]);
 if(A6_IsAlive() == 1) {
 char zzzz[32];
 sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
-printLine(zzzz, 0xF800);
+TFT_ConsolePrintLine(zzzz, 0xF800);
 return A6_BAUDRATES[i];
 }
 sleepMS(100);
@@ -5674,7 +5681,7 @@ char response[32];
 uint8_t cnt = A6_ReadLine(response, 32, 0);
 if(cnt == 0) return;
 if(strcmp(response, "OK") == 0) return;
-printLine(response, 0x07FF);
+TFT_ConsolePrintLine(response, 0x07FF);
 }
 
 uint8_t A6_NetworkGetStatus(void) {

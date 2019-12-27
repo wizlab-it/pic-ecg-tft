@@ -1,5 +1,5 @@
 /*
- * 20191226.034
+ * 20191227.035
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -72,14 +72,14 @@ uint32_t A6_BaudRateSet(const uint32_t baudRate) {
 }
 
 uint32_t A6_BaudRateAutoDetect(void) {
-    printLine("Detecting baud rate...", _TFT_COLOR_MAGENTA);
+    TFT_ConsolePrintLine("Detecting baud rate...", _TFT_COLOR_MAGENTA);
 
     for(uint8_t i=0; i<3; i++) {
         EUSART_BaudRateSet(A6_BAUDRATES[i]);
         if(A6_IsAlive() == 1) {
             char zzzz[32];
             sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
-            printLine(zzzz, _TFT_COLOR_RED);
+            TFT_ConsolePrintLine(zzzz, _TFT_COLOR_RED);
             return A6_BAUDRATES[i];
         }
         sleepMS(100);
@@ -129,7 +129,7 @@ void A6_Process_Random_Comms(void) {
     uint8_t cnt = A6_ReadLine(response, 32, 0);
     if(cnt == 0) return;
     if(strcmp(response, "OK") == 0) return;
-    printLine(response, _TFT_COLOR_CYAN);
+    TFT_ConsolePrintLine(response, _TFT_COLOR_CYAN);
 }
 
 uint8_t A6_NetworkGetStatus(void) {
