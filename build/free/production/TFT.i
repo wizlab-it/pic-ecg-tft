@@ -5175,17 +5175,18 @@ extern char * strrichr(const char *, int);
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
-void A6_Init(void);
+void A6_Init(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
 uint8_t A6_IsAlive(void);
-uint32_t A6_BaudRateAutoDetect(void);
 uint32_t A6_BaudRateGet(void);
 uint32_t A6_BaudRateSet(const uint32_t baudRate);
-void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+uint32_t A6_BaudRateAutoDetect(void);
 void A6_Process_Random_Comms(void);
 uint8_t A6_NetworkGetStatus(void);
 uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
+void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 
 # 18 "EUSART.h"
 struct {
@@ -5665,7 +5666,6 @@ TFT_FullScreen(color);
 }
 
 void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
-uint16_t tmp;
 switch(TFT_OrientationGet()) {
 case 0:
 
@@ -5725,16 +5725,16 @@ h = x;
 v = y;
 break;
 case 1:
-h = 240 - y;
+h = 240 - y - 1;
 v = x;
 break;
 case 2:
-h = 240 - x;
-v = 400 - y;
+h = 240 - x - 1;
+v = 400 - y - 1;
 break;
 case 3:
 h = y;
-v = 400 - x;
+v = 400 - x - 1;
 break;
 }
 TFT_WriteRegister(0x0200, h);
@@ -5766,7 +5766,7 @@ ystep = 1;
 ystep = -1;
 }
 
-for(; x0<=x1; x0++) {
+for(; x0<x1; x0++) {
 if(steep) {
 TFT_DrawPixel(y0, x0, color);
 } else {

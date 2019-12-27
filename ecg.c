@@ -1,5 +1,5 @@
 /*
- * 20191227.036
+ * 20191227.040
  * ECG-TFT
  *
  * File: ecg.c
@@ -85,7 +85,7 @@ void Ecg_ProcessHeartRate(void) {
     heartbeatAverage /= (ECG_HEARTBEAT_SIZE - 1);
     heartrate = (uint8_t)(60000 / heartbeatAverage);
     sprintf(heartrateString, "%3d", heartrate);
-    TFT_DrawString(8, 260, heartrateString, _TFT_COLOR_GREEN, _TFT_COLOR_BLACK, 2);
+    TFT_DrawString(135, 10, heartrateString, _TFT_COLOR_GREEN, _TFT_COLOR_BLACK, 2);
 }
 
 void Ecg_ProcessHeartbeat(void) {
@@ -106,7 +106,7 @@ void Ecg_ProcessHeartbeat(void) {
             if(ECG_HEARTBEAT.i == ECG_HEARTBEAT_SIZE) ECG_HEARTBEAT.i = 0;
 
             //Show heart icon
-            TFT_DrawBitmap(5, 25, ECG_ICON_HEART, _TFT_COLOR_RED);
+            TFT_DrawBitmap(180, 7, ECG_ICON_HEART, _TFT_COLOR_RED);
             ECG_HEARTRATE.heartIconMsecDelay = ECG_DELAY_HEART_ICON / MILLISECONDS_TICK;
             ECG_HEARTRATE.heartIconShown = 1;
 
@@ -119,7 +119,7 @@ void Ecg_ProcessHeartbeat(void) {
         if(ECG_HEARTRATE.heartIconShown == 1) {
             ECG_HEARTRATE.heartIconMsecDelay--;
             if(ECG_HEARTRATE.heartIconMsecDelay == 0) {
-                TFT_DrawFillRect(5, 5, 20, 20, _TFT_COLOR_BLACK);
+                TFT_DrawFillRect(180, 7, 20, 20, _TFT_COLOR_BLACK);
                 ECG_HEARTRATE.heartIconShown = 0;
             }
         }
@@ -165,27 +165,29 @@ uint16_t Ecg_Read(void) {
 void Ecg_Draw(void) {
     uint16_t ecg = Ecg_Read();
     ecg /= 5;
-    Ecg_X = _TFT_WIDTH - ecg - 1;
-    TFT_DrawFillRect(ECG_GRAPH_TOP_OFFSET, (Ecg_Y - ECG_GRAPH_BLANK_SPACE + 1), (_TFT_WIDTH - ECG_GRAPH_TOP_OFFSET), ECG_GRAPH_BLANK_SPACE, _TFT_COLOR_BLACK);
+    Ecg_Y = TFT_GetHeight() - ecg;
+    TFT_DrawFillRect(Ecg_X, ECG_GRAPH_TOP_OFFSET, ECG_GRAPH_BLANK_SPACE, (TFT_GetHeight() - ECG_GRAPH_TOP_OFFSET), _TFT_COLOR_BLACK);
     TFT_DrawLine(Ecg_Xold, Ecg_Yold, Ecg_X, Ecg_Y, _TFT_COLOR_GREEN);
     Ecg_Xold = Ecg_X;
     Ecg_Yold = Ecg_Y;
-    Ecg_Y--;
-    if(Ecg_Y == 0) {
-        Ecg_Y = _TFT_HEIGHT - 1;
-        Ecg_Yold = Ecg_Y;
+    Ecg_X++;
+    if(Ecg_X == TFT_GetWidth()) {
+        Ecg_X = 0;
+        Ecg_Xold = 0;
     }
 }
 
 void Ecg_Background_Leads_Ok(void) {
     TFT_FullScreen(_TFT_COLOR_BLACK);
-    TFT_DrawString(8, 390, "Frequenza:", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
-    TFT_DrawLine((ECG_GRAPH_TOP_OFFSET - 1), 0, (ECG_GRAPH_TOP_OFFSET -  1), _TFT_HEIGHT, _TFT_COLOR_WHITE);
-    Ecg_Y = _TFT_HEIGHT - 1;
-    Ecg_Yold = _TFT_HEIGHT - 1;
+    TFT_DrawString(8, 10, "Frequenza:", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
+    TFT_DrawLine(0, (ECG_GRAPH_TOP_OFFSET - 1), TFT_GetWidth(), (ECG_GRAPH_TOP_OFFSET -  1), _TFT_COLOR_WHITE);
+    Ecg_X = 0;
+    Ecg_Xold = 0;
+    Ecg_Y = TFT_GetHeight() >> 1;
+    Ecg_Yold = Ecg_Y;
 }
 
 void Ecg_Background_Leads_Failure(void) {
     TFT_FullScreen(_TFT_COLOR_BLACK);
-    TFT_DrawString(70, 362, "*** Collegare elettrodi ***", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
+    TFT_DrawString(36, 75, "*** Collegare elettrodi ***", _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 2);
 }

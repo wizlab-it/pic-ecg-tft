@@ -5521,17 +5521,18 @@ const uint8_t TFT_Font[] = {
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
-void A6_Init(void);
+void A6_Init(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
 uint8_t A6_IsAlive(void);
-uint32_t A6_BaudRateAutoDetect(void);
 uint32_t A6_BaudRateGet(void);
 uint32_t A6_BaudRateSet(const uint32_t baudRate);
-void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+uint32_t A6_BaudRateAutoDetect(void);
 void A6_Process_Random_Comms(void);
 uint8_t A6_NetworkGetStatus(void);
 uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
+void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 
 # 18 "EUSART.h"
 struct {
@@ -5562,12 +5563,6 @@ extern void Ecg_Interrupt(void);
 
 # 15 "main.h"
 uint32_t tmp1 = 0;
-uint32_t tmp2 = 0;
-uint32_t tmp3 = 0;
-uint32_t tmp4 = 0;
-uint32_t tmp5 = 0;
-uint32_t tmp6 = 0;
-uint32_t tmp7 = 0;
 
 void loop(void);
 
@@ -5575,97 +5570,40 @@ void loop(void);
 void main(void) {
 
 init();
-TFT_Init(0, 0x0821);
+TFT_Init(3, 0x0821);
 EUSART_Init();
 Ecg_Init();
-TFT_ConsoleInit(0);
-A6_Init();
+A6_Init(115200);
 
 
 while(1) loop();
 }
 
-# 29
+# 28
 void loop(void) {
 
+Ecg_Process();
 
-
-A6_Process_Random_Comms();
-
-if((MILLISECONDS > 20000) && (tmp4 < (MILLISECONDS - 20000))) {
-tmp4 = MILLISECONDS;
-
-char zzzz[32];
-sprintf(zzzz, "Change baud rate (%lu)", A6_BaudRateGet());
-TFT_ConsolePrintLine(zzzz, 0xFFE0);
-
-uint32_t zz = 0;
-switch(A6_BaudRateGet()) {
-case 57600:
-zz = A6_BaudRateSet(115200);
-break;
-case 115200:
-zz = A6_BaudRateSet(9600);
-break;
-case 9600:
-zz = A6_BaudRateSet(57600);
-break;
-default:
-sprintf(zzzz, "Invalid current baud rate (%lu)", A6_BaudRateGet());
-TFT_ConsolePrintLine(zzzz, 0xFFE0);
-A6_BaudRateAutoDetect();
-break;
-}
-
-sprintf(zzzz, "Baud rate changed (-> %lu)", zz);
-TFT_ConsolePrintLine(((zz == 0) ? "Error changing baud rate" : zzzz), 0xF81F);
-
-if(A6_IsAlive() == 0) {
-TFT_ConsolePrintLine("Comm is dead. Retry...", 0x001F);
-A6_BaudRateAutoDetect();
-TFT_ConsolePrintLine(((A6_IsAlive() == 0) ? "Still dead" : "Resurrected!"), 0x001F);
-}
-}
-
-if((MILLISECONDS > 2500) && (tmp1 < (MILLISECONDS - 2500))) {
+if(tmp1 < (MILLISECONDS - 10000)) {
 tmp1 = MILLISECONDS;
 
-TFT_ConsolePrintLine("Check time", 0xFFE0);
-char response[32];
-A6_Command("AT+CCLK?\r", 0, response, 32);
-TFT_ConsolePrintLine(response, 0x07E0);
+char operator[32];
+uint16_t operatorX = TFT_GetWidth() - 100;
+A6_NetworkGetOperator(operator, 32);
+TFT_DrawString(operatorX, 5, operator, 0xFFE0, 0x0821, 1);
+if(operator[0] != '-') {
+uint8_t RSSILevel = A6_NetworkGetRSSILevel();
+for(uint8_t i=0; i<5; i++) {
+uint16_t operatorRSSIX = operatorX + (i * 6);
+if(RSSILevel > i) {
+TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, 0xFFE0);
+} else {
+TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, 0x0821);
+TFT_DrawLine(operatorRSSIX, 26, (operatorRSSIX + 5), 26, 0xFFE0);
+}
+}
+}
 }
 
-if((MILLISECONDS > 4000) && (tmp2 < (MILLISECONDS - 4000))) {
-tmp2 = MILLISECONDS;
-TFT_ConsolePrintLine("Check baud rate", 0xFFE0);
-char zzzz[32];
-sprintf(zzzz, "%lu", A6_BaudRateGet());
-TFT_ConsolePrintLine(zzzz, 0xF800);
-}
-
-if((MILLISECONDS > 6500) && (tmp3 < (MILLISECONDS - 6500))) {
-tmp3 = MILLISECONDS;
-
-TFT_ConsolePrintLine("Check RSSI", 0xFFE0);
-char zzzz[32];
-sprintf(zzzz, "Quality: %u; Level: %d", A6_NetworkGetRSSI(), A6_NetworkGetRSSILevel());
-TFT_ConsolePrintLine(zzzz, 0xFFFF);
-}
-
-if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
-tmp5 = MILLISECONDS;
-
-TFT_ConsolePrintLine("Check network registration", 0xFFE0);
-uint8_t ns = A6_NetworkGetStatus();
-char zzzz[32];
-sprintf(zzzz, "Network status: %u (%s)", ns, ((ns == 2) ? "Searching..." : ((ns == 1) ? "Registered" : "Other")));
-TFT_ConsolePrintLine(zzzz, 0xFFFF);
-}
-
-if((MILLISECONDS > 28000) && (tmp6 < (MILLISECONDS - 28000))) {
-tmp6 = MILLISECONDS;
-TFT_ConsoleInit(++tmp7);
-if(tmp7 == 3) tmp7 = 0;
-}
+# 144
 }

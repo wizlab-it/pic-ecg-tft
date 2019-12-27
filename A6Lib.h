@@ -1,5 +1,5 @@
 /*
- * 20191227.027
+ * 20191227.031
  * A6 GSM Module Library
  *
  * File: A6Lib.h
@@ -25,16 +25,17 @@
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
-void A6_Init(void);
+void A6_Init(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
 uint8_t A6_IsAlive(void);
-uint32_t A6_BaudRateAutoDetect(void);
 uint32_t A6_BaudRateGet(void);
 uint32_t A6_BaudRateSet(const uint32_t baudRate);
-void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+uint32_t A6_BaudRateAutoDetect(void);
 void A6_Process_Random_Comms(void);
 uint8_t A6_NetworkGetStatus(void);
 uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
+void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 
 #endif

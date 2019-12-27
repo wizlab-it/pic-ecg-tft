@@ -1,5 +1,5 @@
 /*
- * 20191227.047
+ * 20191227.050
  * ECG-TFT
  *
  * File: TFT.c
@@ -113,7 +113,6 @@ void TFT_OrientationSet(uint8_t orientation, uint16_t color) {
 }
 
 void TFT_SetAddrWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
-    uint16_t tmp;
     switch(TFT_OrientationGet()) {
         case _TFT_ORIENTATION_PORTRAIT:
             //Set address window
@@ -173,16 +172,16 @@ void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
             v = y;
             break;
         case _TFT_ORIENTATION_LANDSCAPE:
-            h = _TFT_WIDTH - y;
+            h = _TFT_WIDTH - y - 1;
             v = x;
             break;
         case _TFT_ORIENTATION_INV_PORTRAIT:
-            h = _TFT_WIDTH - x;
-            v = _TFT_HEIGHT - y;
+            h = _TFT_WIDTH - x - 1;
+            v = _TFT_HEIGHT - y - 1;
             break;
         case _TFT_ORIENTATION_INV_LANDSCAPE:
             h = y;
-            v = _TFT_HEIGHT - x;
+            v = _TFT_HEIGHT - x - 1;
             break;
     }
     TFT_WriteRegister(0x0200, h);
@@ -214,7 +213,7 @@ void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color
         ystep = -1;
     }
 
-    for(; x0<=x1; x0++) {
+    for(; x0<x1; x0++) {
         if(steep) {
             TFT_DrawPixel(y0, x0, color);
         } else {

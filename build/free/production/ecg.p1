@@ -97,8 +97,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
 "5611
 [v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
-"83 TFT.h
+"77 TFT.h
+[v _TFT_GetHeight `(ui ~T0 @X0 0 ef ]
+"83
 [v _TFT_DrawLine `(v ~T0 @X0 0 ef5`i`i`i`i`ui ]
+"76
+[v _TFT_GetWidth `(ui ~T0 @X0 0 ef ]
 "81
 [v _TFT_FullScreen `(v ~T0 @X0 0 ef1`ui ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
@@ -5398,17 +5402,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 [; ;A6Lib.h: 26: uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
-[; ;A6Lib.h: 28: void A6_Init(void);
-[; ;A6Lib.h: 29: uint8_t A6_IsAlive(void);
-[; ;A6Lib.h: 30: uint32_t A6_BaudRateAutoDetect(void);
-[; ;A6Lib.h: 31: uint32_t A6_BaudRateGet(void);
-[; ;A6Lib.h: 32: uint32_t A6_BaudRateSet(const uint32_t baudRate);
-[; ;A6Lib.h: 33: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-[; ;A6Lib.h: 34: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+[; ;A6Lib.h: 28: void A6_Init(const uint32_t baudRate);
+[; ;A6Lib.h: 29: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+[; ;A6Lib.h: 30: uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
+[; ;A6Lib.h: 31: uint8_t A6_IsAlive(void);
+[; ;A6Lib.h: 32: uint32_t A6_BaudRateGet(void);
+[; ;A6Lib.h: 33: uint32_t A6_BaudRateSet(const uint32_t baudRate);
+[; ;A6Lib.h: 34: uint32_t A6_BaudRateAutoDetect(void);
 [; ;A6Lib.h: 35: void A6_Process_Random_Comms(void);
 [; ;A6Lib.h: 36: uint8_t A6_NetworkGetStatus(void);
 [; ;A6Lib.h: 37: uint8_t A6_NetworkGetRSSI(void);
 [; ;A6Lib.h: 38: int8_t A6_NetworkGetRSSILevel(void);
+[; ;A6Lib.h: 39: void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 "22 EUSART.h
 [v _EUSART_RX `S327 ~T0 @X0 1 e ]
 [; ;EUSART.h: 18: struct {
@@ -5829,9 +5834,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecg.c: 87: sprintf(heartrateString, "%3d", heartrate);
 "87
 [e ( _sprintf (1 , (. , &U _heartrateString :s 1C -> _heartrate `i ]
-[; ;ecg.c: 88: TFT_DrawString(8, 260, heartrateString, 0x07E0, 0x0821, 2);
+[; ;ecg.c: 88: TFT_DrawString(135, 10, heartrateString, 0x07E0, 0x0821, 2);
 "88
-[e ( _TFT_DrawString (4 , , , , , -> -> 8 `i `ui -> -> 260 `i `ui -> &U _heartrateString `*Cuc -> -> 2016 `i `ui -> -> 2081 `i `ui -> -> 2 `i `uc ]
+[e ( _TFT_DrawString (4 , , , , , -> -> 135 `i `ui -> -> 10 `i `ui -> &U _heartrateString `*Cuc -> -> 2016 `i `ui -> -> 2081 `i `ui -> -> 2 `i `uc ]
 [; ;ecg.c: 89: }
 "89
 [e :UE 347 ]
@@ -5897,9 +5902,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! == -> . _ECG_HEARTBEAT 1 `i -> 3 `i 357  ]
 [e = . _ECG_HEARTBEAT 1 -> -> 0 `i `uc ]
 [e :U 357 ]
-[; ;ecg.c: 109: TFT_DrawBitmap(5, 25, ECG_ICON_HEART, 0xF800);
+[; ;ecg.c: 109: TFT_DrawBitmap(180, 7, ECG_ICON_HEART, 0xF800);
 "109
-[e ( _TFT_DrawBitmap (4 , , , -> -> 5 `i `ui -> -> 25 `i `ui &U _ECG_ICON_HEART -> 63488 `ui ]
+[e ( _TFT_DrawBitmap (4 , , , -> -> 180 `i `ui -> -> 7 `i `ui &U _ECG_ICON_HEART -> 63488 `ui ]
 [; ;ecg.c: 110: ECG_HEARTRATE.heartIconMsecDelay = 100 / 5;
 "110
 [e = . _ECG_HEARTRATE 3 -> / -> 100 `i -> 5 `i `uc ]
@@ -5933,9 +5938,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "121
 [e $ ! == -> . _ECG_HEARTRATE 3 `i -> 0 `i 360  ]
 {
-[; ;ecg.c: 122: TFT_DrawFillRect(5, 5, 20, 20, 0x0821);
+[; ;ecg.c: 122: TFT_DrawFillRect(180, 7, 20, 20, 0x0821);
 "122
-[e ( _TFT_DrawFillRect (4 , , , , -> -> 5 `i `ui -> -> 5 `i `ui -> -> 20 `i `ui -> -> 20 `i `ui -> -> 2081 `i `ui ]
+[e ( _TFT_DrawFillRect (4 , , , , -> -> 180 `i `ui -> -> 7 `i `ui -> -> 20 `i `ui -> -> 20 `i `ui -> -> 2081 `i `ui ]
 [; ;ecg.c: 123: ECG_HEARTRATE.heartIconShown = 0;
 "123
 [e = . _ECG_HEARTRATE 2 -> -> 0 `i `uc ]
@@ -6088,12 +6093,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecg.c: 167: ecg /= 5;
 "167
 [e =/ _ecg -> -> 5 `uc `ui ]
-[; ;ecg.c: 168: Ecg_X = 240 - ecg - 1;
+[; ;ecg.c: 168: Ecg_Y = TFT_GetHeight() - ecg;
 "168
-[e = _Ecg_X - - -> -> 240 `i `ui _ecg -> -> 1 `i `ui ]
-[; ;ecg.c: 169: TFT_DrawFillRect(33, (Ecg_Y - 20 + 1), (240 - 33), 20, 0x0821);
+[e = _Ecg_Y - ( _TFT_GetHeight ..  _ecg ]
+[; ;ecg.c: 169: TFT_DrawFillRect(Ecg_X, 33, 20, (TFT_GetHeight() - 33), 0x0821);
 "169
-[e ( _TFT_DrawFillRect (4 , , , , -> -> 33 `i `ui + - _Ecg_Y -> -> 20 `i `ui -> -> 1 `i `ui -> - -> 240 `i -> 33 `i `ui -> -> 20 `i `ui -> -> 2081 `i `ui ]
+[e ( _TFT_DrawFillRect (4 , , , , _Ecg_X -> -> 33 `i `ui -> -> 20 `i `ui - ( _TFT_GetHeight ..  -> -> 33 `i `ui -> -> 2081 `i `ui ]
 [; ;ecg.c: 170: TFT_DrawLine(Ecg_Xold, Ecg_Yold, Ecg_X, Ecg_Y, 0x07E0);
 "170
 [e ( _TFT_DrawLine (4 , , , , -> _Ecg_Xold `i -> _Ecg_Yold `i -> _Ecg_X `i -> _Ecg_Y `i -> -> 2016 `i `ui ]
@@ -6103,19 +6108,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecg.c: 172: Ecg_Yold = Ecg_Y;
 "172
 [e = _Ecg_Yold _Ecg_Y ]
-[; ;ecg.c: 173: Ecg_Y--;
+[; ;ecg.c: 173: Ecg_X++;
 "173
-[e -- _Ecg_Y -> -> 1 `i `ui ]
-[; ;ecg.c: 174: if(Ecg_Y == 0) {
+[e ++ _Ecg_X -> -> 1 `i `ui ]
+[; ;ecg.c: 174: if(Ecg_X == TFT_GetWidth()) {
 "174
-[e $ ! == _Ecg_Y -> -> 0 `i `ui 372  ]
+[e $ ! == _Ecg_X ( _TFT_GetWidth ..  372  ]
 {
-[; ;ecg.c: 175: Ecg_Y = 400 - 1;
+[; ;ecg.c: 175: Ecg_X = 0;
 "175
-[e = _Ecg_Y -> - -> 400 `i -> 1 `i `ui ]
-[; ;ecg.c: 176: Ecg_Yold = Ecg_Y;
+[e = _Ecg_X -> -> 0 `i `ui ]
+[; ;ecg.c: 176: Ecg_Xold = 0;
 "176
-[e = _Ecg_Yold _Ecg_Y ]
+[e = _Ecg_Xold -> -> 0 `i `ui ]
 "177
 }
 [e :U 372 ]
@@ -6133,36 +6138,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecg.c: 181: TFT_FullScreen(0x0821);
 "181
 [e ( _TFT_FullScreen (1 -> -> 2081 `i `ui ]
-[; ;ecg.c: 182: TFT_DrawString(8, 390, "Frequenza:", 0xFFFF, 0x0821, 2);
+[; ;ecg.c: 182: TFT_DrawString(8, 10, "Frequenza:", 0xFFFF, 0x0821, 2);
 "182
-[e ( _TFT_DrawString (4 , , , , , -> -> 8 `i `ui -> -> 390 `i `ui :s 2C -> 65535 `ui -> -> 2081 `i `ui -> -> 2 `i `uc ]
-[; ;ecg.c: 183: TFT_DrawLine((33 - 1), 0, (33 - 1), 400, 0xFFFF);
+[e ( _TFT_DrawString (4 , , , , , -> -> 8 `i `ui -> -> 10 `i `ui :s 2C -> 65535 `ui -> -> 2081 `i `ui -> -> 2 `i `uc ]
+[; ;ecg.c: 183: TFT_DrawLine(0, (33 - 1), TFT_GetWidth(), (33 - 1), 0xFFFF);
 "183
-[e ( _TFT_DrawLine (4 , , , , - -> 33 `i -> 1 `i -> 0 `i - -> 33 `i -> 1 `i -> 400 `i -> 65535 `ui ]
-[; ;ecg.c: 184: Ecg_Y = 400 - 1;
+[e ( _TFT_DrawLine (4 , , , , -> 0 `i - -> 33 `i -> 1 `i -> ( _TFT_GetWidth ..  `i - -> 33 `i -> 1 `i -> 65535 `ui ]
+[; ;ecg.c: 184: Ecg_X = 0;
 "184
-[e = _Ecg_Y -> - -> 400 `i -> 1 `i `ui ]
-[; ;ecg.c: 185: Ecg_Yold = 400 - 1;
+[e = _Ecg_X -> -> 0 `i `ui ]
+[; ;ecg.c: 185: Ecg_Xold = 0;
 "185
-[e = _Ecg_Yold -> - -> 400 `i -> 1 `i `ui ]
-[; ;ecg.c: 186: }
+[e = _Ecg_Xold -> -> 0 `i `ui ]
+[; ;ecg.c: 186: Ecg_Y = TFT_GetHeight() >> 1;
 "186
+[e = _Ecg_Y >> ( _TFT_GetHeight ..  -> 1 `i ]
+[; ;ecg.c: 187: Ecg_Yold = Ecg_Y;
+"187
+[e = _Ecg_Yold _Ecg_Y ]
+[; ;ecg.c: 188: }
+"188
 [e :UE 373 ]
 }
-"188
+"190
 [v _Ecg_Background_Leads_Failure `(v ~T0 @X0 1 ef ]
 {
-[; ;ecg.c: 188: void Ecg_Background_Leads_Failure(void) {
+[; ;ecg.c: 190: void Ecg_Background_Leads_Failure(void) {
 [e :U _Ecg_Background_Leads_Failure ]
 [f ]
-[; ;ecg.c: 189: TFT_FullScreen(0x0821);
-"189
-[e ( _TFT_FullScreen (1 -> -> 2081 `i `ui ]
-[; ;ecg.c: 190: TFT_DrawString(70, 362, "*** Collegare elettrodi ***", 0xFFFF, 0x0821, 2);
-"190
-[e ( _TFT_DrawString (4 , , , , , -> -> 70 `i `ui -> -> 362 `i `ui :s 3C -> 65535 `ui -> -> 2081 `i `ui -> -> 2 `i `uc ]
-[; ;ecg.c: 191: }
+[; ;ecg.c: 191: TFT_FullScreen(0x0821);
 "191
+[e ( _TFT_FullScreen (1 -> -> 2081 `i `ui ]
+[; ;ecg.c: 192: TFT_DrawString(36, 75, "*** Collegare elettrodi ***", 0xFFFF, 0x0821, 2);
+"192
+[e ( _TFT_DrawString (4 , , , , , -> -> 36 `i `ui -> -> 75 `i `ui :s 3C -> 65535 `ui -> -> 2081 `i `ui -> -> 2 `i `uc ]
+[; ;ecg.c: 193: }
+"193
 [e :UE 374 ]
 }
 [p f _sprintf 8421504 ]

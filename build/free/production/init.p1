@@ -5460,17 +5460,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 [; ;A6Lib.h: 26: uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
-[; ;A6Lib.h: 28: void A6_Init(void);
-[; ;A6Lib.h: 29: uint8_t A6_IsAlive(void);
-[; ;A6Lib.h: 30: uint32_t A6_BaudRateAutoDetect(void);
-[; ;A6Lib.h: 31: uint32_t A6_BaudRateGet(void);
-[; ;A6Lib.h: 32: uint32_t A6_BaudRateSet(const uint32_t baudRate);
-[; ;A6Lib.h: 33: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-[; ;A6Lib.h: 34: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+[; ;A6Lib.h: 28: void A6_Init(const uint32_t baudRate);
+[; ;A6Lib.h: 29: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+[; ;A6Lib.h: 30: uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
+[; ;A6Lib.h: 31: uint8_t A6_IsAlive(void);
+[; ;A6Lib.h: 32: uint32_t A6_BaudRateGet(void);
+[; ;A6Lib.h: 33: uint32_t A6_BaudRateSet(const uint32_t baudRate);
+[; ;A6Lib.h: 34: uint32_t A6_BaudRateAutoDetect(void);
 [; ;A6Lib.h: 35: void A6_Process_Random_Comms(void);
 [; ;A6Lib.h: 36: uint8_t A6_NetworkGetStatus(void);
 [; ;A6Lib.h: 37: uint8_t A6_NetworkGetRSSI(void);
 [; ;A6Lib.h: 38: int8_t A6_NetworkGetRSSILevel(void);
+[; ;A6Lib.h: 39: void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 "22 EUSART.h
 [v _EUSART_RX `S327 ~T0 @X0 1 e ]
 [; ;EUSART.h: 18: struct {

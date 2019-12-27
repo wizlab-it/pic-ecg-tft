@@ -5521,17 +5521,18 @@ const uint8_t TFT_Font[] = {
 const uint32_t A6_BAUDRATES[] = { 9600, 57600, 115200 };
 uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
 
-void A6_Init(void);
+void A6_Init(const uint32_t baudRate);
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
 uint8_t A6_IsAlive(void);
-uint32_t A6_BaudRateAutoDetect(void);
 uint32_t A6_BaudRateGet(void);
 uint32_t A6_BaudRateSet(const uint32_t baudRate);
-void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+uint32_t A6_BaudRateAutoDetect(void);
 void A6_Process_Random_Comms(void);
 uint8_t A6_NetworkGetStatus(void);
 uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
+void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 
 # 18 "EUSART.h"
 struct {
@@ -5697,7 +5698,7 @@ heartbeatAverage += (ECG_HEARTBEAT.data[j] - ECG_HEARTBEAT.data[jPrev]);
 heartbeatAverage /= (3 - 1);
 heartrate = (uint8_t)(60000 / heartbeatAverage);
 sprintf(heartrateString, "%3d", heartrate);
-TFT_DrawString(8, 260, heartrateString, 0x07E0, 0x0821, 2);
+TFT_DrawString(135, 10, heartrateString, 0x07E0, 0x0821, 2);
 }
 
 void Ecg_ProcessHeartbeat(void) {
@@ -5718,7 +5719,7 @@ ECG_HEARTBEAT.data[ECG_HEARTBEAT.i++] = MILLISECONDS;
 if(ECG_HEARTBEAT.i == 3) ECG_HEARTBEAT.i = 0;
 
 
-TFT_DrawBitmap(5, 25, ECG_ICON_HEART, 0xF800);
+TFT_DrawBitmap(180, 7, ECG_ICON_HEART, 0xF800);
 ECG_HEARTRATE.heartIconMsecDelay = 100 / 5;
 ECG_HEARTRATE.heartIconShown = 1;
 
@@ -5731,7 +5732,7 @@ ECG_HEARTRATE.processHeartbeat = 0;
 if(ECG_HEARTRATE.heartIconShown == 1) {
 ECG_HEARTRATE.heartIconMsecDelay--;
 if(ECG_HEARTRATE.heartIconMsecDelay == 0) {
-TFT_DrawFillRect(5, 5, 20, 20, 0x0821);
+TFT_DrawFillRect(180, 7, 20, 20, 0x0821);
 ECG_HEARTRATE.heartIconShown = 0;
 }
 }
@@ -5777,27 +5778,29 @@ return ecg;
 void Ecg_Draw(void) {
 uint16_t ecg = Ecg_Read();
 ecg /= 5;
-Ecg_X = 240 - ecg - 1;
-TFT_DrawFillRect(33, (Ecg_Y - 20 + 1), (240 - 33), 20, 0x0821);
+Ecg_Y = TFT_GetHeight() - ecg;
+TFT_DrawFillRect(Ecg_X, 33, 20, (TFT_GetHeight() - 33), 0x0821);
 TFT_DrawLine(Ecg_Xold, Ecg_Yold, Ecg_X, Ecg_Y, 0x07E0);
 Ecg_Xold = Ecg_X;
 Ecg_Yold = Ecg_Y;
-Ecg_Y--;
-if(Ecg_Y == 0) {
-Ecg_Y = 400 - 1;
-Ecg_Yold = Ecg_Y;
+Ecg_X++;
+if(Ecg_X == TFT_GetWidth()) {
+Ecg_X = 0;
+Ecg_Xold = 0;
 }
 }
 
 void Ecg_Background_Leads_Ok(void) {
 TFT_FullScreen(0x0821);
-TFT_DrawString(8, 390, "Frequenza:", 0xFFFF, 0x0821, 2);
-TFT_DrawLine((33 - 1), 0, (33 - 1), 400, 0xFFFF);
-Ecg_Y = 400 - 1;
-Ecg_Yold = 400 - 1;
+TFT_DrawString(8, 10, "Frequenza:", 0xFFFF, 0x0821, 2);
+TFT_DrawLine(0, (33 - 1), TFT_GetWidth(), (33 - 1), 0xFFFF);
+Ecg_X = 0;
+Ecg_Xold = 0;
+Ecg_Y = TFT_GetHeight() >> 1;
+Ecg_Yold = Ecg_Y;
 }
 
 void Ecg_Background_Leads_Failure(void) {
 TFT_FullScreen(0x0821);
-TFT_DrawString(70, 362, "*** Collegare elettrodi ***", 0xFFFF, 0x0821, 2);
+TFT_DrawString(36, 75, "*** Collegare elettrodi ***", 0xFFFF, 0x0821, 2);
 }

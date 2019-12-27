@@ -3311,17 +3311,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> -> 0 `i `l `ul
 ]
 [; ;A6Lib.h: 26: uint32_t A6_LAST_COMMAND_MILLISECONDS = 0;
-[; ;A6Lib.h: 28: void A6_Init(void);
-[; ;A6Lib.h: 29: uint8_t A6_IsAlive(void);
-[; ;A6Lib.h: 30: uint32_t A6_BaudRateAutoDetect(void);
-[; ;A6Lib.h: 31: uint32_t A6_BaudRateGet(void);
-[; ;A6Lib.h: 32: uint32_t A6_BaudRateSet(const uint32_t baudRate);
-[; ;A6Lib.h: 33: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
-[; ;A6Lib.h: 34: uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout);
+[; ;A6Lib.h: 28: void A6_Init(const uint32_t baudRate);
+[; ;A6Lib.h: 29: void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen);
+[; ;A6Lib.h: 30: uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout);
+[; ;A6Lib.h: 31: uint8_t A6_IsAlive(void);
+[; ;A6Lib.h: 32: uint32_t A6_BaudRateGet(void);
+[; ;A6Lib.h: 33: uint32_t A6_BaudRateSet(const uint32_t baudRate);
+[; ;A6Lib.h: 34: uint32_t A6_BaudRateAutoDetect(void);
 [; ;A6Lib.h: 35: void A6_Process_Random_Comms(void);
 [; ;A6Lib.h: 36: uint8_t A6_NetworkGetStatus(void);
 [; ;A6Lib.h: 37: uint8_t A6_NetworkGetRSSI(void);
 [; ;A6Lib.h: 38: int8_t A6_NetworkGetRSSILevel(void);
+[; ;A6Lib.h: 39: void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 "22 EUSART.h
 [v _EUSART_RX `S327 ~T0 @X0 1 e ]
 [; ;EUSART.h: 18: struct {
@@ -5955,246 +5956,243 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _x2 `ui ~T0 @X0 1 r3 ]
 [v _y2 `ui ~T0 @X0 1 r4 ]
 [f ]
+[; ;TFT.c: 116: switch(TFT_OrientationGet()) {
 "116
-[v _tmp `ui ~T0 @X0 1 a ]
-[; ;TFT.c: 116: uint16_t tmp;
-[; ;TFT.c: 117: switch(TFT_OrientationGet()) {
-"117
 [e $U 362  ]
 {
-[; ;TFT.c: 118: case 0:
-"118
-[e :U 363 ]
-[; ;TFT.c: 120: TFT_WriteRegister(0x0210, x1);
-"120
-[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui _x1 ]
-[; ;TFT.c: 121: TFT_WriteRegister(0x0211, x2);
-"121
-[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui _x2 ]
-[; ;TFT.c: 122: TFT_WriteRegister(0x0212, y1);
-"122
-[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui _y1 ]
-[; ;TFT.c: 123: TFT_WriteRegister(0x0213, y2);
-"123
-[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui _y2 ]
-[; ;TFT.c: 125: TFT_WriteRegister(0x0200, x1);
-"125
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _x1 ]
-[; ;TFT.c: 126: TFT_WriteRegister(0x0201, y2);
-"126
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _y2 ]
-[; ;TFT.c: 127: break;
-"127
-[e $U 361  ]
-[; ;TFT.c: 128: case 1:
-"128
-[e :U 364 ]
-[; ;TFT.c: 130: TFT_WriteRegister(0x0210, 240 - 1 - y2);
-"130
-[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui - -> - -> 240 `i -> 1 `i `ui _y2 ]
-[; ;TFT.c: 131: TFT_WriteRegister(0x0211, 240 - 1 - y1);
-"131
-[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui - -> - -> 240 `i -> 1 `i `ui _y1 ]
-[; ;TFT.c: 132: TFT_WriteRegister(0x0212, x1);
-"132
-[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui _x1 ]
-[; ;TFT.c: 133: TFT_WriteRegister(0x0213, x2);
-"133
-[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui _x2 ]
-[; ;TFT.c: 135: TFT_WriteRegister(0x0200, 240 - 1 - y1);
-"135
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui - -> - -> 240 `i -> 1 `i `ui _y1 ]
-[; ;TFT.c: 136: TFT_WriteRegister(0x0201, x1);
-"136
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _x1 ]
-[; ;TFT.c: 137: break;
-"137
-[e $U 361  ]
-[; ;TFT.c: 138: case 2:
-"138
-[e :U 365 ]
-[; ;TFT.c: 140: TFT_WriteRegister(0x0210, 240 - 1 - x2);
-"140
-[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui - -> - -> 240 `i -> 1 `i `ui _x2 ]
-[; ;TFT.c: 141: TFT_WriteRegister(0x0211, 240 - 1 - x1);
-"141
-[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui - -> - -> 240 `i -> 1 `i `ui _x1 ]
-[; ;TFT.c: 142: TFT_WriteRegister(0x0212, 400 - 1 - y2);
-"142
-[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui - -> - -> 400 `i -> 1 `i `ui _y2 ]
-[; ;TFT.c: 143: TFT_WriteRegister(0x0213, 400 - 1 - y1);
-"143
-[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui - -> - -> 400 `i -> 1 `i `ui _y1 ]
-[; ;TFT.c: 145: TFT_WriteRegister(0x0200, 240 - 1 - x1);
-"145
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui - -> - -> 240 `i -> 1 `i `ui _x1 ]
-[; ;TFT.c: 146: TFT_WriteRegister(0x0201, 400 - 1 - y1);
-"146
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui - -> - -> 400 `i -> 1 `i `ui _y1 ]
-[; ;TFT.c: 147: break;
-"147
-[e $U 361  ]
-[; ;TFT.c: 148: case 3:
-"148
-[e :U 366 ]
-[; ;TFT.c: 150: TFT_WriteRegister(0x0210, y1);
-"150
-[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui _y1 ]
-[; ;TFT.c: 151: TFT_WriteRegister(0x0211, y2);
-"151
-[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui _y2 ]
-[; ;TFT.c: 152: TFT_WriteRegister(0x0212, 400 - 1 - x2);
-"152
-[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui - -> - -> 400 `i -> 1 `i `ui _x2 ]
-[; ;TFT.c: 153: TFT_WriteRegister(0x0213, 400 - 1 - x1);
-"153
-[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui - -> - -> 400 `i -> 1 `i `ui _x1 ]
-[; ;TFT.c: 155: TFT_WriteRegister(0x0200, y1);
-"155
-[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _y1 ]
-[; ;TFT.c: 156: TFT_WriteRegister(0x0201, 400 - 1 - x1);
-"156
-[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui - -> - -> 400 `i -> 1 `i `ui _x1 ]
-[; ;TFT.c: 157: break;
-"157
-[e $U 361  ]
-"158
-}
-[; ;TFT.c: 158: }
-[e $U 361  ]
+[; ;TFT.c: 117: case 0:
 "117
+[e :U 363 ]
+[; ;TFT.c: 119: TFT_WriteRegister(0x0210, x1);
+"119
+[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui _x1 ]
+[; ;TFT.c: 120: TFT_WriteRegister(0x0211, x2);
+"120
+[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui _x2 ]
+[; ;TFT.c: 121: TFT_WriteRegister(0x0212, y1);
+"121
+[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui _y1 ]
+[; ;TFT.c: 122: TFT_WriteRegister(0x0213, y2);
+"122
+[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui _y2 ]
+[; ;TFT.c: 124: TFT_WriteRegister(0x0200, x1);
+"124
+[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _x1 ]
+[; ;TFT.c: 125: TFT_WriteRegister(0x0201, y2);
+"125
+[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _y2 ]
+[; ;TFT.c: 126: break;
+"126
+[e $U 361  ]
+[; ;TFT.c: 127: case 1:
+"127
+[e :U 364 ]
+[; ;TFT.c: 129: TFT_WriteRegister(0x0210, 240 - 1 - y2);
+"129
+[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui - -> - -> 240 `i -> 1 `i `ui _y2 ]
+[; ;TFT.c: 130: TFT_WriteRegister(0x0211, 240 - 1 - y1);
+"130
+[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui - -> - -> 240 `i -> 1 `i `ui _y1 ]
+[; ;TFT.c: 131: TFT_WriteRegister(0x0212, x1);
+"131
+[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui _x1 ]
+[; ;TFT.c: 132: TFT_WriteRegister(0x0213, x2);
+"132
+[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui _x2 ]
+[; ;TFT.c: 134: TFT_WriteRegister(0x0200, 240 - 1 - y1);
+"134
+[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui - -> - -> 240 `i -> 1 `i `ui _y1 ]
+[; ;TFT.c: 135: TFT_WriteRegister(0x0201, x1);
+"135
+[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _x1 ]
+[; ;TFT.c: 136: break;
+"136
+[e $U 361  ]
+[; ;TFT.c: 137: case 2:
+"137
+[e :U 365 ]
+[; ;TFT.c: 139: TFT_WriteRegister(0x0210, 240 - 1 - x2);
+"139
+[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui - -> - -> 240 `i -> 1 `i `ui _x2 ]
+[; ;TFT.c: 140: TFT_WriteRegister(0x0211, 240 - 1 - x1);
+"140
+[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui - -> - -> 240 `i -> 1 `i `ui _x1 ]
+[; ;TFT.c: 141: TFT_WriteRegister(0x0212, 400 - 1 - y2);
+"141
+[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui - -> - -> 400 `i -> 1 `i `ui _y2 ]
+[; ;TFT.c: 142: TFT_WriteRegister(0x0213, 400 - 1 - y1);
+"142
+[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui - -> - -> 400 `i -> 1 `i `ui _y1 ]
+[; ;TFT.c: 144: TFT_WriteRegister(0x0200, 240 - 1 - x1);
+"144
+[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui - -> - -> 240 `i -> 1 `i `ui _x1 ]
+[; ;TFT.c: 145: TFT_WriteRegister(0x0201, 400 - 1 - y1);
+"145
+[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui - -> - -> 400 `i -> 1 `i `ui _y1 ]
+[; ;TFT.c: 146: break;
+"146
+[e $U 361  ]
+[; ;TFT.c: 147: case 3:
+"147
+[e :U 366 ]
+[; ;TFT.c: 149: TFT_WriteRegister(0x0210, y1);
+"149
+[e ( _TFT_WriteRegister (2 , -> -> 528 `i `ui _y1 ]
+[; ;TFT.c: 150: TFT_WriteRegister(0x0211, y2);
+"150
+[e ( _TFT_WriteRegister (2 , -> -> 529 `i `ui _y2 ]
+[; ;TFT.c: 151: TFT_WriteRegister(0x0212, 400 - 1 - x2);
+"151
+[e ( _TFT_WriteRegister (2 , -> -> 530 `i `ui - -> - -> 400 `i -> 1 `i `ui _x2 ]
+[; ;TFT.c: 152: TFT_WriteRegister(0x0213, 400 - 1 - x1);
+"152
+[e ( _TFT_WriteRegister (2 , -> -> 531 `i `ui - -> - -> 400 `i -> 1 `i `ui _x1 ]
+[; ;TFT.c: 154: TFT_WriteRegister(0x0200, y1);
+"154
+[e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _y1 ]
+[; ;TFT.c: 155: TFT_WriteRegister(0x0201, 400 - 1 - x1);
+"155
+[e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui - -> - -> 400 `i -> 1 `i `ui _x1 ]
+[; ;TFT.c: 156: break;
+"156
+[e $U 361  ]
+"157
+}
+[; ;TFT.c: 157: }
+[e $U 361  ]
+"116
 [e :U 362 ]
 [e [\ ( _TFT_OrientationGet ..  , $ -> -> 0 `i `uc 363
  , $ -> -> 1 `i `uc 364
  , $ -> -> 2 `i `uc 365
  , $ -> -> 3 `i `uc 366
  361 ]
-"158
+"157
 [e :U 361 ]
-[; ;TFT.c: 159: }
-"159
+[; ;TFT.c: 158: }
+"158
 [e :UE 360 ]
 }
-"161
+"160
 [v _TFT_FullScreen `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;TFT.c: 161: void TFT_FullScreen(uint16_t color) {
+[; ;TFT.c: 160: void TFT_FullScreen(uint16_t color) {
 [e :U _TFT_FullScreen ]
 [v _color `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;TFT.c: 162: TFT_SetAddrWindow(0, 0, TFT_GetWidth(), TFT_GetHeight());
-"162
+[; ;TFT.c: 161: TFT_SetAddrWindow(0, 0, TFT_GetWidth(), TFT_GetHeight());
+"161
 [e ( _TFT_SetAddrWindow (4 , , , -> -> 0 `i `ui -> -> 0 `i `ui ( _TFT_GetWidth ..  ( _TFT_GetHeight ..  ]
-[; ;TFT.c: 163: if(color != 0) {
-"163
+[; ;TFT.c: 162: if(color != 0) {
+"162
 [e $ ! != _color -> -> 0 `i `ui 368  ]
 {
-[; ;TFT.c: 164: TFT_Flood(color, (uint32_t)240 * (uint32_t)400);
-"164
+[; ;TFT.c: 163: TFT_Flood(color, (uint32_t)240 * (uint32_t)400);
+"163
 [e ( _TFT_Flood (2 , _color * -> -> 240 `i `ul -> -> 400 `i `ul ]
-"165
+"164
 }
 [e :U 368 ]
+[; ;TFT.c: 164: }
 [; ;TFT.c: 165: }
-[; ;TFT.c: 166: }
-"166
+"165
 [e :UE 367 ]
 }
-"168
+"167
 [v _TFT_DrawPixel `(v ~T0 @X0 1 ef3`ui`ui`ui ]
 {
-[; ;TFT.c: 168: void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
+[; ;TFT.c: 167: void TFT_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
 [e :U _TFT_DrawPixel ]
 [v _x `ui ~T0 @X0 1 r1 ]
 [v _y `ui ~T0 @X0 1 r2 ]
 [v _color `ui ~T0 @X0 1 r3 ]
 [f ]
-"169
+"168
 [v _h `ui ~T0 @X0 1 a ]
 [v _v `ui ~T0 @X0 1 a ]
-[; ;TFT.c: 169: uint16_t h, v;
-[; ;TFT.c: 170: switch(TFT_OrientationGet()) {
-"170
+[; ;TFT.c: 168: uint16_t h, v;
+[; ;TFT.c: 169: switch(TFT_OrientationGet()) {
+"169
 [e $U 371  ]
 {
-[; ;TFT.c: 171: case 0:
-"171
-[e :U 372 ]
-[; ;TFT.c: 172: h = x;
-"172
-[e = _h _x ]
-[; ;TFT.c: 173: v = y;
-"173
-[e = _v _y ]
-[; ;TFT.c: 174: break;
-"174
-[e $U 370  ]
-[; ;TFT.c: 175: case 1:
-"175
-[e :U 373 ]
-[; ;TFT.c: 176: h = 240 - y;
-"176
-[e = _h - -> -> 240 `i `ui _y ]
-[; ;TFT.c: 177: v = x;
-"177
-[e = _v _x ]
-[; ;TFT.c: 178: break;
-"178
-[e $U 370  ]
-[; ;TFT.c: 179: case 2:
-"179
-[e :U 374 ]
-[; ;TFT.c: 180: h = 240 - x;
-"180
-[e = _h - -> -> 240 `i `ui _x ]
-[; ;TFT.c: 181: v = 400 - y;
-"181
-[e = _v - -> -> 400 `i `ui _y ]
-[; ;TFT.c: 182: break;
-"182
-[e $U 370  ]
-[; ;TFT.c: 183: case 3:
-"183
-[e :U 375 ]
-[; ;TFT.c: 184: h = y;
-"184
-[e = _h _y ]
-[; ;TFT.c: 185: v = 400 - x;
-"185
-[e = _v - -> -> 400 `i `ui _x ]
-[; ;TFT.c: 186: break;
-"186
-[e $U 370  ]
-"187
-}
-[; ;TFT.c: 187: }
-[e $U 370  ]
+[; ;TFT.c: 170: case 0:
 "170
+[e :U 372 ]
+[; ;TFT.c: 171: h = x;
+"171
+[e = _h _x ]
+[; ;TFT.c: 172: v = y;
+"172
+[e = _v _y ]
+[; ;TFT.c: 173: break;
+"173
+[e $U 370  ]
+[; ;TFT.c: 174: case 1:
+"174
+[e :U 373 ]
+[; ;TFT.c: 175: h = 240 - y - 1;
+"175
+[e = _h - - -> -> 240 `i `ui _y -> -> 1 `i `ui ]
+[; ;TFT.c: 176: v = x;
+"176
+[e = _v _x ]
+[; ;TFT.c: 177: break;
+"177
+[e $U 370  ]
+[; ;TFT.c: 178: case 2:
+"178
+[e :U 374 ]
+[; ;TFT.c: 179: h = 240 - x - 1;
+"179
+[e = _h - - -> -> 240 `i `ui _x -> -> 1 `i `ui ]
+[; ;TFT.c: 180: v = 400 - y - 1;
+"180
+[e = _v - - -> -> 400 `i `ui _y -> -> 1 `i `ui ]
+[; ;TFT.c: 181: break;
+"181
+[e $U 370  ]
+[; ;TFT.c: 182: case 3:
+"182
+[e :U 375 ]
+[; ;TFT.c: 183: h = y;
+"183
+[e = _h _y ]
+[; ;TFT.c: 184: v = 400 - x - 1;
+"184
+[e = _v - - -> -> 400 `i `ui _x -> -> 1 `i `ui ]
+[; ;TFT.c: 185: break;
+"185
+[e $U 370  ]
+"186
+}
+[; ;TFT.c: 186: }
+[e $U 370  ]
+"169
 [e :U 371 ]
 [e [\ ( _TFT_OrientationGet ..  , $ -> -> 0 `i `uc 372
  , $ -> -> 1 `i `uc 373
  , $ -> -> 2 `i `uc 374
  , $ -> -> 3 `i `uc 375
  370 ]
-"187
+"186
 [e :U 370 ]
-[; ;TFT.c: 188: TFT_WriteRegister(0x0200, h);
-"188
+[; ;TFT.c: 187: TFT_WriteRegister(0x0200, h);
+"187
 [e ( _TFT_WriteRegister (2 , -> -> 512 `i `ui _h ]
-[; ;TFT.c: 189: TFT_WriteRegister(0x0201, v);
-"189
+[; ;TFT.c: 188: TFT_WriteRegister(0x0201, v);
+"188
 [e ( _TFT_WriteRegister (2 , -> -> 513 `i `ui _v ]
-[; ;TFT.c: 190: TFT_WriteRegister(0x0202, color);
-"190
+[; ;TFT.c: 189: TFT_WriteRegister(0x0202, color);
+"189
 [e ( _TFT_WriteRegister (2 , -> -> 514 `i `ui _color ]
-[; ;TFT.c: 191: }
-"191
+[; ;TFT.c: 190: }
+"190
 [e :UE 369 ]
 }
-"193
+"192
 [v _TFT_DrawLine `(v ~T0 @X0 1 ef5`i`i`i`i`ui ]
 {
-[; ;TFT.c: 193: void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
+[; ;TFT.c: 192: void TFT_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
 [e :U _TFT_DrawLine ]
 [v _x0 `i ~T0 @X0 1 r1 ]
 [v _y0 `i ~T0 @X0 1 r2 ]
@@ -6202,156 +6200,156 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _y1 `i ~T0 @X0 1 r4 ]
 [v _color `ui ~T0 @X0 1 r5 ]
 [f ]
-"194
+"193
 [v _steep `i ~T0 @X0 1 a ]
-[; ;TFT.c: 194: int16_t steep = abs(y1 - y0) > abs(x1 - x0);
+[; ;TFT.c: 193: int16_t steep = abs(y1 - y0) > abs(x1 - x0);
 [e = _steep -> > ( _abs (1 - _y1 _y0 ( _abs (1 - _x1 _x0 `i ]
-[; ;TFT.c: 195: if(steep) {
-"195
+[; ;TFT.c: 194: if(steep) {
+"194
 [e $ ! != _steep -> 0 `i 377  ]
 {
-[; ;TFT.c: 196: { int16_t t = x0; x0 = y0; y0 = t; };
-"196
+[; ;TFT.c: 195: { int16_t t = x0; x0 = y0; y0 = t; };
+"195
 {
 [v _t `i ~T0 @X0 1 a ]
 [e = _t _x0 ]
 [e = _x0 _y0 ]
 [e = _y0 _t ]
 }
-[; ;TFT.c: 197: { int16_t t = x1; x1 = y1; y1 = t; };
-"197
+[; ;TFT.c: 196: { int16_t t = x1; x1 = y1; y1 = t; };
+"196
 {
 [v _t `i ~T0 @X0 1 a ]
 [e = _t _x1 ]
 [e = _x1 _y1 ]
 [e = _y1 _t ]
 }
-"198
+"197
 }
 [e :U 377 ]
-[; ;TFT.c: 198: }
-[; ;TFT.c: 199: if(x0 > x1) {
-"199
+[; ;TFT.c: 197: }
+[; ;TFT.c: 198: if(x0 > x1) {
+"198
 [e $ ! > _x0 _x1 378  ]
 {
-[; ;TFT.c: 200: { int16_t t = x0; x0 = x1; x1 = t; };
-"200
+[; ;TFT.c: 199: { int16_t t = x0; x0 = x1; x1 = t; };
+"199
 {
 [v _t `i ~T0 @X0 1 a ]
 [e = _t _x0 ]
 [e = _x0 _x1 ]
 [e = _x1 _t ]
 }
-[; ;TFT.c: 201: { int16_t t = y0; y0 = y1; y1 = t; };
-"201
+[; ;TFT.c: 200: { int16_t t = y0; y0 = y1; y1 = t; };
+"200
 {
 [v _t `i ~T0 @X0 1 a ]
 [e = _t _y0 ]
 [e = _y0 _y1 ]
 [e = _y1 _t ]
 }
-"202
+"201
 }
 [e :U 378 ]
-"204
+"203
 [v _dx `i ~T0 @X0 1 a ]
 [v _dy `i ~T0 @X0 1 a ]
-[; ;TFT.c: 202: }
-[; ;TFT.c: 204: int16_t dx, dy;
-[; ;TFT.c: 205: dx = x1 - x0;
-"205
+[; ;TFT.c: 201: }
+[; ;TFT.c: 203: int16_t dx, dy;
+[; ;TFT.c: 204: dx = x1 - x0;
+"204
 [e = _dx - _x1 _x0 ]
-[; ;TFT.c: 206: dy = abs(y1 - y0);
-"206
+[; ;TFT.c: 205: dy = abs(y1 - y0);
+"205
 [e = _dy ( _abs (1 - _y1 _y0 ]
-"208
+"207
 [v _err `i ~T0 @X0 1 a ]
-[; ;TFT.c: 208: int16_t err = dx / 2;
+[; ;TFT.c: 207: int16_t err = dx / 2;
 [e = _err / _dx -> 2 `i ]
-"209
+"208
 [v _ystep `i ~T0 @X0 1 a ]
-[; ;TFT.c: 209: int16_t ystep;
-[; ;TFT.c: 211: if(y0 < y1) {
-"211
+[; ;TFT.c: 208: int16_t ystep;
+[; ;TFT.c: 210: if(y0 < y1) {
+"210
 [e $ ! < _y0 _y1 379  ]
 {
-[; ;TFT.c: 212: ystep = 1;
-"212
+[; ;TFT.c: 211: ystep = 1;
+"211
 [e = _ystep -> 1 `i ]
-"213
+"212
 }
-[; ;TFT.c: 213: } else {
+[; ;TFT.c: 212: } else {
 [e $U 380  ]
 [e :U 379 ]
 {
-[; ;TFT.c: 214: ystep = -1;
-"214
+[; ;TFT.c: 213: ystep = -1;
+"213
 [e = _ystep -U -> 1 `i ]
-"215
+"214
 }
 [e :U 380 ]
-[; ;TFT.c: 215: }
-[; ;TFT.c: 217: for(; x0<=x1; x0++) {
-"217
+[; ;TFT.c: 214: }
+[; ;TFT.c: 216: for(; x0<x1; x0++) {
+"216
 {
 [e $U 384  ]
 [e :U 381 ]
 {
-[; ;TFT.c: 218: if(steep) {
-"218
+[; ;TFT.c: 217: if(steep) {
+"217
 [e $ ! != _steep -> 0 `i 385  ]
 {
-[; ;TFT.c: 219: TFT_DrawPixel(y0, x0, color);
-"219
+[; ;TFT.c: 218: TFT_DrawPixel(y0, x0, color);
+"218
 [e ( _TFT_DrawPixel (3 , , -> _y0 `ui -> _x0 `ui _color ]
-"220
+"219
 }
-[; ;TFT.c: 220: } else {
+[; ;TFT.c: 219: } else {
 [e $U 386  ]
 [e :U 385 ]
 {
-[; ;TFT.c: 221: TFT_DrawPixel(x0, y0, color);
-"221
+[; ;TFT.c: 220: TFT_DrawPixel(x0, y0, color);
+"220
 [e ( _TFT_DrawPixel (3 , , -> _x0 `ui -> _y0 `ui _color ]
-"222
+"221
 }
 [e :U 386 ]
-[; ;TFT.c: 222: }
-[; ;TFT.c: 223: err -= dy;
-"223
+[; ;TFT.c: 221: }
+[; ;TFT.c: 222: err -= dy;
+"222
 [e =- _err _dy ]
-[; ;TFT.c: 224: if(err < 0) {
-"224
+[; ;TFT.c: 223: if(err < 0) {
+"223
 [e $ ! < _err -> 0 `i 387  ]
 {
-[; ;TFT.c: 225: y0 += ystep;
-"225
+[; ;TFT.c: 224: y0 += ystep;
+"224
 [e =+ _y0 _ystep ]
-[; ;TFT.c: 226: err += dx;
-"226
+[; ;TFT.c: 225: err += dx;
+"225
 [e =+ _err _dx ]
-"227
+"226
 }
 [e :U 387 ]
-"228
+"227
 }
-"217
+"216
 [e ++ _x0 -> 1 `i ]
 [e :U 384 ]
-[e $ <= _x0 _x1 381  ]
+[e $ < _x0 _x1 381  ]
 [e :U 382 ]
-"228
+"227
 }
+[; ;TFT.c: 226: }
 [; ;TFT.c: 227: }
 [; ;TFT.c: 228: }
-[; ;TFT.c: 229: }
-"229
+"228
 [e :UE 376 ]
 }
-"231
+"230
 [v _TFT_DrawFillRect `(v ~T0 @X0 1 ef5`ui`ui`ui`ui`ui ]
 {
-[; ;TFT.c: 231: void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+[; ;TFT.c: 230: void TFT_DrawFillRect(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
 [e :U _TFT_DrawFillRect ]
 [v _x `ui ~T0 @X0 1 r1 ]
 [v _y `ui ~T0 @X0 1 r2 ]
@@ -6359,67 +6357,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _h `ui ~T0 @X0 1 r4 ]
 [v _color `ui ~T0 @X0 1 r5 ]
 [f ]
-[; ;TFT.c: 232: TFT_SetAddrWindow(x, y, (x + w - 1), (y + h - 1));
-"232
+[; ;TFT.c: 231: TFT_SetAddrWindow(x, y, (x + w - 1), (y + h - 1));
+"231
 [e ( _TFT_SetAddrWindow (4 , , , _x _y - + _x _w -> -> 1 `i `ui - + _y _h -> -> 1 `i `ui ]
-[; ;TFT.c: 233: TFT_Flood(color, (w * h));
-"233
+[; ;TFT.c: 232: TFT_Flood(color, (w * h));
+"232
 [e ( _TFT_Flood (2 , _color -> * _w _h `ul ]
-[; ;TFT.c: 234: TFT_FullScreen(0);
-"234
+[; ;TFT.c: 233: TFT_FullScreen(0);
+"233
 [e ( _TFT_FullScreen (1 -> -> 0 `i `ui ]
-[; ;TFT.c: 235: }
-"235
+[; ;TFT.c: 234: }
+"234
 [e :UE 388 ]
 }
-"237
+"236
 [v _TFT_Flood `(v ~T0 @X0 1 ef2`ui`ul ]
 {
-[; ;TFT.c: 237: void TFT_Flood(uint16_t color, uint32_t len) {
+[; ;TFT.c: 236: void TFT_Flood(uint16_t color, uint32_t len) {
 [e :U _TFT_Flood ]
 [v _color `ui ~T0 @X0 1 r1 ]
 [v _len `ul ~T0 @X0 1 r2 ]
 [f ]
-"238
+"237
 [v _blocks `ui ~T0 @X0 1 a ]
-"239
+"238
 [v _i `uc ~T0 @X0 1 a ]
-"240
+"239
 [v _color_hi `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 238: uint16_t blocks;
-[; ;TFT.c: 239: uint8_t i;
-[; ;TFT.c: 240: uint8_t color_hi = color >> 8;
+[; ;TFT.c: 237: uint16_t blocks;
+[; ;TFT.c: 238: uint8_t i;
+[; ;TFT.c: 239: uint8_t color_hi = color >> 8;
 [e = _color_hi -> >> _color -> 8 `i `uc ]
-"241
+"240
 [v _color_lo `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 241: uint8_t color_lo = color;
+[; ;TFT.c: 240: uint8_t color_lo = color;
 [e = _color_lo -> _color `uc ]
-[; ;TFT.c: 244: TFT_WriteRegister(0x0202, color);
-"244
+[; ;TFT.c: 243: TFT_WriteRegister(0x0202, color);
+"243
 [e ( _TFT_WriteRegister (2 , -> -> 514 `i `ui _color ]
-[; ;TFT.c: 245: len--;
-"245
+[; ;TFT.c: 244: len--;
+"244
 [e -- _len -> -> -> 1 `i `l `ul ]
-[; ;TFT.c: 249: { PORTCbits.RC0 = 0; { asm("nop"); }; };
-"249
+[; ;TFT.c: 248: { PORTCbits.RC0 = 0; { asm("nop"); }; };
+"248
 {
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
 {
 [; <" nop ;# ">
 }
 }
-[; ;TFT.c: 250: blocks = (uint16_t)(len / 4);
-"250
+[; ;TFT.c: 249: blocks = (uint16_t)(len / 4);
+"249
 [e = _blocks -> / _len -> -> -> 4 `i `l `ul `ui ]
-[; ;TFT.c: 251: if(color_hi == color_lo) {
-"251
+[; ;TFT.c: 250: if(color_hi == color_lo) {
+"250
 [e $ ! == -> _color_hi `i -> _color_lo `i 390  ]
 {
-[; ;TFT.c: 252: while(blocks--) {
-"252
+[; ;TFT.c: 251: while(blocks--) {
+"251
 [e $U 391  ]
 [e :U 392 ]
 {
+[; ;TFT.c: 252: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
+"252
+{
+{
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+{
+[; <" nop ;# ">
+}
+}
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+}
+{
+{
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+{
+[; <" nop ;# ">
+}
+}
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+}
 [; ;TFT.c: 253: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
 "253
 {
@@ -6480,80 +6498,86 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 }
-[; ;TFT.c: 256: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
 "256
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-"257
 }
 [e :U 391 ]
-"252
+"251
 [e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 392  ]
 [e :U 393 ]
-[; ;TFT.c: 257: }
-[; ;TFT.c: 258: for(i = (uint8_t)len & 3; i--; ) {
-"258
+[; ;TFT.c: 256: }
+[; ;TFT.c: 257: for(i = (uint8_t)len & 3; i--; ) {
+"257
 {
 [e = _i -> & -> -> _len `uc `i -> 3 `i `uc ]
 [e $U 397  ]
 [e :U 394 ]
 {
-[; ;TFT.c: 259: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
-"259
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-"260
-}
+[; ;TFT.c: 258: { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; };
 "258
+{
+{
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+{
+[; <" nop ;# ">
+}
+}
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+}
+{
+{
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+{
+[; <" nop ;# ">
+}
+}
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+}
+"259
+}
+"257
 [e :U 397 ]
 [e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 394  ]
 [e :U 395 ]
+"259
+}
 "260
 }
-"261
-}
-[; ;TFT.c: 260: }
-[; ;TFT.c: 261: } else {
+[; ;TFT.c: 259: }
+[; ;TFT.c: 260: } else {
 [e $U 398  ]
 [e :U 390 ]
 {
-[; ;TFT.c: 262: while(blocks--) {
-"262
+[; ;TFT.c: 261: while(blocks--) {
+"261
 [e $U 399  ]
 [e :U 400 ]
 {
+[; ;TFT.c: 262: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
+"262
+{
+[e = _PORTB _color_hi ]
+{
+{
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+{
+[; <" nop ;# ">
+}
+}
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+}
+}
+{
+[e = _PORTB _color_lo ]
+{
+{
+[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
+{
+[; <" nop ;# ">
+}
+}
+[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
+}
+}
 [; ;TFT.c: 263: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
 "263
 {
@@ -6632,48 +6656,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 }
 }
-[; ;TFT.c: 266: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
 "266
-{
-[e = _PORTB _color_hi ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-{
-[e = _PORTB _color_lo ]
-{
-{
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-{
-[; <" nop ;# ">
-}
-}
-[e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
-}
-}
-"267
 }
 [e :U 399 ]
-"262
+"261
 [e $ != -- _blocks -> -> 1 `i `ui -> -> 0 `i `ui 400  ]
 [e :U 401 ]
-[; ;TFT.c: 267: }
-[; ;TFT.c: 268: for(i = (uint8_t)len & 3; i--; ) {
-"268
+[; ;TFT.c: 266: }
+[; ;TFT.c: 267: for(i = (uint8_t)len & 3; i--; ) {
+"267
 {
 [e = _i -> & -> -> _len `uc `i -> 3 `i `uc ]
 [e $U 405  ]
 [e :U 402 ]
 {
-[; ;TFT.c: 269: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
-"269
+[; ;TFT.c: 268: { PORTB = color_hi; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; }; { PORTB = color_lo; { { PORTAbits.RA5 = 0; { asm("nop"); }; }; PORTAbits.RA5 = 1;; }; };
+"268
 {
 [e = _PORTB _color_hi ]
 {
@@ -6698,30 +6696,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PORTAbits 0 5 -> -> 1 `i `uc ]
 }
 }
-"270
+"269
 }
-"268
+"267
 [e :U 405 ]
 [e $ != -> -- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 402  ]
 [e :U 403 ]
+"269
+}
 "270
 }
-"271
-}
 [e :U 398 ]
+[; ;TFT.c: 269: }
 [; ;TFT.c: 270: }
-[; ;TFT.c: 271: }
-[; ;TFT.c: 272: PORTCbits.RC0 = 1;;
-"272
+[; ;TFT.c: 271: PORTCbits.RC0 = 1;;
+"271
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;TFT.c: 273: }
-"273
+[; ;TFT.c: 272: }
+"272
 [e :UE 389 ]
 }
-"275
+"274
 [v _TFT_DrawChar `(v ~T0 @X0 1 ef6`ui`ui`uc`ui`ui`uc ]
 {
-[; ;TFT.c: 275: void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size) {
+[; ;TFT.c: 274: void TFT_DrawChar(uint16_t x, uint16_t y, unsigned char c, uint16_t color, uint16_t bg, uint8_t size) {
 [e :U _TFT_DrawChar ]
 [v _x `ui ~T0 @X0 1 r1 ]
 [v _y `ui ~T0 @X0 1 r2 ]
@@ -6730,8 +6728,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _bg `ui ~T0 @X0 1 r5 ]
 [v _size `uc ~T0 @X0 1 r6 ]
 [f ]
-[; ;TFT.c: 276: for(int8_t i=0; i<5; i++ ) {
-"276
+[; ;TFT.c: 275: for(int8_t i=0; i<5; i++ ) {
+"275
 {
 [v _i `c ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `c ]
@@ -6739,12 +6737,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 408  ]
 [e :U 407 ]
 {
-"277
+"276
 [v _line `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 277: uint8_t line = TFT_Font[c * 5 + i];
+[; ;TFT.c: 276: uint8_t line = TFT_Font[c * 5 + i];
 [e = _line *U + &U _TFT_Font * -> -> + * -> _c `i -> 5 `i -> _i `i `ui `ux -> -> # *U &U _TFT_Font `ui `ux ]
-[; ;TFT.c: 278: for(int8_t j=0; j<8; j++, line >>= 1) {
-"278
+[; ;TFT.c: 277: for(int8_t j=0; j<8; j++, line >>= 1) {
+"277
 {
 [v _j `c ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `c ]
@@ -6752,120 +6750,120 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 411  ]
 [e :U 410 ]
 {
-[; ;TFT.c: 279: if(line & 1) {
-"279
+[; ;TFT.c: 278: if(line & 1) {
+"278
 [e $ ! != & -> _line `i -> 1 `i -> 0 `i 413  ]
 {
-[; ;TFT.c: 280: if(size == 1) {
-"280
+[; ;TFT.c: 279: if(size == 1) {
+"279
 [e $ ! == -> _size `i -> 1 `i 414  ]
 {
-[; ;TFT.c: 281: TFT_DrawPixel((x + i), (y + j), color);
-"281
+[; ;TFT.c: 280: TFT_DrawPixel((x + i), (y + j), color);
+"280
 [e ( _TFT_DrawPixel (3 , , + _x -> -> _i `i `ui + _y -> -> _j `i `ui _color ]
-"282
+"281
 }
-[; ;TFT.c: 282: } else {
+[; ;TFT.c: 281: } else {
 [e $U 415  ]
 [e :U 414 ]
 {
-[; ;TFT.c: 283: TFT_DrawFillRect((x + i * size), (y + j * size), size, size, color);
-"283
+[; ;TFT.c: 282: TFT_DrawFillRect((x + i * size), (y + j * size), size, size, color);
+"282
 [e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> _i `i -> _size `i `ui + _y -> * -> _j `i -> _size `i `ui -> _size `ui -> _size `ui _color ]
-"284
+"283
 }
 [e :U 415 ]
-"285
+"284
 }
-[; ;TFT.c: 284: }
-[; ;TFT.c: 285: } else if(bg != color) {
+[; ;TFT.c: 283: }
+[; ;TFT.c: 284: } else if(bg != color) {
 [e $U 416  ]
 [e :U 413 ]
 [e $ ! != _bg _color 417  ]
 {
-[; ;TFT.c: 286: if(size == 1) {
-"286
+[; ;TFT.c: 285: if(size == 1) {
+"285
 [e $ ! == -> _size `i -> 1 `i 418  ]
 {
-[; ;TFT.c: 287: TFT_DrawPixel((x + i), (y + j), bg);
-"287
+[; ;TFT.c: 286: TFT_DrawPixel((x + i), (y + j), bg);
+"286
 [e ( _TFT_DrawPixel (3 , , + _x -> -> _i `i `ui + _y -> -> _j `i `ui _bg ]
-"288
+"287
 }
-[; ;TFT.c: 288: } else {
+[; ;TFT.c: 287: } else {
 [e $U 419  ]
 [e :U 418 ]
 {
-[; ;TFT.c: 289: TFT_DrawFillRect((x + i * size), (y + j * size), size, size, bg);
-"289
+[; ;TFT.c: 288: TFT_DrawFillRect((x + i * size), (y + j * size), size, size, bg);
+"288
 [e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> _i `i -> _size `i `ui + _y -> * -> _j `i -> _size `i `ui -> _size `ui -> _size `ui _bg ]
-"290
+"289
 }
 [e :U 419 ]
-"291
+"290
 }
 [e :U 417 ]
-"292
+"291
 [e :U 416 ]
 }
-"278
+"277
 [e ; ++ _j -> -> 1 `i `c =>> _line -> 1 `i ]
 [e $ < -> _j `i -> 8 `i 410  ]
 [e :U 411 ]
+"291
+}
 "292
 }
-"293
-}
-"276
+"275
 [e ++ _i -> -> 1 `i `c ]
 [e $ < -> _i `i -> 5 `i 407  ]
 [e :U 408 ]
-"293
+"292
 }
+[; ;TFT.c: 289: }
 [; ;TFT.c: 290: }
 [; ;TFT.c: 291: }
 [; ;TFT.c: 292: }
-[; ;TFT.c: 293: }
-[; ;TFT.c: 294: if(bg != color) {
-"294
+[; ;TFT.c: 293: if(bg != color) {
+"293
 [e $ ! != _bg _color 420  ]
 {
-[; ;TFT.c: 295: if(size == 1) {
-"295
+[; ;TFT.c: 294: if(size == 1) {
+"294
 [e $ ! == -> _size `i -> 1 `i 421  ]
 {
-"296
+"295
 [v _xl `ui ~T0 @X0 1 a ]
-[; ;TFT.c: 296: uint16_t xl = x + 5;
+[; ;TFT.c: 295: uint16_t xl = x + 5;
 [e = _xl + _x -> -> 5 `i `ui ]
-[; ;TFT.c: 297: TFT_DrawLine(xl, y, xl, y + 7, bg);
-"297
+[; ;TFT.c: 296: TFT_DrawLine(xl, y, xl, y + 7, bg);
+"296
 [e ( _TFT_DrawLine (4 , , , , -> _xl `i -> _y `i -> _xl `i -> + _y -> -> 7 `i `ui `i _bg ]
-"298
+"297
 }
-[; ;TFT.c: 298: } else {
+[; ;TFT.c: 297: } else {
 [e $U 422  ]
 [e :U 421 ]
 {
-[; ;TFT.c: 299: TFT_DrawFillRect((x + 5 * size), y, size, 8 * size, bg);
-"299
+[; ;TFT.c: 298: TFT_DrawFillRect((x + 5 * size), y, size, 8 * size, bg);
+"298
 [e ( _TFT_DrawFillRect (4 , , , , + _x -> * -> 5 `i -> _size `i `ui _y -> _size `ui -> * -> 8 `i -> _size `i `ui _bg ]
-"300
+"299
 }
 [e :U 422 ]
-"301
+"300
 }
 [e :U 420 ]
+[; ;TFT.c: 299: }
 [; ;TFT.c: 300: }
 [; ;TFT.c: 301: }
-[; ;TFT.c: 302: }
-"302
+"301
 [e :UE 406 ]
 }
-"304
+"303
 [v _TFT_DrawString `(v ~T0 @X0 1 ef6`ui`ui`*Cuc`ui`ui`uc ]
 {
-[; ;TFT.c: 304: void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size) {
+[; ;TFT.c: 303: void TFT_DrawString(uint16_t x, uint16_t y, const char *str, uint16_t color, uint16_t bg, uint8_t size) {
 [e :U _TFT_DrawString ]
 [v _x `ui ~T0 @X0 1 r1 ]
 [v _y `ui ~T0 @X0 1 r2 ]
@@ -6874,158 +6872,158 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _bg `ui ~T0 @X0 1 r5 ]
 [v _size `uc ~T0 @X0 1 r6 ]
 [f ]
-[; ;TFT.c: 305: while(*str) {
-"305
+[; ;TFT.c: 304: while(*str) {
+"304
 [e $U 424  ]
 [e :U 425 ]
 {
-[; ;TFT.c: 306: TFT_DrawChar(x, y, *str, color, bg, size);
-"306
+[; ;TFT.c: 305: TFT_DrawChar(x, y, *str, color, bg, size);
+"305
 [e ( _TFT_DrawChar (4 , , , , , _x _y *U _str _color _bg _size ]
-[; ;TFT.c: 307: x += (6 * size);
-"307
+[; ;TFT.c: 306: x += (6 * size);
+"306
 [e =+ _x -> * -> 6 `i -> _size `i `ui ]
-[; ;TFT.c: 308: str++;
-"308
+[; ;TFT.c: 307: str++;
+"307
 [e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"309
+"308
 }
 [e :U 424 ]
-"305
+"304
 [e $ != -> *U _str `i -> -> -> 0 `i `Cuc `i 425  ]
 [e :U 426 ]
+[; ;TFT.c: 308: }
 [; ;TFT.c: 309: }
-[; ;TFT.c: 310: }
-"310
+"309
 [e :UE 423 ]
 }
-"312
+"311
 [v _TFT_DrawBitmap `(v ~T0 @X0 1 ef4`ui`ui`*Cuc`ui ]
 {
-[; ;TFT.c: 312: void TFT_DrawBitmap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t color) {
+[; ;TFT.c: 311: void TFT_DrawBitmap(uint16_t x, uint16_t y, const uint8_t *bitmap, uint16_t color) {
 [e :U _TFT_DrawBitmap ]
 [v _x `ui ~T0 @X0 1 r1 ]
 [v _y `ui ~T0 @X0 1 r2 ]
 [v _bitmap `*Cuc ~T0 @X0 1 r3 ]
 [v _color `ui ~T0 @X0 1 r4 ]
 [f ]
-"313
+"312
 [v _w `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 313: uint8_t w = *bitmap++;
+[; ;TFT.c: 312: uint8_t w = *bitmap++;
 [e = _w *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
-"314
+"313
 [v _h `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 314: uint8_t h = *bitmap++;
+[; ;TFT.c: 313: uint8_t h = *bitmap++;
 [e = _h *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
-"315
+"314
 [v _byte `uc ~T0 @X0 1 a ]
-[; ;TFT.c: 315: uint8_t byte = 0;
+[; ;TFT.c: 314: uint8_t byte = 0;
 [e = _byte -> -> 0 `i `uc ]
-[; ;TFT.c: 317: for(uint16_t j=0; j<h; j++, y++) {
-"317
+[; ;TFT.c: 316: for(uint16_t j=0; j<h; j++, y++) {
+"316
 {
 [v _j `ui ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `ui ]
 [e $U 431  ]
 [e :U 428 ]
 {
-[; ;TFT.c: 318: for(uint16_t i=0; i<w; i++) {
-"318
+[; ;TFT.c: 317: for(uint16_t i=0; i<w; i++) {
+"317
 {
 [v _i `ui ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `ui ]
 [e $U 435  ]
 [e :U 432 ]
 {
-[; ;TFT.c: 319: if(i & 7) {
-"319
+[; ;TFT.c: 318: if(i & 7) {
+"318
 [e $ ! != & _i -> -> 7 `i `ui -> -> 0 `i `ui 436  ]
 {
-[; ;TFT.c: 320: byte >>= 1;
-"320
+[; ;TFT.c: 319: byte >>= 1;
+"319
 [e =>> _byte -> 1 `i ]
-"321
+"320
 }
-[; ;TFT.c: 321: } else {
+[; ;TFT.c: 320: } else {
 [e $U 437  ]
 [e :U 436 ]
 {
-[; ;TFT.c: 322: byte = *bitmap++;
-"322
+[; ;TFT.c: 321: byte = *bitmap++;
+"321
 [e = _byte *U ++ _bitmap * -> -> 1 `i `x -> -> # *U _bitmap `i `x ]
-"323
+"322
 }
 [e :U 437 ]
-[; ;TFT.c: 323: }
-[; ;TFT.c: 324: if(byte & 0x01) TFT_DrawPixel((x + i), y, color);
-"324
+[; ;TFT.c: 322: }
+[; ;TFT.c: 323: if(byte & 0x01) TFT_DrawPixel((x + i), y, color);
+"323
 [e $ ! != & -> _byte `i -> 1 `i -> 0 `i 438  ]
 [e ( _TFT_DrawPixel (3 , , + _x _i _y _color ]
 [e :U 438 ]
-"325
+"324
 }
-"318
+"317
 [e ++ _i -> -> 1 `i `ui ]
 [e :U 435 ]
 [e $ < _i -> _w `ui 432  ]
 [e :U 433 ]
+"324
+}
 "325
 }
-"326
-}
-"317
+"316
 [e ; ++ _j -> -> 1 `i `ui ++ _y -> -> 1 `i `ui ]
 [e :U 431 ]
 [e $ < _j -> _h `ui 428  ]
 [e :U 429 ]
-"326
+"325
 }
+[; ;TFT.c: 324: }
 [; ;TFT.c: 325: }
 [; ;TFT.c: 326: }
-[; ;TFT.c: 327: }
-"327
+"326
 [e :UE 427 ]
 }
-"329
+"328
 [v _TFT_ConsoleInit `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;TFT.c: 329: void TFT_ConsoleInit(uint8_t orientation) {
+[; ;TFT.c: 328: void TFT_ConsoleInit(uint8_t orientation) {
 [e :U _TFT_ConsoleInit ]
 [v _orientation `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;TFT.c: 330: TFT_ConsoleRow = 0;
-"330
+[; ;TFT.c: 329: TFT_ConsoleRow = 0;
+"329
 [e = _TFT_ConsoleRow -> -> 0 `i `ui ]
-[; ;TFT.c: 331: TFT_OrientationSet(orientation, 0x0821);
-"331
+[; ;TFT.c: 330: TFT_OrientationSet(orientation, 0x0821);
+"330
 [e ( _TFT_OrientationSet (2 , _orientation -> -> 2081 `i `ui ]
-[; ;TFT.c: 332: }
-"332
+[; ;TFT.c: 331: }
+"331
 [e :UE 439 ]
 }
-"334
+"333
 [v _TFT_ConsolePrintLine `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {
-[; ;TFT.c: 334: void TFT_ConsolePrintLine(const char *str, uint16_t color) {
+[; ;TFT.c: 333: void TFT_ConsolePrintLine(const char *str, uint16_t color) {
 [e :U _TFT_ConsolePrintLine ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [v _color `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;TFT.c: 335: TFT_DrawFillRect(0, TFT_ConsoleRow, TFT_GetWidth(), 40, 0x0821);
-"335
+[; ;TFT.c: 334: TFT_DrawFillRect(0, TFT_ConsoleRow, TFT_GetWidth(), 40, 0x0821);
+"334
 [e ( _TFT_DrawFillRect (4 , , , , -> -> 0 `i `ui _TFT_ConsoleRow ( _TFT_GetWidth ..  -> -> 40 `i `ui -> -> 2081 `i `ui ]
-[; ;TFT.c: 336: TFT_DrawString(2, TFT_ConsoleRow + 2, str, color, 0x0821, 1);
-"336
+[; ;TFT.c: 335: TFT_DrawString(2, TFT_ConsoleRow + 2, str, color, 0x0821, 1);
+"335
 [e ( _TFT_DrawString (4 , , , , , -> -> 2 `i `ui + _TFT_ConsoleRow -> -> 2 `i `ui _str _color -> -> 2081 `i `ui -> -> 1 `i `uc ]
-[; ;TFT.c: 337: TFT_ConsoleRow += 10;
-"337
+[; ;TFT.c: 336: TFT_ConsoleRow += 10;
+"336
 [e =+ _TFT_ConsoleRow -> -> 10 `i `ui ]
-[; ;TFT.c: 338: if(TFT_ConsoleRow > TFT_GetHeight() - 12) TFT_ConsoleRow = 0;
-"338
+[; ;TFT.c: 337: if(TFT_ConsoleRow > TFT_GetHeight() - 12) TFT_ConsoleRow = 0;
+"337
 [e $ ! > _TFT_ConsoleRow - ( _TFT_GetHeight ..  -> -> 12 `i `ui 441  ]
 [e = _TFT_ConsoleRow -> -> 0 `i `ui ]
 [e :U 441 ]
-[; ;TFT.c: 339: }
-"339
+[; ;TFT.c: 338: }
+"338
 [e :UE 440 ]
 }

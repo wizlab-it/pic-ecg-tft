@@ -1,5 +1,5 @@
 /*
- * 20191227.035
+ * 20191227.041
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -9,9 +9,46 @@
 
 #include "A6Lib.h"
 
-void A6_Init(void) {
-    sleepMS(5000);
+void A6_Init(const uint32_t baudRate) {
     A6_BaudRateAutoDetect();
+    A6_BaudRateSet(baudRate);
+    A6_Command("AT+COPS=3,0\r", 0, NULL, 0);
+}
+
+void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
+    A6_LAST_COMMAND_MILLISECONDS += A6_NEXT_COMMAND_WAIT_TIME;
+    while(MILLISECONDS < A6_LAST_COMMAND_MILLISECONDS);
+    A6_LAST_COMMAND_MILLISECONDS = MILLISECONDS;
+
+    EUSART_RX_Flush();
+    EUSART_TX_String(command, strlen(command));
+    if(responseLen != 0) {
+        A6_ReadLine(response, responseLen, timeout);
+    }
+    return;
+}
+
+uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout) {
+    char c;
+    memset(line, 0x00, lineLen);
+
+    //Skip initial CRLF
+    while(1) {
+        c = EUSART_BufferGetChar(timeout);
+        if(c == NULL) return 0;
+        if((c != '\r') && (c != '\n')) break;
+    }
+
+    //Read real data
+    uint8_t iResponse = 0;
+    do {
+        if((c == '\r') || (c == NULL)) break;
+        line[iResponse] = c;
+        iResponse++;
+        if(iResponse == lineLen) break;
+    } while(c = EUSART_BufferGetChar(timeout));
+
+    return iResponse;
 }
 
 uint8_t A6_IsAlive(void) {
@@ -31,7 +68,7 @@ uint32_t A6_BaudRateGet(void) {
     A6_Command("AT+IPR?\r", 0, response, 32);
     if(strstr(response, "+IPR: ") != NULL) {
         baudRateToken = strtok(response, " ");
-        baudRateToken = strtok(NULL, response);
+        baudRateToken = strtok(NULL, " ");
         if(baudRateToken != NULL) {
             baudRate = atol(baudRateToken);
             for(uint8_t j=0; j<3; j++) {
@@ -72,54 +109,15 @@ uint32_t A6_BaudRateSet(const uint32_t baudRate) {
 }
 
 uint32_t A6_BaudRateAutoDetect(void) {
-    TFT_ConsolePrintLine("Detecting baud rate...", _TFT_COLOR_MAGENTA);
-
     for(uint8_t i=0; i<3; i++) {
         EUSART_BaudRateSet(A6_BAUDRATES[i]);
         if(A6_IsAlive() == 1) {
-            char zzzz[32];
-            sprintf(zzzz, "%lu FOUND!", A6_BAUDRATES[i]);
-            TFT_ConsolePrintLine(zzzz, _TFT_COLOR_RED);
             return A6_BAUDRATES[i];
         }
         sleepMS(100);
     }
 
     return 0;
-}
-
-void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
-    A6_LAST_COMMAND_MILLISECONDS += A6_NEXT_COMMAND_WAIT_TIME;
-    while(MILLISECONDS < A6_LAST_COMMAND_MILLISECONDS);
-    A6_LAST_COMMAND_MILLISECONDS = MILLISECONDS;
-
-    EUSART_RX_Flush();
-    EUSART_TX_String(command, strlen(command));
-    A6_ReadLine(response, responseLen, timeout);
-    return;
-}
-
-uint8_t A6_ReadLine(char *response, uint8_t responseLen, int16_t timeout) {
-    char c;
-    memset(response, 0x00, responseLen);
-
-    //Skip initial CRLF
-    while(1) {
-        c = EUSART_BufferGetChar(timeout);
-        if(c == NULL) return 0;
-        if((c != '\r') && (c != '\n')) break;
-    }
-
-    //Read real data
-    uint8_t iResponse = 0;
-    do {
-        if((c == '\r') || (c == NULL)) break;
-        response[iResponse] = c;
-        iResponse++;
-        if(iResponse == responseLen) break;
-    } while(c = EUSART_BufferGetChar(timeout));
-
-    return iResponse;
 }
 
 void A6_Process_Random_Comms(void) {
@@ -139,10 +137,10 @@ uint8_t A6_NetworkGetStatus(void) {
     A6_Command("AT+CREG?\r", 0, response, 32);
     if(strstr(response, "+CREG: ") != NULL) {
         networkStatusToken = strtok(response, " ");
-        networkStatusToken = strtok(NULL, response);
+        networkStatusToken = strtok(NULL, " ");
         if(networkStatusToken != NULL) {
             networkStatusToken = strtok(networkStatusToken, ",");
-            networkStatusToken = strtok(NULL, response);
+            networkStatusToken = strtok(NULL, ",");
             return atoi(networkStatusToken);
         }
     }
@@ -157,7 +155,7 @@ uint8_t A6_NetworkGetRSSI(void) {
     A6_Command("AT+CSQ\r", 0, response, 32);
     if(strstr(response, "+CSQ: ") != NULL) {
         RSSIToken = strtok(response, " ");
-        RSSIToken = strtok(NULL, response);
+        RSSIToken = strtok(NULL, " ");
         if(RSSIToken != NULL) {
             RSSIToken = strtok(RSSIToken, ",");
             return atoi(RSSIToken);
@@ -175,4 +173,23 @@ int8_t A6_NetworkGetRSSILevel(void) {
     if(RSSI < 15) return 2;
     if(RSSI < 20) return 3;
     return 4;
+}
+
+void A6_NetworkGetOperator(char *operator, uint8_t operatorLen) {
+    char *operatorToken;
+
+    A6_Command("AT+COPS?\r", 0, operator, 32);
+    if(strstr(operator, "+COPS: ") != NULL) {
+        operatorToken = strtok(operator, " ");
+        operatorToken = strtok(NULL, " ");
+        operatorToken = strtok(operatorToken, ",");
+        if(operatorToken[0] == '0') {
+            operatorToken = strtok(NULL, ",");
+            operatorToken = strtok(NULL, ",");
+            operatorToken = strtok(++operatorToken, "\"");
+            strcpy(operator, operatorToken);
+            return;
+        }
+    }
+    strcpy(operator, "-");
 }

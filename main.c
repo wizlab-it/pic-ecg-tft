@@ -1,5 +1,5 @@
 /*
- * 20191227.060
+ * 20191227.063
  * ECG-TFT
  *
  * File: main.c
@@ -12,11 +12,10 @@
 void main(void) {
     //Init everything
     init();
-    TFT_Init(_TFT_ORIENTATION_PORTRAIT, _TFT_COLOR_BLACK);
+    TFT_Init(_TFT_ORIENTATION_INV_LANDSCAPE, _TFT_COLOR_BLACK);
     EUSART_Init();
     Ecg_Init();
-    TFT_ConsoleInit(_TFT_ORIENTATION_PORTRAIT);
-    A6_Init();
+    A6_Init(115200);
 
     //Loop forever
     while(1) loop();
@@ -28,8 +27,38 @@ void main(void) {
  *============================================================================*/
 void loop(void) {
 
-    //Ecg_Process();
+    Ecg_Process();
 
+    if(tmp1 < (MILLISECONDS - 10000)) {
+        tmp1 = MILLISECONDS;
+
+        char operator[32];
+        uint16_t operatorX = TFT_GetWidth() - 100;
+        A6_NetworkGetOperator(operator, 32);
+        TFT_DrawString(operatorX, 5, operator, _TFT_COLOR_YELLOW, _TFT_COLOR_BLACK, 1);
+        if(operator[0] != '-') {
+            uint8_t RSSILevel = A6_NetworkGetRSSILevel();
+            for(uint8_t i=0; i<5; i++) {
+                uint16_t operatorRSSIX = operatorX + (i * 6);
+                if(RSSILevel > i) {
+                    TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, _TFT_COLOR_YELLOW);
+                } else {
+                    TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, _TFT_COLOR_BLACK);
+                    TFT_DrawLine(operatorRSSIX, 26, (operatorRSSIX + 5), 26, _TFT_COLOR_YELLOW);
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+    /*
     A6_Process_Random_Comms();
 
     if((MILLISECONDS > 20000) && (tmp4 < (MILLISECONDS - 20000))) {
@@ -103,9 +132,13 @@ void loop(void) {
         TFT_ConsolePrintLine(zzzz, _TFT_COLOR_WHITE);
     }
 
-    if((MILLISECONDS > 28000) && (tmp6 < (MILLISECONDS - 28000))) {
-        tmp6 = MILLISECONDS;
-        TFT_ConsoleInit(++tmp7);
-        if(tmp7 == 3) tmp7 = 0;
+    if((MILLISECONDS > 11000) && (tmp8 < (MILLISECONDS - 11000))) {
+        tmp8 = MILLISECONDS;
+
+        TFT_ConsolePrintLine("Check operator", _TFT_COLOR_YELLOW);
+        char operator[32];
+        A6_NetworkGetOperator(operator, 32);
+        TFT_ConsolePrintLine(operator, _TFT_COLOR_WHITE);
     }
+    */
 }
