@@ -17,7 +17,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _loop `(v ~T0 @X0 0 ef ]
 "34 commons.h
 [v _Ecg_Process `(v ~T0 @X0 0 ef ]
-"27
+"18 main.h
+[v _refreshGSM `(v ~T0 @X0 0 ef ]
+"27 commons.h
 [v _MILLISECONDS `ul ~T0 @X0 0 e ]
 "76 TFT.h
 [v _TFT_GetWidth `(ui ~T0 @X0 0 ef ]
@@ -27,6 +29,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
 "38 A6Lib.h
 [v _A6_NetworkGetRSSILevel `(c ~T0 @X0 0 ef ]
+"56 /opt/microchip/xc8/v2.10/pic/include/c90/string.h
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "84 TFT.h
 [v _TFT_DrawFillRect `(v ~T0 @X0 0 ef5`ui`ui`ui`ui`ui ]
 "83
@@ -5362,12 +5366,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 34: extern void Ecg_Process(void);
 [; ;commons.h: 35: extern void Ecg_Interrupt(void);
 "15 main.h
-[v _tmp1 `ul ~T0 @X0 1 e ]
-[i _tmp1
+[v _refreshGSMSleep `ul ~T0 @X0 1 e ]
+[i _refreshGSMSleep
 -> -> -> 0 `i `l `ul
 ]
-[; ;main.h: 15: uint32_t tmp1 = 0;
+[; ;main.h: 15: uint32_t refreshGSMSleep = 0;
 [; ;main.h: 17: void loop(void);
+[; ;main.h: 18: void refreshGSM(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "12 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -5410,88 +5415,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 30: Ecg_Process();
 "30
 [e ( _Ecg_Process ..  ]
-[; ;main.c: 32: if(tmp1 < (MILLISECONDS - 10000)) {
+[; ;main.c: 32: refreshGSM();
 "32
-[e $ ! < _tmp1 - _MILLISECONDS -> -> -> 10000 `i `l `ul 333  ]
+[e ( _refreshGSM ..  ]
+[; ;main.c: 99: }
+"99
+[e :UE 332 ]
+}
+"101
+[v _refreshGSM `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 33: tmp1 = MILLISECONDS;
-"33
-[e = _tmp1 _MILLISECONDS ]
-"35
+[; ;main.c: 101: void refreshGSM(void) {
+[e :U _refreshGSM ]
+[f ]
+[; ;main.c: 102: if(refreshGSMSleep > MILLISECONDS) return;
+"102
+[e $ ! > _refreshGSMSleep _MILLISECONDS 334  ]
+[e $UE 333  ]
+[e :U 334 ]
+[; ;main.c: 103: refreshGSMSleep = MILLISECONDS + 10000;
+"103
+[e = _refreshGSMSleep + _MILLISECONDS -> -> -> 10000 `i `l `ul ]
+"105
 [v _operator `uc ~T0 @X0 -> 32 `i a ]
-"36
+"106
 [v _operatorX `ui ~T0 @X0 1 a ]
-[; ;main.c: 35: char operator[32];
-[; ;main.c: 36: uint16_t operatorX = TFT_GetWidth() - 100;
-[e = _operatorX - ( _TFT_GetWidth ..  -> -> 100 `i `ui ]
-[; ;main.c: 37: A6_NetworkGetOperator(operator, 32);
-"37
+[; ;main.c: 105: char operator[32];
+[; ;main.c: 106: uint16_t operatorX = TFT_GetWidth() - 110;
+[e = _operatorX - ( _TFT_GetWidth ..  -> -> 110 `i `ui ]
+[; ;main.c: 107: A6_NetworkGetOperator(operator, 32);
+"107
 [e ( _A6_NetworkGetOperator (2 , &U _operator -> -> 32 `i `uc ]
-[; ;main.c: 38: TFT_DrawString(operatorX, 5, operator, 0xFFE0, 0x0821, 1);
-"38
-[e ( _TFT_DrawString (4 , , , , , _operatorX -> -> 5 `i `ui -> &U _operator `*Cuc -> 65504 `ui -> -> 2081 `i `ui -> -> 1 `i `uc ]
-[; ;main.c: 39: if(operator[0] != '-') {
-"39
-[e $ ! != -> *U + &U _operator * -> -> -> 0 `i `ui `ux -> -> # *U &U _operator `ui `ux `ui -> 45 `ui 334  ]
+[; ;main.c: 108: TFT_DrawString(operatorX, 8, operator, 0xFFFF, 0x0821, 1);
+"108
+[e ( _TFT_DrawString (4 , , , , , _operatorX -> -> 8 `i `ui -> &U _operator `*Cuc -> 65535 `ui -> -> 2081 `i `ui -> -> 1 `i `uc ]
+[; ;main.c: 109: if(operator[0] != '-') {
+"109
+[e $ ! != -> *U + &U _operator * -> -> -> 0 `i `ui `ux -> -> # *U &U _operator `ui `ux `ui -> 45 `ui 335  ]
 {
-"40
+"110
 [v _RSSILevel `uc ~T0 @X0 1 a ]
-[; ;main.c: 40: uint8_t RSSILevel = A6_NetworkGetRSSILevel();
+[; ;main.c: 110: uint8_t RSSILevel = A6_NetworkGetRSSILevel();
 [e = _RSSILevel -> ( _A6_NetworkGetRSSILevel ..  `uc ]
-[; ;main.c: 41: for(uint8_t i=0; i<5; i++) {
-"41
+[; ;main.c: 111: operatorX += ((strlen(operator) + 1) * 6);
+"111
+[e =+ _operatorX * + ( _strlen (1 -> &U _operator `*Cuc -> -> 1 `i `ui -> -> 6 `i `ui ]
+[; ;main.c: 112: for(uint8_t i=0; i<5; i++) {
+"112
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 335  ]
-[e $U 336  ]
-[e :U 335 ]
-{
-"42
-[v _operatorRSSIX `ui ~T0 @X0 1 a ]
-[; ;main.c: 42: uint16_t operatorRSSIX = operatorX + (i * 6);
-[e = _operatorRSSIX + _operatorX -> * -> _i `i -> 6 `i `ui ]
-[; ;main.c: 43: if(RSSILevel > i) {
-"43
-[e $ ! > -> _RSSILevel `i -> _i `i 338  ]
-{
-[; ;main.c: 44: TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, 0xFFE0);
-"44
-[e ( _TFT_DrawFillRect (4 , , , , _operatorRSSIX -> -> 17 `i `ui -> -> 5 `i `ui -> -> 10 `i `ui -> 65504 `ui ]
-"45
-}
-[; ;main.c: 45: } else {
-[e $U 339  ]
-[e :U 338 ]
-{
-[; ;main.c: 46: TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, 0x0821);
-"46
-[e ( _TFT_DrawFillRect (4 , , , , _operatorRSSIX -> -> 17 `i `ui -> -> 5 `i `ui -> -> 10 `i `ui -> -> 2081 `i `ui ]
-[; ;main.c: 47: TFT_DrawLine(operatorRSSIX, 26, (operatorRSSIX + 5), 26, 0xFFE0);
-"47
-[e ( _TFT_DrawLine (4 , , , , -> _operatorRSSIX `i -> 26 `i -> + _operatorRSSIX -> -> 5 `i `ui `i -> 26 `i -> 65504 `ui ]
-"48
-}
-[e :U 339 ]
-"49
-}
-"41
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 335  ]
+[e $ < -> _i `i -> 5 `i 336  ]
+[e $U 337  ]
 [e :U 336 ]
-"49
+{
+"113
+[v _operatorRSSIX `ui ~T0 @X0 1 a ]
+[; ;main.c: 113: uint16_t operatorRSSIX = operatorX + (i * 3);
+[e = _operatorRSSIX + _operatorX -> * -> _i `i -> 3 `i `ui ]
+[; ;main.c: 114: if(RSSILevel > i) {
+"114
+[e $ ! > -> _RSSILevel `i -> _i `i 339  ]
+{
+"115
+[v _RSSIY `uc ~T0 @X0 1 a ]
+[; ;main.c: 115: uint8_t RSSIY = (4 - i) * 2;
+[e = _RSSIY -> * - -> 4 `i -> _i `i -> 2 `i `uc ]
+[; ;main.c: 116: TFT_DrawFillRect(operatorRSSIX, (5 + RSSIY), 2, (10 - RSSIY), 0xFFFF);
+"116
+[e ( _TFT_DrawFillRect (4 , , , , _operatorRSSIX -> + -> 5 `i -> _RSSIY `i `ui -> -> 2 `i `ui -> - -> 10 `i -> _RSSIY `i `ui -> 65535 `ui ]
+"117
 }
-"50
+[; ;main.c: 117: } else {
+[e $U 340  ]
+[e :U 339 ]
+{
+[; ;main.c: 118: TFT_DrawFillRect(operatorRSSIX, 5, 2, 10, 0x0821);
+"118
+[e ( _TFT_DrawFillRect (4 , , , , _operatorRSSIX -> -> 5 `i `ui -> -> 2 `i `ui -> -> 10 `i `ui -> -> 2081 `i `ui ]
+[; ;main.c: 119: TFT_DrawLine(operatorRSSIX, 14, (operatorRSSIX + 2), 14, 0xFFFF);
+"119
+[e ( _TFT_DrawLine (4 , , , , -> _operatorRSSIX `i -> 14 `i -> + _operatorRSSIX -> -> 2 `i `ui `i -> 14 `i -> 65535 `ui ]
+"120
 }
-[e :U 334 ]
-"51
+[e :U 340 ]
+"121
 }
-[e :U 333 ]
-[; ;main.c: 48: }
-[; ;main.c: 49: }
-[; ;main.c: 50: }
-[; ;main.c: 51: }
-[; ;main.c: 144: }
-"144
-[e :UE 332 ]
+"112
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 336  ]
+[e :U 337 ]
+"121
+}
+"122
+}
+[e :U 335 ]
+[; ;main.c: 120: }
+[; ;main.c: 121: }
+[; ;main.c: 122: }
+[; ;main.c: 123: }
+"123
+[e :UE 333 ]
 }

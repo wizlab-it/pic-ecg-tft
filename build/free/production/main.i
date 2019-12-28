@@ -5562,9 +5562,10 @@ extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 
 # 15 "main.h"
-uint32_t tmp1 = 0;
+uint32_t refreshGSMSleep = 0;
 
 void loop(void);
+void refreshGSM(void);
 
 # 12 "main.c"
 void main(void) {
@@ -5584,26 +5585,31 @@ void loop(void) {
 
 Ecg_Process();
 
-if(tmp1 < (MILLISECONDS - 10000)) {
-tmp1 = MILLISECONDS;
+refreshGSM();
+
+# 99
+}
+
+void refreshGSM(void) {
+if(refreshGSMSleep > MILLISECONDS) return;
+refreshGSMSleep = MILLISECONDS + 10000;
 
 char operator[32];
-uint16_t operatorX = TFT_GetWidth() - 100;
+uint16_t operatorX = TFT_GetWidth() - 110;
 A6_NetworkGetOperator(operator, 32);
-TFT_DrawString(operatorX, 5, operator, 0xFFE0, 0x0821, 1);
+TFT_DrawString(operatorX, 8, operator, 0xFFFF, 0x0821, 1);
 if(operator[0] != '-') {
 uint8_t RSSILevel = A6_NetworkGetRSSILevel();
+operatorX += ((strlen(operator) + 1) * 6);
 for(uint8_t i=0; i<5; i++) {
-uint16_t operatorRSSIX = operatorX + (i * 6);
+uint16_t operatorRSSIX = operatorX + (i * 3);
 if(RSSILevel > i) {
-TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, 0xFFE0);
+uint8_t RSSIY = (4 - i) * 2;
+TFT_DrawFillRect(operatorRSSIX, (5 + RSSIY), 2, (10 - RSSIY), 0xFFFF);
 } else {
-TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, 0x0821);
-TFT_DrawLine(operatorRSSIX, 26, (operatorRSSIX + 5), 26, 0xFFE0);
+TFT_DrawFillRect(operatorRSSIX, 5, 2, 10, 0x0821);
+TFT_DrawLine(operatorRSSIX, 14, (operatorRSSIX + 2), 14, 0xFFFF);
 }
 }
 }
-}
-
-# 144
 }

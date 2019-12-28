@@ -1,5 +1,5 @@
 /*
- * 20191227.063
+ * 20191228.067
  * ECG-TFT
  *
  * File: main.c
@@ -29,34 +29,7 @@ void loop(void) {
 
     Ecg_Process();
 
-    if(tmp1 < (MILLISECONDS - 10000)) {
-        tmp1 = MILLISECONDS;
-
-        char operator[32];
-        uint16_t operatorX = TFT_GetWidth() - 100;
-        A6_NetworkGetOperator(operator, 32);
-        TFT_DrawString(operatorX, 5, operator, _TFT_COLOR_YELLOW, _TFT_COLOR_BLACK, 1);
-        if(operator[0] != '-') {
-            uint8_t RSSILevel = A6_NetworkGetRSSILevel();
-            for(uint8_t i=0; i<5; i++) {
-                uint16_t operatorRSSIX = operatorX + (i * 6);
-                if(RSSILevel > i) {
-                    TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, _TFT_COLOR_YELLOW);
-                } else {
-                    TFT_DrawFillRect(operatorRSSIX, 17, 5, 10, _TFT_COLOR_BLACK);
-                    TFT_DrawLine(operatorRSSIX, 26, (operatorRSSIX + 5), 26, _TFT_COLOR_YELLOW);
-                }
-            }
-        }
-    }
-
-
-
-
-
-
-
-
+    refreshGSM();
 
     /*
     A6_Process_Random_Comms();
@@ -113,15 +86,6 @@ void loop(void) {
         TFT_ConsolePrintLine(zzzz, _TFT_COLOR_RED);
     }
 
-    if((MILLISECONDS > 6500) && (tmp3 < (MILLISECONDS - 6500))) {
-        tmp3 = MILLISECONDS;
-
-        TFT_ConsolePrintLine("Check RSSI", _TFT_COLOR_YELLOW);
-        char zzzz[32];
-        sprintf(zzzz, "Quality: %u; Level: %d", A6_NetworkGetRSSI(), A6_NetworkGetRSSILevel());
-        TFT_ConsolePrintLine(zzzz, _TFT_COLOR_WHITE);
-    }
-
     if((MILLISECONDS > 8500) && (tmp5 < (MILLISECONDS - 8500))) {
         tmp5 = MILLISECONDS;
 
@@ -131,14 +95,29 @@ void loop(void) {
         sprintf(zzzz, "Network status: %u (%s)", ns, ((ns == 2) ? "Searching..." : ((ns == 1) ? "Registered" : "Other")));
         TFT_ConsolePrintLine(zzzz, _TFT_COLOR_WHITE);
     }
-
-    if((MILLISECONDS > 11000) && (tmp8 < (MILLISECONDS - 11000))) {
-        tmp8 = MILLISECONDS;
-
-        TFT_ConsolePrintLine("Check operator", _TFT_COLOR_YELLOW);
-        char operator[32];
-        A6_NetworkGetOperator(operator, 32);
-        TFT_ConsolePrintLine(operator, _TFT_COLOR_WHITE);
-    }
     */
+}
+
+void refreshGSM(void) {
+    if(refreshGSMSleep > MILLISECONDS) return;
+    refreshGSMSleep = MILLISECONDS + 10000;
+
+    char operator[32];
+    uint16_t operatorX = TFT_GetWidth() - 110;
+    A6_NetworkGetOperator(operator, 32);
+    TFT_DrawString(operatorX, 8, operator, _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+    if(operator[0] != '-') {
+        uint8_t RSSILevel = A6_NetworkGetRSSILevel();
+        operatorX += ((strlen(operator) + 1) * 6);
+        for(uint8_t i=0; i<5; i++) {
+            uint16_t operatorRSSIX = operatorX + (i * 3);
+            if(RSSILevel > i) {
+                uint8_t RSSIY = (4 - i) * 2;
+                TFT_DrawFillRect(operatorRSSIX, (5 + RSSIY), 2, (10 - RSSIY), _TFT_COLOR_WHITE);
+            } else {
+                TFT_DrawFillRect(operatorRSSIX, 5, 2, 10, _TFT_COLOR_BLACK);
+                TFT_DrawLine(operatorRSSIX, 14, (operatorRSSIX + 2), 14, _TFT_COLOR_WHITE);
+            }
+        }
+    }
 }

@@ -1,5 +1,5 @@
 /*
- * 20191227.012
+ * 20191228.013
  * ECG-TFT
  *
  * File: main.h
@@ -12,8 +12,9 @@
 
 #include "commons.h"
 
-uint32_t tmp1 = 0;
+uint32_t refreshGSMSleep = 0;
 
 void loop(void);
+void refreshGSM(void);
 
 #endif
