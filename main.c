@@ -1,11 +1,19 @@
 /*
- * 20191228.069
+ * 20191228.075
  * ECG-TFT
  *
  * File: main.c
  * Processor: PIC18F2455
  * Author: wizlab.it
  */
+
+
+
+//AGGIUNGERE CONTROLLO SE C'E' SIM
+//AGGIUNGERE CONTROLLO SE SIm HA IL PIN
+
+
+
 
 #include "main.h"
 
@@ -17,6 +25,8 @@ void main(void) {
     Ecg_Init();
     A6_Init(115200);
 
+    TFT_ConsoleInit(_TFT_ORIENTATION_PORTRAIT);
+
     //Loop forever
     while(1) loop();
 }
@@ -27,13 +37,92 @@ void main(void) {
  *============================================================================*/
 void loop(void) {
 
-    Ecg_Process();
+    //Ecg_Process();
 
     processGSM();
 
-    /*
-    A6_Process_Random_Comms();
+    if(tmp1 < MILLISECONDS) {
+        tmp1 = MILLISECONDS + 30000;
 
+        /*
+        //Check if connected to network
+        if(A6_NetworkGetStatus() != 1) {
+            TFT_ConsolePrintLine("Not connected, try again later", _TFT_COLOR_RED);
+        } else {
+            TFT_ConsolePrintLine("Connected, try TCP", _TFT_COLOR_GREEN);
+
+            char response[64];
+            A6_Command("AT+CGATT?\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CGATT=1\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CGDCONT=1,\"IP\",\"iliad\"\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CGACT=1,1\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CIFSR\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CIPSTART=\"TCP\",\"51.89.155.15\",80\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CIPSEND\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            const char req[] = "GET / HTTP/1.0\r\n\r\n";
+            EUSART_TX_String(req, strlen(req));
+            EUSART_TX_Char(0x1A);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+        }
+        */
+
+        /*
+        //First method
+
+        AT+CGATT?
+        AT+CGATT=1
+        AT+CGDCONT=1,"IP","internet"
+        AT+CGACT=1,1
+        AT+CIPSTATUS
+        AT+CIFSR
+
+        AT+CIPSTART="TCP","1.2.3.4",80
+        AT+CIPSTATUS
+        AT+CIPSEND
+        GET / HTTP/1.1<cr><lf>Host:www.test.com<cr><lf>Connection:close<cr><lf>
+        ^z
+        */
+
+        /*
+        //Second method
+        AT+CSTT=?aaa?,??,??
+        OK
+        AT+CGDCONT=1,?IP?,?aaa?
+        OK
+        AT+CIICR
+        OK
+        AT+CIPSTART=?TCP?,?www.test.com?,80
+        +CDNSGIP:1,?www.test.com?,?1.2.3.4?
+        OK
+        CONNECT OK
+        OK
+        AT+CIPCLOSE
+        AT+CIPSHUT
+        */
+
+    }
+
+    /*
     if((MILLISECONDS > 20000) && (tmp4 < (MILLISECONDS - 20000))) {
         sprintf(zzzz, "Baud rate changed (-> %lu)", zz);
         TFT_ConsolePrintLine(((zz == 0) ? "Error changing baud rate" : zzzz), _TFT_COLOR_MAGENTA);
@@ -60,6 +149,10 @@ void processGSM(void) {
             TFT_DrawString(operatorX, OPERATOR_NAME_TOP_MARGIN, "Connecting...", _TFT_COLOR_YELLOW, _TFT_COLOR_BLACK, 1);
         } else {
             GSMStatus.nextOperatorName = MILLISECONDS + OPERATOR_NAME_REFRESH_LONG;
+            if(GSMStatus.operatorNameLastFirstChar != GSMStatus.operatorName[0]) {
+                TFT_DrawFillRect(operatorX, OPERATOR_NAME_TOP_MARGIN, OPERATOR_NAME_RIGHT_MARGIN, 7, _TFT_COLOR_BLACK);
+                GSMStatus.operatorNameLastFirstChar = GSMStatus.operatorName[0];
+            }
             TFT_DrawString(operatorX, OPERATOR_NAME_TOP_MARGIN, GSMStatus.operatorName, _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
         }
     }
@@ -82,4 +175,7 @@ void processGSM(void) {
             }
         }
     }
+
+    //Handle random communications from A6
+    A6_Process_Random_Comms();
 }
