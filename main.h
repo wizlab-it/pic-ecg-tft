@@ -1,5 +1,5 @@
 /*
- * 20191228.025
+ * 20191228.027
  * ECG-TFT
  *
  * File: main.h
@@ -20,6 +20,7 @@
 #define OPERATOR_RSSI_REFRESH           4740
 
 struct {
+    uint8_t gsmModuleStatus;
     uint32_t nextOperatorName;
     uint32_t nextRSSI;
     char operatorName[OPERATOR_NAME_SIZE];

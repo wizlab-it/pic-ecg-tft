@@ -1,5 +1,5 @@
 /*
- * 20191228.075
+ * 20191228.077
  * ECG-TFT
  *
  * File: main.c
@@ -9,8 +9,12 @@
 
 
 
-//AGGIUNGERE CONTROLLO SE C'E' SIM
-//AGGIUNGERE CONTROLLO SE SIm HA IL PIN
+/*
+ * controllare risposta per sim bloccata da pin
+ * mettere in funzioni separate i blocchi di processGSM
+ * mettere in una funzione il test GPRS Data
+ */
+
 
 
 
@@ -23,7 +27,7 @@ void main(void) {
     TFT_Init(_TFT_ORIENTATION_INV_LANDSCAPE, _TFT_COLOR_BLACK);
     EUSART_Init();
     Ecg_Init();
-    A6_Init(115200);
+    GSMStatus.gsmModuleStatus = A6_Init(115200);
 
     TFT_ConsoleInit(_TFT_ORIENTATION_PORTRAIT);
 
@@ -42,7 +46,7 @@ void loop(void) {
     processGSM();
 
     if(tmp1 < MILLISECONDS) {
-        tmp1 = MILLISECONDS + 30000;
+        tmp1 = MILLISECONDS + 3000;
 
         /*
         //Check if connected to network
@@ -121,25 +125,40 @@ void loop(void) {
         */
 
     }
-
-    /*
-    if((MILLISECONDS > 20000) && (tmp4 < (MILLISECONDS - 20000))) {
-        sprintf(zzzz, "Baud rate changed (-> %lu)", zz);
-        TFT_ConsolePrintLine(((zz == 0) ? "Error changing baud rate" : zzzz), _TFT_COLOR_MAGENTA);
-        if(A6_IsAlive() == 0) {
-        }
-    }
-
-    if((MILLISECONDS > 2500) && (tmp1 < (MILLISECONDS - 2500))) {
-        TFT_ConsolePrintLine("Check time", _TFT_COLOR_YELLOW);
-        char response[32];
-        A6_Command("AT+CCLK?\r", 0, response, 32);
-        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
-    }
-    */
 }
 
 void processGSM(void) {
+    if(GSMStatus.gsmModuleStatus != A6_SIM_READY) {
+        if(GSMStatus.nextOperatorName < MILLISECONDS) {
+            GSMStatus.nextOperatorName = MILLISECONDS + 10000;
+
+            //If GSM Module is OK, then check SIM Status
+            if(GSMStatus.gsmModuleStatus != A6_SIM_A6_ERROR) {
+                GSMStatus.gsmModuleStatus = A6_SIM_GetStatus();
+            }
+
+            //Print error
+            char errorString[24];
+            switch(GSMStatus.gsmModuleStatus) {
+                case A6_SIM_A6_ERROR:
+                    strcpy(errorString, "GSM Module Error");
+                    break;
+                case A6_SIM_UNKNOWN:
+                    strcpy(errorString, "SIM Card Error");
+                    break;
+                case A6_SIM_MISSING:
+                    strcpy(errorString, "SIM Card Missing");
+                    break;
+                case A6_SIM_PIN:
+                    strcpy(errorString, "SIM Card PIN Locked");
+                    break;
+            }
+            TFT_DrawString(TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN, OPERATOR_NAME_TOP_MARGIN, errorString, _TFT_COLOR_RED, _TFT_COLOR_BLACK, 1);
+        }
+
+        return;
+    }
+
     //Refresh operator name
     if(GSMStatus.nextOperatorName < MILLISECONDS) {
         A6_NetworkGetOperator(GSMStatus.operatorName, OPERATOR_NAME_SIZE);

@@ -1,5 +1,5 @@
 /*
- * 20191227.041
+ * 20191228.043
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -9,10 +9,11 @@
 
 #include "A6Lib.h"
 
-void A6_Init(const uint32_t baudRate) {
+uint8_t A6_Init(const uint32_t baudRate) {
     A6_BaudRateAutoDetect();
     A6_BaudRateSet(baudRate);
     A6_Command("AT+COPS=3,0\r", 0, NULL, 0);
+    return A6_IsAlive();
 }
 
 void A6_Command(const char *command, int16_t timeout, char *response, uint8_t responseLen) {
@@ -118,6 +119,29 @@ uint32_t A6_BaudRateAutoDetect(void) {
     }
 
     return 0;
+}
+
+uint8_t A6_SIM_GetStatus(void) {
+    char *SIMToken;
+    char response[32];
+
+    A6_Command("AT+CPIN?\r", 0, response, 32);
+    TFT_ConsolePrintLine(response, _TFT_COLOR_MAGENTA);
+    if(strstr(response, "+CPIN:") != NULL) {
+        SIMToken = strtok(response, ":");
+        TFT_ConsolePrintLine(SIMToken, _TFT_COLOR_RED);
+        SIMToken = strtok(NULL, ":");
+        TFT_ConsolePrintLine(SIMToken, _TFT_COLOR_RED);
+        if(strcmp(SIMToken, "READY") == 0) {
+            return A6_SIM_READY;
+        } else if(strcmp(SIMToken, "NO SIM") == 0) {
+            return A6_SIM_MISSING;
+        } else if(strcmp(SIMToken, "SIM PIN") == 0) {
+            return A6_SIM_PIN;
+        }
+    }
+
+    return A6_SIM_UNKNOWN;
 }
 
 void A6_Process_Random_Comms(void) {
