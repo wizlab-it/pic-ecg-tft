@@ -5561,11 +5561,16 @@ extern void Ecg_Init(void);
 extern void Ecg_Process(void);
 extern void Ecg_Interrupt(void);
 
-# 15 "main.h"
-uint32_t refreshGSMSleep = 0;
+# 22 "main.h"
+struct {
+uint32_t nextOperatorName;
+uint32_t nextRSSI;
+char operatorName[32];
+uint8_t operatorRSSILevel;
+} GSMStatus;
 
 void loop(void);
-void refreshGSM(void);
+void processGSM(void);
 
 # 12 "main.c"
 void main(void) {
@@ -5585,30 +5590,40 @@ void loop(void) {
 
 Ecg_Process();
 
-refreshGSM();
+processGSM();
 
-# 99
+# 51
 }
 
-void refreshGSM(void) {
-if(refreshGSMSleep > MILLISECONDS) return;
-refreshGSMSleep = MILLISECONDS + 10000;
+void processGSM(void) {
 
-char operator[32];
+if(GSMStatus.nextOperatorName < MILLISECONDS) {
+A6_NetworkGetOperator(GSMStatus.operatorName, 32);
 uint16_t operatorX = TFT_GetWidth() - 110;
-A6_NetworkGetOperator(operator, 32);
-TFT_DrawString(operatorX, 8, operator, 0xFFFF, 0x0821, 1);
-if(operator[0] != '-') {
-uint8_t RSSILevel = A6_NetworkGetRSSILevel();
-operatorX += ((strlen(operator) + 1) * 6);
-for(uint8_t i=0; i<5; i++) {
-uint16_t operatorRSSIX = operatorX + (i * 3);
-if(RSSILevel > i) {
-uint8_t RSSIY = (4 - i) * 2;
-TFT_DrawFillRect(operatorRSSIX, (5 + RSSIY), 2, (10 - RSSIY), 0xFFFF);
+if(GSMStatus.operatorName[0] == '-') {
+GSMStatus.nextOperatorName = MILLISECONDS + 2510;
+TFT_DrawString(operatorX, 8, "Connecting...", 0xFFE0, 0x0821, 1);
 } else {
-TFT_DrawFillRect(operatorRSSIX, 5, 2, 10, 0x0821);
-TFT_DrawLine(operatorRSSIX, 14, (operatorRSSIX + 2), 14, 0xFFFF);
+GSMStatus.nextOperatorName = MILLISECONDS + 37190;
+TFT_DrawString(operatorX, 8, GSMStatus.operatorName, 0xFFFF, 0x0821, 1);
+}
+}
+
+
+if(GSMStatus.nextRSSI < MILLISECONDS) {
+GSMStatus.nextRSSI = MILLISECONDS + 4740;
+if(GSMStatus.operatorName[0] != '-') {
+GSMStatus.operatorRSSILevel = A6_NetworkGetRSSILevel();
+uint16_t RSSIX = TFT_GetWidth() - 110 + ((strlen(GSMStatus.operatorName) + 1) * 6);
+for(uint8_t i=0; i<5; i++) {
+if(GSMStatus.operatorRSSILevel > i) {
+uint8_t RSSIY = (4 - i) * 2;
+TFT_DrawFillRect(RSSIX, (5 + RSSIY), 2, (10 - RSSIY), 0xFFFF);
+} else {
+TFT_DrawFillRect(RSSIX, 5, 2, 10, 0x0821);
+TFT_DrawLine(RSSIX, 14, (RSSIX + 2), 14, 0xFFFF);
+}
+RSSIX += 3;
 }
 }
 }

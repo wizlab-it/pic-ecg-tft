@@ -2,6 +2,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "18 EUSART.h
 [s S327 `uc 1 `uc 1 `uc -> 128 `i ]
 [n S327 . iRead iWrite buffer ]
+"22 main.h
+[s S328 `ul 1 `ul 1 `uc -> 32 `i `uc 1 ]
+[n S328 . nextOperatorName nextRSSI operatorName operatorRSSILevel ]
 [p mainexit ]
 "30 commons.h
 [v _init `(v ~T0 @X0 0 ef ]
@@ -13,19 +16,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Ecg_Init `(v ~T0 @X0 0 ef ]
 "28 A6Lib.h
 [v _A6_Init `(v ~T0 @X0 0 ef1`Cul ]
-"17 main.h
+"29 main.h
 [v _loop `(v ~T0 @X0 0 ef ]
 "34 commons.h
 [v _Ecg_Process `(v ~T0 @X0 0 ef ]
-"18 main.h
-[v _refreshGSM `(v ~T0 @X0 0 ef ]
+"30 main.h
+[v _processGSM `(v ~T0 @X0 0 ef ]
 "27 commons.h
 [v _MILLISECONDS `ul ~T0 @X0 0 e ]
-"76 TFT.h
-[v _TFT_GetWidth `(ui ~T0 @X0 0 ef ]
 "39 A6Lib.h
 [v _A6_NetworkGetOperator `(v ~T0 @X0 0 ef2`*uc`uc ]
-"87 TFT.h
+"76 TFT.h
+[v _TFT_GetWidth `(ui ~T0 @X0 0 ef ]
+"87
 [v _TFT_DrawString `(v ~T0 @X0 0 ef6`ui`ui`*Cuc`ui`ui`uc ]
 "38 A6Lib.h
 [v _A6_NetworkGetRSSILevel `(c ~T0 @X0 0 ef ]
@@ -5365,14 +5368,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;commons.h: 33: extern void Ecg_Init(void);
 [; ;commons.h: 34: extern void Ecg_Process(void);
 [; ;commons.h: 35: extern void Ecg_Interrupt(void);
-"15 main.h
-[v _refreshGSMSleep `ul ~T0 @X0 1 e ]
-[i _refreshGSMSleep
--> -> -> 0 `i `l `ul
-]
-[; ;main.h: 15: uint32_t refreshGSMSleep = 0;
-[; ;main.h: 17: void loop(void);
-[; ;main.h: 18: void refreshGSM(void);
+"27 main.h
+[v _GSMStatus `S328 ~T0 @X0 1 e ]
+[; ;main.h: 22: struct {
+[; ;main.h: 23: uint32_t nextOperatorName;
+[; ;main.h: 24: uint32_t nextRSSI;
+[; ;main.h: 25: char operatorName[32];
+[; ;main.h: 26: uint8_t operatorRSSILevel;
+[; ;main.h: 27: } GSMStatus;
+[; ;main.h: 29: void loop(void);
+[; ;main.h: 30: void processGSM(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
 "12 main.c
 [v _main `(v ~T0 @X0 1 ef ]
@@ -5397,14 +5402,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _A6_Init (1 -> -> 115200 `l `ul ]
 [; ;main.c: 21: while(1) loop();
 "21
-[e :U 330 ]
-[e ( _loop ..  ]
-[e :U 329 ]
-[e $U 330  ]
 [e :U 331 ]
+[e ( _loop ..  ]
+[e :U 330 ]
+[e $U 331  ]
+[e :U 332 ]
 [; ;main.c: 22: }
 "22
-[e :UE 328 ]
+[e :UE 329 ]
 }
 "28
 [v _loop `(v ~T0 @X0 1 ef ]
@@ -5415,105 +5420,137 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 30: Ecg_Process();
 "30
 [e ( _Ecg_Process ..  ]
-[; ;main.c: 32: refreshGSM();
+[; ;main.c: 32: processGSM();
 "32
-[e ( _refreshGSM ..  ]
-[; ;main.c: 99: }
-"99
-[e :UE 332 ]
+[e ( _processGSM ..  ]
+[; ;main.c: 51: }
+"51
+[e :UE 333 ]
 }
-"101
-[v _refreshGSM `(v ~T0 @X0 1 ef ]
+"53
+[v _processGSM `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 101: void refreshGSM(void) {
-[e :U _refreshGSM ]
+[; ;main.c: 53: void processGSM(void) {
+[e :U _processGSM ]
 [f ]
-[; ;main.c: 102: if(refreshGSMSleep > MILLISECONDS) return;
-"102
-[e $ ! > _refreshGSMSleep _MILLISECONDS 334  ]
-[e $UE 333  ]
-[e :U 334 ]
-[; ;main.c: 103: refreshGSMSleep = MILLISECONDS + 10000;
-"103
-[e = _refreshGSMSleep + _MILLISECONDS -> -> -> 10000 `i `l `ul ]
-"105
-[v _operator `uc ~T0 @X0 -> 32 `i a ]
-"106
+[; ;main.c: 55: if(GSMStatus.nextOperatorName < MILLISECONDS) {
+"55
+[e $ ! < . _GSMStatus 0 _MILLISECONDS 335  ]
+{
+[; ;main.c: 56: A6_NetworkGetOperator(GSMStatus.operatorName, 32);
+"56
+[e ( _A6_NetworkGetOperator (2 , &U . _GSMStatus 2 -> -> 32 `i `uc ]
+"57
 [v _operatorX `ui ~T0 @X0 1 a ]
-[; ;main.c: 105: char operator[32];
-[; ;main.c: 106: uint16_t operatorX = TFT_GetWidth() - 110;
+[; ;main.c: 57: uint16_t operatorX = TFT_GetWidth() - 110;
 [e = _operatorX - ( _TFT_GetWidth ..  -> -> 110 `i `ui ]
-[; ;main.c: 107: A6_NetworkGetOperator(operator, 32);
-"107
-[e ( _A6_NetworkGetOperator (2 , &U _operator -> -> 32 `i `uc ]
-[; ;main.c: 108: TFT_DrawString(operatorX, 8, operator, 0xFFFF, 0x0821, 1);
-"108
-[e ( _TFT_DrawString (4 , , , , , _operatorX -> -> 8 `i `ui -> &U _operator `*Cuc -> 65535 `ui -> -> 2081 `i `ui -> -> 1 `i `uc ]
-[; ;main.c: 109: if(operator[0] != '-') {
-"109
-[e $ ! != -> *U + &U _operator * -> -> -> 0 `i `ui `ux -> -> # *U &U _operator `ui `ux `ui -> 45 `ui 335  ]
+[; ;main.c: 58: if(GSMStatus.operatorName[0] == '-') {
+"58
+[e $ ! == -> *U + &U . _GSMStatus 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _GSMStatus 2 `ui `ux `ui -> 45 `ui 336  ]
 {
-"110
-[v _RSSILevel `uc ~T0 @X0 1 a ]
-[; ;main.c: 110: uint8_t RSSILevel = A6_NetworkGetRSSILevel();
-[e = _RSSILevel -> ( _A6_NetworkGetRSSILevel ..  `uc ]
-[; ;main.c: 111: operatorX += ((strlen(operator) + 1) * 6);
-"111
-[e =+ _operatorX * + ( _strlen (1 -> &U _operator `*Cuc -> -> 1 `i `ui -> -> 6 `i `ui ]
-[; ;main.c: 112: for(uint8_t i=0; i<5; i++) {
-"112
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 5 `i 336  ]
+[; ;main.c: 59: GSMStatus.nextOperatorName = MILLISECONDS + 2510;
+"59
+[e = . _GSMStatus 0 + _MILLISECONDS -> -> -> 2510 `i `l `ul ]
+[; ;main.c: 60: TFT_DrawString(operatorX, 8, "Connecting...", 0xFFE0, 0x0821, 1);
+"60
+[e ( _TFT_DrawString (4 , , , , , _operatorX -> -> 8 `i `ui :s 1C -> 65504 `ui -> -> 2081 `i `ui -> -> 1 `i `uc ]
+"61
+}
+[; ;main.c: 61: } else {
 [e $U 337  ]
 [e :U 336 ]
 {
-"113
-[v _operatorRSSIX `ui ~T0 @X0 1 a ]
-[; ;main.c: 113: uint16_t operatorRSSIX = operatorX + (i * 3);
-[e = _operatorRSSIX + _operatorX -> * -> _i `i -> 3 `i `ui ]
-[; ;main.c: 114: if(RSSILevel > i) {
-"114
-[e $ ! > -> _RSSILevel `i -> _i `i 339  ]
-{
-"115
-[v _RSSIY `uc ~T0 @X0 1 a ]
-[; ;main.c: 115: uint8_t RSSIY = (4 - i) * 2;
-[e = _RSSIY -> * - -> 4 `i -> _i `i -> 2 `i `uc ]
-[; ;main.c: 116: TFT_DrawFillRect(operatorRSSIX, (5 + RSSIY), 2, (10 - RSSIY), 0xFFFF);
-"116
-[e ( _TFT_DrawFillRect (4 , , , , _operatorRSSIX -> + -> 5 `i -> _RSSIY `i `ui -> -> 2 `i `ui -> - -> 10 `i -> _RSSIY `i `ui -> 65535 `ui ]
-"117
+[; ;main.c: 62: GSMStatus.nextOperatorName = MILLISECONDS + 37190;
+"62
+[e = . _GSMStatus 0 + _MILLISECONDS -> -> 37190 `l `ul ]
+[; ;main.c: 63: TFT_DrawString(operatorX, 8, GSMStatus.operatorName, 0xFFFF, 0x0821, 1);
+"63
+[e ( _TFT_DrawString (4 , , , , , _operatorX -> -> 8 `i `ui -> &U . _GSMStatus 2 `*Cuc -> 65535 `ui -> -> 2081 `i `ui -> -> 1 `i `uc ]
+"64
 }
-[; ;main.c: 117: } else {
-[e $U 340  ]
-[e :U 339 ]
-{
-[; ;main.c: 118: TFT_DrawFillRect(operatorRSSIX, 5, 2, 10, 0x0821);
-"118
-[e ( _TFT_DrawFillRect (4 , , , , _operatorRSSIX -> -> 5 `i `ui -> -> 2 `i `ui -> -> 10 `i `ui -> -> 2081 `i `ui ]
-[; ;main.c: 119: TFT_DrawLine(operatorRSSIX, 14, (operatorRSSIX + 2), 14, 0xFFFF);
-"119
-[e ( _TFT_DrawLine (4 , , , , -> _operatorRSSIX `i -> 14 `i -> + _operatorRSSIX -> -> 2 `i `ui `i -> 14 `i -> 65535 `ui ]
-"120
-}
-[e :U 340 ]
-"121
-}
-"112
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 5 `i 336  ]
 [e :U 337 ]
-"121
-}
-"122
+"65
 }
 [e :U 335 ]
-[; ;main.c: 120: }
-[; ;main.c: 121: }
-[; ;main.c: 122: }
-[; ;main.c: 123: }
-"123
-[e :UE 333 ]
+[; ;main.c: 64: }
+[; ;main.c: 65: }
+[; ;main.c: 68: if(GSMStatus.nextRSSI < MILLISECONDS) {
+"68
+[e $ ! < . _GSMStatus 1 _MILLISECONDS 338  ]
+{
+[; ;main.c: 69: GSMStatus.nextRSSI = MILLISECONDS + 4740;
+"69
+[e = . _GSMStatus 1 + _MILLISECONDS -> -> -> 4740 `i `l `ul ]
+[; ;main.c: 70: if(GSMStatus.operatorName[0] != '-') {
+"70
+[e $ ! != -> *U + &U . _GSMStatus 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _GSMStatus 2 `ui `ux `ui -> 45 `ui 339  ]
+{
+[; ;main.c: 71: GSMStatus.operatorRSSILevel = A6_NetworkGetRSSILevel();
+"71
+[e = . _GSMStatus 3 -> ( _A6_NetworkGetRSSILevel ..  `uc ]
+"72
+[v _RSSIX `ui ~T0 @X0 1 a ]
+[; ;main.c: 72: uint16_t RSSIX = TFT_GetWidth() - 110 + ((strlen(GSMStatus.operatorName) + 1) * 6);
+[e = _RSSIX + - ( _TFT_GetWidth ..  -> -> 110 `i `ui * + ( _strlen (1 -> &U . _GSMStatus 2 `*Cuc -> -> 1 `i `ui -> -> 6 `i `ui ]
+[; ;main.c: 73: for(uint8_t i=0; i<5; i++) {
+"73
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 5 `i 340  ]
+[e $U 341  ]
+[e :U 340 ]
+{
+[; ;main.c: 74: if(GSMStatus.operatorRSSILevel > i) {
+"74
+[e $ ! > -> . _GSMStatus 3 `i -> _i `i 343  ]
+{
+"75
+[v _RSSIY `uc ~T0 @X0 1 a ]
+[; ;main.c: 75: uint8_t RSSIY = (4 - i) * 2;
+[e = _RSSIY -> * - -> 4 `i -> _i `i -> 2 `i `uc ]
+[; ;main.c: 76: TFT_DrawFillRect(RSSIX, (5 + RSSIY), 2, (10 - RSSIY), 0xFFFF);
+"76
+[e ( _TFT_DrawFillRect (4 , , , , _RSSIX -> + -> 5 `i -> _RSSIY `i `ui -> -> 2 `i `ui -> - -> 10 `i -> _RSSIY `i `ui -> 65535 `ui ]
+"77
 }
+[; ;main.c: 77: } else {
+[e $U 344  ]
+[e :U 343 ]
+{
+[; ;main.c: 78: TFT_DrawFillRect(RSSIX, 5, 2, 10, 0x0821);
+"78
+[e ( _TFT_DrawFillRect (4 , , , , _RSSIX -> -> 5 `i `ui -> -> 2 `i `ui -> -> 10 `i `ui -> -> 2081 `i `ui ]
+[; ;main.c: 79: TFT_DrawLine(RSSIX, 14, (RSSIX + 2), 14, 0xFFFF);
+"79
+[e ( _TFT_DrawLine (4 , , , , -> _RSSIX `i -> 14 `i -> + _RSSIX -> -> 2 `i `ui `i -> 14 `i -> 65535 `ui ]
+"80
+}
+[e :U 344 ]
+[; ;main.c: 80: }
+[; ;main.c: 81: RSSIX += 3;
+"81
+[e =+ _RSSIX -> -> 3 `i `ui ]
+"82
+}
+"73
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 5 `i 340  ]
+[e :U 341 ]
+"82
+}
+"83
+}
+[e :U 339 ]
+"84
+}
+[e :U 338 ]
+[; ;main.c: 82: }
+[; ;main.c: 83: }
+[; ;main.c: 84: }
+[; ;main.c: 85: }
+"85
+[e :UE 334 ]
+}
+[a 1C 67 111 110 110 101 99 116 105 110 103 46 46 46 0 ]
+

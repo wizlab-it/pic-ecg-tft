@@ -1,5 +1,5 @@
 /*
- * 20191228.013
+ * 20191228.023
  * ECG-TFT
  *
  * File: main.h
@@ -12,9 +12,21 @@
 
 #include "commons.h"
 
-uint32_t refreshGSMSleep = 0;
+#define OPERATOR_NAME_SIZE              32
+#define OPERATOR_NAME_TOP_MARGIN        8
+#define OPERATOR_NAME_RIGHT_MARGIN      110
+#define OPERATOR_NAME_REFRESH_SHORT     2510
+#define OPERATOR_NAME_REFRESH_LONG      37190
+#define OPERATOR_RSSI_REFRESH           4740
+
+struct {
+    uint32_t nextOperatorName;
+    uint32_t nextRSSI;
+    char operatorName[OPERATOR_NAME_SIZE];
+    uint8_t operatorRSSILevel;
+} GSMStatus;
 
 void loop(void);
-void refreshGSM(void);
+void processGSM(void);
 
 #endif
