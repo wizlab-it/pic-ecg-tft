@@ -1,5 +1,5 @@
 /*
- * 20191229.083
+ * 20191229.086
  * ECG-TFT
  *
  * File: main.c
@@ -34,8 +34,15 @@ void loop(void) {
     processGSM();
 
     if(tmp1 < MILLISECONDS) {
-        tmp1 = MILLISECONDS + 5000;
+        tmp1 = MILLISECONDS + 30000;
 
+        if(tmp2 == 0) {
+            A6_NetworkGPRSConnect("wap.postemobile.it");
+            tmp2++;
+        } else {
+            A6_NetworkGPRSDisconnect();
+            tmp2 = 0;
+        }
 
         /*
         char response[32];
@@ -95,24 +102,6 @@ void loop(void) {
             while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
         }
         */
-
-        /*
-        //Second method
-        AT+CSTT=?aaa?,??,??
-        OK
-        AT+CGDCONT=1,?IP?,?aaa?
-        OK
-        AT+CIICR
-        OK
-        AT+CIPSTART=?TCP?,?www.test.com?,80
-        +CDNSGIP:1,?www.test.com?,?1.2.3.4?
-        OK
-        CONNECT OK
-        OK
-        AT+CIPCLOSE
-        AT+CIPSHUT
-        */
-
     }
 }
 
@@ -205,6 +194,17 @@ void processGSM_RefreshGPRS(void) {
     if(GSMStatus.operatorName[0] == '-') return;
 
     GSMStatus.operatorGPRSStatus = A6_NetworkGPRSGetStatus();
-    uint16_t GPRSX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN + ((strlen(GSMStatus.operatorName) + 1) * 6) + 20;
-    TFT_DrawString(GPRSX, OPERATOR_NAME_TOP_MARGIN, ((GSMStatus.operatorGPRSStatus == 1) ? "+D" : ""), _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+    uint16_t GPRSX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN + ((strlen(GSMStatus.operatorName) + 1) * 6) + 18;
+    TFT_DrawString(GPRSX, OPERATOR_NAME_TOP_MARGIN, ((GSMStatus.operatorGPRSStatus == 1) ? "G" : " "), _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+
+    //Get IP Address
+    if(GSMStatus.operatorGPRSStatus == 1) {
+        char response[32];
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+        TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIFSR\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+    }
 }

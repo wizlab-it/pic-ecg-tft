@@ -1,5 +1,5 @@
 /*
- * 20191228.035
+ * 20191229.037
  * A6 GSM Module Library
  *
  * File: A6Lib.h
@@ -41,9 +41,12 @@ uint32_t A6_BaudRateAutoDetect(void);
 void A6_Process_Random_Comms(void);
 uint8_t A6_SIM_GetStatus(void);
 uint8_t A6_NetworkGetStatus(void);
+uint8_t A6_NetworkIsConnected(void);
 uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
 void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 uint8_t A6_NetworkGPRSGetStatus(void);
+uint8_t A6_NetworkGPRSConnect(const char apn[]);
+uint8_t A6_NetworkGPRSDisconnect(void);
 
 #endif

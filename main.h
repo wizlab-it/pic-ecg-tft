@@ -32,6 +32,7 @@ struct {
 } GSMStatus;
 
 uint32_t tmp1 = 0;
+uint32_t tmp2 = 0;
 
 void loop(void);
 void processGSM(void);
