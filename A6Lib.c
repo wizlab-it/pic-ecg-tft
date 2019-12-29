@@ -1,5 +1,5 @@
 /*
- * 20191228.043
+ * 20191229.046
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -126,12 +126,9 @@ uint8_t A6_SIM_GetStatus(void) {
     char response[32];
 
     A6_Command("AT+CPIN?\r", 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_MAGENTA);
     if(strstr(response, "+CPIN:") != NULL) {
         SIMToken = strtok(response, ":");
-        TFT_ConsolePrintLine(SIMToken, _TFT_COLOR_RED);
         SIMToken = strtok(NULL, ":");
-        TFT_ConsolePrintLine(SIMToken, _TFT_COLOR_RED);
         if(strcmp(SIMToken, "READY") == 0) {
             return A6_SIM_READY;
         } else if(strcmp(SIMToken, "NO SIM") == 0) {
@@ -216,4 +213,18 @@ void A6_NetworkGetOperator(char *operator, uint8_t operatorLen) {
         }
     }
     strcpy(operator, "-");
+}
+
+uint8_t A6_NetworkGPRSGetStatus(void) {
+    char *GPRSStatusToken;
+    char response[32];
+
+    A6_Command("AT+CGATT?\r", 0, response, 32);
+    if(strstr(response, "+CGATT:") != NULL) {
+        GPRSStatusToken = strtok(response, ":");
+        GPRSStatusToken = strtok(NULL, ":");
+        return atoi(GPRSStatusToken);
+    }
+
+    return A6_NETWORK_STATUS_UNKNOWN;
 }

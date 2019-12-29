@@ -1,23 +1,11 @@
 /*
- * 20191228.077
+ * 20191229.083
  * ECG-TFT
  *
  * File: main.c
  * Processor: PIC18F2455
  * Author: wizlab.it
  */
-
-
-
-/*
- * controllare risposta per sim bloccata da pin
- * mettere in funzioni separate i blocchi di processGSM
- * mettere in una funzione il test GPRS Data
- */
-
-
-
-
 
 #include "main.h"
 
@@ -46,8 +34,17 @@ void loop(void) {
     processGSM();
 
     if(tmp1 < MILLISECONDS) {
-        tmp1 = MILLISECONDS + 3000;
+        tmp1 = MILLISECONDS + 5000;
 
+
+        /*
+        char response[32];
+        char zzzz[32];
+        A6_Command("AT+CGATT?\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+        */
+
+        
         /*
         //Check if connected to network
         if(A6_NetworkGetStatus() != 1) {
@@ -71,6 +68,9 @@ void loop(void) {
             A6_Command("AT+CIPSTATUS\r", 0, response, 32);
             while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
 
+            A6_Command("AT+CGREG?\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
             A6_Command("AT+CIFSR\r", 0, response, 32);
             while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
 
@@ -87,24 +87,13 @@ void loop(void) {
             EUSART_TX_String(req, strlen(req));
             EUSART_TX_Char(0x1A);
             while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CIPSHUT\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
+
+            A6_Command("AT+CGATT=1\r", 0, response, 32);
+            while(EUSART_RX_AvailableData(-1) == 1) A6_Process_Random_Comms();
         }
-        */
-
-        /*
-        //First method
-
-        AT+CGATT?
-        AT+CGATT=1
-        AT+CGDCONT=1,"IP","internet"
-        AT+CGACT=1,1
-        AT+CIPSTATUS
-        AT+CIFSR
-
-        AT+CIPSTART="TCP","1.2.3.4",80
-        AT+CIPSTATUS
-        AT+CIPSEND
-        GET / HTTP/1.1<cr><lf>Host:www.test.com<cr><lf>Connection:close<cr><lf>
-        ^z
         */
 
         /*
@@ -128,73 +117,94 @@ void loop(void) {
 }
 
 void processGSM(void) {
-    if(GSMStatus.gsmModuleStatus != A6_SIM_READY) {
-        if(GSMStatus.nextOperatorName < MILLISECONDS) {
-            GSMStatus.nextOperatorName = MILLISECONDS + 10000;
-
-            //If GSM Module is OK, then check SIM Status
-            if(GSMStatus.gsmModuleStatus != A6_SIM_A6_ERROR) {
-                GSMStatus.gsmModuleStatus = A6_SIM_GetStatus();
-            }
-
-            //Print error
-            char errorString[24];
-            switch(GSMStatus.gsmModuleStatus) {
-                case A6_SIM_A6_ERROR:
-                    strcpy(errorString, "GSM Module Error");
-                    break;
-                case A6_SIM_UNKNOWN:
-                    strcpy(errorString, "SIM Card Error");
-                    break;
-                case A6_SIM_MISSING:
-                    strcpy(errorString, "SIM Card Missing");
-                    break;
-                case A6_SIM_PIN:
-                    strcpy(errorString, "SIM Card PIN Locked");
-                    break;
-            }
-            TFT_DrawString(TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN, OPERATOR_NAME_TOP_MARGIN, errorString, _TFT_COLOR_RED, _TFT_COLOR_BLACK, 1);
-        }
-
-        return;
+    if(processGSM_CheckGSMAndSIMStatus() == 1) {
+        processGSM_RefreshOperatorName();
+        processGSM_RefreshRSSI();
+        processGSM_RefreshGPRS();
     }
-
-    //Refresh operator name
-    if(GSMStatus.nextOperatorName < MILLISECONDS) {
-        A6_NetworkGetOperator(GSMStatus.operatorName, OPERATOR_NAME_SIZE);
-        uint16_t operatorX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN;
-        if(GSMStatus.operatorName[0] == '-') {
-            GSMStatus.nextOperatorName = MILLISECONDS + OPERATOR_NAME_REFRESH_SHORT;
-            TFT_DrawString(operatorX, OPERATOR_NAME_TOP_MARGIN, "Connecting...", _TFT_COLOR_YELLOW, _TFT_COLOR_BLACK, 1);
-        } else {
-            GSMStatus.nextOperatorName = MILLISECONDS + OPERATOR_NAME_REFRESH_LONG;
-            if(GSMStatus.operatorNameLastFirstChar != GSMStatus.operatorName[0]) {
-                TFT_DrawFillRect(operatorX, OPERATOR_NAME_TOP_MARGIN, OPERATOR_NAME_RIGHT_MARGIN, 7, _TFT_COLOR_BLACK);
-                GSMStatus.operatorNameLastFirstChar = GSMStatus.operatorName[0];
-            }
-            TFT_DrawString(operatorX, OPERATOR_NAME_TOP_MARGIN, GSMStatus.operatorName, _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
-        }
-    }
-
-    //Refresh RSSI
-    if(GSMStatus.nextRSSI < MILLISECONDS) {
-        GSMStatus.nextRSSI = MILLISECONDS + OPERATOR_RSSI_REFRESH;
-        if(GSMStatus.operatorName[0] != '-') {
-            GSMStatus.operatorRSSILevel = A6_NetworkGetRSSILevel();
-            uint16_t RSSIX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN + ((strlen(GSMStatus.operatorName) + 1) * 6);
-            for(uint8_t i=0; i<5; i++) {
-                if(GSMStatus.operatorRSSILevel > i) {
-                    uint8_t RSSIY = (4 - i) * 2;
-                    TFT_DrawFillRect(RSSIX, (5 + RSSIY), 2, (10 - RSSIY), _TFT_COLOR_WHITE);
-                } else {
-                    TFT_DrawFillRect(RSSIX, 5, 2, 10, _TFT_COLOR_BLACK);
-                    TFT_DrawLine(RSSIX, 14, (RSSIX + 2), 14, _TFT_COLOR_WHITE);
-                }
-                RSSIX += 3;
-            }
-        }
-    }
-
-    //Handle random communications from A6
     A6_Process_Random_Comms();
+}
+
+uint8_t processGSM_CheckGSMAndSIMStatus(void) {
+    if(GSMStatus.gsmModuleStatus == A6_SIM_READY) return 1;
+    if(GSMStatus.nextOperatorName > MILLISECONDS) return 0;
+    GSMStatus.nextOperatorName = MILLISECONDS + 10000;
+
+    //If GSM Module is OK, then check SIM Status
+    if(GSMStatus.gsmModuleStatus != A6_SIM_A6_ERROR) {
+        GSMStatus.gsmModuleStatus = A6_SIM_GetStatus();
+        if(GSMStatus.gsmModuleStatus == A6_SIM_READY) {
+            GSMStatus.nextOperatorName = 0;
+            return 1;
+        }
+    }
+
+    //Print error
+    char errorString[24];
+    switch(GSMStatus.gsmModuleStatus) {
+        case A6_SIM_A6_ERROR:
+            strcpy(errorString, "GSM Module Error");
+            break;
+        case A6_SIM_UNKNOWN:
+            strcpy(errorString, "SIM Error");
+            break;
+        case A6_SIM_MISSING:
+            strcpy(errorString, "SIM Missing");
+            break;
+        case A6_SIM_PIN:
+            strcpy(errorString, "SIM PIN Locked");
+            break;
+    }
+    TFT_DrawString(TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN, OPERATOR_NAME_TOP_MARGIN, errorString, _TFT_COLOR_RED, _TFT_COLOR_BLACK, 1);
+
+    return 0;
+}
+
+void processGSM_RefreshOperatorName(void) {
+    if(GSMStatus.nextOperatorName > MILLISECONDS) return;
+
+    A6_NetworkGetOperator(GSMStatus.operatorName, OPERATOR_NAME_SIZE);
+    uint16_t operatorX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN;
+    if(GSMStatus.operatorName[0] == '-') {
+        GSMStatus.nextOperatorName = MILLISECONDS + OPERATOR_NAME_REFRESH_SHORT;
+        TFT_DrawString(operatorX, OPERATOR_NAME_TOP_MARGIN, "Connecting...", _TFT_COLOR_YELLOW, _TFT_COLOR_BLACK, 1);
+    } else {
+        GSMStatus.nextOperatorName = MILLISECONDS + OPERATOR_NAME_REFRESH_LONG;
+        if(GSMStatus.operatorNameLastFirstChar != GSMStatus.operatorName[0]) {
+            TFT_DrawFillRect(operatorX, OPERATOR_NAME_TOP_MARGIN, OPERATOR_NAME_RIGHT_MARGIN, 7, _TFT_COLOR_BLACK);
+            GSMStatus.operatorNameLastFirstChar = GSMStatus.operatorName[0];
+        }
+        TFT_DrawString(operatorX, OPERATOR_NAME_TOP_MARGIN, GSMStatus.operatorName, _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
+    }
+}
+
+void processGSM_RefreshRSSI(void) {
+    if(GSMStatus.nextRSSI > MILLISECONDS) return;
+    GSMStatus.nextRSSI = MILLISECONDS + OPERATOR_RSSI_REFRESH;
+
+    if(GSMStatus.operatorName[0] == '-')  return;
+
+    GSMStatus.operatorRSSILevel = A6_NetworkGetRSSILevel();
+    uint16_t RSSIX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN + ((strlen(GSMStatus.operatorName) + 1) * 6);
+    for(uint8_t i=0; i<5; i++) {
+        if(GSMStatus.operatorRSSILevel > i) {
+            uint8_t RSSIY = (4 - i) * 2;
+            TFT_DrawFillRect(RSSIX, (5 + RSSIY), 2, (10 - RSSIY), _TFT_COLOR_WHITE);
+        } else {
+            TFT_DrawFillRect(RSSIX, 5, 2, 10, _TFT_COLOR_BLACK);
+            TFT_DrawLine(RSSIX, 14, (RSSIX + 2), 14, _TFT_COLOR_WHITE);
+        }
+        RSSIX += 3;
+    }
+}
+
+void processGSM_RefreshGPRS(void) {
+    if(GSMStatus.nextGPRSStatus > MILLISECONDS) return;
+    GSMStatus.nextGPRSStatus = MILLISECONDS + OPERATOR_GPRS_REFRESH;
+
+    if(GSMStatus.operatorName[0] == '-') return;
+
+    GSMStatus.operatorGPRSStatus = A6_NetworkGPRSGetStatus();
+    uint16_t GPRSX = TFT_GetWidth() - OPERATOR_NAME_RIGHT_MARGIN + ((strlen(GSMStatus.operatorName) + 1) * 6) + 20;
+    TFT_DrawString(GPRSX, OPERATOR_NAME_TOP_MARGIN, ((GSMStatus.operatorGPRSStatus == 1) ? "+D" : ""), _TFT_COLOR_WHITE, _TFT_COLOR_BLACK, 1);
 }

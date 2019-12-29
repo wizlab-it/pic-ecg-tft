@@ -44,5 +44,6 @@ uint8_t A6_NetworkGetStatus(void);
 uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
 void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
+uint8_t A6_NetworkGPRSGetStatus(void);
 
 #endif
