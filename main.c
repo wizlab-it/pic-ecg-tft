@@ -37,7 +37,7 @@ void loop(void) {
         tmp1 = MILLISECONDS + 30000;
 
         if(tmp2 == 0) {
-            A6_NetworkGPRSConnect("wap.postemobile.it");
+            A6_NetworkGPRSConnect("www.postemobile.it");
             tmp2++;
         } else {
             A6_NetworkGPRSDisconnect();
@@ -203,8 +203,85 @@ void processGSM_RefreshGPRS(void) {
         TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
         A6_Command("AT+CIPSTATUS\r", 0, response, 32);
         TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
         TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_CYAN);
         A6_Command("AT+CIFSR\r", 0, response, 32);
         TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+        
+        TFT_ConsolePrintLine("Connect", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTART=\"TCP\",\"51.89.155.15\",80\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIFSR\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        sleepMS(500);
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+        
+        sleepMS(500);
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        sleepMS(500);
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Start request", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSEND\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Send data", _TFT_COLOR_CYAN);
+        const char req[] = "GET / HTTP/1.0\r\n\r\n";
+        EUSART_TX_String(req, strlen(req));
+        EUSART_TX_Char(0x1A);
+        sleepMS(500);
+        while(EUSART_RX_AvailableData(0) == 1) A6_Process_Random_Comms();
+
+        TFT_ConsolePrintLine("Close ip", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPCLOSE\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIFSR\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Close ip", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPCLOSE\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIFSR\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Shut ip", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSHUT\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+
+        TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_CYAN);
+        A6_Command("AT+CIFSR\r", 0, response, 32);
+        TFT_ConsolePrintLine(response, _TFT_COLOR_GREEN);
+        
+        
     }
 }

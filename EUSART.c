@@ -1,5 +1,5 @@
 /*
- * 20191226.027
+ * 20191229.028
  * ECG-TFT
  *
  * File: eusart.c
@@ -70,7 +70,6 @@ void EUSART_RX_Interrupt(void) {
     if(OERR == 1) {
         CREN = 0;
         CREN = 1;
-        _LED = !_LED;
     }
 
     EUSART_RX.iWrite++;
