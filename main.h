@@ -1,5 +1,5 @@
 /*
- * 20191229.033
+ * 20200102.034
  * ECG-TFT
  *
  * File: main.h
@@ -28,7 +28,7 @@ struct {
     char operatorName[OPERATOR_NAME_SIZE];
     char operatorNameLastFirstChar;
     uint8_t operatorRSSILevel;
-    uint8_t operatorGPRSStatus;
+    uint8_t operatorGPRSIsConnected;
 } GSMStatus;
 
 uint32_t tmp1 = 0;

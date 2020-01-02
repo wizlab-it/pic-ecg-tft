@@ -1,5 +1,5 @@
 /*
- * 20191229.037
+ * 20200102.039
  * A6 GSM Module Library
  *
  * File: A6Lib.h
@@ -46,7 +46,10 @@ uint8_t A6_NetworkGetRSSI(void);
 int8_t A6_NetworkGetRSSILevel(void);
 void A6_NetworkGetOperator(char *operator, uint8_t operatorLen);
 uint8_t A6_NetworkGPRSGetStatus(void);
+uint8_t A6_NetworkGPRSIsConnected(void);
 uint8_t A6_NetworkGPRSConnect(const char apn[]);
 uint8_t A6_NetworkGPRSDisconnect(void);
+uint8_t A6_NetworkGPRSOpenTCP(const char ipAddress[], uint16_t port, uint16_t timeout);
+void A6_NetworkGPRSCloseTCP(void);
 
 #endif

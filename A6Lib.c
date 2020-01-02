@@ -1,5 +1,5 @@
 /*
- * 20191229.048
+ * 20200102.050
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -235,56 +235,55 @@ uint8_t A6_NetworkGPRSGetStatus(void) {
     return A6_NETWORK_STATUS_UNKNOWN;
 }
 
+uint8_t A6_NetworkGPRSIsConnected(void) {
+    uint8_t gs = A6_NetworkGPRSGetStatus();
+    if((gs == 1) || (gs == 5)) return 1;
+    return 0;
+}
+
 uint8_t A6_NetworkGPRSConnect(const char apn[]) {
-    char response[32];
-
-    //If not connected to GSM network, then exits
     if(A6_NetworkIsConnected() != 1) return 0;
+    A6_Command("AT+CGATT=1\r", 0, NULL, 0);
 
-    //Try to connet to GPRS
-    TFT_ConsolePrintLine("ACTIVATE GPRS", _TFT_COLOR_WHITE);
-    A6_Command("AT+CGATT=1\r", 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_RED);
-
-    //Set APN
-    TFT_ConsolePrintLine("SET APN", _TFT_COLOR_WHITE);
     char apnCommand[64];
     sprintf(apnCommand, "AT+CGDCONT=1,\"IP\",\"%s\"\r", apn);
-    TFT_ConsolePrintLine(apnCommand, _TFT_COLOR_YELLOW);
-    A6_Command(apnCommand, 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_RED);
+    A6_Command(apnCommand, 0, NULL, 0);
 
-    //Activate APN
-    TFT_ConsolePrintLine("ACTIVATE APN", _TFT_COLOR_WHITE);
-    A6_Command("AT+CGACT=1,1\r", 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_RED);
-    sleepMS(2500);
+    A6_Command("AT+CGACT=1,1\r", 0, NULL, 0);
+    sleepMS(250);
 
-    //Check GPRS Connection
-    TFT_ConsolePrintLine(((A6_NetworkGPRSGetStatus() == 1) ? "CONNECTED" : "NOT CONNECTED"), _TFT_COLOR_MAGENTA);
+    return A6_NetworkGPRSIsConnected();
+}
 
-    //Check GPRS IP Status
-    TFT_ConsolePrintLine("Check GPRS IP Status", _TFT_COLOR_WHITE);
-    A6_Command("AT+CIPSTATUS\r", 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_RED);
+uint8_t A6_NetworkGPRSDisconnect(void) {
+    A6_NetworkGPRSCloseTCP();
+    A6_Command("AT+CGATT=0\r", 0, NULL, 0);
+    sleepMS(100);
+    return A6_NetworkGPRSIsConnected();
+}
 
-    //Check GPRS Registration
-    TFT_ConsolePrintLine("Check GPRS Registration", _TFT_COLOR_WHITE);
-    A6_Command("AT+CGREG?\r", 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_RED);
+uint8_t A6_NetworkGPRSOpenTCP(const char ipAddress[], uint16_t port, uint16_t timeout) {
+    char response[32];
 
-    //Get IP Address
-    TFT_ConsolePrintLine("Get IP Address", _TFT_COLOR_WHITE);
-    A6_Command("AT+CIFSR\r", 0, response, 32);
-    TFT_ConsolePrintLine(response, _TFT_COLOR_RED);
+    char openCommand[64];
+    sprintf(openCommand, "AT+CIPSTART=\"TCP\",\"%s\",%u\r", ipAddress, port);
+    A6_Command(openCommand, 0, response, 32);
+    if(strcmp(response, "OK") == 0) {
+        uint32_t timeoutTimestamp = MILLISECONDS + timeout;
+        while(timeoutTimestamp > MILLISECONDS) {
+            A6_Command("AT+CIPSTATUS\r", 0, response, 32);
+            if(strstr(response, "CONNECT OK") != NULL) {
+                return 1;
+            } else {
+                sleepMS(200);
+            }
+        }
+    }
 
     return 0;
 }
 
-uint8_t A6_NetworkGPRSDisconnect(void) {
+void A6_NetworkGPRSCloseTCP(void) {
     A6_Command("AT+CIPCLOSE\r", 0, NULL, 0);
     A6_Command("AT+CIPSHUT\r", 0, NULL, 0);
-    A6_Command("AT+CGATT=0\r", 0, NULL, 0);
-    sleepMS(250);
-    return A6_NetworkGPRSGetStatus();
 }
