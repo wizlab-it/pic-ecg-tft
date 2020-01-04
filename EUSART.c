@@ -1,5 +1,5 @@
 /*
- * 20191229.028
+ * 20200104.033
  * ECG-TFT
  *
  * File: eusart.c
@@ -53,19 +53,7 @@ void EUSART_BaudRateSet(const uint32_t baudRate) {
     return;
 }
 
-void EUSART_TX_Char(uint8_t c) {
-    while(TXIF == 0) { }
-    TXREG = c;
-    __asm("nop");
-}
-
-void EUSART_TX_String(const char *str, uint8_t len) {
-    while(len--) {
-        EUSART_TX_Char(*str++);
-    }
-}
-
-void EUSART_RX_Interrupt(void) {
+void EUSART_Interrupt(void) {
     uint8_t c = RCREG;
     if(OERR == 1) {
         CREN = 0;
@@ -78,22 +66,75 @@ void EUSART_RX_Interrupt(void) {
     return;
 }
 
-void EUSART_RX_Flush(void) {
+void EUSART_Flush(void) {
     EUSART_RX.iRead = EUSART_RX.iWrite;
 }
 
-uint8_t EUSART_RX_AvailableData(int16_t timeout) {
-    if(timeout == 0) timeout = EUSART_TIMEOUT_DEFAULT;
-    uint32_t t = MILLISECONDS + timeout;
-    while(EUSART_RX.iRead == EUSART_RX.iWrite) {
-        if(t < MILLISECONDS) return 0;
+void EUSART_Trim(uint8_t *arr) {
+    uint8_t len = strlen(arr);
+    while(1) {
+        len--;
+        if((arr[len] == '\r') || (arr[len] == '\n')) {
+            arr[len] = 0x00;
+        } else {
+            break;
+        }
     }
-    return 1;
 }
 
-char EUSART_BufferGetChar(int16_t timeout) {
-    if(EUSART_RX_AvailableData(timeout) == 0) return NULL;
+void EUSART_SendByte(uint8_t b) {
+    while(TXIF == 0) { }
+    TXREG = b;
+    __asm("nop");
+}
+
+void EUSART_SendByteArray(const uint8_t *arr, uint8_t len) {
+    while(len--) {
+        EUSART_SendByte(*arr++);
+    }
+}
+
+uint8_t EUSART_Available(int16_t timeout) {
+    if(timeout == EUSART_USE_DEFAULT_TIMEOUT) timeout = EUSART_TIMEOUT_DEFAULT;
+    uint32_t t = MILLISECONDS + timeout;
+    while(EUSART_RX.iRead == EUSART_RX.iWrite) {
+        if(t < MILLISECONDS) return EUSART_RX_AVAILABLE_NO;
+    }
+    return EUSART_RX_AVAILABLE_YES;
+}
+
+int16_t EUSART_PeekByte(int16_t timeout) {
+    if(EUSART_Available(timeout) == EUSART_RX_AVAILABLE_NO) return EUSART_RX_NODATA;
+    uint16_t iPeek = EUSART_RX.iRead + 1;
+    if(iPeek == EUSART_BUFFER_SIZE) iPeek = 0;
+    return EUSART_RX.buffer[iPeek];
+}
+
+int16_t EUSART_ReadByte(int16_t timeout) {
+    if(EUSART_Available(timeout) == EUSART_RX_AVAILABLE_NO) return EUSART_RX_NODATA;
     EUSART_RX.iRead++;
     if(EUSART_RX.iRead == EUSART_BUFFER_SIZE) EUSART_RX.iRead = 0;
     return EUSART_RX.buffer[EUSART_RX.iRead];
+}
+
+uint8_t EUSART_ReadLine(char *line, uint8_t len, int16_t timeout) {
+    line[0] = 0x00;
+    len--;
+
+    //Read data
+    int16_t b;
+    uint8_t iLine = 0;
+    while(b = EUSART_ReadByte(timeout)) {
+        if(b == EUSART_RX_NODATA) break;
+        line[iLine++] = b;
+        if(iLine == len) break;
+        if(b == '\r') {
+            if(EUSART_PeekByte(timeout) == '\n') {
+                line[iLine++] = EUSART_ReadByte(timeout);
+                break;
+            }
+        }
+    }
+    line[iLine] = 0x00;
+    return iLine;
 }

@@ -1,5 +1,5 @@
 /*
- * 20200102.050
+ * 20200103.054
  * A6 GSM Module Library
  *
  * File: A6Lib.c
@@ -10,8 +10,8 @@
 #include "A6Lib.h"
 
 uint8_t A6_Init(const uint32_t baudRate) {
-    A6_BaudRateAutoDetect();
-    A6_BaudRateSet(baudRate);
+    A6_BaudRate_AutoDetect();
+    A6_BaudRate_Set(baudRate);
     A6_Command("AT+COPS=3,0\r", 0, NULL, 0);
     return A6_IsAlive();
 }
@@ -21,47 +21,56 @@ void A6_Command(const char *command, int16_t timeout, char *response, uint8_t re
     while(MILLISECONDS < A6_LAST_COMMAND_MILLISECONDS);
     A6_LAST_COMMAND_MILLISECONDS = MILLISECONDS;
 
-    EUSART_RX_Flush();
-    EUSART_TX_String(command, strlen(command));
+    EUSART_Flush();
+    EUSART_SendByteArray(command, strlen(command));
     if(responseLen != 0) {
         A6_ReadLine(response, responseLen, timeout);
+        EUSART_Trim(response);
     }
     return;
 }
 
-uint8_t A6_ReadLine(char *line, uint8_t lineLen, int16_t timeout) {
-    char c;
-    memset(line, 0x00, lineLen);
+uint8_t A6_ReadLine(char *line, uint8_t len, int16_t timeout) {
+    int16_t c;
+    line[0] = 0x00;
 
     //Skip initial CRLF
     while(1) {
-        c = EUSART_BufferGetChar(timeout);
-        if(c == NULL) return 0;
-        if((c != '\r') && (c != '\n')) break;
+        c = EUSART_PeekByte(timeout);
+        if(c == EUSART_RX_NODATA) return 0;
+        if((c == '\r') || (c == '\n')) {
+            EUSART_ReadByte(timeout);
+        } else {
+            break;
+        }
     }
 
-    //Read real data
-    uint8_t iResponse = 0;
-    do {
-        if((c == '\r') || (c == NULL)) break;
-        line[iResponse] = c;
-        iResponse++;
-        if(iResponse == lineLen) break;
-    } while(c = EUSART_BufferGetChar(timeout));
-
-    return iResponse;
+    //Read line
+    return EUSART_ReadLine(line, len, timeout);
 }
 
 uint8_t A6_IsAlive(void) {
     char response[32];
-    A6_Command("AT\r", 0, response, 32);
+    A6_Command("AT\r", EUSART_USE_DEFAULT_TIMEOUT, response, 32);
     if(strcmp(response, "OK") == 0) {
         return 1;
     }
     return 0;
 }
 
-uint32_t A6_BaudRateGet(void) {
+void A6_Process_Random_Comms(void) {
+    if(EUSART_Available(EUSART_USE_NO_TIMEOUT) == 0) return;
+
+    char response[32];
+    uint8_t cnt = A6_ReadLine(response, 32, 0);
+    if(cnt == 0) return;
+    EUSART_Trim(response);
+    if(response[0] == 0x00) return;
+    if(strcmp(response, "OK") == 0) return;
+    TFT_ConsolePrintLine(response, _TFT_COLOR_CYAN);
+}
+
+uint32_t A6_BaudRate_Get(void) {
     uint32_t baudRate;
     char *baudRateToken;
     char response[32];
@@ -83,10 +92,10 @@ uint32_t A6_BaudRateGet(void) {
     return 0;
 }
 
-uint32_t A6_BaudRateSet(const uint32_t baudRate) {
+uint32_t A6_BaudRate_Set(const uint32_t baudRate) {
     char request[20];
     char response[32];
-    uint32_t currentBaudRate = A6_BaudRateGet();
+    uint32_t currentBaudRate = A6_BaudRate_Get();
 
     //If unable to detect current baud rate then exit
     if(currentBaudRate == 0) return 0;
@@ -109,7 +118,7 @@ uint32_t A6_BaudRateSet(const uint32_t baudRate) {
     return 0;
 }
 
-uint32_t A6_BaudRateAutoDetect(void) {
+uint32_t A6_BaudRate_AutoDetect(void) {
     for(uint8_t i=0; i<3; i++) {
         EUSART_BaudRateSet(A6_BAUDRATES[i]);
         if(A6_IsAlive() == 1) {
@@ -121,7 +130,7 @@ uint32_t A6_BaudRateAutoDetect(void) {
     return 0;
 }
 
-uint8_t A6_SIM_GetStatus(void) {
+uint8_t A6_SIM_Status(void) {
     char *SIMToken;
     char response[32];
 
@@ -141,17 +150,8 @@ uint8_t A6_SIM_GetStatus(void) {
     return A6_SIM_UNKNOWN;
 }
 
-void A6_Process_Random_Comms(void) {
-    if(EUSART_RX_AvailableData(-1) == 0) return;
 
-    char response[32];
-    uint8_t cnt = A6_ReadLine(response, 32, 0);
-    if(cnt == 0) return;
-    if(strcmp(response, "OK") == 0) return;
-    TFT_ConsolePrintLine(response, _TFT_COLOR_CYAN);
-}
-
-uint8_t A6_NetworkGetStatus(void) {
+uint8_t A6_Network_Status(void) {
     char *networkStatusToken;
     char response[32];
 
@@ -169,13 +169,13 @@ uint8_t A6_NetworkGetStatus(void) {
     return A6_NETWORK_STATUS_UNKNOWN;
 }
 
-uint8_t A6_NetworkIsConnected(void) {
-    uint8_t ns = A6_NetworkGetStatus();
+uint8_t A6_Network_IsConnected(void) {
+    uint8_t ns = A6_Network_Status();
     if((ns == 1) || (ns == 5)) return 1;
     return 0;
 }
 
-uint8_t A6_NetworkGetRSSI(void) {
+uint8_t A6_Network_RSSI(void) {
     char *RSSIToken;
     char response[32];
 
@@ -192,8 +192,8 @@ uint8_t A6_NetworkGetRSSI(void) {
     return 0;
 }
 
-int8_t A6_NetworkGetRSSILevel(void) {
-    uint8_t RSSI = A6_NetworkGetRSSI();
+int8_t A6_Network_RSSILevel(void) {
+    uint8_t RSSI = A6_Network_RSSI();
     if(RSSI == 99) return -1;
     if(RSSI < 3) return 0;
     if(RSSI < 10) return 1;
@@ -202,7 +202,7 @@ int8_t A6_NetworkGetRSSILevel(void) {
     return 4;
 }
 
-void A6_NetworkGetOperator(char *operator, uint8_t operatorLen) {
+int8_t A6_Network_Operator(char *operator, uint8_t operatorLen) {
     char *operatorToken;
 
     A6_Command("AT+COPS?\r", 0, operator, 32);
@@ -215,13 +215,14 @@ void A6_NetworkGetOperator(char *operator, uint8_t operatorLen) {
             operatorToken = strtok(NULL, ",");
             operatorToken = strtok(++operatorToken, "\"");
             strcpy(operator, operatorToken);
-            return;
+            return strlen(operator);
         }
     }
     strcpy(operator, "-");
+    return strlen(operator);
 }
 
-uint8_t A6_NetworkGPRSGetStatus(void) {
+uint8_t A6_GPRS_Status(void) {
     char *GPRSStatusToken;
     char response[32];
 
@@ -235,14 +236,14 @@ uint8_t A6_NetworkGPRSGetStatus(void) {
     return A6_NETWORK_STATUS_UNKNOWN;
 }
 
-uint8_t A6_NetworkGPRSIsConnected(void) {
-    uint8_t gs = A6_NetworkGPRSGetStatus();
+uint8_t A6_GPRS_IsConnected(void) {
+    uint8_t gs = A6_GPRS_Status();
     if((gs == 1) || (gs == 5)) return 1;
     return 0;
 }
 
-uint8_t A6_NetworkGPRSConnect(const char apn[]) {
-    if(A6_NetworkIsConnected() != 1) return 0;
+uint8_t A6_GPRS_Connect(const char apn[]) {
+    if(A6_Network_IsConnected() != 1) return 0;
     A6_Command("AT+CGATT=1\r", 0, NULL, 0);
 
     char apnCommand[64];
@@ -252,17 +253,17 @@ uint8_t A6_NetworkGPRSConnect(const char apn[]) {
     A6_Command("AT+CGACT=1,1\r", 0, NULL, 0);
     sleepMS(250);
 
-    return A6_NetworkGPRSIsConnected();
+    return A6_GPRS_IsConnected();
 }
 
-uint8_t A6_NetworkGPRSDisconnect(void) {
-    A6_NetworkGPRSCloseTCP();
+uint8_t A6_GPRS_Disconnect(void) {
+    A6_TCP_Close();
     A6_Command("AT+CGATT=0\r", 0, NULL, 0);
     sleepMS(100);
-    return A6_NetworkGPRSIsConnected();
+    return A6_GPRS_IsConnected();
 }
 
-uint8_t A6_NetworkGPRSOpenTCP(const char ipAddress[], uint16_t port, uint16_t timeout) {
+uint8_t A6_TCP_Open(const char ipAddress[], uint16_t port, uint16_t timeout) {
     char response[32];
 
     char openCommand[64];
@@ -283,7 +284,20 @@ uint8_t A6_NetworkGPRSOpenTCP(const char ipAddress[], uint16_t port, uint16_t ti
     return 0;
 }
 
-void A6_NetworkGPRSCloseTCP(void) {
+void A6_TCP_Close(void) {
     A6_Command("AT+CIPCLOSE\r", 0, NULL, 0);
     A6_Command("AT+CIPSHUT\r", 0, NULL, 0);
+}
+
+int16_t A6_TCP_ReadByteArray(uint8_t *arr, uint8_t len, int16_t timeout) {
+    if(EUSART_Available(timeout) == EUSART_RX_AVAILABLE_NO) return EUSART_RX_NODATA;
+
+    uint8_t cnt = 0;
+    while(cnt < len) {
+        int16_t b = EUSART_ReadByte(EUSART_USE_DEFAULT_TIMEOUT);
+        if(b == EUSART_RX_NODATA) break;
+        arr[cnt++] = b;
+    }
+
+    return cnt;
 }
